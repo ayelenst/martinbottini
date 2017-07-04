@@ -11,5 +11,13 @@ namespace Manager
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderProduct> OrderProduct { get; set; }
+        public DbSet<OrderStatus> OrderStatus { get; set; }
+        public DbSet<User> User { get; set; }
+        public EcommerceContext()
+        {
+            Configuration.ProxyCreationEnabled = false;
+        }
     }
 }

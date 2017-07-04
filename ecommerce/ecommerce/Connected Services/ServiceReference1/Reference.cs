@@ -23,10 +23,22 @@ namespace ecommerce.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EnabledField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LevelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ParentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ecommerce.ServiceReference1.Product[] ProductsField;
@@ -38,6 +50,32 @@ namespace ecommerce.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Enabled {
+            get {
+                return this.EnabledField;
+            }
+            set {
+                if ((this.EnabledField.Equals(value) != true)) {
+                    this.EnabledField = value;
+                    this.RaisePropertyChanged("Enabled");
+                }
             }
         }
         
@@ -55,6 +93,19 @@ namespace ecommerce.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Level {
+            get {
+                return this.LevelField;
+            }
+            set {
+                if ((this.LevelField.Equals(value) != true)) {
+                    this.LevelField = value;
+                    this.RaisePropertyChanged("Level");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -63,6 +114,19 @@ namespace ecommerce.ServiceReference1 {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ParentId {
+            get {
+                return this.ParentIdField;
+            }
+            set {
+                if ((this.ParentIdField.Equals(value) != true)) {
+                    this.ParentIdField = value;
+                    this.RaisePropertyChanged("ParentId");
                 }
             }
         }
@@ -106,10 +170,31 @@ namespace ecommerce.ServiceReference1 {
         private int CategoryIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EnabledField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsOfferField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PercentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDayField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -148,6 +233,45 @@ namespace ecommerce.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Enabled {
+            get {
+                return this.EnabledField;
+            }
+            set {
+                if ((this.EnabledField.Equals(value) != true)) {
+                    this.EnabledField = value;
+                    this.RaisePropertyChanged("Enabled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDay {
+            get {
+                return this.EndDayField;
+            }
+            set {
+                if ((this.EndDayField.Equals(value) != true)) {
+                    this.EndDayField = value;
+                    this.RaisePropertyChanged("EndDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -161,6 +285,19 @@ namespace ecommerce.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsOffer {
+            get {
+                return this.IsOfferField;
+            }
+            set {
+                if ((this.IsOfferField.Equals(value) != true)) {
+                    this.IsOfferField = value;
+                    this.RaisePropertyChanged("IsOffer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -169,6 +306,45 @@ namespace ecommerce.ServiceReference1 {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Percent {
+            get {
+                return this.PercentField;
+            }
+            set {
+                if ((this.PercentField.Equals(value) != true)) {
+                    this.PercentField = value;
+                    this.RaisePropertyChanged("Percent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDay {
+            get {
+                return this.StartDayField;
+            }
+            set {
+                if ((this.StartDayField.Equals(value) != true)) {
+                    this.StartDayField = value;
+                    this.RaisePropertyChanged("StartDay");
                 }
             }
         }
@@ -192,6 +368,24 @@ namespace ecommerce.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
         System.Threading.Tasks.Task<ecommerce.ServiceReference1.Category[]> GetAllCategoriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
+        ecommerce.ServiceReference1.Category GetCategoryById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference1.Category> GetCategoryByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateCategory", ReplyAction="http://tempuri.org/IContract/UpdateCategoryResponse")]
+        void UpdateCategory(ecommerce.ServiceReference1.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateCategory", ReplyAction="http://tempuri.org/IContract/UpdateCategoryResponse")]
+        System.Threading.Tasks.Task UpdateCategoryAsync(ecommerce.ServiceReference1.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddCategory", ReplyAction="http://tempuri.org/IContract/AddCategoryResponse")]
+        void AddCategory(ecommerce.ServiceReference1.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddCategory", ReplyAction="http://tempuri.org/IContract/AddCategoryResponse")]
+        System.Threading.Tasks.Task AddCategoryAsync(ecommerce.ServiceReference1.Category category);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -227,6 +421,30 @@ namespace ecommerce.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ecommerce.ServiceReference1.Category[]> GetAllCategoriesAsync() {
             return base.Channel.GetAllCategoriesAsync();
+        }
+        
+        public ecommerce.ServiceReference1.Category GetCategoryById(int id) {
+            return base.Channel.GetCategoryById(id);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference1.Category> GetCategoryByIdAsync(int id) {
+            return base.Channel.GetCategoryByIdAsync(id);
+        }
+        
+        public void UpdateCategory(ecommerce.ServiceReference1.Category category) {
+            base.Channel.UpdateCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task UpdateCategoryAsync(ecommerce.ServiceReference1.Category category) {
+            return base.Channel.UpdateCategoryAsync(category);
+        }
+        
+        public void AddCategory(ecommerce.ServiceReference1.Category category) {
+            base.Channel.AddCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task AddCategoryAsync(ecommerce.ServiceReference1.Category category) {
+            return base.Channel.AddCategoryAsync(category);
         }
     }
 }

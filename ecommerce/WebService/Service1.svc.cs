@@ -24,5 +24,33 @@ namespace WebService
                 return query.ToList();
             }
         }
+
+
+        public Category GetCategoryById(int id)
+        {
+            using (var db = new EcommerceContext())
+            {                
+                return db.Categories.First(x => x.Id == id);
+            }
+        }
+
+        public void AddCategory(Category category)
+        {
+            using (var db = new EcommerceContext())
+            {
+                db.Categories.Add(category);
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            using (var db = new EcommerceContext())
+            {
+               var cat = db.Categories.First(x => x.Id == category.Id);
+                cat.Name = category.Name;                
+                db.SaveChanges();
+            }
+        }
     }
 }

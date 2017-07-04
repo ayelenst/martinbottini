@@ -10,5 +10,6 @@ namespace ecommerce.Models
         public int Id { get; set; }
         
         public string Name { get; set; }
+        public string Doomy { get; set; }
     }
 }

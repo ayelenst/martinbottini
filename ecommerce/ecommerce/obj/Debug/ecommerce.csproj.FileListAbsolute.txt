@@ -62,6 +62,6 @@ C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\bin\Microsoft.AI
 C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\bin\Microsoft.AI.Web.xml
-C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.csprojResolveAssemblyReference.cache
 C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.dll
 C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.pdb
+C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.csprojResolveAssemblyReference.cache

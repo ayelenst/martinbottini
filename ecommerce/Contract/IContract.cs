@@ -16,7 +16,15 @@ namespace Manager
         [OperationContract]
         List<Category> GetAllCategories();
 
-        // TODO: Add your service operations here
+        [OperationContract]
+        Category GetCategoryById(int id);
+
+        [OperationContract]
+        void UpdateCategory(Category category);
+
+        [OperationContract]
+        void AddCategory(Category category);
+        
     }
 
     

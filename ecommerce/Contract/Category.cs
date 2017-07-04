@@ -10,13 +10,23 @@ namespace Manager
     [DataContract]
     public class Category
     {
-      
+        [DataMember]
+        public int Id { get; set; }
 
         [DataMember]
-      public int Id { get; set; }
+        public string Name { get; set; }
 
         [DataMember]
-       public string Name { get; set; }
+        public string Description { get; set; }
+
+        [DataMember]
+        public int Level { get; set; }
+
+        [DataMember]
+        public int ParentId { get; set; }
+
+        [DataMember]
+        public bool Enabled { get; set; }
 
         [DataMember]
         public virtual List<Product> Products { get; set; }
