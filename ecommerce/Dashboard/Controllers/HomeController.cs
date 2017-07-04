@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dashboard.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,21 @@ namespace Dashboard.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+
+            var app = new ServiceReference1.ContractClient();
+            var categories = app.GetAllCategories();
+
+            var model = new List<Category>();
+            foreach (var c in categories)
+            {
+                var cat = new Category
+                {
+                    Id = c.Id,
+                    Name = c.Name
+                };
+                model.Add(cat);
+            }
+            return View(model);
         }
 
         public ActionResult About()

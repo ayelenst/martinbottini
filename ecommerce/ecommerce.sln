@@ -15,6 +15,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{6F2A1ADB-C36A-4DB7-B5AB-0A79F69F961A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard", "Dashboard\Dashboard.csproj", "{85C2599C-3BAA-4079-912B-FBBF1318E1D7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{966C2CBA-DC89-4EA2-9E3C-1FC9DDA86113} = {966C2CBA-DC89-4EA2-9E3C-1FC9DDA86113}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
