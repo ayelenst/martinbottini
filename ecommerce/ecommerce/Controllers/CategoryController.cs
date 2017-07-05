@@ -11,7 +11,7 @@ namespace ecommerce.Controllers
     {
         public ActionResult GetById(int id)
         {
-            var app = new ServiceReference1.ContractClient();
+            var app = new ServiceReference.ContractClient();
             var categoryClient = app.GetCategoryById(id);
 
             var model = new Category
@@ -25,7 +25,7 @@ namespace ecommerce.Controllers
 
         public ActionResult GetAll()
         {
-            var app = new ServiceReference1.ContractClient();
+            var app = new ServiceReference.ContractClient();
             var categories = app.GetAllCategories();
 
             var model = new List<Category>();

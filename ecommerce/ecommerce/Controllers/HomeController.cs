@@ -11,7 +11,7 @@ namespace ecommerce.Controllers
     {
         public ActionResult Index()
         {
-            var app = new ServiceReference1.ContractClient ();
+            var app = new ServiceReference.ContractClient ();
             var categories = app.GetAllCategories();
 
             var model = new List<Category>();
