@@ -8,14 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dashboard.ServiceReference1 {
+namespace Dashboard.ServiceReference {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/Manager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
     public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -41,7 +41,7 @@ namespace Dashboard.ServiceReference1 {
         private int ParentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference1.Product[] ProductsField;
+        private Dashboard.ServiceReference.Product[] ProductsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -132,7 +132,7 @@ namespace Dashboard.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference1.Product[] Products {
+        public Dashboard.ServiceReference.Product[] Products {
             get {
                 return this.ProductsField;
             }
@@ -156,7 +156,7 @@ namespace Dashboard.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/Manager")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
     public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -164,7 +164,7 @@ namespace Dashboard.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference1.Category CategoryField;
+        private Dashboard.ServiceReference.Category CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CategoryIdField;
@@ -207,7 +207,7 @@ namespace Dashboard.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference1.Category Category {
+        public Dashboard.ServiceReference.Category Category {
             get {
                 return this.CategoryField;
             }
@@ -360,23 +360,41 @@ namespace Dashboard.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IContract")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IContract")]
     public interface IContract {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
-        Dashboard.ServiceReference1.Category[] GetAllCategories();
+        Dashboard.ServiceReference.Category[] GetAllCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference1.Category[]> GetAllCategoriesAsync();
+        System.Threading.Tasks.Task<Dashboard.ServiceReference.Category[]> GetAllCategoriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
+        Dashboard.ServiceReference.Category GetCategoryById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
+        System.Threading.Tasks.Task<Dashboard.ServiceReference.Category> GetCategoryByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateCategory", ReplyAction="http://tempuri.org/IContract/UpdateCategoryResponse")]
+        void UpdateCategory(Dashboard.ServiceReference.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateCategory", ReplyAction="http://tempuri.org/IContract/UpdateCategoryResponse")]
+        System.Threading.Tasks.Task UpdateCategoryAsync(Dashboard.ServiceReference.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddCategory", ReplyAction="http://tempuri.org/IContract/AddCategoryResponse")]
+        void AddCategory(Dashboard.ServiceReference.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddCategory", ReplyAction="http://tempuri.org/IContract/AddCategoryResponse")]
+        System.Threading.Tasks.Task AddCategoryAsync(Dashboard.ServiceReference.Category category);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IContractChannel : Dashboard.ServiceReference1.IContract, System.ServiceModel.IClientChannel {
+    public interface IContractChannel : Dashboard.ServiceReference.IContract, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ContractClient : System.ServiceModel.ClientBase<Dashboard.ServiceReference1.IContract>, Dashboard.ServiceReference1.IContract {
+    public partial class ContractClient : System.ServiceModel.ClientBase<Dashboard.ServiceReference.IContract>, Dashboard.ServiceReference.IContract {
         
         public ContractClient() {
         }
@@ -397,12 +415,36 @@ namespace Dashboard.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public Dashboard.ServiceReference1.Category[] GetAllCategories() {
+        public Dashboard.ServiceReference.Category[] GetAllCategories() {
             return base.Channel.GetAllCategories();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference1.Category[]> GetAllCategoriesAsync() {
+        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Category[]> GetAllCategoriesAsync() {
             return base.Channel.GetAllCategoriesAsync();
+        }
+        
+        public Dashboard.ServiceReference.Category GetCategoryById(int id) {
+            return base.Channel.GetCategoryById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Category> GetCategoryByIdAsync(int id) {
+            return base.Channel.GetCategoryByIdAsync(id);
+        }
+        
+        public void UpdateCategory(Dashboard.ServiceReference.Category category) {
+            base.Channel.UpdateCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task UpdateCategoryAsync(Dashboard.ServiceReference.Category category) {
+            return base.Channel.UpdateCategoryAsync(category);
+        }
+        
+        public void AddCategory(Dashboard.ServiceReference.Category category) {
+            base.Channel.AddCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task AddCategoryAsync(Dashboard.ServiceReference.Category category) {
+            return base.Channel.AddCategoryAsync(category);
         }
     }
 }
