@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace Manager
+namespace Model
 {
     [DataContract]
     public class Order
