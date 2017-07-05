@@ -1,4 +1,4 @@
-namespace Model.Migrations
+namespace Manager.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -10,7 +10,6 @@ namespace Model.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Model.EcommerceContext";
         }
 
         protected override void Seed(Model.EcommerceContext context)
