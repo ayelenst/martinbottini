@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+ecommerce/.vs/config/applicationhost.config
+ecommerce/.vs/config/applicationhost.config
+ecommerce/.vs/config/applicationhost.config
+ecommerce/.vs/ecommerce/v15/.suo
+ecommerce/.vs/ecommerce/v15/.suo
