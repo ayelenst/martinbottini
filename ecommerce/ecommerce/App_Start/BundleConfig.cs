@@ -25,7 +25,12 @@ namespace ecommerce
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/animate.css",
+                      "~/Content/custommenu.css",
+                      "~/Content/owl*",
+                      "~/Content/stylesheet.css",
+                      "~/Content/oc*"));
         }
     }
 }
