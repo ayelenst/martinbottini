@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,49 +10,105 @@ using System.Text;
 
 namespace WebService
 {
-   
+
     public class Service : IContract
     {
+        #region Categorias 
 
         public List<Category> GetAllCategories()
         {
-            using (var db = new EcommerceContext())
-            {
+            var repo = new CategoryRepository();
+            return repo.GetAll();
 
-                // Display all Blogs from the database 
-                var query = db.Categories.OrderBy(x=>x.Id);
-
-                return query.ToList();
-            }
         }
 
 
         public Category GetCategoryById(int id)
         {
-            using (var db = new EcommerceContext())
-            {                
-                return db.Categories.First(x => x.Id == id);
-            }
+            var repo = new CategoryRepository();
+            return repo.GetById(id);
         }
+
+        public List<Category> GetAllCategoryVisible()
+        {
+            var repo = new CategoryRepository();
+            return repo.GetAllVisible();
+        }
+
 
         public void AddCategory(Category category)
         {
-            using (var db = new EcommerceContext())
-            {
-                db.Categories.Add(category);
-                db.SaveChanges();
-            }
+            var repo = new CategoryRepository();
+            repo.Add(category);
         }
 
         public void UpdateCategory(Category category)
         {
-            using (var db = new EcommerceContext())
-            {
-                
-               var cat = db.Categories.First(x => x.Id == category.Id);
-                db.Entry(cat).CurrentValues.SetValues(category);
-                db.SaveChanges();
-            }
+            var repo = new CategoryRepository();
+            repo.Update(category);
         }
+
+        public void DeleteCategory(Category category)
+        {
+            var repo = new CategoryRepository();
+            repo.Delete(category);
+        }
+        #endregion
+
+        #region  Productos
+
+        public List<Product> GetAllProducts()
+        {
+            var repo = new ProductRepository();
+            return repo.GetAll();
+
+        }
+
+        public List<Product> GetProductBywithOffer()
+        {
+            var repo = new ProductRepository();
+            return repo.GetWithOffer();
+
+        }
+
+        public Product GetProductById(int id)
+        {
+            var repo = new ProductRepository();
+            return repo.GetById(id);
+        }
+
+        public List<Product> GetProductByCategory(int id)
+        {
+            var repo = new ProductRepository();
+            return repo.GetByCategory(id);
+        }
+
+        public List<Product> GetProductByName(string name)
+        {
+            var repo = new ProductRepository();
+            return repo.GetByName(name);
+        }
+
+
+        public List<Product> GetAllProductVisible()
+        {
+            var repo = new ProductRepository();
+            return repo.GetAllVisible();
+        }
+
+
+        public void AddProduct(Product Product)
+        {
+            var repo = new ProductRepository();
+            repo.Add(Product);
+        }
+
+        public void UpdateProduct(Product Product)
+        {
+            var repo = new ProductRepository();
+            repo.Update(Product);
+        }
+#endregion
     }
 }
+

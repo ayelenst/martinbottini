@@ -13,9 +13,13 @@ namespace WebService
     [ServiceContract]
     public interface IContract
     {
-
+        #region Categories
         [OperationContract]
         List<Category> GetAllCategories();
+
+        [OperationContract]
+        List<Category> GetAllCategoryVisible();
+
 
         [OperationContract]
         Category GetCategoryById(int id);
@@ -25,8 +29,44 @@ namespace WebService
 
         [OperationContract]
         void AddCategory(Category category);
-        
+
+
+        [OperationContract]
+        void DeleteCategory(Category category);
+        #endregion
+
+
+        #region products
+
+        [OperationContract]
+        List<Product> GetAllProducts();
+
+        [OperationContract]
+        List<Product> GetAllProductVisible();
+
+
+        [OperationContract]
+        Product GetProductById(int id);
+
+
+        [OperationContract]
+        List<Product> GetProductByCategory(int id);
+
+
+        [OperationContract]
+        List<Product> GetProductByName(string name);
+
+        [OperationContract]
+        List<Product> GetProductBywithOffer();
+
+        [OperationContract]
+        void UpdateProduct(Product Product);
+
+        [OperationContract]
+        void AddProduct(Product Product);
+
+#endregion
     }
 
-    
+
 }

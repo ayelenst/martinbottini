@@ -35,6 +35,11 @@ namespace Model
         [DataMember]
         public string Payment { get; set; }
 
+        [DataMember]
+        public DateTime OrderDate { get; set; }
+
+        [DataMember]
+        public DateTime OrderDone { get; set; }
 
     }
 }
