@@ -12,6 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Contract\Model.csproj", "{64B4C8D1-9CB6-4FEC-9D45-EB3A53EB911F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard", "Dashboard\Dashboard.csproj", "{85C2599C-3BAA-4079-912B-FBBF1318E1D7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{966C2CBA-DC89-4EA2-9E3C-1FC9DDA86113} = {966C2CBA-DC89-4EA2-9E3C-1FC9DDA86113}
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{61DEE609-4BEE-4FAC-96D5-468EE1139DD3}"
 EndProject
 Global
@@ -32,6 +37,10 @@ Global
 		{64B4C8D1-9CB6-4FEC-9D45-EB3A53EB911F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64B4C8D1-9CB6-4FEC-9D45-EB3A53EB911F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64B4C8D1-9CB6-4FEC-9D45-EB3A53EB911F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C2599C-3BAA-4079-912B-FBBF1318E1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C2599C-3BAA-4079-912B-FBBF1318E1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C2599C-3BAA-4079-912B-FBBF1318E1D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C2599C-3BAA-4079-912B-FBBF1318E1D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61DEE609-4BEE-4FAC-96D5-468EE1139DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61DEE609-4BEE-4FAC-96D5-468EE1139DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61DEE609-4BEE-4FAC-96D5-468EE1139DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
