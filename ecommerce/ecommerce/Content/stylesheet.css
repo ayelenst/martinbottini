@@ -61,6 +61,7 @@ h5 {
 h6 {
 	font-size: 10.2px;
 }
+
 a {
 	color: #434343;
 	cursor: pointer;
@@ -69,8 +70,8 @@ a {
     -ms-transition: all 300ms ease-in-out;
     -o-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
-	
 }
+
 a:focus,
 a:active,
 a:hover {
@@ -484,7 +485,7 @@ margin: 10px 0;
 }
 /* Top */
 #top{
-	background: #f9f9f9; 
+	background: #f9f9f9;
 }
 #top .box-left {
 	float:left;
@@ -3425,4 +3426,8 @@ button.btn-wishlist:hover {
 	.custom-products .product-grid:nth-child(1n+1) {clear: left;}
 	.custom-products .product-grid{width: 100%;}  
 
+}
+
+.horarios {
+    color: white;
 }
