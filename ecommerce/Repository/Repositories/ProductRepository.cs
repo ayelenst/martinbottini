@@ -19,7 +19,7 @@ namespace Repository.Repositories
             }
         }
 
-        public List<Product> GetAllVisible()
+        public List<Product> GetWithOffer()
         {
             using (var db = new EcommerceContext())
             {
@@ -48,7 +48,7 @@ namespace Repository.Repositories
             }
         }
 
-        public List<Product> GetWithOffer()
+        public List<Product> GetAllVisible()
         {
             using (var db = new EcommerceContext())
             {
