@@ -139,3 +139,4 @@ C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\ecommerce\bin\Microsoft
 C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.csprojResolveAssemblyReference.cache
 C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.dll
 C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.pdb
+C:\Users\Sol\Documents\GitHub\martinbottini\ecommerce\ecommerce\obj\Debug\ecommerce.csprojResolveAssemblyReference.cache

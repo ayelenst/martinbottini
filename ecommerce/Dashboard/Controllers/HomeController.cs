@@ -7,12 +7,15 @@ using System.Web.Mvc;
 
 namespace Dashboard.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
 
-            var app = new ServiceReference.ContractClient();
+
+        var app = new ServiceReference.ContractClient();
             var categories = app.GetAllCategories();
 
             var model = new List<Category>();
