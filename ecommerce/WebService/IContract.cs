@@ -50,14 +50,14 @@ namespace WebService
 
 
         [OperationContract]
-        Product GetProductByCategory(int id);
+        List<Product> GetProductByCategory(int id);
 
 
         [OperationContract]
-        Product GetProductByName(string name);
+        List<Product> GetProductByName(string name);
 
         [OperationContract]
-        Product GetProductBywithOffer();
+        List<Product> GetProductBywithOffer();
 
         [OperationContract]
         void UpdateProduct(Product Product);
