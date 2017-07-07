@@ -65,7 +65,33 @@ namespace WebService
         [OperationContract]
         void AddProduct(Product Product);
 
-#endregion
+        #endregion
+
+        #region Orders
+
+        [OperationContract]
+        List<Order> GetAllOrders();
+
+        [OperationContract]
+        List<Order> GetAllOrderByState(int id);
+
+        [OperationContract]
+        void UpdateOrder(Order Order);
+
+        [OperationContract]
+        Order GetOrderById(int id);
+
+        [OperationContract]
+        List<Order> GetOrderByDate(DateTime OrdenDate);
+
+        [OperationContract]
+        List<Order> GetOrderByDateDone(DateTime OrdenDate);
+
+        [OperationContract]
+        void PlaceOrder(Order Order, List<OrderProduct> products);
+
+
+        #endregion
     }
 
 

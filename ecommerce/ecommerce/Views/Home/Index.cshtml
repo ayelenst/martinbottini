@@ -5,11 +5,3 @@
 }
 
 <h1>Hola!</h1>
-@foreach (var c in Model)
-{
-    <div class="row">
-        @Html.Label(c.Name, new { @class = "control-label col-md-6" })
-        
-        @Html.Display(c.Id.ToString())
-    </div>
-}

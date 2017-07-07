@@ -108,7 +108,55 @@ namespace WebService
             var repo = new ProductRepository();
             repo.Update(Product);
         }
-#endregion
+        #endregion
+
+        #region Order
+
+        public List<Order> GetAllOrders()
+        {
+            var repo = new OrderRepository();
+            return repo.GetAll();
+        }
+
+
+        public List<Order> GetAllOrderByState(int id)
+        {
+            var repo = new OrderRepository();
+            return repo.GetAll();
+        }
+
+        public void UpdateOrder(Order Order)
+        {
+            var repo = new OrderRepository();
+            repo.Update(Order);
+        }
+
+        public Order GetOrderById(int id)
+        {
+            var repo = new OrderRepository();
+            return repo.GetById(id);
+        }
+
+        public List<Order> GetOrderByDate(DateTime OrderDate )
+        {
+            var repo = new OrderRepository();
+            return repo.GetByDate(OrderDate);
+        }
+
+        public List<Order> GetOrderByDateDone(DateTime OrderDate)
+        {
+            var repo = new OrderRepository();
+            return repo.GetByDateDone(OrderDate);
+        }
+
+        public void PlaceOrder(Order Order, List<OrderProduct> products)
+        {
+            var repo = new OrderRepository();
+            repo.Place(Order,products);
+        }
+
+
+        #endregion
     }
 }
 

@@ -1,11 +1,11 @@
-﻿using ecommerce.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Dashboard.Models;
 
-namespace ecommerce.Controllers
+namespace Dashboard.Controllers
 {
     public class CategoryController : Controller
     {
@@ -18,9 +18,15 @@ namespace ecommerce.Controllers
             {
                 Id = categoryClient.Id,
                 Name = categoryClient.Name,
+                Description = categoryClient.Description,
+                Level = categoryClient.Level,
+                ParentId = categoryClient.ParentId,
+                Enabled = categoryClient.Enabled
+
             };
             return View(model);
         }
+
 
         public ActionResult GetAll()
         {
@@ -33,40 +39,11 @@ namespace ecommerce.Controllers
                 var cat = new Category
                 {
                     Id = c.Id,
-                    Name = c.Name,
-                    Doomy = "te amo"
+                    Name = c.Name
                 };
                 model.Add(cat);
             }
             return View(model);
         }
-
-    //    [HttpGet]
-    //    public ActionResult Edit()
-    //    {
-    //        return View(category);
-    //    }
-    //    [HttpPost]
-    //    public ActionResult Edit(Category category)
-    //    {
-    //        return View();
-    //    }
-
-    //    public ActionResult Add()
-    //    {
-    //        return View();
-    //    }
-
-    //    [HttpPost]
-    //    public ActionResult Add(string example)
-    //    {
-    //        return View();
-    //    }
-
-    //    [HttpPost]
-    //    public ActionResult Delete()
-    //    {
-    //        return View();
-    //    }
     }
 }
