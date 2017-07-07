@@ -70,5 +70,21 @@ namespace Repository.Repositories
             }
         }
 
+        public void Place(Order Order, List<OrderProduct> products)
+        {
+            using (var db = new EcommerceContext())
+            {
+                db.Order.Add(Order);
+                db.SaveChanges();
+                foreach(var product in products)
+                {
+                    product.OrderId = Order.Id;
+                    db.OrderProduct.Add(product);
+                }
+                db.SaveChanges();
+
+            }
+        }
+
     }
 }

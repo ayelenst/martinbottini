@@ -149,6 +149,13 @@ namespace WebService
             return repo.GetByDateDone(OrderDate);
         }
 
+        public void PlaceOrder(Order Order, List<OrderProduct> products)
+        {
+            var repo = new OrderRepository();
+            repo.Place(Order,products);
+        }
+
+
         #endregion
     }
 }

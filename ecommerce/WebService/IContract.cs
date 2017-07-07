@@ -87,6 +87,8 @@ namespace WebService
         [OperationContract]
         List<Order> GetOrderByDateDone(DateTime OrdenDate);
 
+        [OperationContract]
+        void PlaceOrder(Order Order, List<OrderProduct> products);
 
 
         #endregion
