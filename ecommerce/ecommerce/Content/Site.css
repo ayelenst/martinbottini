@@ -1,10 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: black;
-}
-
-/* Set padding to keep content from hitting the edges */
+﻿/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -24,7 +18,215 @@ textarea {
     max-width: 280px;
 }
 
-/* TOP */
-.horarios {
-    color: white;
+.box-left {
+    float: left;
+    margin: 0;
+    list-style: none;
+    padding: 0;
 }
+
+.box-left > ul {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+/*
+* ----------------------------------------------------------------------------------------
+* 02. START BOOTSTRAP SEARCH
+* ----------------------------------------------------------------------------------------
+*/
+.topnav-default {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    width: 100%;
+    padding: 2px 0;
+    background: black;
+}
+
+.topnav-brand {
+    color: white;
+    list-style: none;
+}
+
+.topnav-top li a {
+    color: #333 !important;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width:768px) {
+    .topnav-default {
+        display: none !important;
+    }
+
+    .topnav-top li a {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .topnav-top {
+        background-color: #fff
+    }
+
+    .topnav-default .topnav-nav > li > a {
+        color: #313131 !important
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .topnav-default {
+        display: none !important;
+    }
+}
+
+.topnav-default.menu-shrink li a {
+    color: #313131 !important
+}
+
+    .topnav-default.menu-shrink li a:hover {
+        color: #b71918 !important
+    }
+
+.topnav-default .topnav-toggle {
+    background: #fff none repeat scroll 0 0
+}
+
+    .topnav-default .topnav-toggle:hover,
+    .topnav-default .topnav-toggle:focus {
+        background-color: #fff
+    }
+
+    .topnav-default .topnav-toggle .icon-bar {
+        background-color: #b71918
+    }
+/*
+* ----------------------------------------------------------------------------------------
+* 02.END BOOTSTRAP SEARCH
+* ----------------------------------------------------------------------------------------
+*/
+
+
+/*
+* ----------------------------------------------------------------------------------------
+* 03. START BOOTSTRAP NAVIGATION OVERRIDES
+* ----------------------------------------------------------------------------------------
+*/
+.navbar-default {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    width: 100%;
+    padding: 7px 0;
+    background: #d9d9d9;
+    position: relative;
+}
+
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: black !important;
+    }
+
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: black !important;
+    }
+
+.navbar-brand {
+    padding: 0
+}
+
+    .navbar-brand img {
+        width: 75px;
+        margin-left: 10px;
+    }
+
+@media only screen and (max-width:768px) {
+    .navbar-brand img {
+        width: 70px;
+    }
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #fff
+}
+
+.menu-top li a {
+    color: #333 !important;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+    .menu-top li a:hover {
+        color: #b71918 !important
+    }
+
+@media only screen and (max-width:768px) {
+    .navbar-default .navbar-nav > li > a {
+        margin-top: 10px;
+        padding: 8px;
+    }
+
+    .menu-top li a {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .menu-top {
+        background-color: #d9d9d9
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        color: #313131 !important
+    }
+}
+
+.navbar-default.menu-shrink {
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    margin-top: 0px;
+    width: 100%;
+    position: fixed !important;
+}
+
+@media only screen and (max-width:480px) {
+    .menu-top {
+        color: #fff !important;
+        margin-left: 0px;
+    }
+}
+
+.navbar-default.menu-shrink li a {
+    color: #313131 !important
+}
+
+    .navbar-default.menu-shrink li a:hover {
+        color: #b71918 !important
+    }
+
+.navbar-default .navbar-toggle {
+    background: #fff none repeat scroll 0 0
+}
+
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #fff
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #b71918
+    }
+/*
+* ----------------------------------------------------------------------------------------
+* 03.END BOOTSTRAP NAVIGATION OVERRIDES
+* ----------------------------------------------------------------------------------------
+*/
