@@ -20,7 +20,6 @@ namespace WebService
         [OperationContract]
         List<Category> GetAllCategoryVisible();
 
-
         [OperationContract]
         Category GetCategoryById(int id);
 
@@ -29,8 +28,7 @@ namespace WebService
 
         [OperationContract]
         void AddCategory(Category category);
-
-
+        
         [OperationContract]
         void DeleteCategory(Category category);
         #endregion

@@ -1,0 +1,46 @@
+﻿@model Dashboard.Models.Category
+
+@{
+    ViewBag.Title = "Update";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+@using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.Id)
+    <div>
+       <p>ID</p>
+        @Html.DisplayFor(x => x.Id)
+    </div>
+    <div>
+        <p>Nombre</p>
+        @Html.EditorFor(x => x.Name)
+    </div>
+    <div>
+        <p>Descripción</p>
+        @Html.EditorFor(x => x.Description)
+    </div>
+      <div>
+          <p>Nivel</p>
+        @Html.EditorFor(x => x.Level)
+    </div>
+    <div>
+        <p>ID Padre</p>
+        @Html.EditorFor(x => x.ParentId)
+    </div>
+    <div>
+        <p>Habilitado</p>
+        @Html.EditorFor(x => x.Enabled)
+    </div>
+    <input type="submit" value="Submit" />
+}
+</body>
+</html>
