@@ -176,16 +176,16 @@
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen.min.css" />
+    <Content Include="Content\core.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Content\custommenu.css" />
-    <Content Include="Content\ocajaxlogin.css" />
-    <Content Include="Content\oclayerednavigation.css" />
-    <Content Include="Content\ocpagebuilder.css" />
-    <Content Include="Content\ocquickview.css" />
-    <Content Include="Content\ocslideshow.css" />
-    <Content Include="Content\ocvermegamenu.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\owl.carousel.css" />
-    <Content Include="Content\stylesheet.css" />
+    <Content Include="Content\owl.theme.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -204,7 +204,14 @@
     <None Include="Connected Services\ServiceReference\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.proto.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -212,7 +219,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\layout.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config" />

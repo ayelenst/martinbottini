@@ -23,13 +23,21 @@ namespace ecommerce
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
+                "~/Scripts/owl.carousel.min.js",
+                 "~/Scripts/chosen.jquery.js",
+                 "~/Scripts/chosen.proto.js",
+                    "~/Scripts/layout.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+
+                      "~/Content/core.css",
                       "~/Content/animate.css",
                       "~/Content/custommenu.css",
+                      "~/Content/main.css",
+                      "~/Content/chosen.min.css",
                       "~/Content/owl*",
-                      "~/Content/oc*",
-                      "~/Content/stylesheet.css",
+                       "~/Content/font-awesome.min.css",
                       "~/Content/site.css"));
         }
     }
