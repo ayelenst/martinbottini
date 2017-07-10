@@ -1,6 +1,6 @@
 /* 
  * 	Core Owl Carousel CSS File
- *	v1.3.3
+ *	v1.3.2
  */
 
 /* clearfix */
@@ -13,13 +13,11 @@
 	height: 0;
 }
 /* display none until init */
-.owl-container {
-	margin: 0 -15px;
-}
 .owl-carousel{
 	display: none;
 	position: relative;
 	width: 100%;
+	-ms-touch-action: pan-y;
 }
 .owl-carousel .owl-wrapper{
 	display: none;
@@ -41,7 +39,6 @@
 	
 .owl-carousel .owl-item{
 	float: left;
-	padding: 0 15px;
 }
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div{

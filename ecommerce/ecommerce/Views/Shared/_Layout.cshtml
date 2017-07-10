@@ -5,408 +5,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav id="top">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+    <main id="page-content" class="wrap container">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <ul class="box box-left">
-                    <li class="horarios"><span>Disponible las 24hs del día.</span></li>                   
-                </ul>
-                <ul class="box box-right">
-                    <li class="support"><span>Ordered before 17:30, shipped today  - Support: (012) 800 456 789</span></li>
-                    <li class="order"><span>Track Your Order</span></li>
-                    <li>
-                        <div class="btn-group">
-                            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">setting <i class="fa fa-angle-down"></i></button>
-                            <div class="dropdown-menu" id="top-links">
-                                <ul class="ul-account list-unstyled">
-                                    <li>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="//boxie.lemonstand.com/"><i class="fa fa-cube"></i> Boxie!</a>
+                </div>
 
-                                        <a id="a-register-link" href="javascript:void(0);" onclick="ocajaxlogin.appendRegisterForm()">Register</a>
+                <div class="navbar-right navbar-utils">
+                    <ul class="list-unstyled clearfix">
+                        <li class="hidden-xs">
+                            <a href="//boxie.lemonstand.com/login" class="btn"><span>Log In</span> <i class="fa fa-lock"></i></a>
+                        </li>
+                        <li id="navbar-totals" class="totals">
+                            <span class="hidden-xs">2 Items</span>
+                            <span class="visible-lg">$228.00</span>
+
+                            <span class="visible-xs item-number">2</span>
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="btn btn-primary cart-btn">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                            <div id="mini-cart" class="dropdown-menu">
+                                <ul class="cart-items list-unstyled hidden-xs">
+                                    <li class="row cart-item">
+                                        <div class="product-thumb col-xs-4">
+                                            <img class="img-responsive" alt="Lime Green Speaker" src="//dd6vif294zh3b.cloudfront.net/store-boxie-5398d8498b7b0/uploaded/thumbnails/LimeGreenSpeaker_100x100-jpg-keep-ratio.png?1402671927">
+                                        </div>
+                                        <div class="product-info col-xs-8">
+                                            <h6 class="product-title">Lime Green Speaker</h6>
+                                            <div class="price">
+                                                1 x <span>$99.00</span>
+                                            </div>
+                                            <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae4c45dd6'"><i class="fa fa-times"></i></a>
+                                        </div>
                                     </li>
-                                    <li>
-
-                                        <a id="a-login-link" href="javascript:void(0);" onclick="ocajaxlogin.appendLoginForm()">Login</a>
+                                    <li class="row cart-item">
+                                        <div class="product-thumb col-xs-4">
+                                            <img class="img-responsive" alt="Blue Wristband Tracker" src="//dd6vif294zh3b.cloudfront.net/store-boxie-5398d8498b7b0/uploaded/thumbnails/BlueJawbone_100x100-jpg-keep-ratio.png?1402683390">
+                                        </div>
+                                        <div class="product-info col-xs-8">
+                                            <h6 class="product-title">Blue Wristband Tracker</h6>
+                                            <div class="price">
+                                                1 x <span>$129.00</span>
+                                            </div>
+                                            <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae7a93d3c'"><i class="fa fa-times"></i></a>
+                                        </div>
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="top-menu">
-        <div class="container">
-            <div class="col col-menu">
-
-                <div class="vermagemenu visible-lg visible-md">
-                    <div class="content-vermagemenu">
-                        <h2><i class="fa fa-align-justify"></i>All categories</h2>
-                        <div class="navleft-container">
-                            <div id="pt_vmegamenu" class="pt_vmegamenu">
-                                <div id="pt_ver_menu56" class="pt_ver_menu nav-1 had-child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/1-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=56">
-                                            <span>Computer &amp; Laptop</span>
-                                        </a>
-                                    </div>
-                                    <div id="popup56" class="popup" style="display: none; width:815px">
-                                        <div class="content-popup">
-                                            <div class="arrow-left-menu"></div>
-                                            <div class="block1" id="block156">
-                                                <div class="column first col1"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=57"><span>Laptops</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=61"><span>Apple&nbsp;Laptops&nbsp;Price</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=58"><span>Dell&nbsp;Laptops&nbsp;Price</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=59"><span>HP&nbsp;Laptops&nbsp;Price</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=60"><span>HP&nbsp;Laptops&nbsp;Price</span></a></div></div></div></div><div class="column col2"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=62"><span>Monitors</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=64"><span>Acer&nbsp;monitors</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=65"><span>Dell&nbsp;monitors</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=63"><span>Hp&nbsp;monitors</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=66"><span>Lg&nbsp;monitors</span></a></div></div></div></div><div class="column last col3"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=67"><span>RAM&nbsp;/&nbsp;Memory</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=70"><span>Acer&nbsp;memory</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=69"><span>Apple&nbsp;memory</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=68"><span>Dell&nbsp;memory</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=71"><span>Ibm&nbsp;memory</span></a></div></div></div></div>
-                                                <div class="clearBoth"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div id="pt_ver_menu72" class="pt_ver_menu act nav-2 had-child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/2-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=72">
-                                            <span>Photography</span>
-                                        </a>
-                                    </div>
-                                    <div id="popup72" class="popup" style="display: none; width:815px">
-                                        <div class="content-popup">
-                                            <div class="arrow-left-menu"></div>
-                                            <div class="block1" id="block172">
-                                                <div class="column first col1"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=78"><span>Camcorders</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=82"><span>cube&nbsp;lifestyle&nbsp;hd</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=79"><span>gopro&nbsp;hero4</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=81"><span>handycam&nbsp;cx405</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=80"><span>vixia&nbsp;hf&nbsp;r600</span></a></div></div></div></div><div class="column col2"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=73"><span>Digital&nbsp;Cameras</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=77"><span>Gold&nbsp;eye</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=76"><span>Questek</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=75"><span>Snm</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=74"><span>Vantech</span></a></div></div></div></div><div class="column col3"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=88"><span>Memory&nbsp;Cards</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=89"><span>Samsung</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=90"><span>Sandisk</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=92"><span>Toshiba</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=91"><span>Transcend</span></a></div></div></div></div><div class="column last col4"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=83"><span>Photo&nbsp;Accessories</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=84"><span>Cords&nbsp;and&nbsp;Cables</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=86"><span>gps&nbsp;accessories</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=85"><span>Microphones</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=87"><span>Wireless&nbsp;Transmitters</span></a></div></div></div></div>
-                                                <div class="clearBoth"></div>
-                                            </div>
-                                            <div class="block2" id="block272">
-                                                <div class="banner-static static-top-bigone1 static-menu"><div class="image"><a href="index.php?route=product/category&amp;path=72"><img src="image/catalog/cmsblock/img-static-menu.jpg" alt="image"><span class="text"><span class="text1">Accessories, Watch</span><span class="text2">Sale up to <strong>60% off</strong></span> <span class="text3"><strong>$109.00</strong>$200.00</span></span></a></div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div id="pt_ver_menu93" class="pt_ver_menu nav-3 had-child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/3-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=93">
-                                            <span>Smart phone &amp; Tablets</span>
-                                        </a>
-                                    </div>
-                                    <div id="popup93" class="popup" style="display: none; width:815px">
-                                        <div class="content-popup">
-                                            <div class="arrow-left-menu"></div>
-                                            <div class="block1" id="block193">
-                                                <div class="column first col1"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=94"><span>Apple&nbsp;Phones</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=102"><span>iPad&nbsp;Mini&nbsp;4</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=101"><span>iPad&nbsp;Pro</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=100"><span>iPhone&nbsp;6s</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=99"><span>iPhone&nbsp;6s&nbsp;Plus</span></a></div></div></div></div><div class="column col2"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=103"><span>Motorola&nbsp;Phones</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=104"><span>Droid&nbsp;Turbo&nbsp;2</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=107"><span>Moto&nbsp;360&nbsp;Sport&nbsp;(1st&nbsp;gen)</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=106"><span>Moto&nbsp;X&nbsp;Play&nbsp;Dual&nbsp;SIM</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=105"><span>Moto&nbsp;X&nbsp;Style</span></a></div></div></div></div><div class="column last col3"><div class="itemMenu level1"><a class="itemMenuName level0 actParent" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=108"><span>Samsung&nbsp;Phones</span></a><div class="itemSubMenu level0"><div class="itemMenu level1"><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=112"><span>Galaxy&nbsp;J7</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=109"><span>Galaxy&nbsp;Note5&nbsp;(CDMA)</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=110"><span>Galaxy&nbsp;Note5&nbsp;Duos</span></a><a class="itemMenuName level0 act" href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=111"><span>Galaxy&nbsp;Tab&nbsp;S2&nbsp;9.7</span></a></div></div></div></div>
-                                                <div class="clearBoth"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div id="pt_ver_menu125" class="pt_ver_menu nav-4 pt_ver_menu_no_child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/4-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=125">
-                                            <span>Fashion &amp; Accessories</span>
-                                        </a>
-                                    </div>
-                                </div><div id="pt_ver_menu126" class="pt_ver_menu nav-5 pt_ver_menu_no_child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/5-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=126">
-                                            <span>Health &amp; Beauty</span>
-                                        </a>
-                                    </div>
-                                </div><div id="pt_ver_menu127" class="pt_ver_menu nav-6 pt_ver_menu_no_child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/6-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=127">
-                                            <span>Books &amp; Office</span>
-                                        </a>
-                                    </div>
-                                </div><div id="pt_ver_menu128" class="pt_ver_menu nav-7 pt_ver_menu_no_child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/7-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=128">
-                                            <span>Jewelry &amp; Watches</span>
-                                        </a>
-                                    </div>
-                                </div><div id="pt_ver_menu129" class="pt_ver_menu nav-8 pt_ver_menu_no_child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/8-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=129">
-                                            <span>Sport &amp; Outdoor</span>
-                                        </a>
-                                    </div>
-                                </div><div id="pt_ver_menu130" class="pt_ver_menu nav-9 pt_ver_menu_no_child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/9-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=130">
-                                            <span>Home &amp; Kitchen</span>
-                                        </a>
-                                    </div>
-                                </div><div id="pt_ver_menu131" class="pt_ver_menu over-menu nav-10 pt_ver_menu_no_child">
-                                    <img src="http://demo.towerthemes.com/tt_bigone/image/cache/catalog/category%20thumb/2-16x16.png" alt="thumbnail_image">
-                                    <div class="parentMenu">
-                                        <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/category&amp;path=131">
-                                            <span>Electronics</span>
-                                        </a>
-                                    </div>
-                                </div><div class="more-wrap pt_ver_menu"><div class="parentMenu"><a href="javascript:void(0);" class="more-ver-menu"><span><i class="fa fa-plus"></i>More Categories</span></a></div></div><div class="close-wrap pt_ver_menu over-menu"><div class="parentMenu"><a href="javascript:void(0);" class="close-ver-menu"><span><i class="fa fa-minus"></i>Close Menu</span></a></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <script type="text/javascript">
-                    //<![CDATA[
-                    var CUSTOMMENU_POPUP_EFFECT = 0;
-                    var CUSTOMMENU_POPUP_TOP_OFFSET = 20//]]>
-                    $('.vermagemenu h2').click(function () {
-                        $(".navleft-container").slideToggle();
-                    });
-                </script>
-            </div>
-            <div class="col col-search">
-                <div class="top-search">
-                    <div id="search-by-category">
-                        <div class="search-container">
-                            <input type="text" name="search" id="text-search" value="" placeholder="Search" class="">
-                            <div class="categories-container">
-                                <div class="hover-cate">
-                                    <p><span class="cate-selected" data-value="0">All Categories</span><i class="fa fa-angle-down"></i></p>
-                                    <ul class="cate-items">
-                                        <li class="item-cate" data-value="0">All Categories</li>
-                                        <li data-value="127" class="item-cate">Books &amp; Office</li>
-                                        <li data-value="56" class="item-cate">Computer &amp; Laptop</li>
-                                        <li data-value="57" class="item-cate f1">Laptops</li>
-                                        <li data-value="61" class="item-cate f2">Apple Laptops Price</li>
-                                        <li data-value="58" class="item-cate f2">Dell Laptops Price</li>
-                                        <li data-value="59" class="item-cate f2">HP Laptops Price</li>
-                                        <li data-value="60" class="item-cate f2">HP Laptops Price</li>
-                                        <li data-value="62" class="item-cate f1">Monitors</li>
-                                        <li data-value="64" class="item-cate f2">Acer monitors</li>
-                                        <li data-value="65" class="item-cate f2">Dell monitors</li>
-                                        <li data-value="63" class="item-cate f2">Hp monitors</li>
-                                        <li data-value="66" class="item-cate f2">Lg monitors</li>
-                                        <li data-value="67" class="item-cate f1">RAM / Memory</li>
-                                        <li data-value="70" class="item-cate f2">Acer memory</li>
-                                        <li data-value="69" class="item-cate f2">Apple memory</li>
-                                        <li data-value="68" class="item-cate f2">Dell memory</li>
-                                        <li data-value="71" class="item-cate f2">Ibm memory</li>
-                                        <li data-value="113" class="item-cate">Destop</li>
-                                        <li data-value="119" class="item-cate f1">Gaming Desktops</li>
-                                        <li data-value="123" class="item-cate f2">Alpha Desktop</li>
-                                        <li data-value="121" class="item-cate f2">Erazer X315 Desktop</li>
-                                        <li data-value="122" class="item-cate f2">Gamer Ultra Desktop </li>
-                                        <li data-value="120" class="item-cate f2">ibuypower</li>
-                                        <li data-value="114" class="item-cate f1">Headphones</li>
-                                        <li data-value="118" class="item-cate f2">3D-Capable</li>
-                                        <li data-value="117" class="item-cate f2">Clearance</li>
-                                        <li data-value="116" class="item-cate f2">Free Shipping Eligible</li>
-                                        <li data-value="115" class="item-cate f2">On Sale</li>
-                                        <li data-value="131" class="item-cate">Electronics</li>
-                                        <li data-value="125" class="item-cate">Fashion &amp; Accessories</li>
-                                        <li data-value="126" class="item-cate">Health &amp; Beauty</li>
-                                        <li data-value="130" class="item-cate">Home &amp; Kitchen</li>
-                                        <li data-value="128" class="item-cate">Jewelry &amp; Watches</li>
-                                        <li data-value="132" class="item-cate">Personal Care</li>
-                                        <li data-value="72" class="item-cate">Photography</li>
-                                        <li data-value="78" class="item-cate f1">Camcorders</li>
-                                        <li data-value="82" class="item-cate f2">cube lifestyle hd</li>
-                                        <li data-value="79" class="item-cate f2">gopro hero4</li>
-                                        <li data-value="81" class="item-cate f2">handycam cx405</li>
-                                        <li data-value="80" class="item-cate f2">vixia hf r600</li>
-                                        <li data-value="73" class="item-cate f1">Digital Cameras</li>
-                                        <li data-value="77" class="item-cate f2">Gold eye</li>
-                                        <li data-value="76" class="item-cate f2">Questek</li>
-                                        <li data-value="75" class="item-cate f2">Snm</li>
-                                        <li data-value="74" class="item-cate f2">Vantech</li>
-                                        <li data-value="88" class="item-cate f1">Memory Cards</li>
-                                        <li data-value="89" class="item-cate f2">Samsung</li>
-                                        <li data-value="90" class="item-cate f2">Sandisk</li>
-                                        <li data-value="92" class="item-cate f2">Toshiba</li>
-                                        <li data-value="91" class="item-cate f2">Transcend</li>
-                                        <li data-value="83" class="item-cate f1">Photo Accessories</li>
-                                        <li data-value="84" class="item-cate f2">Cords and Cables</li>
-                                        <li data-value="86" class="item-cate f2">gps accessories</li>
-                                        <li data-value="85" class="item-cate f2">Microphones</li>
-                                        <li data-value="87" class="item-cate f2">Wireless Transmitters</li>
-                                        <li data-value="133" class="item-cate">Small Appliances</li>
-                                        <li data-value="93" class="item-cate">Smart phone &amp; Tablets</li>
-                                        <li data-value="94" class="item-cate f1">Apple Phones</li>
-                                        <li data-value="102" class="item-cate f2">iPad Mini 4</li>
-                                        <li data-value="101" class="item-cate f2">iPad Pro</li>
-                                        <li data-value="100" class="item-cate f2">iPhone 6s</li>
-                                        <li data-value="99" class="item-cate f2">iPhone 6s Plus</li>
-                                        <li data-value="103" class="item-cate f1">Motorola Phones</li>
-                                        <li data-value="104" class="item-cate f2">Droid Turbo 2</li>
-                                        <li data-value="107" class="item-cate f2">Moto 360 Sport (1st gen)</li>
-                                        <li data-value="106" class="item-cate f2">Moto X Play Dual SIM</li>
-                                        <li data-value="105" class="item-cate f2">Moto X Style</li>
-                                        <li data-value="108" class="item-cate f1">Samsung Phones</li>
-                                        <li data-value="112" class="item-cate f2">Galaxy J7</li>
-                                        <li data-value="109" class="item-cate f2">Galaxy Note5 (CDMA)</li>
-                                        <li data-value="110" class="item-cate f2">Galaxy Note5 Duos</li>
-                                        <li data-value="111" class="item-cate f2">Galaxy Tab S2 9.7</li>
-                                        <li data-value="129" class="item-cate">Sport &amp; Outdoor</li>
-                                    </ul>
+                                <div class="mini-cart-totals">
+                                    <h4 class="subtotal">Subtotal: $228.00</h4>
+                                    <a class="btn btn-default btn-lg" href="//boxie.lemonstand.com/cart">View Cart</a>
+                                    <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
                                 </div>
+
                             </div>
-
-                        </div>
-                        <div id="sp-btn-search" class="">
-                            <button type="button" id="btn-search-category" class="btn btn-default btn-lg">
-                                Search
-                            </button>
-                        </div>
-                        <div class="search-ajax">
-                            <div class="ajax-loader-container" style="display: none;">
-                                <img src="http://demo.towerthemes.com/tt_bigone/image/catalog/AjaxLoader.gif" class="ajax-load-img" width="30" height="30" alt="plazathemes.com">
-                            </div>
-                            <div class="ajax-result-container">
-                                <!-- Content of search results -->
-                            </div>
-                        </div>
-                        <input type="hidden" id="ajax-search-enable" value="1">
-                    </div>
-
-                    <script type="text/javascript">
-
-
-                        $(document).ready(function () {
-
-                            var flag = false;
-                            var ajax_search_enable = $('#ajax-search-enable').val();
-
-                            var current_cate_value = $('ul.cate-items li.selected').data('value');
-                            var current_cate_text = $('ul.cate-items li.selected').html();
-
-                            $('.cate-selected').attr('data-value', current_cate_value);
-                            $('.cate-selected').html(current_cate_text);
-
-                            $('.hover-cate p').click(function () {
-                                $(".cate-items").toggle("slow");
-                            });
-
-                            $('.ajax-result-container').hover(
-                                function () {
-                                    flag = true;
-                                },
-                                function () {
-                                    flag = false;
-                                }
-                            );
-
-                            $('.hover-cate').hover(
-                                function () {
-                                    flag = true;
-                                },
-                                function () {
-                                    flag = false;
-                                }
-                            );
-
-                            $('#search-by-category').focusout(function () {
-                                if (flag == true) {
-                                    $('.ajax-result-container').show();
-                                } else {
-                                    $('.ajax-result-container').hide();
-                                }
-                            });
-
-                            $('#search-by-category').focusin(function () {
-                                $('.ajax-result-container').show();
-                            });
-
-                            $('#btn-search-category').click(function () {
-                                var url = 'http://demo.towerthemes.com/tt_bigone/index.php?route=product/search';
-                                var text_search = $('#text-search').val();
-                                if (text_search) {
-                                    url += '&search=' + encodeURIComponent(text_search);
-                                }
-
-                                var category_search = $('.cate-selected').attr("data-value");
-                                if (category_search) {
-                                    url += '&category_id=' + encodeURIComponent(category_search);
-                                }
-
-                                location = url;
-                            });
-
-                            if (ajax_search_enable == '1') {
-                                $('#text-search').keyup(function (e) {
-                                    var text_search = $(this).val();
-                                    var cate_search = $('.cate-selected').attr("data-value");
-                                    if (text_search != null && text_search != '') {
-                                        ajaxSearch(text_search, cate_search);
-                                    } else {
-                                        $('.ajax-result-container').html('');
-                                        $('.ajax-loader-container').hide();
-                                    }
-                                });
-                                $('#text-search').on('keydown', function (e) {
-                                    if (e.keyCode == 13) {
-                                        $('#btn-search-category').trigger('click');
-                                    }
-                                });
-                                $('ul.cate-items li.item-cate').click(function () {
-                                    var cate_search = $(this).data('value');
-                                    var text_search = $('#text-search').val();
-                                    $('.cate-selected').attr('data-value', cate_search);
-                                    $('.cate-selected').html($(this).html());
-                                    if (text_search != null && text_search != '') {
-                                        ajaxSearch(text_search, cate_search);
-                                    } else {
-                                        $('.ajax-result-container').html('');
-                                        $('.ajax-loader-container').hide();
-                                    }
-                                    $(".cate-items").hide();
-                                    $('#text-search').focus();
-                                });
-
-                            }
-
-                            function ajaxSearch(text_search, cate_search) {
-                                $.ajax({
-                                    url: 'http://demo.towerthemes.com/tt_bigone/index.php?route=extension/module/ocsearchcategory/ajaxSearch',
-                                    type: 'post',
-                                    data: { text_search: text_search, cate_search: cate_search },
-                                    beforeSend: function () {
-                                        $('.ajax-loader-container').show();
-                                    },
-                                    success: function (json) {
-                                        if (json['success'] == true) {
-                                            $('.ajax-result-container').html(json['result_html']);
-                                            $('.ajax-loader-container').hide();
-                                        }
-                                    }
-                                });
-                            }
-
-                        });
-                    </script>
+                        </li>
+                    </ul>
                 </div>
-                <div class="box-cart">
-                    <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=product/compare" id="link-compare" title="Compare"><i class="icon-compare"></i><span>Compare</span></a>
-                    <a href="http://demo.towerthemes.com/tt_bigone/index.php?route=account/wishlist" id="wishlist-total" title="Wish List"><i class="icon-heart icons"></i><span>0</span></a>
-                    <div id="cart" class="btn-group btn-block">
-                        <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fa fa-shopping-basket"></i> <span id="cart-total"><span class="item-cart">0</span></span></button>
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <p class="text-center cart-empty">Your shopping cart is empty!</p>
+
+                <div class="navbar-collapse collapse">
+                    <div class="navbar-left">
+                        <ul id="main-nav" class="nav navbar-nav">
+                            <li class="dropdown ">
+                                <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">
+                                    Shop <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
+                                    <li role="presentation">
+                                        <a href="//boxie.lemonstand.com/shop">All Products</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="/category/wearable-tech">Wearable Tech</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class=""><a href="//boxie.lemonstand.com/about">About</a></li>
+                            <li class=""><a href="//boxie.lemonstand.com/contact">Contact</a></li>
+                            <li class="visible-xs col-xs-12">
+                                <a href="//boxie.lemonstand.com/login" class="btn btn-default">Login <i class="fa fa-lock"></i></a>
                             </li>
                         </ul>
                     </div>
-                </div>
 
+
+                    <form id="search-form" class="navbar-form" role="form" method="get" action="//boxie.lemonstand.com/search">
+                        <div class="input-group">
+                            <input type="text" class="search-form form-control" name="query" id="query" placeholder="Type your search term and press Enter" autocomplete="off" value="">
+                            <span class="input-group-btn">
+                                <button class="btn search-btn toggle hidden-xs hidden-sm" type="button"><i class="fa fa-search"></i></button>
+                                <button class="btn search-btn hidden-md hidden-lg" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </form>
+
+                </div>
+                <!--/.navbar-collapse -->
             </div>
+        </nav>
+        <div>
+            @RenderBody()
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer id="page-footer">
+            <div class="container">
+                <div class="footer-contact text-center row">
+                    <div class="col-xs-12 col-sm-4 col-lg-2 col-lg-offset-3">
+                        <a href="#"><i class="fa fa-envelope-o"></i>info@boxie.com</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-lg-2">
+                        <a href="#"><i class="fa fa-phone"></i>555.555.5555</a>
+                    </div>
+                    <div class="social-buttons col-xs-12 col-sm-4 col-lg-2">
+                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                <div class="footer-info wrap row">
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled">
+                            <li>© BOXIE! 2014</li>
+                            <li><a href="//boxie.lemonstand.com/terms">Terms &amp; Conditions</a></li>
+                            <li><a href="//boxie.lemonstand.com/privacy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="credit">Powered by <a href="http://www.lemonstand.com">LemonStand</a></p>
+                    </div>
+                </div>
+            </div>
         </footer>
-    </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+        </main>
+        <!-- END NAVBAR -->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/scripts")
+        @RenderSection("scripts", required: false)
 </body>
 </html>
