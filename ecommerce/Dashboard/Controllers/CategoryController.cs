@@ -78,20 +78,24 @@ namespace Dashboard.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult Add(Category category)
-        {
-            var app = new ServiceReference.ContractClient();
+        //[HttpPost]
+        //public ActionResult Add(Category category)
+        //{
+        //    var app = new ServiceReference.ContractClient();
 
-            var model = new ServiceReference.Category
-            {
-                Id = category.Id,
-                Name = category.Name,
-                Description = category.Description,
-                Level = category.Level,
-                ParentId = category.ParentId,
-                Enabled = category.Enabled
-            };
+        //    var model = new ServiceReference.Category
+        //    {
+        //        Id = category.Id,
+        //        Name = category.Name,
+        //        Description = category.Description,
+        //        Level = category.Level,
+        //        ParentId = category.ParentId,
+        //        Enabled = category.Enabled
+        //    };
+
+
+
+        //}
 
 
 
