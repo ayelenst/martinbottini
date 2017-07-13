@@ -13,17 +13,17 @@ namespace Dashboard.Controllers
         {
             var app = new ServiceReference.ContractClient();
             var categoryClient = app.GetCategoryById(id);
+            var model = new Category(categoryClient);
+            //var model = new Category
+            //{
+            //    Id = categoryClient.Id,
+            //    Name = categoryClient.Name,
+            //    Description = categoryClient.Description,
+            //    Level = categoryClient.Level,
+            //    ParentId = categoryClient.ParentId,
+            //    Enabled = categoryClient.Enabled
 
-            var model = new Category
-            {
-                Id = categoryClient.Id,
-                Name = categoryClient.Name,
-                Description = categoryClient.Description,
-                Level = categoryClient.Level,
-                ParentId = categoryClient.ParentId,
-                Enabled = categoryClient.Enabled
-
-            };
+            //};
             return View(model);
         }
 
@@ -117,8 +117,10 @@ namespace Dashboard.Controllers
                 var cat = new Category
                 {
                     Id = c.Id,
-                    Name = c.Name
+                    Name = c.Name,
+                    Description = c.Description
                 };
+                
                 model.Add(cat);
             }
             return View(model);
