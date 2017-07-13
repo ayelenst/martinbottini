@@ -20,6 +20,15 @@ namespace Model
         public string Description { get; set; }
 
         [DataMember]
+        public string Model { get; set; }
+
+        [DataMember]
+        public string Warranty { get; set; }
+
+        [DataMember]
+        public string Brand { get; set; }
+
+        [DataMember]
         public int Level { get; set; }
 
         [DataMember]
@@ -30,6 +39,8 @@ namespace Model
 
         [DataMember]
         public virtual List<Product> Products { get; set; }
+
+
     }
  
 }
