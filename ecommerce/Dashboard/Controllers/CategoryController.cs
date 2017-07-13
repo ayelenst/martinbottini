@@ -9,6 +9,28 @@ namespace Dashboard.Controllers
 {
     public class CategoryController : Controller
     {
+        public ActionResult GetAll()
+        {
+            var app = new ServiceReference.ContractClient();
+            var categories = app.GetAllCategories();
+
+            var model = new List<Category>();
+            foreach (var c in categories)
+            {
+                var cat = new Category
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Description = c.Description,
+                    Enabled = c.Enabled,
+                    Level = c.Level,
+                    ParentId = c.ParentId
+                };
+                model.Add(cat);
+            }
+            return View(model);
+        }
+
         public ActionResult GetById(int id)
         {
             var app = new ServiceReference.ContractClient();
@@ -78,50 +100,35 @@ namespace Dashboard.Controllers
         }
 
 
-        //[HttpPost]
-        //public ActionResult Add(Category category)
-        //{
-        //    var app = new ServiceReference.ContractClient();
-
-        //    var model = new ServiceReference.Category
-        //    {
-        //        Id = category.Id,
-        //        Name = category.Name,
-        //        Description = category.Description,
-        //        Level = category.Level,
-        //        ParentId = category.ParentId,
-        //        Enabled = category.Enabled
-        //    };
-
-
-
-        //}
-
-
-
-
-
-
-
-
-
-
-            public ActionResult GetAll()
+        [HttpPost]
+        public ActionResult Add(Category category)
         {
             var app = new ServiceReference.ContractClient();
-            var categories = app.GetAllCategories();
 
-            var model = new List<Category>();
-            foreach (var c in categories)
+            var model = new ServiceReference.Category
             {
-                var cat = new Category
-                {
-                    Id = c.Id,
-                    Name = c.Name
-                };
-                model.Add(cat);
-            }
-            return View(model);
+                Id = category.Id,
+                Name = category.Name,
+                Description = category.Description,
+                Level = category.Level,
+                ParentId = category.ParentId,
+                Enabled = category.Enabled
+            };
+            app.AddCategory(model);
+
+            return RedirectToAction("GetAll");
+
         }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

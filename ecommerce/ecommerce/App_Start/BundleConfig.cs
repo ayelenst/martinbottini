@@ -27,6 +27,7 @@ namespace ecommerce
                 "~/Scripts/owl.carousel.min.js",
                  "~/Scripts/chosen.jquery.js",
                  "~/Scripts/chosen.proto.js",
+                 "~/Scripts/gridmvc.js",
                     "~/Scripts/layout.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -38,6 +39,7 @@ namespace ecommerce
                       "~/Content/chosen.min.css",
                       "~/Content/owl*",
                        "~/Content/font-awesome.min.css",
+                       "~/Content/Gridmvc.css",
                       "~/Content/site.css"));
         }
     }
