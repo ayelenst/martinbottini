@@ -42,5 +42,8 @@ namespace Model
 
         [DataMember]
         public virtual Category Category  { get;set;}
+
+        [DataMember]
+        public virtual List<Feature> Feature { get; set; }
     }
 }

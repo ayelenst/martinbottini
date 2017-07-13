@@ -33,7 +33,6 @@ namespace WebService
         void DeleteCategory(Category category);
         #endregion
 
-
         #region products
 
         [OperationContract]

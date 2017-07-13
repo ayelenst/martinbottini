@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="EcommerceContext.cs" />
+    <Compile Include="Feature.cs" />
     <Compile Include="Migrations\201707041717072_AddBlogUrl.cs" />
     <Compile Include="Migrations\201707041717072_AddBlogUrl.Designer.cs">
       <DependentUpon>201707041717072_AddBlogUrl.cs</DependentUpon>
