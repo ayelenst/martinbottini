@@ -42,6 +42,8 @@
         @Html.EditorFor(x => x.Enabled)
     </div>
     <input type="submit" value="Submit" />
+
+    <input type="button" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Category")'" />
 }
 </body>
 </html>
