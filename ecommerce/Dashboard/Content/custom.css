@@ -253,6 +253,7 @@ html , body{
     margin-top: 10px
 }
 .profile_pic {
+    padding-left:30px;
     width: 35%;
     float: left
 }
@@ -267,7 +268,6 @@ html , body{
     padding: 4px
 }
 .profile_info {
-    padding: 25px 10px 10px;
     width: 65%;
     float: left
 }

@@ -68,7 +68,7 @@ namespace Dashboard.Controllers
         
         //
         // POST: /Account/LogOff
-        [HttpPost]
+        [HttpGet]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
