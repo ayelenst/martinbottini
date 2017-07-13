@@ -125,24 +125,7 @@ namespace Dashboard.Controllers
 
 
 
-
-
-
-
-
-            var model = new List<Category>();
-            foreach (var c in categories)
-            {
-                var cat = new Category
-                {
-                    Id = c.Id,
-                    Name = c.Name,
-                    Description = c.Description
-                };
-                
-                model.Add(cat);
-            }
-            return View(model);
+        
         }
-    }
+    
 }

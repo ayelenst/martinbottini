@@ -268,3 +268,5 @@ ecommerce/.vs/config/applicationhost.config
 ecommerce/ecommerce/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ecommerce/ecommerce/obj/Debug/CoreCompileInputs.cache
 *.cache
+ecommerce/ecommerce/obj/Debug/CoreCompileInputs.cache
+*.cache
