@@ -12,7 +12,7 @@
     <main id="page-content" class="wrap container">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header pull-left">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -22,17 +22,56 @@
                     <a href="index.html" class="navbar-brand"><img src="img/logo.png"></a>
                 </div>
 
-                <div class="navbar-right navbar-utils">
-                    <ul class="list-unstyled clearfix">
-                        <li class="hidden-xs">
-                            <div class="input-group">
-                                <input type="text" class="search-form form-control" name="query" id="query" placeholder="Busque su producto" autocomplete="off" value="">
-                                <span class="input-group-btn">
-                                    <button class="btn search-btn toggle hidden-xs hidden-sm" type="button"><i class="fa fa-search"></i></button>
-                                    <button class="btn search-btn hidden-md hidden-lg" type="submit"><i class="fa fa-search"></i></button>
-                                </span>
-                            </div><!-- /input-group -->
+
+
+                <div class="collapse navbar-collapse navbar-left ">
+                    <ul class="nav navbar-nav ">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">
+                                Categorías <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
+
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" id="product-dropdown" href="//boxie.lemonstand.com/shop">Todos los productos<b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="product-dropdown">
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
+                                </li>
+
+                            </ul>
                         </li>
+                        <li class=""><a href="//boxie.lemonstand.com/about">Ofertas</a></li>
+                        <li class=""><a href="//boxie.lemonstand.com/contact">Contacto</a></li>
+                        <li class=""><a href="//boxie.lemonstand.com/contact">Nosotros</a></li>
+                        <li class="">
+                            <input type="text" class="search-form" name="query" id="query" placeholder="Busque su producto" autocomplete="off" value="">
+
+                        </li>
+                        <li>
+                            <Button href="#" class="navbar-btn btn ">
+                                <i class="fa fa-search"></i>
+                            </Button>
+                        </li>
+                       
+                    </ul>
+
+                </div>
+
+                <div class="navbar navbar-right pull-right" style="margin:0px">
+                    <ul class="nav navbar-nav">
                         <li id="navbar-totals" class="totals">
                             <span class="hidden-xs">2 Items</span>
                             <span class="visible-lg">$228.00</span>
@@ -41,9 +80,9 @@
 
                         </li>
                         <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="btn btn-primary cart-btn">
+                            <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
                                 <i class="fa fa-shopping-cart"></i>
-                            </a>
+                            </Button>
                             <div id="mini-cart" class="dropdown-menu">
                                 <ul class="cart-items list-unstyled hidden-xs">
                                     <li class="row cart-item">
@@ -80,73 +119,6 @@
                             </div>
                         </li>
                     </ul>
-                </div>
-
-                <div class="navbar-collapse collapse">
-                    <div class="navbar-left">
-                        <ul id="main-nav" class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">
-                                    Categorías <b class="caret"></b>
-                                </a>
-                                
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
-                                                                      
-                                    <li  class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" id="product-dropdown" href="//boxie.lemonstand.com/shop">Todos los productos<b class="caret"></b></a>
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="product-dropdown">
-                                            <li role="presentation">
-                                                <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">Parlantes<b class="caret"></b></a>
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
-                                            <li role="presentation">
-                                                <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">Monitores<b class="caret"></b></a>
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
-                                            <li role="presentation">
-                                                <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li class=""><a href="//boxie.lemonstand.com/about">Ofertas</a></li>
-                            <li class=""><a href="//boxie.lemonstand.com/contact">Contacto</a></li>
-                            <li class=""><a href="//boxie.lemonstand.com/contact">Nosotros</a></li>
-                        </ul>
-                    </div>
-
-
-                    <form id="search-form" class="navbar-form" role="form" method="get" action="//boxie.lemonstand.com/search">
-                        <div class="input-group search-mini">
-                            <input type="text" class="search-form form-control" name="query" id="query" placeholder="Busque su producto" autocomplete="off" value="">
-                            <span class="input-group-btn">
-                                <button class="btn search-btn toggle hidden-xs hidden-sm" type="button"><i class="fa fa-search"></i></button>
-                                <button class="btn search-btn hidden-md hidden-lg" type="submit"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div><!-- /input-group -->
-                    </form>
-
                 </div>
                 <!--/.navbar-collapse -->
             </div>

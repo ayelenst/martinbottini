@@ -3906,18 +3906,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.navbar-btn {
-  margin-top: 13px;
-  margin-bottom: 13px;
-}
-.navbar-btn.btn-sm {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-.navbar-btn.btn-xs {
-  margin-top: 19px;
-  margin-bottom: 19px;
-}
+
 .navbar-text {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -6782,13 +6771,7 @@ input[type="password"]:focus + label {
 .navbar-default #search-form .form-control::-webkit-input-placeholder {
   color: #999999;
 }
-.navbar-default #search-form .search-btn {
-  outline: none;
-  padding: 14px;
-}
-.navbar-default #search-form .search-btn:active {
-  box-shadow: none;
-}
+
 .navbar-default .navbar-nav {
   text-transform: uppercase;
   /*
@@ -6823,22 +6806,7 @@ input[type="password"]:focus + label {
   padding: 20px 15px;
   height: 60px;
 }
-.navbar-default .navbar-utils .cart-btn {
-  height: 60px;
-  width: 60px;
-  font-size: 25px;
-  color: #fff;
-  outline: none;
-  padding-top: 12px;
-}
-.navbar-default .navbar-utils .cart-btn:hover {
-  background: #083347;
-  color: #fff;
-  border-color: #03151e;
-}
-.navbar-default .navbar-utils .cart-btn .fa {
-  margin: 0;
-}
+
 .navbar-default #navbar-totals .item-number {
   font-weight: 300;
   font-size: 12px;
@@ -6850,10 +6818,10 @@ input[type="password"]:focus + label {
 }
 .navbar-default .search-btn {
   font-size: 16px;
+  padding:16px;
+  margin-top:2px;
 }
-.navbar-default .search-btn .fa {
-  margin: 0;
-}
+
 #mini-cart {
   left: auto;
   right: -55px;
@@ -7412,13 +7380,12 @@ input[type="password"]:focus + label {
     border: none;
     text-transform: none;
   }
-  .navbar-default #navbar-totals {
-    padding: 20px 15px;
-    border-left: 1px solid #e7e7e7;
-    height: 60px;
-    -webkit-transition: all 1.5s;
-    transition: all 1.5s;
-  }
+    .navbar-default #navbar-totals {
+        padding: 10px 15px;
+        border-left: 1px solid #e7e7e7;
+        -webkit-transition: all 1.5s;
+        transition: all 1.5s;
+    }
   .navbar-default #navbar-totals.active {
     background: #0c4d6c;
     color: #fff;
@@ -7632,7 +7599,6 @@ input[type="password"]:focus + label {
 @media (min-width: 992px) {
   .navbar-default > .container {
     position: relative;
-    padding-right: 60px;
   }
   .navbar-default #main-nav > li {
     -webkit-transition: all 0.2s;
@@ -7668,13 +7634,7 @@ input[type="password"]:focus + label {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
-  .navbar-default #search-form .search-btn {
-    background: transparent;
-    width: 60px;
-    border: none;
-    outline: none;
-    padding: 6px 12px;
-  }
+
   .navbar-default #search-form.active {
     width: 100%;
   }

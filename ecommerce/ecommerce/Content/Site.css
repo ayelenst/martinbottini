@@ -6,8 +6,17 @@
     width: 70px;
 }
 
-@media (min-width: 768px) {
-    #search-form {
-        display: none !important;
+.search-form {
+        padding:15px;
+        margin-top:2px;
     }
+
+.navbar-btn {
+    padding: 16px;
+    margin-top: 2px
+}
+
+
+.navbar-btn .fa {
+    margin: 0;
 }
