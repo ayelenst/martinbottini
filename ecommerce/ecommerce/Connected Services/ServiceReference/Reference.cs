@@ -23,6 +23,9 @@ namespace ecommerce.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrandField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -35,6 +38,9 @@ namespace ecommerce.ServiceReference {
         private int LevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -43,6 +49,9 @@ namespace ecommerce.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ecommerce.ServiceReference.Product[] ProductsField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WarrantyField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -50,6 +59,19 @@ namespace ecommerce.ServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Brand {
+            get {
+                return this.BrandField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrandField, value) != true)) {
+                    this.BrandField = value;
+                    this.RaisePropertyChanged("Brand");
+                }
             }
         }
         
@@ -106,6 +128,19 @@ namespace ecommerce.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Model {
+            get {
+                return this.ModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModelField, value) != true)) {
+                    this.ModelField = value;
+                    this.RaisePropertyChanged("Model");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -144,6 +179,19 @@ namespace ecommerce.ServiceReference {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Warranty {
+            get {
+                return this.WarrantyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WarrantyField, value) != true)) {
+                    this.WarrantyField = value;
+                    this.RaisePropertyChanged("Warranty");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -177,6 +225,9 @@ namespace ecommerce.ServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime EndDayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ecommerce.ServiceReference.Feature[] FeatureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -272,6 +323,19 @@ namespace ecommerce.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public ecommerce.ServiceReference.Feature[] Feature {
+            get {
+                return this.FeatureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FeatureField, value) != true)) {
+                    this.FeatureField = value;
+                    this.RaisePropertyChanged("Feature");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -359,6 +423,490 @@ namespace ecommerce.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Feature", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Feature : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ecommerce.ServiceReference.Product ProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ecommerce.ServiceReference.Product Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductID {
+            get {
+                return this.ProductIDField;
+            }
+            set {
+                if ((this.ProductIDField.Equals(value) != true)) {
+                    this.ProductIDField = value;
+                    this.RaisePropertyChanged("ProductID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameCustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime OrderDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime OrderDoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ecommerce.ServiceReference.OrderProduct[] OrderProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrderStateIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ecommerce.ServiceReference.OrderStatus OrderStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaymentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mail {
+            get {
+                return this.MailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MailField, value) != true)) {
+                    this.MailField = value;
+                    this.RaisePropertyChanged("Mail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NameCustomer {
+            get {
+                return this.NameCustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameCustomerField, value) != true)) {
+                    this.NameCustomerField = value;
+                    this.RaisePropertyChanged("NameCustomer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime OrderDate {
+            get {
+                return this.OrderDateField;
+            }
+            set {
+                if ((this.OrderDateField.Equals(value) != true)) {
+                    this.OrderDateField = value;
+                    this.RaisePropertyChanged("OrderDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime OrderDone {
+            get {
+                return this.OrderDoneField;
+            }
+            set {
+                if ((this.OrderDoneField.Equals(value) != true)) {
+                    this.OrderDoneField = value;
+                    this.RaisePropertyChanged("OrderDone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ecommerce.ServiceReference.OrderProduct[] OrderProduct {
+            get {
+                return this.OrderProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderProductField, value) != true)) {
+                    this.OrderProductField = value;
+                    this.RaisePropertyChanged("OrderProduct");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OrderStateId {
+            get {
+                return this.OrderStateIdField;
+            }
+            set {
+                if ((this.OrderStateIdField.Equals(value) != true)) {
+                    this.OrderStateIdField = value;
+                    this.RaisePropertyChanged("OrderStateId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ecommerce.ServiceReference.OrderStatus OrderStatus {
+            get {
+                return this.OrderStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderStatusField, value) != true)) {
+                    this.OrderStatusField = value;
+                    this.RaisePropertyChanged("OrderStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Payment {
+            get {
+                return this.PaymentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaymentField, value) != true)) {
+                    this.PaymentField = value;
+                    this.RaisePropertyChanged("Payment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Phone {
+            get {
+                return this.PhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneField, value) != true)) {
+                    this.PhoneField = value;
+                    this.RaisePropertyChanged("Phone");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderStatus", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class OrderStatus : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ecommerce.ServiceReference.Order[] OrderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((this.NameField.Equals(value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ecommerce.ServiceReference.Order[] Order {
+            get {
+                return this.OrderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderField, value) != true)) {
+                    this.OrderField = value;
+                    this.RaisePropertyChanged("Order");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderProduct", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class OrderProduct : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrderIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrderProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int QuantityField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NameProduct {
+            get {
+                return this.NameProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameProductField, value) != true)) {
+                    this.NameProductField = value;
+                    this.RaisePropertyChanged("NameProduct");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OrderId {
+            get {
+                return this.OrderIdField;
+            }
+            set {
+                if ((this.OrderIdField.Equals(value) != true)) {
+                    this.OrderIdField = value;
+                    this.RaisePropertyChanged("OrderId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OrderProductId {
+            get {
+                return this.OrderProductIdField;
+            }
+            set {
+                if ((this.OrderProductIdField.Equals(value) != true)) {
+                    this.OrderProductIdField = value;
+                    this.RaisePropertyChanged("OrderProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IContract")]
     public interface IContract {
@@ -368,6 +916,12 @@ namespace ecommerce.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
         System.Threading.Tasks.Task<ecommerce.ServiceReference.Category[]> GetAllCategoriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategoryVisible", ReplyAction="http://tempuri.org/IContract/GetAllCategoryVisibleResponse")]
+        ecommerce.ServiceReference.Category[] GetAllCategoryVisible();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategoryVisible", ReplyAction="http://tempuri.org/IContract/GetAllCategoryVisibleResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Category[]> GetAllCategoryVisibleAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
         ecommerce.ServiceReference.Category GetCategoryById(int id);
@@ -386,6 +940,102 @@ namespace ecommerce.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddCategory", ReplyAction="http://tempuri.org/IContract/AddCategoryResponse")]
         System.Threading.Tasks.Task AddCategoryAsync(ecommerce.ServiceReference.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
+        void DeleteCategory(ecommerce.ServiceReference.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
+        System.Threading.Tasks.Task DeleteCategoryAsync(ecommerce.ServiceReference.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
+        ecommerce.ServiceReference.Product[] GetAllProducts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProductVisible", ReplyAction="http://tempuri.org/IContract/GetAllProductVisibleResponse")]
+        ecommerce.ServiceReference.Product[] GetAllProductVisible();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProductVisible", ReplyAction="http://tempuri.org/IContract/GetAllProductVisibleResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductVisibleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductById", ReplyAction="http://tempuri.org/IContract/GetProductByIdResponse")]
+        ecommerce.ServiceReference.Product GetProductById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductById", ReplyAction="http://tempuri.org/IContract/GetProductByIdResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product> GetProductByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
+        ecommerce.ServiceReference.Product[] GetProductByCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByCategoryAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
+        ecommerce.ServiceReference.Product[] GetProductByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByNameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductBywithOffer", ReplyAction="http://tempuri.org/IContract/GetProductBywithOfferResponse")]
+        ecommerce.ServiceReference.Product[] GetProductBywithOffer();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductBywithOffer", ReplyAction="http://tempuri.org/IContract/GetProductBywithOfferResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductBywithOfferAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateProduct", ReplyAction="http://tempuri.org/IContract/UpdateProductResponse")]
+        void UpdateProduct(ecommerce.ServiceReference.Product Product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateProduct", ReplyAction="http://tempuri.org/IContract/UpdateProductResponse")]
+        System.Threading.Tasks.Task UpdateProductAsync(ecommerce.ServiceReference.Product Product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddProduct", ReplyAction="http://tempuri.org/IContract/AddProductResponse")]
+        void AddProduct(ecommerce.ServiceReference.Product Product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddProduct", ReplyAction="http://tempuri.org/IContract/AddProductResponse")]
+        System.Threading.Tasks.Task AddProductAsync(ecommerce.ServiceReference.Product Product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
+        ecommerce.ServiceReference.Order[] GetAllOrders();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrdersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrderByState", ReplyAction="http://tempuri.org/IContract/GetAllOrderByStateResponse")]
+        ecommerce.ServiceReference.Order[] GetAllOrderByState(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrderByState", ReplyAction="http://tempuri.org/IContract/GetAllOrderByStateResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrderByStateAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateOrder", ReplyAction="http://tempuri.org/IContract/UpdateOrderResponse")]
+        void UpdateOrder(ecommerce.ServiceReference.Order Order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateOrder", ReplyAction="http://tempuri.org/IContract/UpdateOrderResponse")]
+        System.Threading.Tasks.Task UpdateOrderAsync(ecommerce.ServiceReference.Order Order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderById", ReplyAction="http://tempuri.org/IContract/GetOrderByIdResponse")]
+        ecommerce.ServiceReference.Order GetOrderById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderById", ReplyAction="http://tempuri.org/IContract/GetOrderByIdResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order> GetOrderByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDate", ReplyAction="http://tempuri.org/IContract/GetOrderByDateResponse")]
+        ecommerce.ServiceReference.Order[] GetOrderByDate(System.DateTime OrdenDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDate", ReplyAction="http://tempuri.org/IContract/GetOrderByDateResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateAsync(System.DateTime OrdenDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDateDone", ReplyAction="http://tempuri.org/IContract/GetOrderByDateDoneResponse")]
+        ecommerce.ServiceReference.Order[] GetOrderByDateDone(System.DateTime OrdenDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDateDone", ReplyAction="http://tempuri.org/IContract/GetOrderByDateDoneResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateDoneAsync(System.DateTime OrdenDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/PlaceOrder", ReplyAction="http://tempuri.org/IContract/PlaceOrderResponse")]
+        void PlaceOrder(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/PlaceOrder", ReplyAction="http://tempuri.org/IContract/PlaceOrderResponse")]
+        System.Threading.Tasks.Task PlaceOrderAsync(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -423,6 +1073,14 @@ namespace ecommerce.ServiceReference {
             return base.Channel.GetAllCategoriesAsync();
         }
         
+        public ecommerce.ServiceReference.Category[] GetAllCategoryVisible() {
+            return base.Channel.GetAllCategoryVisible();
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Category[]> GetAllCategoryVisibleAsync() {
+            return base.Channel.GetAllCategoryVisibleAsync();
+        }
+        
         public ecommerce.ServiceReference.Category GetCategoryById(int id) {
             return base.Channel.GetCategoryById(id);
         }
@@ -445,6 +1103,134 @@ namespace ecommerce.ServiceReference {
         
         public System.Threading.Tasks.Task AddCategoryAsync(ecommerce.ServiceReference.Category category) {
             return base.Channel.AddCategoryAsync(category);
+        }
+        
+        public void DeleteCategory(ecommerce.ServiceReference.Category category) {
+            base.Channel.DeleteCategory(category);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCategoryAsync(ecommerce.ServiceReference.Category category) {
+            return base.Channel.DeleteCategoryAsync(category);
+        }
+        
+        public ecommerce.ServiceReference.Product[] GetAllProducts() {
+            return base.Channel.GetAllProducts();
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductsAsync() {
+            return base.Channel.GetAllProductsAsync();
+        }
+        
+        public ecommerce.ServiceReference.Product[] GetAllProductVisible() {
+            return base.Channel.GetAllProductVisible();
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductVisibleAsync() {
+            return base.Channel.GetAllProductVisibleAsync();
+        }
+        
+        public ecommerce.ServiceReference.Product GetProductById(int id) {
+            return base.Channel.GetProductById(id);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product> GetProductByIdAsync(int id) {
+            return base.Channel.GetProductByIdAsync(id);
+        }
+        
+        public ecommerce.ServiceReference.Product[] GetProductByCategory(int id) {
+            return base.Channel.GetProductByCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByCategoryAsync(int id) {
+            return base.Channel.GetProductByCategoryAsync(id);
+        }
+        
+        public ecommerce.ServiceReference.Product[] GetProductByName(string name) {
+            return base.Channel.GetProductByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByNameAsync(string name) {
+            return base.Channel.GetProductByNameAsync(name);
+        }
+        
+        public ecommerce.ServiceReference.Product[] GetProductBywithOffer() {
+            return base.Channel.GetProductBywithOffer();
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductBywithOfferAsync() {
+            return base.Channel.GetProductBywithOfferAsync();
+        }
+        
+        public void UpdateProduct(ecommerce.ServiceReference.Product Product) {
+            base.Channel.UpdateProduct(Product);
+        }
+        
+        public System.Threading.Tasks.Task UpdateProductAsync(ecommerce.ServiceReference.Product Product) {
+            return base.Channel.UpdateProductAsync(Product);
+        }
+        
+        public void AddProduct(ecommerce.ServiceReference.Product Product) {
+            base.Channel.AddProduct(Product);
+        }
+        
+        public System.Threading.Tasks.Task AddProductAsync(ecommerce.ServiceReference.Product Product) {
+            return base.Channel.AddProductAsync(Product);
+        }
+        
+        public ecommerce.ServiceReference.Order[] GetAllOrders() {
+            return base.Channel.GetAllOrders();
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrdersAsync() {
+            return base.Channel.GetAllOrdersAsync();
+        }
+        
+        public ecommerce.ServiceReference.Order[] GetAllOrderByState(int id) {
+            return base.Channel.GetAllOrderByState(id);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrderByStateAsync(int id) {
+            return base.Channel.GetAllOrderByStateAsync(id);
+        }
+        
+        public void UpdateOrder(ecommerce.ServiceReference.Order Order) {
+            base.Channel.UpdateOrder(Order);
+        }
+        
+        public System.Threading.Tasks.Task UpdateOrderAsync(ecommerce.ServiceReference.Order Order) {
+            return base.Channel.UpdateOrderAsync(Order);
+        }
+        
+        public ecommerce.ServiceReference.Order GetOrderById(int id) {
+            return base.Channel.GetOrderById(id);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order> GetOrderByIdAsync(int id) {
+            return base.Channel.GetOrderByIdAsync(id);
+        }
+        
+        public ecommerce.ServiceReference.Order[] GetOrderByDate(System.DateTime OrdenDate) {
+            return base.Channel.GetOrderByDate(OrdenDate);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateAsync(System.DateTime OrdenDate) {
+            return base.Channel.GetOrderByDateAsync(OrdenDate);
+        }
+        
+        public ecommerce.ServiceReference.Order[] GetOrderByDateDone(System.DateTime OrdenDate) {
+            return base.Channel.GetOrderByDateDone(OrdenDate);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateDoneAsync(System.DateTime OrdenDate) {
+            return base.Channel.GetOrderByDateDoneAsync(OrdenDate);
+        }
+        
+        public void PlaceOrder(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products) {
+            base.Channel.PlaceOrder(Order, products);
+        }
+        
+        public System.Threading.Tasks.Task PlaceOrderAsync(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products) {
+            return base.Channel.PlaceOrderAsync(Order, products);
         }
     }
 }

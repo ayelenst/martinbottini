@@ -285,7 +285,11 @@
                 });
             }
         });
-
+        $('.dropdown-menu a.submenu').on("click", function (e) {
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+        });
 
         //===============
         //! Equalize row heights

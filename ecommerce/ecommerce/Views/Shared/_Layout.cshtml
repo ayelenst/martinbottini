@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ecommerce.Models;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -32,23 +33,37 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
+                                @{ var model = ViewBag.LayoutModel as List<CategoryViewModel>;
 
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" id="product-dropdown" href="//boxie.lemonstand.com/shop">Todos los productos<b class="caret"></b></a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="product-dropdown">
-                                        <li role="presentation">
-                                            <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
-                                        </li>
-                                        <li role="presentation">
-                                            <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
-                                        </li>
-                                    </ul>
+                                    foreach (var cat in model.Where(x => x.Level == 0).OrderByDescending(x=>x.CountChildren))
+                                    {
+                                        if (model.Any(x => x.Parent == cat.Id && x.Level == 1))
+                                        {
+                                            <li class="dropdown-submenu">
+                                                <a tabindex="-1" href="#">@cat.Name </a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach (var subcat in model.Where(x => x.Level == 1 && x.Parent == cat.Id))
+                                                    {
+                                                        <li><a href="#">@subcat.Name</a></li>
+                                                    }
+                                                   
+                                                </ul>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li role="presentation">
+                                                <a role="menuitem" tabindex="-1" href="">@cat.Name</a>
+                                            </li>
+                                        }
+
+                                    }
+                                }
+                                <li class="divider">
                                 </li>
+
                                 <li role="presentation">
-                                    <a role="menuitem" tabindex="-1" href="/category/headphones">Headphones</a>
-                                </li>
-                                <li role="presentation">
-                                    <a role="menuitem" tabindex="-1" href="/category/portable-speakers">Portable Speakers</a>
+                                    <a role="menuitem"  href="">Todos los productos</a>
                                 </li>
 
                             </ul>

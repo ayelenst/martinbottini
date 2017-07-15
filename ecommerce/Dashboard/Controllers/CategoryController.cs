@@ -86,7 +86,7 @@ namespace Dashboard.Controllers
 
             app.UpdateCategory(model);
 
-            return RedirectToAction("GetById", new { id= category.Id});
+            return RedirectToAction("GetAll");
         }
 
 
