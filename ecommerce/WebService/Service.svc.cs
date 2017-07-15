@@ -108,6 +108,12 @@ namespace WebService
             var repo = new ProductRepository();
             repo.Update(Product);
         }
+
+        public void DeleteProduct(int id)
+        {
+            var repo = new ProductRepository();
+            repo.Delete(id);
+        }
         #endregion
 
         #region Order

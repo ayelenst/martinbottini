@@ -62,6 +62,9 @@ namespace WebService
         [OperationContract]
         void AddProduct(Product Product);
 
+        [OperationContract]
+        void DeleteProduct(int id);
+
         #endregion
 
         #region Orders

@@ -1,0 +1,61 @@
+﻿@model Dashboard.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Editar Producto";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+    @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.Id)
+        <div>
+            <p>ID</p>
+            @Html.DisplayFor(x => x.Id)
+        </div>
+        <div>
+            <p>Nombre</p>
+            @Html.EditorFor(x => x.Name)
+        </div>
+        <div>
+            <p>Descripción</p>
+            @Html.EditorFor(x => x.Description)
+        </div>
+        <div>
+            <p>Oferta</p>
+            @Html.EditorFor(x => x.IsOffer)
+        </div>
+        <div>
+            <p>Porcentaje</p>
+            @Html.EditorFor(x => x.Percent)
+        </div>
+        <div>
+            <p>Habilitado</p>
+            @Html.EditorFor(x => x.Enabled)
+        </div>
+        <div>
+            <p>Día de inicio</p>
+            @Html.EditorFor(x => x.StartDay)
+        </div>
+        <div>
+            <p>Día de fin</p>
+            @Html.EditorFor(x => x.EndDay)
+        </div>
+        <div>
+            <p>Precio</p>
+            @Html.EditorFor(x => x.Price)
+        </div>
+
+    <input type="submit" value="Submit" />
+
+    <input type="button" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+    }
+</body>
+</html>
