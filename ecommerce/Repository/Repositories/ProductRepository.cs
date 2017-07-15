@@ -95,5 +95,17 @@ namespace Repository.Repositories
             }
         }
 
+
+        public void Delete(int id)
+        {
+            using (var db = new EcommerceContext())
+            {
+
+                var cat = db.Products.First(x => x.Id == id);
+                db.Products.Remove(cat);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

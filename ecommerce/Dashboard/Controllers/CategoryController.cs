@@ -14,10 +14,10 @@ namespace Dashboard.Controllers
             var app = new ServiceReference.ContractClient();
             var categories = app.GetAllCategories();
 
-            var model = new List<Category>();
+            var model = new List<CategoryViewModel>();
             foreach (var c in categories)
             {
-                var cat = new Category
+                var cat = new CategoryViewModel
                 {
                     Id = c.Id,
                     Name = c.Name,
@@ -35,7 +35,7 @@ namespace Dashboard.Controllers
         {
             var app = new ServiceReference.ContractClient();
             var categoryClient = app.GetCategoryById(id);
-            var model = new Category(categoryClient);
+            var model = new CategoryViewModel(categoryClient);
             //var model = new Category
             //{
             //    Id = categoryClient.Id,
@@ -55,7 +55,7 @@ namespace Dashboard.Controllers
             var app = new ServiceReference.ContractClient();
             var categoryClient = app.GetCategoryById(id);
 
-            var model = new Category
+            var model = new CategoryViewModel
             {
                 Id = categoryClient.Id,
                 Name = categoryClient.Name,
@@ -70,7 +70,7 @@ namespace Dashboard.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit(Category category)
+        public ActionResult Edit(CategoryViewModel category)
         {
             var app = new ServiceReference.ContractClient();
 
@@ -95,13 +95,13 @@ namespace Dashboard.Controllers
         {
             var app = new ServiceReference.ContractClient();
 
-            var model = new Category();
+            var model = new CategoryViewModel();
             return View(model);
         }
 
 
         [HttpPost]
-        public ActionResult Add(Category category)
+        public ActionResult Add(CategoryViewModel category)
         {
             var app = new ServiceReference.ContractClient();
 
@@ -120,12 +120,17 @@ namespace Dashboard.Controllers
 
         }
 
-
-
-
-
-
-        
+        public ActionResult Delete(int id)
+        {
+            var app = new ServiceReference.ContractClient();
+            app.DeleteCategory(id);
+            return RedirectToAction("GetAll");
         }
+
+
+
+
+
+    }
     
 }

@@ -6,11 +6,11 @@ using System.Web;
 
 namespace Dashboard.Models
 {
-    public class Category
+    public class CategoryViewModel
     {
-        public Category() { }
+        public CategoryViewModel() { }
 
-        public Category(ServiceReference.Category categoryClient)
+        public CategoryViewModel(ServiceReference.Category categoryClient)
         {
             Id = categoryClient.Id;
             Name = categoryClient.Name;

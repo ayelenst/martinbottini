@@ -1,4 +1,4 @@
-﻿@model Dashboard.Models.CategoryViewModel
+﻿@model Dashboard.Models.ProductViewModel
 
 @{
     ViewBag.Title = "Category by id";
@@ -14,22 +14,32 @@
 <body>
 
     <div>
-        @Html.DisplayFor(x => x.Description)
+        @Html.DisplayFor(x => x.Id)
     </div>
     <div>
         @Html.DisplayFor(x => x.Name)
     </div>
     <div>
-        @Html.DisplayFor(x => x.Id)
+        @Html.DisplayFor(x => x.Description)
     </div>
     <div>
-        @Html.DisplayFor(x => x.Level)
+        @Html.DisplayFor(x => x.IsOffer)
     </div>
     <div>
-        @Html.DisplayFor(x => x.ParentId)
+        @Html.DisplayFor(x => x.Percent)
     </div>
     <div>
         @Html.DisplayFor(x => x.Enabled)
     </div>
+    <div>
+        @Html.DisplayFor(x => x.StartDay)
+    </div>
+    <div>
+        @Html.DisplayFor(x => x.EndDay)
+    </div>
+    <div>
+        @Html.DisplayFor(x => x.Price)
+    </div>
 </body>
 </html>
+

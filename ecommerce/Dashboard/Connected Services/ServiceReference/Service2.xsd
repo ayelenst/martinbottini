@@ -8,13 +8,16 @@
   <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
   <xs:complexType name="Category">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Level" type="xs:int" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ParentId" type="xs:int" />
       <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="Warranty" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Category" nillable="true" type="tns:Category" />
@@ -31,6 +34,7 @@
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
       <xs:element minOccurs="0" name="EndDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Feature" nillable="true" type="tns:ArrayOfFeature" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IsOffer" type="xs:boolean" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
@@ -40,6 +44,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfFeature">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Feature" nillable="true" type="tns:Feature" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeature" nillable="true" type="tns:ArrayOfFeature" />
+  <xs:complexType name="Feature">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Feature" nillable="true" type="tns:Feature" />
   <xs:complexType name="ArrayOfOrder">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />

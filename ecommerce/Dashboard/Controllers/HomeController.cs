@@ -13,22 +13,7 @@ namespace Dashboard.Controllers
         
         public ActionResult Index()
         {
-
-
-        var app = new ServiceReference.ContractClient();
-            var categories = app.GetAllCategories();
-
-            var model = new List<Category>();
-            foreach (var c in categories)
-            {
-                var cat = new Category
-                {
-                    Id = c.Id,
-                    Name = c.Name
-                };
-                model.Add(cat);
-            }
-            return View(model);
+            return View();
         }
 
         public ActionResult About()

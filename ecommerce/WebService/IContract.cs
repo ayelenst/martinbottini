@@ -30,7 +30,7 @@ namespace WebService
         void AddCategory(Category category);
         
         [OperationContract]
-        void DeleteCategory(Category category);
+        void DeleteCategory(int id);
         #endregion
 
         #region products
@@ -61,6 +61,9 @@ namespace WebService
 
         [OperationContract]
         void AddProduct(Product Product);
+
+        [OperationContract]
+        void DeleteProduct(int id);
 
         #endregion
 

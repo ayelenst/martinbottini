@@ -60,12 +60,12 @@ namespace Repository.Repositories
             }
         }
 
-        public void Delete(Category category)
+        public void Delete(int id)
         {
             using (var db = new EcommerceContext())
             {
 
-                var cat = db.Categories.First(x => x.Id == category.Id);
+                var cat = db.Categories.First(x => x.Id == id);
                 db.Categories.Remove(cat);
                 db.SaveChanges();
             }

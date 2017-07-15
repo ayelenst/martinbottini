@@ -23,6 +23,9 @@ namespace Dashboard.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrandField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -35,6 +38,9 @@ namespace Dashboard.ServiceReference {
         private int LevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -43,6 +49,9 @@ namespace Dashboard.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Dashboard.ServiceReference.Product[] ProductsField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WarrantyField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -50,6 +59,19 @@ namespace Dashboard.ServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Brand {
+            get {
+                return this.BrandField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrandField, value) != true)) {
+                    this.BrandField = value;
+                    this.RaisePropertyChanged("Brand");
+                }
             }
         }
         
@@ -106,6 +128,19 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Model {
+            get {
+                return this.ModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModelField, value) != true)) {
+                    this.ModelField = value;
+                    this.RaisePropertyChanged("Model");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -144,6 +179,19 @@ namespace Dashboard.ServiceReference {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Warranty {
+            get {
+                return this.WarrantyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WarrantyField, value) != true)) {
+                    this.WarrantyField = value;
+                    this.RaisePropertyChanged("Warranty");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -177,6 +225,9 @@ namespace Dashboard.ServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime EndDayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Dashboard.ServiceReference.Feature[] FeatureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -272,6 +323,19 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public Dashboard.ServiceReference.Feature[] Feature {
+            get {
+                return this.FeatureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FeatureField, value) != true)) {
+                    this.FeatureField = value;
+                    this.RaisePropertyChanged("Feature");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -345,6 +409,115 @@ namespace Dashboard.ServiceReference {
                 if ((this.StartDayField.Equals(value) != true)) {
                     this.StartDayField = value;
                     this.RaisePropertyChanged("StartDay");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Feature", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Feature : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Dashboard.ServiceReference.Product ProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Dashboard.ServiceReference.Product Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductID {
+            get {
+                return this.ProductIDField;
+            }
+            set {
+                if ((this.ProductIDField.Equals(value) != true)) {
+                    this.ProductIDField = value;
+                    this.RaisePropertyChanged("ProductID");
                 }
             }
         }
@@ -769,10 +942,10 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task AddCategoryAsync(Dashboard.ServiceReference.Category category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
-        void DeleteCategory(Dashboard.ServiceReference.Category category);
+        void DeleteCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
-        System.Threading.Tasks.Task DeleteCategoryAsync(Dashboard.ServiceReference.Category category);
+        System.Threading.Tasks.Task DeleteCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
         Dashboard.ServiceReference.Product[] GetAllProducts();
@@ -821,6 +994,12 @@ namespace Dashboard.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddProduct", ReplyAction="http://tempuri.org/IContract/AddProductResponse")]
         System.Threading.Tasks.Task AddProductAsync(Dashboard.ServiceReference.Product Product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteProduct", ReplyAction="http://tempuri.org/IContract/DeleteProductResponse")]
+        void DeleteProduct(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteProduct", ReplyAction="http://tempuri.org/IContract/DeleteProductResponse")]
+        System.Threading.Tasks.Task DeleteProductAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
         Dashboard.ServiceReference.Order[] GetAllOrders();
@@ -932,12 +1111,12 @@ namespace Dashboard.ServiceReference {
             return base.Channel.AddCategoryAsync(category);
         }
         
-        public void DeleteCategory(Dashboard.ServiceReference.Category category) {
-            base.Channel.DeleteCategory(category);
+        public void DeleteCategory(int id) {
+            base.Channel.DeleteCategory(id);
         }
         
-        public System.Threading.Tasks.Task DeleteCategoryAsync(Dashboard.ServiceReference.Category category) {
-            return base.Channel.DeleteCategoryAsync(category);
+        public System.Threading.Tasks.Task DeleteCategoryAsync(int id) {
+            return base.Channel.DeleteCategoryAsync(id);
         }
         
         public Dashboard.ServiceReference.Product[] GetAllProducts() {
@@ -1002,6 +1181,14 @@ namespace Dashboard.ServiceReference {
         
         public System.Threading.Tasks.Task AddProductAsync(Dashboard.ServiceReference.Product Product) {
             return base.Channel.AddProductAsync(Product);
+        }
+        
+        public void DeleteProduct(int id) {
+            base.Channel.DeleteProduct(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductAsync(int id) {
+            return base.Channel.DeleteProductAsync(id);
         }
         
         public Dashboard.ServiceReference.Order[] GetAllOrders() {
