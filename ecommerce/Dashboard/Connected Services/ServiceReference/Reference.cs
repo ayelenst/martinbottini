@@ -942,10 +942,10 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task AddCategoryAsync(Dashboard.ServiceReference.Category category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
-        void DeleteCategory(Dashboard.ServiceReference.Category category);
+        void DeleteCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
-        System.Threading.Tasks.Task DeleteCategoryAsync(Dashboard.ServiceReference.Category category);
+        System.Threading.Tasks.Task DeleteCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
         Dashboard.ServiceReference.Product[] GetAllProducts();
@@ -1111,12 +1111,12 @@ namespace Dashboard.ServiceReference {
             return base.Channel.AddCategoryAsync(category);
         }
         
-        public void DeleteCategory(Dashboard.ServiceReference.Category category) {
-            base.Channel.DeleteCategory(category);
+        public void DeleteCategory(int id) {
+            base.Channel.DeleteCategory(id);
         }
         
-        public System.Threading.Tasks.Task DeleteCategoryAsync(Dashboard.ServiceReference.Category category) {
-            return base.Channel.DeleteCategoryAsync(category);
+        public System.Threading.Tasks.Task DeleteCategoryAsync(int id) {
+            return base.Channel.DeleteCategoryAsync(id);
         }
         
         public Dashboard.ServiceReference.Product[] GetAllProducts() {

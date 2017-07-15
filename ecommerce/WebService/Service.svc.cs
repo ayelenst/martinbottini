@@ -48,10 +48,10 @@ namespace WebService
             repo.Update(category);
         }
 
-        public void DeleteCategory(Category category)
+        public void DeleteCategory(int id)
         {
             var repo = new CategoryRepository();
-            repo.Delete(category);
+            repo.Delete(id);
         }
         #endregion
 

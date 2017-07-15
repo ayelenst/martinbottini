@@ -120,12 +120,17 @@ namespace Dashboard.Controllers
 
         }
 
-
-
-
-
-
-        
+        public ActionResult Delete(int id)
+        {
+            var app = new ServiceReference.ContractClient();
+            app.DeleteCategory(id);
+            return RedirectToAction("GetAll");
         }
+
+
+
+
+
+    }
     
 }
