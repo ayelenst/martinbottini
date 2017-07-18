@@ -31,5 +31,6 @@ namespace Dashboard.Models
         public int ParentId { get; set; }
 
         public bool Enabled { get; set; }
+        public List<CategoryViewModel> Children { get; set; }
     }
 }

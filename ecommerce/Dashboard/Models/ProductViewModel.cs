@@ -7,6 +7,10 @@ namespace Dashboard.Models
 {
     public class ProductViewModel
     {
+        public ProductViewModel()
+        {
+            Feature = new List<FeatureViewModel>();
+        }
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -26,6 +30,8 @@ namespace Dashboard.Models
         public double Price { get; set; }
 
         public int CategoryId { get; set; }
+
+        public List<FeatureViewModel> Feature { get; set; }
 
     }
 }

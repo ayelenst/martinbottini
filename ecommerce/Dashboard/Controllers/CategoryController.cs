@@ -24,10 +24,12 @@ namespace Dashboard.Controllers
                     Description = c.Description,
                     Enabled = c.Enabled,
                     Level = c.Level,
-                    ParentId = c.ParentId
+                    ParentId = c.ParentId,
+                    
                 };
                 model.Add(cat);
             }
+
             return View(model);
         }
 
@@ -113,6 +115,7 @@ namespace Dashboard.Controllers
                 Level = category.Level,
                 ParentId = category.ParentId,
                 Enabled = category.Enabled
+
             };
             app.AddCategory(model);
 

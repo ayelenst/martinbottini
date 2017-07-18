@@ -102,11 +102,21 @@ namespace WebService
             var prodrepo = new ProductRepository();
             var imgrepo = new ImageRepository();
             var featrepo = new FeatureRepository();
-
+            var features = product.Feature;
+            var images = product.Image;
+            product.Feature = null;
+            product.Image = null;
             prodrepo.Add(product);
-            //verficiar q todo tenga el id!
-            imgrepo.AddRange(product.Image);
-            featrepo.AddRange(product.Feature);
+            foreach(var feat in features)
+            {
+                feat.ProductID = product.Id;
+            }
+            foreach (var feat in images)
+            {
+                feat.ProductId = product.Id;
+            }
+            imgrepo.AddRange(images);
+            featrepo.AddRange(features);
 
         }
 

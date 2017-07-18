@@ -23,7 +23,11 @@ namespace Repository.Repositories
         {
             using (var db = new EcommerceContext())
             {
-                db.Feature.AddRange(feature);
+                foreach (var f in feature)
+                {
+                    db.Feature.Add(f);
+                }
+
                 db.SaveChanges();
             }
         }

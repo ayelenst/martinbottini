@@ -54,25 +54,9 @@
     <Compile Include="EcommerceContext.cs" />
     <Compile Include="Feature.cs" />
     <Compile Include="Image.cs" />
-    <Compile Include="Migrations\201707041717072_AddBlogUrl.cs" />
-    <Compile Include="Migrations\201707041717072_AddBlogUrl.Designer.cs">
-      <DependentUpon>201707041717072_AddBlogUrl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707051500067_InitialCreate.cs" />
-    <Compile Include="Migrations\201707051500067_InitialCreate.Designer.cs">
-      <DependentUpon>201707051500067_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707061446585_FirstMigration.cs" />
-    <Compile Include="Migrations\201707061446585_FirstMigration.Designer.cs">
-      <DependentUpon>201707061446585_FirstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707131902437_bla.cs" />
-    <Compile Include="Migrations\201707131902437_bla.Designer.cs">
-      <DependentUpon>201707131902437_bla.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707181343296_test.cs" />
-    <Compile Include="Migrations\201707181343296_test.Designer.cs">
-      <DependentUpon>201707181343296_test.cs</DependentUpon>
+    <Compile Include="Migrations\201707182009587_features.cs" />
+    <Compile Include="Migrations\201707182009587_features.Designer.cs">
+      <DependentUpon>201707182009587_features.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
@@ -87,20 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707041717072_AddBlogUrl.resx">
-      <DependentUpon>201707041717072_AddBlogUrl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707051500067_InitialCreate.resx">
-      <DependentUpon>201707051500067_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707061446585_FirstMigration.resx">
-      <DependentUpon>201707061446585_FirstMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707131902437_bla.resx">
-      <DependentUpon>201707131902437_bla.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707181343296_test.resx">
-      <DependentUpon>201707181343296_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707182009587_features.resx">
+      <DependentUpon>201707182009587_features.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
