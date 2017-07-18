@@ -1,29 +1,30 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
 namespace Model
 {
     [DataContract]
-    public class Feature
+    public class Image
     {
         [DataMember]
         public int Id { get; set; }
 
         [DataMember]
-        public string Name { get; set; }
+        public string Url { get; set; }
 
         [DataMember]
-        public string Description { get; set; }
+        public bool IsMain { get; set; }
 
         [DataMember]
-        public int ProductID { get; set; }
+        public int ProductId { get; set; }
 
         [DataMember]
-        public virtual Product Product { get; set; }
+        public virtual List<Product> Products { get; set; }
+
     }
+
 }

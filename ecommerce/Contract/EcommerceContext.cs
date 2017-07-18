@@ -15,6 +15,8 @@ namespace Model
         public DbSet<OrderProduct> OrderProduct { get; set; }
         public DbSet<OrderStatus> OrderStatus { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Image> Image { get; set; }
+        public DbSet<Feature> Feature { get; set; }
         public EcommerceContext()
         {
             Configuration.ProxyCreationEnabled = false;
