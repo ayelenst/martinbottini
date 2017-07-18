@@ -47,7 +47,7 @@ namespace Dashboard.ServiceReference {
         private int ParentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference.Product[] ProductsField;
+        private System.Collections.Generic.List<Dashboard.ServiceReference.Product> ProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string WarrantyField;
@@ -167,7 +167,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference.Product[] Products {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> Products {
             get {
                 return this.ProductsField;
             }
@@ -227,13 +227,13 @@ namespace Dashboard.ServiceReference {
         private System.DateTime EndDayField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference.Feature[] FeatureField;
+        private System.Collections.Generic.List<Dashboard.ServiceReference.Feature> FeatureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference.Image[] ImageField;
+        private System.Collections.Generic.List<Dashboard.ServiceReference.Image> ImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsOfferField;
@@ -326,7 +326,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference.Feature[] Feature {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Feature> Feature {
             get {
                 return this.FeatureField;
             }
@@ -352,7 +352,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference.Image[] Image {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Image> Image {
             get {
                 return this.ImageField;
             }
@@ -567,7 +567,7 @@ namespace Dashboard.ServiceReference {
         private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference.Product[] ProductsField;
+        private System.Collections.Generic.List<Dashboard.ServiceReference.Product> ProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UrlField;
@@ -622,7 +622,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference.Product[] Products {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> Products {
             get {
                 return this.ProductsField;
             }
@@ -682,7 +682,7 @@ namespace Dashboard.ServiceReference {
         private System.DateTime OrderDoneField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference.OrderProduct[] OrderProductField;
+        private System.Collections.Generic.List<Dashboard.ServiceReference.OrderProduct> OrderProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrderStateIdField;
@@ -772,7 +772,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference.OrderProduct[] OrderProduct {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.OrderProduct> OrderProduct {
             get {
                 return this.OrderProductField;
             }
@@ -862,7 +862,7 @@ namespace Dashboard.ServiceReference {
         private int NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Dashboard.ServiceReference.Order[] OrderField;
+        private System.Collections.Generic.List<Dashboard.ServiceReference.Order> OrderField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -901,7 +901,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Dashboard.ServiceReference.Order[] Order {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Order> Order {
             get {
                 return this.OrderField;
             }
@@ -1146,16 +1146,16 @@ namespace Dashboard.ServiceReference {
     public interface IContract {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
-        Dashboard.ServiceReference.Category[] GetAllCategories();
+        System.Collections.Generic.List<Dashboard.ServiceReference.Category> GetAllCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Category[]> GetAllCategoriesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Category>> GetAllCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategoryVisible", ReplyAction="http://tempuri.org/IContract/GetAllCategoryVisibleResponse")]
-        Dashboard.ServiceReference.Category[] GetAllCategoryVisible();
+        System.Collections.Generic.List<Dashboard.ServiceReference.Category> GetAllCategoryVisible();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategoryVisible", ReplyAction="http://tempuri.org/IContract/GetAllCategoryVisibleResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Category[]> GetAllCategoryVisibleAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Category>> GetAllCategoryVisibleAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
         Dashboard.ServiceReference.Category GetCategoryById(int id);
@@ -1182,16 +1182,16 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task DeleteCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
-        Dashboard.ServiceReference.Product[] GetAllProducts();
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetAllProducts();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetAllProductsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetAllProductsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProductVisible", ReplyAction="http://tempuri.org/IContract/GetAllProductVisibleResponse")]
-        Dashboard.ServiceReference.Product[] GetAllProductVisible();
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetAllProductVisible();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProductVisible", ReplyAction="http://tempuri.org/IContract/GetAllProductVisibleResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetAllProductVisibleAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetAllProductVisibleAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductById", ReplyAction="http://tempuri.org/IContract/GetProductByIdResponse")]
         Dashboard.ServiceReference.Product GetProductById(int id);
@@ -1200,22 +1200,22 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task<Dashboard.ServiceReference.Product> GetProductByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        Dashboard.ServiceReference.Product[] GetProductByCategory(int id);
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetProductByCategoryAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
-        Dashboard.ServiceReference.Product[] GetProductByName(string name);
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByName(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetProductByNameAsync(string name);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByNameAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductBywithOffer", ReplyAction="http://tempuri.org/IContract/GetProductBywithOfferResponse")]
-        Dashboard.ServiceReference.Product[] GetProductBywithOffer();
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductBywithOffer();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductBywithOffer", ReplyAction="http://tempuri.org/IContract/GetProductBywithOfferResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetProductBywithOfferAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductBywithOfferAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateProduct", ReplyAction="http://tempuri.org/IContract/UpdateProductResponse")]
         void UpdateProduct(Dashboard.ServiceReference.Product Product);
@@ -1236,16 +1236,16 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task DeleteProductAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
-        Dashboard.ServiceReference.Order[] GetAllOrders();
+        System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetAllOrders();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetAllOrdersAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetAllOrdersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrderByState", ReplyAction="http://tempuri.org/IContract/GetAllOrderByStateResponse")]
-        Dashboard.ServiceReference.Order[] GetAllOrderByState(int id);
+        System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetAllOrderByState(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrderByState", ReplyAction="http://tempuri.org/IContract/GetAllOrderByStateResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetAllOrderByStateAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetAllOrderByStateAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateOrder", ReplyAction="http://tempuri.org/IContract/UpdateOrderResponse")]
         void UpdateOrder(Dashboard.ServiceReference.Order Order);
@@ -1260,28 +1260,28 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task<Dashboard.ServiceReference.Order> GetOrderByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDate", ReplyAction="http://tempuri.org/IContract/GetOrderByDateResponse")]
-        Dashboard.ServiceReference.Order[] GetOrderByDate(System.DateTime OrdenDate);
+        System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetOrderByDate(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDate", ReplyAction="http://tempuri.org/IContract/GetOrderByDateResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetOrderByDateAsync(System.DateTime OrdenDate);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetOrderByDateAsync(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDateDone", ReplyAction="http://tempuri.org/IContract/GetOrderByDateDoneResponse")]
-        Dashboard.ServiceReference.Order[] GetOrderByDateDone(System.DateTime OrdenDate);
+        System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetOrderByDateDone(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDateDone", ReplyAction="http://tempuri.org/IContract/GetOrderByDateDoneResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetOrderByDateDoneAsync(System.DateTime OrdenDate);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetOrderByDateDoneAsync(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/PlaceOrder", ReplyAction="http://tempuri.org/IContract/PlaceOrderResponse")]
-        void PlaceOrder(Dashboard.ServiceReference.Order Order, Dashboard.ServiceReference.OrderProduct[] products);
+        void PlaceOrder(Dashboard.ServiceReference.Order Order, System.Collections.Generic.List<Dashboard.ServiceReference.OrderProduct> products);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/PlaceOrder", ReplyAction="http://tempuri.org/IContract/PlaceOrderResponse")]
-        System.Threading.Tasks.Task PlaceOrderAsync(Dashboard.ServiceReference.Order Order, Dashboard.ServiceReference.OrderProduct[] products);
+        System.Threading.Tasks.Task PlaceOrderAsync(Dashboard.ServiceReference.Order Order, System.Collections.Generic.List<Dashboard.ServiceReference.OrderProduct> products);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllBanner", ReplyAction="http://tempuri.org/IContract/GetAllBannerResponse")]
-        Dashboard.ServiceReference.Banner[] GetAllBanner();
+        System.Collections.Generic.List<Dashboard.ServiceReference.Banner> GetAllBanner();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllBanner", ReplyAction="http://tempuri.org/IContract/GetAllBannerResponse")]
-        System.Threading.Tasks.Task<Dashboard.ServiceReference.Banner[]> GetAllBannerAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Banner>> GetAllBannerAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetBannerById", ReplyAction="http://tempuri.org/IContract/GetBannerByIdResponse")]
         Dashboard.ServiceReference.Banner GetBannerById(int id);
@@ -1335,19 +1335,19 @@ namespace Dashboard.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Dashboard.ServiceReference.Category[] GetAllCategories() {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Category> GetAllCategories() {
             return base.Channel.GetAllCategories();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Category[]> GetAllCategoriesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Category>> GetAllCategoriesAsync() {
             return base.Channel.GetAllCategoriesAsync();
         }
         
-        public Dashboard.ServiceReference.Category[] GetAllCategoryVisible() {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Category> GetAllCategoryVisible() {
             return base.Channel.GetAllCategoryVisible();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Category[]> GetAllCategoryVisibleAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Category>> GetAllCategoryVisibleAsync() {
             return base.Channel.GetAllCategoryVisibleAsync();
         }
         
@@ -1383,19 +1383,19 @@ namespace Dashboard.ServiceReference {
             return base.Channel.DeleteCategoryAsync(id);
         }
         
-        public Dashboard.ServiceReference.Product[] GetAllProducts() {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetAllProducts() {
             return base.Channel.GetAllProducts();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetAllProductsAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetAllProductsAsync() {
             return base.Channel.GetAllProductsAsync();
         }
         
-        public Dashboard.ServiceReference.Product[] GetAllProductVisible() {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetAllProductVisible() {
             return base.Channel.GetAllProductVisible();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetAllProductVisibleAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetAllProductVisibleAsync() {
             return base.Channel.GetAllProductVisibleAsync();
         }
         
@@ -1407,27 +1407,27 @@ namespace Dashboard.ServiceReference {
             return base.Channel.GetProductByIdAsync(id);
         }
         
-        public Dashboard.ServiceReference.Product[] GetProductByCategory(int id) {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByCategory(int id) {
             return base.Channel.GetProductByCategory(id);
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetProductByCategoryAsync(int id) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByCategoryAsync(int id) {
             return base.Channel.GetProductByCategoryAsync(id);
         }
         
-        public Dashboard.ServiceReference.Product[] GetProductByName(string name) {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByName(string name) {
             return base.Channel.GetProductByName(name);
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetProductByNameAsync(string name) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByNameAsync(string name) {
             return base.Channel.GetProductByNameAsync(name);
         }
         
-        public Dashboard.ServiceReference.Product[] GetProductBywithOffer() {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductBywithOffer() {
             return base.Channel.GetProductBywithOffer();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Product[]> GetProductBywithOfferAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductBywithOfferAsync() {
             return base.Channel.GetProductBywithOfferAsync();
         }
         
@@ -1455,19 +1455,19 @@ namespace Dashboard.ServiceReference {
             return base.Channel.DeleteProductAsync(id);
         }
         
-        public Dashboard.ServiceReference.Order[] GetAllOrders() {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetAllOrders() {
             return base.Channel.GetAllOrders();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetAllOrdersAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetAllOrdersAsync() {
             return base.Channel.GetAllOrdersAsync();
         }
         
-        public Dashboard.ServiceReference.Order[] GetAllOrderByState(int id) {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetAllOrderByState(int id) {
             return base.Channel.GetAllOrderByState(id);
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetAllOrderByStateAsync(int id) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetAllOrderByStateAsync(int id) {
             return base.Channel.GetAllOrderByStateAsync(id);
         }
         
@@ -1487,35 +1487,35 @@ namespace Dashboard.ServiceReference {
             return base.Channel.GetOrderByIdAsync(id);
         }
         
-        public Dashboard.ServiceReference.Order[] GetOrderByDate(System.DateTime OrdenDate) {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetOrderByDate(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDate(OrdenDate);
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetOrderByDateAsync(System.DateTime OrdenDate) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetOrderByDateAsync(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDateAsync(OrdenDate);
         }
         
-        public Dashboard.ServiceReference.Order[] GetOrderByDateDone(System.DateTime OrdenDate) {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetOrderByDateDone(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDateDone(OrdenDate);
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Order[]> GetOrderByDateDoneAsync(System.DateTime OrdenDate) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Order>> GetOrderByDateDoneAsync(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDateDoneAsync(OrdenDate);
         }
         
-        public void PlaceOrder(Dashboard.ServiceReference.Order Order, Dashboard.ServiceReference.OrderProduct[] products) {
+        public void PlaceOrder(Dashboard.ServiceReference.Order Order, System.Collections.Generic.List<Dashboard.ServiceReference.OrderProduct> products) {
             base.Channel.PlaceOrder(Order, products);
         }
         
-        public System.Threading.Tasks.Task PlaceOrderAsync(Dashboard.ServiceReference.Order Order, Dashboard.ServiceReference.OrderProduct[] products) {
+        public System.Threading.Tasks.Task PlaceOrderAsync(Dashboard.ServiceReference.Order Order, System.Collections.Generic.List<Dashboard.ServiceReference.OrderProduct> products) {
             return base.Channel.PlaceOrderAsync(Order, products);
         }
         
-        public Dashboard.ServiceReference.Banner[] GetAllBanner() {
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Banner> GetAllBanner() {
             return base.Channel.GetAllBanner();
         }
         
-        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Banner[]> GetAllBannerAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Banner>> GetAllBannerAsync() {
             return base.Channel.GetAllBannerAsync();
         }
         
