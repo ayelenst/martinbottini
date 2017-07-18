@@ -17,6 +17,7 @@ namespace Model
         public DbSet<User> User { get; set; }
         public DbSet<Image> Image { get; set; }
         public DbSet<Feature> Feature { get; set; }
+        public DbSet<Banner> Banner { get; set; }
         public EcommerceContext()
         {
             Configuration.ProxyCreationEnabled = false;

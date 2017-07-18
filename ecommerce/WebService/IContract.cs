@@ -92,6 +92,22 @@ namespace WebService
 
 
         #endregion
+
+        #region Banner
+        [OperationContract]
+        List<Banner> GetAllBanner();
+
+
+        [OperationContract]
+        void UpdateBanner(Banner banner);
+
+        [OperationContract]
+        void AddBanner(Banner banner);
+
+        [OperationContract]
+        void DeleteBanner(int id);
+        #endregion
+
     }
 
 
