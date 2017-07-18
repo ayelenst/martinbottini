@@ -214,6 +214,13 @@ namespace WebService
 
         }
 
+
+        public Banner GetBannerById(int id)
+        {
+            var repo = new BannerRepository();
+            return repo.GetById(id);
+        }
+
         public void AddBanner(Banner banner)
         {
             var repo = new BannerRepository();

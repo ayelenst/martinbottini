@@ -1,0 +1,66 @@
+﻿@model Dashboard.Models.BannerViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<!DOCTYPE html>
+
+@using (Html.BeginForm("Edit", "Banner", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.HiddenFor(x => x.Id)
+    <div class="row">
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">ID</label>
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @Html.DisplayFor(x => x.Id, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Nombre</label>
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nombre" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Descripción</label>
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "2" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
+                <label class="">Nivel</label>
+            </div>
+            <div class="col-lg-2 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", @placeholder = "Nivel" })
+                </div>
+            </div>
+            <div class="col-lg-1 control-label col-sm-6 col-xs-6">
+                <label class=" ">ID Padre</label>
+            </div>
+            <div class="col-lg-2 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "ID Padre" })
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-lg-offset-3">
+            <input type="submit" class="btn btn-primary pull-left" value="Submit" style="margin-right:0px" />
+        </div>
+        <div class="col-lg-1">
+            <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Category")'" />
+        </div>
+
+    </div>
+}

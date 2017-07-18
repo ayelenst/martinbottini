@@ -233,6 +233,9 @@ namespace Dashboard.ServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Dashboard.ServiceReference.Image[] ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsOfferField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -344,6 +347,19 @@ namespace Dashboard.ServiceReference {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Dashboard.ServiceReference.Image[] Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
                 }
             }
         }
@@ -518,6 +534,115 @@ namespace Dashboard.ServiceReference {
                 if ((this.ProductIDField.Equals(value) != true)) {
                     this.ProductIDField = value;
                     this.RaisePropertyChanged("ProductID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Image", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsMainField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Dashboard.ServiceReference.Product[] ProductsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsMain {
+            get {
+                return this.IsMainField;
+            }
+            set {
+                if ((this.IsMainField.Equals(value) != true)) {
+                    this.IsMainField = value;
+                    this.RaisePropertyChanged("IsMain");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductId {
+            get {
+                return this.ProductIdField;
+            }
+            set {
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Dashboard.ServiceReference.Product[] Products {
+            get {
+                return this.ProductsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
+                    this.ProductsField = value;
+                    this.RaisePropertyChanged("Products");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
                 }
             }
         }
@@ -907,6 +1032,115 @@ namespace Dashboard.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Banner", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Banner : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageUrl {
+            get {
+                return this.ImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageUrlField, value) != true)) {
+                    this.ImageUrlField = value;
+                    this.RaisePropertyChanged("ImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IContract")]
     public interface IContract {
@@ -1042,6 +1276,36 @@ namespace Dashboard.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/PlaceOrder", ReplyAction="http://tempuri.org/IContract/PlaceOrderResponse")]
         System.Threading.Tasks.Task PlaceOrderAsync(Dashboard.ServiceReference.Order Order, Dashboard.ServiceReference.OrderProduct[] products);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllBanner", ReplyAction="http://tempuri.org/IContract/GetAllBannerResponse")]
+        Dashboard.ServiceReference.Banner[] GetAllBanner();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllBanner", ReplyAction="http://tempuri.org/IContract/GetAllBannerResponse")]
+        System.Threading.Tasks.Task<Dashboard.ServiceReference.Banner[]> GetAllBannerAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetBannerById", ReplyAction="http://tempuri.org/IContract/GetBannerByIdResponse")]
+        Dashboard.ServiceReference.Banner GetBannerById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetBannerById", ReplyAction="http://tempuri.org/IContract/GetBannerByIdResponse")]
+        System.Threading.Tasks.Task<Dashboard.ServiceReference.Banner> GetBannerByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateBanner", ReplyAction="http://tempuri.org/IContract/UpdateBannerResponse")]
+        void UpdateBanner(Dashboard.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateBanner", ReplyAction="http://tempuri.org/IContract/UpdateBannerResponse")]
+        System.Threading.Tasks.Task UpdateBannerAsync(Dashboard.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddBanner", ReplyAction="http://tempuri.org/IContract/AddBannerResponse")]
+        void AddBanner(Dashboard.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddBanner", ReplyAction="http://tempuri.org/IContract/AddBannerResponse")]
+        System.Threading.Tasks.Task AddBannerAsync(Dashboard.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteBanner", ReplyAction="http://tempuri.org/IContract/DeleteBannerResponse")]
+        void DeleteBanner(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteBanner", ReplyAction="http://tempuri.org/IContract/DeleteBannerResponse")]
+        System.Threading.Tasks.Task DeleteBannerAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1245,6 +1509,46 @@ namespace Dashboard.ServiceReference {
         
         public System.Threading.Tasks.Task PlaceOrderAsync(Dashboard.ServiceReference.Order Order, Dashboard.ServiceReference.OrderProduct[] products) {
             return base.Channel.PlaceOrderAsync(Order, products);
+        }
+        
+        public Dashboard.ServiceReference.Banner[] GetAllBanner() {
+            return base.Channel.GetAllBanner();
+        }
+        
+        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Banner[]> GetAllBannerAsync() {
+            return base.Channel.GetAllBannerAsync();
+        }
+        
+        public Dashboard.ServiceReference.Banner GetBannerById(int id) {
+            return base.Channel.GetBannerById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Banner> GetBannerByIdAsync(int id) {
+            return base.Channel.GetBannerByIdAsync(id);
+        }
+        
+        public void UpdateBanner(Dashboard.ServiceReference.Banner banner) {
+            base.Channel.UpdateBanner(banner);
+        }
+        
+        public System.Threading.Tasks.Task UpdateBannerAsync(Dashboard.ServiceReference.Banner banner) {
+            return base.Channel.UpdateBannerAsync(banner);
+        }
+        
+        public void AddBanner(Dashboard.ServiceReference.Banner banner) {
+            base.Channel.AddBanner(banner);
+        }
+        
+        public System.Threading.Tasks.Task AddBannerAsync(Dashboard.ServiceReference.Banner banner) {
+            return base.Channel.AddBannerAsync(banner);
+        }
+        
+        public void DeleteBanner(int id) {
+            base.Channel.DeleteBanner(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteBannerAsync(int id) {
+            return base.Channel.DeleteBannerAsync(id);
         }
     }
 }

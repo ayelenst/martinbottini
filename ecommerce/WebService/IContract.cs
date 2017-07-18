@@ -97,6 +97,8 @@ namespace WebService
         [OperationContract]
         List<Banner> GetAllBanner();
 
+        [OperationContract]
+        Banner GetBannerById(int id);
 
         [OperationContract]
         void UpdateBanner(Banner banner);

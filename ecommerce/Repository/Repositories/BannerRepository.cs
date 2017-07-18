@@ -21,6 +21,15 @@ namespace Repository.Repositories
         }
 
 
+        public Banner GetById(int id)
+        {
+            using (var db = new EcommerceContext())
+            {
+                return db.Banner.First(x => x.Id == id);
+            }
+        }
+
+
         public void Add(Banner banner)
         {
             using (var db = new EcommerceContext())
