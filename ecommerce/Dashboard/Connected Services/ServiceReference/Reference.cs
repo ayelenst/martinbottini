@@ -567,7 +567,7 @@ namespace Dashboard.ServiceReference {
         private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<Dashboard.ServiceReference.Product> ProductsField;
+        private Dashboard.ServiceReference.Product ProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UrlField;
@@ -622,7 +622,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> Products {
+        public Dashboard.ServiceReference.Product Products {
             get {
                 return this.ProductsField;
             }

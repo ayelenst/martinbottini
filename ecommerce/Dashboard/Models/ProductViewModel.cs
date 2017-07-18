@@ -33,5 +33,7 @@ namespace Dashboard.Models
 
         public List<FeatureViewModel> Feature { get; set; }
 
+        public List<ServiceReference.Image> Images { get; set; }
+
     }
 }

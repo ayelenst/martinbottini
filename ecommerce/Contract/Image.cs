@@ -23,7 +23,7 @@ namespace Model
         public int ProductId { get; set; }
 
         [DataMember]
-        public virtual List<Product> Products { get; set; }
+        public virtual Product Products { get; set; }
 
     }
 

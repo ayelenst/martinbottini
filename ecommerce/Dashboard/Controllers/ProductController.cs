@@ -74,6 +74,7 @@ namespace Dashboard.Controllers
                 Price = productClient.Price,
                 StartDay = productClient.StartDay,
                 EndDay = productClient.EndDay,
+                Images = productClient.Image
             };
             var completeModel = new ProductEditViewModel();
             completeModel.Product = model;
@@ -88,6 +89,25 @@ namespace Dashboard.Controllers
             return View(completeModel);
         }
 
+        [HttpPost]
+        public JsonResult DeleteFile(string guid)
+        {           
+            try
+            {
+
+                //Delete file from the file system
+                var path = Path.Combine(Server.MapPath("~/Image"), guid);
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+                return Json(new { Result = "OK" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
 
 
         [HttpPost]
@@ -145,9 +165,9 @@ namespace Dashboard.Controllers
             var model = new ServiceReference.Product
             {
                 Id = product.Id,
-                Name = product.Name,
+                Name = product.Name,                
                 Description = product.Description,
-                Enabled = product.Enabled,
+                Enabled = true,
                 IsOffer = product.IsOffer,
                 Percent = product.Percent,
                 Price = product.Price,

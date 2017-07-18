@@ -72,7 +72,7 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IsMain" type="xs:boolean" />
       <xs:element minOccurs="0" name="ProductId" type="xs:int" />
-      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:Product" />
       <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

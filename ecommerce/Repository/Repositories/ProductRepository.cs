@@ -70,7 +70,10 @@ namespace Repository.Repositories
         {
             using (var db = new EcommerceContext())
             {
-                return db.Products.First(x => x.Id == id);
+                var questions = db.Products.Include("Feature").Select(q => q).ToList();
+
+                var product = questions.First(x => x.Id == id);
+                return product;
             }
         }
 

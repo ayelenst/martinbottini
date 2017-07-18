@@ -1,61 +1,283 @@
-﻿@model Dashboard.Models.ProductViewModel
+﻿@model Dashboard.Models.ProductEditViewModel
 
 @{
     ViewBag.Title = "Editar Producto";
 }
 
 
+@section Scripts
+{
+    <script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('#datetimepicker1').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            dateFormat: 'dd/mm/yy',
+            "setDate": new Date(),
+        });
+
+        $('#datetimepicker2').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            dateFormat: 'dd/mm/yy',
+            "setDate": new Date(),
+        });
+
+        $('.deletefeature').click(function (e) {
+            e.preventDefault();
+            var id = e.currentTarget.id.split('__')[1];
+            $('#Product_Feature_' + id + '__Id').val("-1");
+            $("#formgroup__" + id).hide();
+        });
+
+
+        $('#addfeature').click(function (e) {
+            e.preventDefault();
+            var id = $('#featurerow').children().length;
+            $('#featurerow').append(
+                '<div class="form-group" id="formgroup__' + id+'"> <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 "> <input class="form-control" id= "Product_Feature_' + id + '__Name" name= "Product.Feature[' + id + '].Name" placeholder= "Nombre" type= "text" ></div> <div class="col-lg-6 col-sm-12 col-xs-12"><div class="form-group"><input class="form-control" id="Product_Feature_' + id + '__Description" name="Product.Feature[' + id + '].Description" placeholder="Descripción" type="text"></div></div><div class="col-lg-1 col-sm-12 col-xs-12"><button class="btn btn-danger deletefeature" id="deletebtn__' + id + '" /></div></div>'
+            );
+            $('#deletebtn__'+id).click(function (e) {
+                e.preventDefault();
+                var id = e.currentTarget.id.split('__')[1];
+                $('#Product_Feature_' + id + '__Id').val("-1");
+                $("#formgroup__" + id).hide();
+            });
+        });
+
+            $('.deleteItem').click(function (e) {
+           e.preventDefault();
+           var $ctrl = $(this);
+           if (confirm('Do you really want to delete this file?')) {
+               $.ajax({
+                   url: '@Url.Action("DeleteFile")',
+                   type: 'POST',
+                   data: { id: $(this).data('id') }
+               }).done(function (data) {
+                   if (data.Result == "OK") {
+                       $ctrl.closest('li').remove();
+                   }
+                   else if (data.Result.Message) {
+                       alert(data.Result.Message);
+                   }
+               }).fail(function () {
+                   alert("There is something wrong. Please try again.");
+               })
+
+           }
+       });
+
+    });
+    </script>
+
+
+}
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Update</title>
-</head>
-<body>
-    @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
-    {
-        @Html.HiddenFor(x => x.Id)
-        <div>
-            <p>ID</p>
-            @Html.DisplayFor(x => x.Id)
-        </div>
-        <div>
-            <p>Nombre</p>
-            @Html.EditorFor(x => x.Name)
-        </div>
-        <div>
-            <p>Descripción</p>
-            @Html.EditorFor(x => x.Description)
-        </div>
-        <div>
-            <p>Oferta</p>
-            @Html.EditorFor(x => x.IsOffer)
-        </div>
-        <div>
-            <p>Porcentaje</p>
-            @Html.EditorFor(x => x.Percent)
-        </div>
-        <div>
-            <p>Habilitado</p>
-            @Html.EditorFor(x => x.Enabled)
-        </div>
-        <div>
-            <p>Día de inicio</p>
-            @Html.EditorFor(x => x.StartDay)
-        </div>
-        <div>
-            <p>Día de fin</p>
-            @Html.EditorFor(x => x.EndDay)
-        </div>
-        <div>
-            <p>Precio</p>
-            @Html.EditorFor(x => x.Price)
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.Product.Id)
+    <div class="row">
+        <div class="form-group ">
+            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
+                <label class="">Nombre</label>
+            </div>
+            <div class="col-lg-2 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Product.Name, new { @class = "form-control", @placeholder = "Nombre" })
+                </div>
+            </div>
+
+            <div class="col-lg-1 control-label col-sm-6 col-xs-6">
+                <label class=" ">Precio</label>
+            </div>
+            <div class="col-lg-1 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Product.Price, new { @class = "form-control", @type = "number", @placeholder = "Nombre" })
+
+                </div>
+            </div>
+            <div class="col-lg-1 control-label col-sm-6 col-xs-6">
+                <label class=" ">Habilitado</label>
+            </div>
+            <div class="form-group col-lg-1 col-sm-4 col-xs-4">
+                @Html.CheckBoxFor(x => x.Product.Enabled, new { @class = "checkbox form-control" })
+            </div>
+
         </div>
 
-    <input type="submit" value="Submit" />
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Categoría principal</label>
+            <div class="col-lg-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @*@Html.Partial("TreeView", Model.Categories)*@
 
-    <input type="button" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
-    }
-</body>
-</html>
+                    @Html.DropDownListFor(m => m.Product.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Categoría", new { @class = "form-control" })
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Descripción</label>
+            <div class="col-lg-6 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @Html.TextAreaFor(x => x.Product.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "3" })
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2 col-sm-12 col-xs-12">Oferta</label>
+            <div class="col-lg-2 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="form-group col-lg-2 col-sm-4 col-xs-4">
+                        @Html.CheckBoxFor(x => x.Product.IsOffer, new { @class = "checkbox form-control" })
+                    </div>
+                    <label class="control-label col-lg-5">Porcentaje</label>
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Product.Percent, new { @class = "checkbox form-control", @type = "number" })
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col-lg-4">
+
+                <div class="col-lg-6 ">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control", @type = "text" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" style="padding-right:0px">
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker2'>
+                            @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control", @type = "text" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+        <hr />
+        <h4>Caracteristicas</h4>
+        <div class="row" id="featurerow">
+
+            @for (int i = 0; i < Model.Product.Feature.Count(); i++)
+                {
+                    {
+                    <div class="form-group " id="formgroup__@i">
+                        @Html.HiddenFor(x => x.Product.Feature[i].Id)
+                        <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 ">
+                            @Html.TextBoxFor(x => x.Product.Feature[i].Name, new { @class = "form-control", @placeholder = "Nombre" })
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                @Html.TextBoxFor(x => x.Product.Feature[i].Description, new { @class = "form-control", @placeholder = "Descripción" })
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-sm-12 col-xs-12">
+                            <button class="btn btn-danger deletefeature" id="deletebtn__@i" />
+                        </div>
+                    </div>
+
+
+                }
+            }
+            <div class="form-group" id="formgroup__@Model.Product.Feature.Count()">
+                <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 ">
+                    <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Name" name="Product.Feature[@Model.Product.Feature.Count()].Name" placeholder="Nombre" type="text">
+                </div>
+                <div class="col-lg-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Description" name="Product.Feature[@Model.Product.Feature.Count()].Description" placeholder="Descripción" type="text">
+                    </div>
+                </div>
+                <div class="col-lg-1 col-sm-12 col-xs-12">
+                    <button class="btn btn-danger deletefeature" id="deletebtn__@Model.Product.Feature.Count()" />
+                </div>
+            </div>
+
+        </div>
+        <div class="row" style="margin-top:15px">
+            <div class="col-lg-1 col-lg-offset-3">
+                <input type="button" class="btn btn-default pull-left" value="Agregar" style="margin-right:0px" id="addfeature" />
+            </div>
+        </div>
+
+        <hr />
+        <h4>Imágenes</h4>
+        <div class="form-group ">
+            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
+                <label class="">Imagen principal</label>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-6">
+                <div class="form-group">
+
+                    <div class="editor-field">
+                        <input type="file" name="file" accept="image/*" />
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="form-group ">
+                <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
+                    <label class="">Otras imagenes</label>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+
+                        <div class="editor-field">
+                            <input type="file" name="file2" multiple="multiple" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="attachment">
+                @foreach (var item in Model.Product.Images)
+                {
+                    <li>
+                        <a class="title">@item.Url</a>
+                        <a href="javascript:void(0);" data-id="@item.Url" class="deleteItem">X</a>
+                    </li>
+                }
+            </ul>
+
+
+
+            <hr />
+            <div class="row">
+                <div class="col-lg-1 col-lg-offset-3">
+                    <input type="submit" class="btn btn-primary pull-left" value="Submit" style="margin-right:0px" />
+                </div>
+                <div class="col-lg-1">
+                    <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+                </div>
+            </div>
+
+}
