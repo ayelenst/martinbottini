@@ -21,13 +21,16 @@ namespace Dashboard
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                        "~/Scripts/bootstrap-datepicker.js",
                       "~/Scripts/respond.js",
-                 "~/Scripts/gridmvc.js",
+                        "~/Scripts/gridmvc.js",
+
                       "~/Scripts/skyicons.js", "~/Scripts/custom.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-datepicker.css", 
                       "~/Content/font-awesome.min.css",
                        "~/Content/Gridmvc.css",
                       "~/Content/custom.css",

@@ -2,10 +2,10 @@
 @using GridMvc.Html
 
 @{
-    ViewBag.Title = "Productgetall";
+    ViewBag.Title = "Producto por ID";
 }
 
-<input type="button" value="Nuevo" onclick="location.href='@Url.Action("Add", "Product")'" />
+<input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Product")'" />
 
 @Html.Grid(Model).Columns(columns =>
 {
@@ -21,9 +21,11 @@ columns.Add(foo => foo.Price).Sortable(true);
 columns.Add().Encoded(false)
 .Sanitized(false)
 .SetWidth(30)
-.RenderValueAs(o => @<input type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "Product", new { id = o.Id })'" />);
+.RenderValueAs(o => @<input type="button" class='btn-default' value="Edit" onclick="location.href='@Url.Action("Edit", "Product", new { id = o.Id })'" />);
     columns.Add().Encoded(false)
     .Sanitized(false)
     .SetWidth(30)
-    .RenderValueAs(o => @<input type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Product", new { id = o.Id })'" />);
+    .RenderValueAs(o => @<input type="button" class='btn-default' value="Delete" onclick="location.href='@Url.Action("Delete", "Product", new { id = o.Id })'" />);
 }).WithPaging(20)
+
+<input type="button" class="btn btn-primary pull-right" style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Product")'" />
