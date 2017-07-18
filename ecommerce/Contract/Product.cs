@@ -45,5 +45,8 @@ namespace Model
 
         [DataMember]
         public virtual List<Feature> Feature { get; set; }
+
+        [DataMember]
+        public virtual List<Image> Image { get; set; }
     }
 }

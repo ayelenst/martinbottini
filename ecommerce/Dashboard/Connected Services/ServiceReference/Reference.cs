@@ -436,7 +436,7 @@ namespace Dashboard.ServiceReference {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -471,12 +471,12 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public int Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
                 }

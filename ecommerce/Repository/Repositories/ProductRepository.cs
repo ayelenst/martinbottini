@@ -14,7 +14,6 @@ namespace Repository.Repositories
             using (var db = new EcommerceContext())
             {
                 var query = db.Products.OrderBy(x => x.Id);
-
                 return query.ToList();
             }
         }
@@ -78,7 +77,7 @@ namespace Repository.Repositories
         public void Add(Product Product)
         {
             using (var db = new EcommerceContext())
-            {
+             {
                 db.Products.Add(Product);
                 db.SaveChanges();
             }

@@ -97,21 +97,62 @@ namespace WebService
         }
 
 
-        public void AddProduct(Product Product)
+        public void AddProduct(Product product)
         {
-            var repo = new ProductRepository();
-            repo.Add(Product);
+            var prodrepo = new ProductRepository();
+            var imgrepo = new ImageRepository();
+            var featrepo = new FeatureRepository();
+
+            prodrepo.Add(product);
+            //verficiar q todo tenga el id!
+            imgrepo.AddRange(product.Image);
+            featrepo.AddRange(product.Feature);
+
         }
 
-        public void UpdateProduct(Product Product)
+        public void UpdateProduct(Product product)
         {
+            var prodrepo = new ProductRepository();
+            var imgrepo = new ImageRepository();
+            var featrepo = new FeatureRepository();
+            var productDB = prodrepo.GetById(product.Id);
+
+            MergeList(product.Image, productDB.Image, imgrepo);
+            MergeList(product.Feature, productDB.Feature, featrepo);
+
+           
             var repo = new ProductRepository();
-            repo.Update(Product);
+            repo.Update(product);
+        }
+        private void MergeList(List<Image> listParam, List<Image> listDb, ImageRepository repo)
+        {
+            var a = listDb.Where(x => listParam.Any(y => (y.Id == x.Id) && (x.Url != y.Url || x.IsMain != y.IsMain))).ToList();
+            repo.UpdateRange(a);
+            var b = listDb.Where(x => listParam.All(y => y.Id == x.Id)).ToList();
+            repo.DeleteRange(b);
+            var c = listDb.Where(x => listDb.All(y => x.Id == y.Id)).ToList();
+            repo.AddRange(c);
+        }
+
+
+        private void MergeList(List<Feature> listParam, List<Feature> listDb, FeatureRepository repo)
+        {
+            var a = listDb.Where(x => listParam.Any(y => (y.Id == x.Id) && (x.Name != y.Name || x.Description != y.Description))).ToList();
+            repo.UpdateRange(a);
+            var b = listDb.Where(x => listParam.All(y => y.Id == x.Id)).ToList();
+            repo.DeleteRange(b);
+            var c = listDb.Where(x => listDb.All(y => x.Id == y.Id)).ToList();
+            repo.AddRange(c);
         }
 
         public void DeleteProduct(int id)
         {
             var repo = new ProductRepository();
+            var imgrepo = new ImageRepository();
+            var featrepo = new FeatureRepository();
+            imgrepo.DeleteRangeByProductId(id); //where y el resultado un removerange
+            featrepo.DeleteRangeByProductId(id); //where y el resultado un removerange
+
             repo.Delete(id);
         }
         #endregion
