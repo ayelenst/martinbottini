@@ -1,5 +1,4 @@
-﻿
-@model List<Dashboard.Models.Category>
+﻿@model List<Dashboard.Models.CategoryViewModel>
 @using GridMvc.Html
 
 @{
@@ -7,7 +6,7 @@
 }
 
 
-<input type="button" class='btn-primary' value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'"/>
+<input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'"/>
 
 @Html.Grid(Model).Columns(columns =>
 {
@@ -27,5 +26,5 @@ columns.Add().Encoded(false)
     .RenderValueAs(o => @<input type="button" class='btn-default' value="Delete" onclick="location.href='@Url.Action("Delete", "Category", new { id = o.Id })'" />);
 }).WithPaging(20)
 
-    <input type="button" class='btn-primary' value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'" />
+    <input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'" />
 

@@ -1,4 +1,4 @@
-﻿@model Dashboard.Models.Category
+﻿@model Dashboard.Models.CategoryViewModel
 @{
     ViewBag.Title = "Agregar categoría";
 }
@@ -6,74 +6,70 @@
 @using (Html.BeginForm("Add", "Category", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.HiddenFor(x => x.Id)
-            <div class='form-group'>
-                <label class='control-label col-md-2 col-md-offset-2' for='id_ID'>ID</label>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        <div class='col-md-11'>
-                            @Html.DisplayFor(x => x.Id, new { @class = "form-control" })                            
-                        </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">ID</label>
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @Html.DisplayFor(x => x.Id, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Nombre</label>
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Nombre" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Descripción</label>
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "2" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
+                <label class="">Nivel</label>
+            </div>
+            <div class="col-lg-2 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Level, new { @class = "form-control", @placeholder = "Nivel" })
+                </div>
+            </div>
+            <div class="col-lg-1 control-label col-sm-6 col-xs-6">
+                <label class=" ">ID Padre</label>
+            </div>
+            <div class="col-lg-2 col-sm-6 col-xs-6">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control", @placeholder = "ID Padre" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-lg-1 col-lg-offset-2 col-sm-12 col-xs-12">Habilitado</label>
+            <div class="col-lg-2 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="form-group col-lg-2 col-sm-4 col-xs-4">
+                        @Html.CheckBoxFor(x => x.Enabled, new { @class = "checkbox form-control" })
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class='form-group'>
-                <label class='control-label col-md-2 col-md-offset-2' for='id_name'>Nombre</label>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        <div class='col-md-11'>
-                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Nombre" })
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-1 col-lg-offset-3">
+                <input type="submit" class="btn btn-primary pull-left" value="Submit" style="margin-right:0px" />
+            </div>
+            <div class="col-lg-1">
+                <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Category")'" />
             </div>
 
-            <div class='form-group'>
-                <label class='control-label col-md-2 col-md-offset-2' for='id_name'>Descripción</label>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        <div class='col-md-11'>
-                            @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "3" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='form-group'>
-                <label class='control-label col-md-2 col-md-offset-2' for='id_Level'>Nivel</label>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        <div class='col-md-11'>
-                            @Html.TextBoxFor(x => x.Level, new { @class = "form-control", @placeholder = "Nivel" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='form-group'>
-                <label class='control-label col-md-2 col-md-offset-2' for='id_ParentId'>ID Padre</label>
-                <div class='col-md-6'>
-                    <div class='form-group'>
-                        <div class='col-md-11'>
-                            @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control", @placeholder = "ID Padre" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='form-group'>
-                <label class='control-label col-md-2 col-md-offset-2' for='id_Enabled'>Habilitado</label>
-                <div class='col-md-6'>
-                    <div>
-                        @Html.EditorFor(x => x.Enabled)
-                    </div>
-                </div>
-            </div>
-
-            <div class='form-group'>
-                <div class='col-md-offset-4 col-md-3'>
-                    <input type="submit"  class='btn-primary' value="Enviar" />
-                    <input class='btn-default' type="button" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Category")'" />
-                </div>
-            </div>
-}
+        </div>
+        }
