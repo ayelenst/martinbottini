@@ -214,6 +214,43 @@ namespace WebService
 
 
         #endregion
+
+        #region Banner 
+
+        public List<Banner> GetAllBanner()
+        {
+            var repo = new BannerRepository();
+            return repo.GetAll();
+
+        }
+
+
+        public Banner GetBannerById(int id)
+        {
+            var repo = new BannerRepository();
+            return repo.GetById(id);
+        }
+
+        public void AddBanner(Banner banner)
+        {
+            var repo = new BannerRepository();
+            repo.Add(banner);
+        }
+
+        public void UpdateBanner(Banner banner)
+        {
+            var repo = new BannerRepository();
+            repo.Update(banner);
+        }
+
+        public void DeleteBanner(int id)
+        {
+            var repo = new BannerRepository();
+            repo.Delete(id);
+        }
+        #endregion
+
+
     }
 }
 
