@@ -22,15 +22,19 @@ namespace Dashboard.Models
 
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Nombre es obligatorio")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Descripción es obligatorio")]
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "Nivel es obligatorio")]
         public int Level { get; set; }
 
         public int ParentId { get; set; }
 
         public bool Enabled { get; set; }
+
         public List<CategoryViewModel> Children { get; set; }
     }
 }

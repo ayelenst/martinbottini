@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ecommerce.Models
 {
-{
+
     public class FeatureViewModel
     {
         public int Id { get; set; }
