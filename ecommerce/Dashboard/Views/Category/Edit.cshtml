@@ -20,6 +20,7 @@
             <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Nombre</label>
             <div class="col-lg-5 col-sm-12 col-xs-12">
                 <div class="form-group">
+                    @Html.ValidationMessageFor(x => x.Name)
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Nombre" })
                 </div>
             </div>
@@ -29,6 +30,7 @@
             <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Descripción</label>
             <div class="col-lg-5 col-sm-12 col-xs-12">
                 <div class="form-group">
+                    @Html.ValidationMessageFor(x => x.Description)
                     @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "2" })
                 </div>
             </div>
@@ -40,6 +42,7 @@
             </div>
             <div class="col-lg-2 col-sm-6 col-xs-6">
                 <div class="form-group">
+                    @Html.ValidationMessageFor(x => x.Level)
                     @Html.TextBoxFor(x => x.Level, new { @class = "form-control", @placeholder = "Nivel" })
                 </div>
             </div>
