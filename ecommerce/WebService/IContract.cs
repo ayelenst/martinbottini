@@ -60,7 +60,7 @@ namespace WebService
         void UpdateProduct(Product Product);
 
         [OperationContract]
-        void AddProduct(Product Product);
+        int AddProduct(Product Product);
 
         [OperationContract]
         void DeleteProduct(int id);

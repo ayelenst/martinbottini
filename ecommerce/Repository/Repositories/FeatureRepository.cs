@@ -9,92 +9,64 @@ namespace Repository.Repositories
 {
     public class FeatureRepository
     {
-
+        private EcommerceContext db = new EcommerceContext();
         public void Add(Feature feature)
         {
-            using (var db = new EcommerceContext())
-            {
-                db.Feature.Add(feature);
+           db.Feature.Add(feature);
                 db.SaveChanges();
-            }
         }
 
         public void AddRange(List<Feature> feature)
         {
-            using (var db = new EcommerceContext())
-            {
-                foreach (var f in feature)
+           foreach (var f in feature)
                 {
                     db.Feature.Add(f);
-                }
-
-                db.SaveChanges();
             }
+            db.SaveChanges();
+
         }
 
         public void Update(Feature feature)
         {
-            using (var db = new EcommerceContext())
-            {
-
-                var img = db.Feature.First(x => x.Id == feature.Id);
+           var img = db.Feature.First(x => x.Id == feature.Id);
                 db.Entry(img).CurrentValues.SetValues(feature);
                 db.SaveChanges();
-            }
         }
 
 
         public void UpdateRange(List<Feature> features)
         {
-            using (var db = new EcommerceContext())
-            {
-                foreach (var feature in features)
+            foreach (var feature in features)
                 {
                     var img = db.Image.Where(x => x.Id == feature.Id);
                     db.Entry(img).CurrentValues.SetValues(feature);
                 }
                 db.SaveChanges();
-            }
         }
 
         public void Delete(int id)
         {
-            using (var db = new EcommerceContext())
-            {
-
-                var img = db.Feature.First(x => x.Id == id);
+            var img = db.Feature.First(x => x.Id == id);
                 db.Feature.Remove(img);
                 db.SaveChanges();
-            }
         }
 
         public void DeleteRangeByProductId(int id)
         {
-            using (var db = new EcommerceContext())
-            {
-
-                var img = db.Feature.Where(x => x.Id == id);
+           var img = db.Feature.Where(x => x.Id == id);
                 db.Feature.RemoveRange(img);
                 db.SaveChanges();
-            }
         }
 
         public void DeleteRange(List<Feature> features)
         {
-            using (var db = new EcommerceContext())
-            {
-
-                db.Feature.RemoveRange(features);
+            db.Feature.RemoveRange(features);
                 db.SaveChanges();
-            }
         }
         public List<Feature> GetByProductId(int id)
         {
-            using (var db = new EcommerceContext())
-            {
-                var query = db.Feature.Where(x => x.ProductID == id);
+            var query = db.Feature.Where(x => x.ProductID == id);
                 return query.ToList();
-            }
         }
 
 

@@ -97,18 +97,19 @@ namespace WebService
         }
 
 
-        public void AddProduct(Product product)
+        public int AddProduct(Product product)
         {
             var prodrepo = new ProductRepository();
             var featrepo = new FeatureRepository();
             var features = product.Feature;
             product.Feature = null;
-            prodrepo.Add(product);
+            var id = prodrepo.Add(product);
             foreach (var feat in features)
             {
                 feat.ProductID = product.Id;
             }
             featrepo.AddRange(features);
+            return id;
 
         }
 
@@ -117,9 +118,12 @@ namespace WebService
             var prodrepo = new ProductRepository();
             var imgrepo = new ImageRepository();
             var featrepo = new FeatureRepository();
-            var productDB = prodrepo.GetById(product.Id);
+
+            var features = featrepo.GetByProductId(product.Id);
             imgrepo.AddRange(product.Image);
-            MergeList(product.Feature, productDB.Feature, featrepo);
+
+
+            MergeList(product.Feature, features, featrepo);
 
 
             prodrepo.Update(product);
@@ -130,9 +134,9 @@ namespace WebService
         {
             var a = listDb.Where(x => listParam.Any(y => (y.Id == x.Id) && (x.Name != y.Name || x.Description != y.Description))).ToList();
             repo.UpdateRange(a);
-            var b = listDb.Where(x => listParam.All(y => y.Id == x.Id)).ToList();
+            var b = listDb.Where(x => listParam.All(y => y.Id != x.Id)).ToList();
             repo.DeleteRange(b);
-            var c = listDb.Where(x => listDb.All(y => x.Id == y.Id)).ToList();
+            var c = listParam.Where(x => x.Id == 0).ToList();
             repo.AddRange(c);
         }
 

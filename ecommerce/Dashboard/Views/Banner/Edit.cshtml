@@ -43,7 +43,9 @@
             </div>
             <div class="col-lg-2 col-sm-6 col-xs-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", @placeholder = "Nivel" })
+                    <div class="editor-field">
+                        <input type="file" name="file" accept="image/*" />
+                    </div>
                 </div>
             </div>
             <div class="col-lg-1 control-label col-sm-6 col-xs-6">
@@ -51,7 +53,7 @@
             </div>
             <div class="col-lg-2 col-sm-6 col-xs-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "ID Padre" })
+                    @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "Url" })
                 </div>
             </div>
         </div>
@@ -59,7 +61,7 @@
             <input type="submit" class="btn btn-primary pull-left" value="Submit" style="margin-right:0px" />
         </div>
         <div class="col-lg-1">
-            <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Category")'" />
+            <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Banner")'" />
         </div>
 
     </div>

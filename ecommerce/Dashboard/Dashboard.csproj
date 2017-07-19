@@ -176,6 +176,7 @@
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\FeatureViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImageHelper.cs" />
     <Compile Include="Models\ProductEditViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\Tree.cs" />
@@ -195,6 +196,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference\Dashboard.ServiceReference.Banner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference\Dashboard.ServiceReference.Feature.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference\Dashboard.ServiceReference.Image.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference\Service.disco" />

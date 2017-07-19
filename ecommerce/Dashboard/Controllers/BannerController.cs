@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Dashboard.Models;
+using System.IO;
 
 namespace Dashboard.Controllers
 {
@@ -52,11 +53,17 @@ namespace Dashboard.Controllers
         public ActionResult Edit(BannerViewModel banner)
         {
             var app = new ServiceReference.ContractClient();
-
+            var path = string.Empty;
+            if (Request.Files.Count == 1)
+            {
+                var bannerClient = app.GetBannerById(banner.Id);
+                ImageHelper.DeleteImage(bannerClient.ImageUrl);
+                path = ImageHelper.SaveImage("Banner", Request.Files[0], Server.MapPath("~/Image"));
+            }
             var model = new ServiceReference.Banner
             {
                 Id = banner.Id,
-                ImageUrl = banner.ImageUrl,
+                ImageUrl = path,
                 Description = banner.Description,
                 Title = banner.Title,
                 Url = banner.Url,
@@ -82,11 +89,15 @@ namespace Dashboard.Controllers
         public ActionResult Add(BannerViewModel banner)
         {
             var app = new ServiceReference.ContractClient();
-
+            var path = string.Empty;
+            if (Request.Files.Count == 1)
+            {
+                path = ImageHelper.SaveImage("Banner", Request.Files[0], Server.MapPath("~/Image"));                
+            }
             var model = new ServiceReference.Banner
             {
                 Id = banner.Id,
-                ImageUrl = banner.ImageUrl,
+                ImageUrl = path,
                 Description = banner.Description,
                 Title = banner.Title,
                 Url = banner.Url,

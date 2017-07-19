@@ -169,6 +169,36 @@
   <wsdl:message name="IContract_DeleteBanner_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBannerResponse" />
   </wsdl:message>
+  <wsdl:message name="IContract_GetImageByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetImageByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetImageById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageById" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetImageById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImage" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddImageRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddImageRange" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddImageRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddImageRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetFeatureByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeatureByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetFeatureByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeatureByProductIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IContract">
     <wsdl:operation name="GetAllCategories">
       <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllCategories" message="tns:IContract_GetAllCategories_InputMessage" />
@@ -277,6 +307,26 @@
     <wsdl:operation name="DeleteBanner">
       <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteBanner" message="tns:IContract_DeleteBanner_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteBannerResponse" message="tns:IContract_DeleteBanner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetImageByProductId" message="tns:IContract_GetImageByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetImageByProductIdResponse" message="tns:IContract_GetImageByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetImageById" message="tns:IContract_GetImageById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetImageByIdResponse" message="tns:IContract_GetImageById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteImage" message="tns:IContract_DeleteImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteImageResponse" message="tns:IContract_DeleteImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddImageRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/AddImageRange" message="tns:IContract_AddImageRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/AddImageRangeResponse" message="tns:IContract_AddImageRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeatureByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetFeatureByProductId" message="tns:IContract_GetFeatureByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetFeatureByProductIdResponse" message="tns:IContract_GetFeatureByProductId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IContract" type="tns:IContract">
@@ -517,6 +567,51 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteBanner">
       <soap:operation soapAction="http://tempuri.org/IContract/DeleteBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageByProductId">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetImageByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetImageById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddImageRange">
+      <soap:operation soapAction="http://tempuri.org/IContract/AddImageRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeatureByProductId">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetFeatureByProductId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

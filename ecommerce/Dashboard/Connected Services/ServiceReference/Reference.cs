@@ -1224,10 +1224,10 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task UpdateProductAsync(Dashboard.ServiceReference.Product Product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddProduct", ReplyAction="http://tempuri.org/IContract/AddProductResponse")]
-        void AddProduct(Dashboard.ServiceReference.Product Product);
+        int AddProduct(Dashboard.ServiceReference.Product Product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddProduct", ReplyAction="http://tempuri.org/IContract/AddProductResponse")]
-        System.Threading.Tasks.Task AddProductAsync(Dashboard.ServiceReference.Product Product);
+        System.Threading.Tasks.Task<int> AddProductAsync(Dashboard.ServiceReference.Product Product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteProduct", ReplyAction="http://tempuri.org/IContract/DeleteProductResponse")]
         void DeleteProduct(int id);
@@ -1306,6 +1306,36 @@ namespace Dashboard.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteBanner", ReplyAction="http://tempuri.org/IContract/DeleteBannerResponse")]
         System.Threading.Tasks.Task DeleteBannerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageByProductId", ReplyAction="http://tempuri.org/IContract/GetImageByProductIdResponse")]
+        System.Collections.Generic.List<Dashboard.ServiceReference.Image> GetImageByProductId(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageByProductId", ReplyAction="http://tempuri.org/IContract/GetImageByProductIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Image>> GetImageByProductIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageById", ReplyAction="http://tempuri.org/IContract/GetImageByIdResponse")]
+        Dashboard.ServiceReference.Image GetImageById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageById", ReplyAction="http://tempuri.org/IContract/GetImageByIdResponse")]
+        System.Threading.Tasks.Task<Dashboard.ServiceReference.Image> GetImageByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteImage", ReplyAction="http://tempuri.org/IContract/DeleteImageResponse")]
+        void DeleteImage(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteImage", ReplyAction="http://tempuri.org/IContract/DeleteImageResponse")]
+        System.Threading.Tasks.Task DeleteImageAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddImageRange", ReplyAction="http://tempuri.org/IContract/AddImageRangeResponse")]
+        void AddImageRange(System.Collections.Generic.List<Dashboard.ServiceReference.Image> image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddImageRange", ReplyAction="http://tempuri.org/IContract/AddImageRangeResponse")]
+        System.Threading.Tasks.Task AddImageRangeAsync(System.Collections.Generic.List<Dashboard.ServiceReference.Image> image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetFeatureByProductId", ReplyAction="http://tempuri.org/IContract/GetFeatureByProductIdResponse")]
+        System.Collections.Generic.List<Dashboard.ServiceReference.Feature> GetFeatureByProductId(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetFeatureByProductId", ReplyAction="http://tempuri.org/IContract/GetFeatureByProductIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Feature>> GetFeatureByProductIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1439,11 +1469,11 @@ namespace Dashboard.ServiceReference {
             return base.Channel.UpdateProductAsync(Product);
         }
         
-        public void AddProduct(Dashboard.ServiceReference.Product Product) {
-            base.Channel.AddProduct(Product);
+        public int AddProduct(Dashboard.ServiceReference.Product Product) {
+            return base.Channel.AddProduct(Product);
         }
         
-        public System.Threading.Tasks.Task AddProductAsync(Dashboard.ServiceReference.Product Product) {
+        public System.Threading.Tasks.Task<int> AddProductAsync(Dashboard.ServiceReference.Product Product) {
             return base.Channel.AddProductAsync(Product);
         }
         
@@ -1549,6 +1579,46 @@ namespace Dashboard.ServiceReference {
         
         public System.Threading.Tasks.Task DeleteBannerAsync(int id) {
             return base.Channel.DeleteBannerAsync(id);
+        }
+        
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Image> GetImageByProductId(int id) {
+            return base.Channel.GetImageByProductId(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Image>> GetImageByProductIdAsync(int id) {
+            return base.Channel.GetImageByProductIdAsync(id);
+        }
+        
+        public Dashboard.ServiceReference.Image GetImageById(int id) {
+            return base.Channel.GetImageById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Dashboard.ServiceReference.Image> GetImageByIdAsync(int id) {
+            return base.Channel.GetImageByIdAsync(id);
+        }
+        
+        public void DeleteImage(int id) {
+            base.Channel.DeleteImage(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteImageAsync(int id) {
+            return base.Channel.DeleteImageAsync(id);
+        }
+        
+        public void AddImageRange(System.Collections.Generic.List<Dashboard.ServiceReference.Image> image) {
+            base.Channel.AddImageRange(image);
+        }
+        
+        public System.Threading.Tasks.Task AddImageRangeAsync(System.Collections.Generic.List<Dashboard.ServiceReference.Image> image) {
+            return base.Channel.AddImageRangeAsync(image);
+        }
+        
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Feature> GetFeatureByProductId(int id) {
+            return base.Channel.GetFeatureByProductId(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Feature>> GetFeatureByProductIdAsync(int id) {
+            return base.Channel.GetFeatureByProductIdAsync(id);
         }
     }
 }
