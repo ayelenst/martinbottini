@@ -110,6 +110,29 @@ namespace WebService
         void DeleteBanner(int id);
         #endregion
 
+        #region Image
+
+        [OperationContract]
+        List<Image> GetImageByProductId(int id);
+
+        [OperationContract]
+        Image GetImageById(int id);
+
+
+        [OperationContract]
+        void DeleteImage(int id);
+
+        [OperationContract]
+        void AddImageRange(List<Image> image);
+
+
+        #endregion
+
+        #region Feature
+        [OperationContract]
+        List<Feature> GetFeatureByProductId(int id);
+        #endregion
+
     }
 
 

@@ -100,22 +100,14 @@ namespace WebService
         public void AddProduct(Product product)
         {
             var prodrepo = new ProductRepository();
-            var imgrepo = new ImageRepository();
             var featrepo = new FeatureRepository();
             var features = product.Feature;
-            var images = product.Image;
             product.Feature = null;
-            product.Image = null;
             prodrepo.Add(product);
-            foreach(var feat in features)
+            foreach (var feat in features)
             {
                 feat.ProductID = product.Id;
             }
-            foreach (var feat in images)
-            {
-                feat.ProductId = product.Id;
-            }
-            imgrepo.AddRange(images);
             featrepo.AddRange(features);
 
         }
@@ -126,22 +118,11 @@ namespace WebService
             var imgrepo = new ImageRepository();
             var featrepo = new FeatureRepository();
             var productDB = prodrepo.GetById(product.Id);
-
-            MergeList(product.Image, productDB.Image, imgrepo);
+            imgrepo.AddRange(product.Image);
             MergeList(product.Feature, productDB.Feature, featrepo);
 
-           
-            var repo = new ProductRepository();
-            repo.Update(product);
-        }
-        private void MergeList(List<Image> listParam, List<Image> listDb, ImageRepository repo)
-        {
-            var a = listDb.Where(x => listParam.Any(y => (y.Id == x.Id) && (x.Url != y.Url || x.IsMain != y.IsMain))).ToList();
-            repo.UpdateRange(a);
-            var b = listDb.Where(x => listParam.All(y => y.Id == x.Id)).ToList();
-            repo.DeleteRange(b);
-            var c = listDb.Where(x => listDb.All(y => x.Id == y.Id)).ToList();
-            repo.AddRange(c);
+
+            prodrepo.Update(product);
         }
 
 
@@ -194,7 +175,7 @@ namespace WebService
             return repo.GetById(id);
         }
 
-        public List<Order> GetOrderByDate(DateTime OrderDate )
+        public List<Order> GetOrderByDate(DateTime OrderDate)
         {
             var repo = new OrderRepository();
             return repo.GetByDate(OrderDate);
@@ -209,7 +190,7 @@ namespace WebService
         public void PlaceOrder(Order Order, List<OrderProduct> products)
         {
             var repo = new OrderRepository();
-            repo.Place(Order,products);
+            repo.Place(Order, products);
         }
 
 
@@ -249,6 +230,49 @@ namespace WebService
             repo.Delete(id);
         }
         #endregion
+
+        #region Image
+
+        public List<Image> GetImageByProductId(int id)
+        {
+            var repo = new ImageRepository();
+            return repo.GetByProductId(id);
+        }
+
+
+        public Image GetImageById(int id)
+        {
+            var repo = new ImageRepository();
+            return repo.GetById(id);
+        }
+
+        public void DeleteImage(int id)
+        {
+            var repo = new ImageRepository();
+            repo.Delete(id);
+        }
+
+        public void AddImageRange(List<Image> image)
+        {
+            var repo = new ImageRepository();
+            repo.AddRange(image);
+        }
+
+        #endregion
+
+        #region Feature
+
+        public List<Feature> GetFeatureByProductId(int id)
+        {
+            var repo = new FeatureRepository();
+            return repo.GetByProductId(id);
+        }
+
+
+
+        #endregion 
+
+
 
 
     }

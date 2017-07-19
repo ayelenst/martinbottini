@@ -88,6 +88,16 @@ namespace Repository.Repositories
                 db.SaveChanges();
             }
         }
+        public List<Feature> GetByProductId(int id)
+        {
+            using (var db = new EcommerceContext())
+            {
+                var query = db.Feature.Where(x => x.ProductID == id);
+                return query.ToList();
+            }
+        }
+
+
 
     }
 

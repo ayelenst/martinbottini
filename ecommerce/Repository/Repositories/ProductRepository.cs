@@ -77,12 +77,13 @@ namespace Repository.Repositories
             }
         }
 
-        public void Add(Product Product)
+        public int  Add(Product Product)
         {
             using (var db = new EcommerceContext())
              {
                 db.Products.Add(Product);
                 db.SaveChanges();
+                return Product.Id;
             }
         }
 

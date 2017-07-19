@@ -86,6 +86,24 @@ namespace Repository.Repositories
             }
         }
 
+
+        public List<Image> GetByProductId(int id)
+        {
+            using (var db = new EcommerceContext())
+            {
+                var query = db.Image.Where(x => x.ProductId == id);
+                return query.ToList();
+            }
+        }
+
+        public Image GetById(int id)
+        {
+            using (var db = new EcommerceContext())
+            {
+                return db.Image.First(x => x.Id == id);
+            }
+        }
+
     }
 
 
