@@ -1,247 +1,289 @@
 ﻿@model Dashboard.Models.ProductEditViewModel
 @using GridMvc.Html
-
 @{
     ViewBag.Title = "Agregar producto";
 }
-
 @section Scripts
 {
-<script type="text/javascript">
-    $(function () { // will trigger when the document is ready
-        $('#datetimepicker1').datepicker({
-            changeMonth: true,
-            changeYear: true,
-            showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
-            "setDate": new Date(),
-        });
+    <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
+            $('#datetimepicker1').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                "setDate": new Date(),
+            });
 
-        $('#datetimepicker2').datepicker({
-            changeMonth: true,
-            changeYear: true,
-            showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
-            "setDate": new Date(),
-        });
+            $('#datetimepicker2').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                "setDate": new Date(),
+            });
 
-        $('.deletefeature').click(function (e) {
-            e.preventDefault();
-            var id = e.currentTarget.id.split('__')[1];
-            $('#Product_Feature_' + id + '__Id').val("-1");
-            $("#formgroup__" + id).hide();
-        });
-      
-      
-        $('#addfeature').click(function (e) {
-            e.preventDefault();
-            var id = $('#featurerow').children().length;
-            $('#featurerow').append(
-                '<div class="form-group" id="formgroup__' + id+'"> <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 "> <input class="form-control" id= "Product_Feature_' + id + '__Name" name= "Product.Feature[' + id + '].Name" placeholder= "Nombre" type= "text" ></div> <div class="col-lg-6 col-sm-12 col-xs-12"><div class="form-group"><input class="form-control" id="Product_Feature_' + id + '__Description" name="Product.Feature[' + id + '].Description" placeholder="Descripción" type="text"></div></div><div class="col-lg-1 col-sm-12 col-xs-12"><button class="btn btn-danger deletefeature" id="deletebtn__' + id + '" /></div></div>'
-            );
-            $('#deletebtn__'+id).click(function (e) {
+            $('.deletefeature').click(function (e) {
                 e.preventDefault();
                 var id = e.currentTarget.id.split('__')[1];
                 $('#Product_Feature_' + id + '__Id').val("-1");
                 $("#formgroup__" + id).hide();
             });
+
+
+            $('#addfeature').click(function (e) {
+                e.preventDefault();
+                var id = $('#featurerow').children().length;
+                $('#featurerow').append(
+                    '<div class="form-group" id="formgroup__' + id + '"> <div class="col-lg-2 col-lg-offset-1 col-sm-offset-1 col-sm-2  col-xs-offset-1 col-xs-6"> <input class="form-control" id= "Product_Feature_' + id + '__Name" name= "Product.Feature[' + id + '].Name" placeholder= "Nombre" type= "text" ></div> <div class="col-lg-6 col-sm-6 col-xs-9"><div class="form-group"><input class="form-control" id="Product_Feature_' + id + '__Description" name="Product.Feature[' + id + '].Description" placeholder="Descripción" type="text"></div></div><div class="col-lg-1 col-sm-1 col-xs-1"><button class="btn btn-default btn-sm deletefeature" id="deletebtn__' + id + '"><span class="glyphicon glyphicon-trash"></span> Trash</button></div></div>'
+                );
+                $('#deletebtn__' + id).click(function (e) {
+                    e.preventDefault();
+                    var id = e.currentTarget.id.split('__')[1];
+                    $('#Product_Feature_' + id + '__Id').val("-1");
+                    $("#formgroup__" + id).hide();
+                });
+            });
+
         });
-
-    });
-</script>
-
+    </script>
 
 }
 <!DOCTYPE html>
-
 @using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(x => x.Product.Id)
-    <div class="row">    
-            <div class="form-group ">
-                <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
-                    <label class= "">Nombre</label>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-xs-6">
-                    <div class="form-group">
-                        @Html.TextBoxFor(x => x.Product.Name, new { @class = "form-control", @placeholder = "Nombre" })
-                    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>General</h4>
+                    <div class="clearfix"></div>
                 </div>
 
-                <div class="col-lg-1 control-label col-sm-6 col-xs-6">
-                    <label class=" ">Precio</label>
-                </div>
-                <div class="col-lg-2 col-sm-6 col-xs-6">
-                    <div class="form-group">
-                        @Html.TextBoxFor(x => x.Product.Price, new { @class = "form-control", @type = "number", @placeholder = "Nombre" })
+                <div class="x_content">
+                    <br>
+                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Categoría principal</label>
-                <div class="col-lg-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                     @*@Html.Partial("TreeView", Model.Categories)*@
-
-                        @Html.DropDownListFor(m => m.Product.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Categoría", new { @class = "form-control" })
-                    </div>
-                </div>
-
-            </div>
-
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Descripción</label>
-            <div class="col-lg-6 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    @Html.TextAreaFor(x => x.Product.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "3" })
-
-                </div>
-            </div>
-        </div>
-
-
-            <div class="form-group">
-                <label class="control-label col-lg-1 col-lg-offset-2 col-sm-12 col-xs-12">Oferta</label>
-                    <div class="col-lg-2 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="form-group col-lg-2 col-sm-4 col-xs-4">
-                                @Html.CheckBoxFor(x => x.Product.IsOffer, new { @class = "checkbox form-control" })
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                Nombre
+                            </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.TextBoxFor(x => x.Product.Name, new { @class = "form-control", @placeholder = "Nombre" })
                             </div>
-                            <label class="control-label col-lg-5">Porcentaje</label>
-                            <div class="col-lg-5">
-                                <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Product.Percent, new { @class = "checkbox form-control", @type = "number" })
+                        </div>
 
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">
+                                Precio
+                            </label>
+                            <div class="col-lg-2  col-md-2 col-sm-2 col-xs-4">
+                                @Html.TextBoxFor(x => x.Product.Price, new { @class = "form-control", @type = "number", @placeholder = "0" })
+                            </div>
+
+                            <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="category">
+                                Categoría
+                            </label>
+                            <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+                                @*@Html.Partial("TreeView", Model.Categories)*@
+                                @Html.DropDownListFor(m => m.Product.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Categoría", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">
+                                Descripción
+                            </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.TextAreaFor(x => x.Product.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-2" for="offer">
+                                Oferta
+                            </label>
+                            <div class="col-lg-2 col-md-8 col-sm-9 col-xs-10">
+                                <div class="row">
+                                    <div class="form-group col-lg-2 col-md-1 col-sm-1 col-xs-1">
+                                        @Html.CheckBoxFor(x => x.Product.IsOffer, new { @class = "checkbox form-control" })
+                                    </div>
+                                    <label class="control-label col-lg-5">Porcentaje</label>
+                                    <div class="col-lg-5  col-md-2 col-sm-2 col-xs-4">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Product.Percent, new { @class = "checkbox form-control", @type = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-lg-offset-0 col-md-7 col-sm-offset-3 col-sm-7 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control", @type = "text" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right:0px">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control", @type = "text" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                       
 
-                    </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class=" col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-4">
+                                <button class="btn btn-default" type="reset">Reset</button>
+                                <input type="button" class="btn pull-left" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+                            </div>
+                        </div>
 
-                 
-
-                
-               <div class="col-lg-4">
-
-                   <div class="col-lg-6 ">
-                       <div class="form-group">
-                           <div class='input-group date' id='datetimepicker1'>
-                               @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control", @type = "text" })
-                               <span class="input-group-addon">
-                                   <span class="glyphicon glyphicon-calendar"></span>
-                               </span>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-lg-6" style="padding-right:0px">
-                           <div class="form-group">
-                               <div class='input-group date' id='datetimepicker2'>
-                                   @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control", @type = "text" })
-                                   <span class="input-group-addon">
-                                       <span class="glyphicon glyphicon-calendar"></span>
-                                   </span>
-                               </div>
-                          </div>
-                   </div>
-               </div>
-               
+                    </form>
+                </div>
             </div>
-
-           
-
         </div>
+    </div>
 
 
-        <hr />
-        <h4>Caracteristicas</h4>
-        <div class="row" id="featurerow">
-          
-                @for (int i = 0; i < Model.Product.Feature.Count(); i++)
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>Caracteristicas</h4>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <br>
+                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+
+                        <div class="row" id="featurerow">
+
+                            @for (int i = 0; i < Model.Product.Feature.Count(); i++)
                 {
                     {
-                        <div class="form-group " id="formgroup__@i">
-                            @Html.HiddenFor(x => x.Product.Feature[i].Id)
-                            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 ">
-                                @Html.TextBoxFor(x => x.Product.Feature[i].Name, new { @class = "form-control", @placeholder = "Nombre" })
-                            </div>
-                            <div class="col-lg-6 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    @Html.TextBoxFor(x => x.Product.Feature[i].Description, new { @class = "form-control", @placeholder = "Descripción" })
+                                    <div class="form-group " id="formgroup__@i">
+                                        @Html.HiddenFor(x => x.Product.Feature[i].Id)
+                                        <div class="col-lg-2 col-lg-offset-1 col-sm-offset-1 col-sm-2  col-xs-offset-1 col-xs-6">
+                                            @Html.TextBoxFor(x => x.Product.Feature[i].Name, new { @class = "form-control", @placeholder = "Nombre" })
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-xs-9">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(x => x.Product.Feature[i].Description, new { @class = "form-control", @placeholder = "Descripción" })
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-sm-1 col-xs-1">
+                                            <button class="btn btn-default btn-sm deletefeature" id="deletebtn__@i">
+                                                <span class="glyphicon glyphicon-trash"></span> Trash
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            <div class="form-group" id="formgroup__@Model.Product.Feature.Count()">
+                                <div class="col-lg-2 col-lg-offset-1 col-sm-offset-1 col-sm-2 col-xs-offset-1 col-xs-6">
+                                    <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Name" name="Product.Feature[@Model.Product.Feature.Count()].Name" placeholder="Nombre" type="text">
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-xs-9">
+                                    <div class="form-group">
+                                        <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Description" name="Product.Feature[@Model.Product.Feature.Count()].Description" placeholder="Descripción" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-sm-1 col-xs-1">
+                                    <button class="btn btn-default btn-sm deletefeature" id="deletebtn__@Model.Product.Feature.Count()">
+                                        <span class="glyphicon glyphicon-trash"></span> Trash
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-lg-1 col-sm-12 col-xs-12">
-                                <button class="btn btn-danger deletefeature" id="deletebtn__@i" />
-                                </div>
-                            </div>
-                            
-
-                    }
-                }
-            <div class="form-group" id="formgroup__@Model.Product.Feature.Count()">
-                <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 ">
-                    <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Name" name="Product.Feature[@Model.Product.Feature.Count()].Name" placeholder="Nombre" type="text">
-                </div>
-                <div class="col-lg-6 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                        <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Description" name="Product.Feature[@Model.Product.Feature.Count()].Description" placeholder="Descripción" type="text">
-                    </div>
-                </div>
-                <div class="col-lg-1 col-sm-12 col-xs-12">
-                    <button class="btn btn-danger deletefeature" id="deletebtn__@Model.Product.Feature.Count()" />
-                </div>
-            </div>
-
-        </div>
-        <div class="row" style="margin-top:15px">           
-            <div class="col-lg-1 col-lg-offset-3">
-                <input type="button" class="btn btn-default pull-left" value="Agregar" style="margin-right:0px" id="addfeature" />
-            </div>
-        </div>
-
-        <hr />
-        <h4>Imágenes</h4>
-        <div class="form-group ">
-            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
-                <label class="">Imagen principal</label>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6">
-                <div class="form-group">
-
-                    <div class="editor-field">
-                        <input type="file" name="file" accept="image/*"/>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="form-group ">
-                <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
-                    <label class="">Otras imagenes</label>
-                </div>
-                <div class="col-lg-6 col-sm-6 col-xs-6">
-                    <div class="form-group">
-
-                        <div class="editor-field">
-                            <input type="file" name="file2" multiple="multiple" accept="image/*" />
                         </div>
-                    </div>
+                        <div class="row" style="margin-top:15px">
+                            <div class="col-lg-1 col-lg-offset-3  col-sm-offset-3">
+                                <input type="button" class="btn btn-success pull-left" value="Agregar" style="margin-right:0px" id="addfeature" />
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class=" col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-4">
+                                <button class="btn btn-default" type="reset">Reset</button>
+                                <input type="button" class="btn pull-left" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
 
 
-      
 
-            <hr />
-            <div class="row">
-                <div class="col-lg-1 col-lg-offset-3">
-                    <input type="submit" class="btn btn-primary pull-left" value="Submit" style="margin-right:0px" />
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>Imágenes</h4>
+                    <div class="clearfix"></div>
                 </div>
-                <div class="col-lg-1">
-                    <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+
+                <div class="x_content">
+                    <br>
+                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+
+                        <div class="form-group ">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="imgprincipal">
+                                Imagen principal
+                            </label>
+                            <div class="col-lg-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <div class="editor-field">
+                                        <input type="file" name="file" accept="image/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="imgotras">
+                                Otras imágenes
+                            </label>
+                            <div class="col-lg-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <div class="editor-field">
+                                        <input type="file" name="file2" multiple="multiple" accept="image/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class=" col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-4">
+                                <input type="submit" class="btn btn-primary pull-left" value="Submit" />
+                                <input type="button" class="btn pull-left" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+                            </div>
+                        </div>                      
+
+                    </form>
                 </div>
             </div>
-
-            }
+        </div>
+    </div>
+}
