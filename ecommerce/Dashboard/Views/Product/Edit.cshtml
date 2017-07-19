@@ -95,7 +95,7 @@
             </div>
             <div class="col-lg-1 col-sm-6 col-xs-6">
                 <div class="form-group">
-                    @Html.TextBoxFor(x => x.Product.Price, new { @class = "form-control", @type = "number", @placeholder = "Nombre" })
+                    @Html.TextBoxFor(x => x.Product.Price, Model.Product.Price.ToString("#,##0.00#"), new { @class = "form-control", @type = "text", @placeholder = "Nombre" })
 
                 </div>
             </div>

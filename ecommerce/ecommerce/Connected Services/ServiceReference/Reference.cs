@@ -47,7 +47,7 @@ namespace ecommerce.ServiceReference {
         private int ParentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ecommerce.ServiceReference.Product[] ProductsField;
+        private System.Collections.Generic.List<ecommerce.ServiceReference.Product> ProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string WarrantyField;
@@ -167,7 +167,7 @@ namespace ecommerce.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ecommerce.ServiceReference.Product[] Products {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> Products {
             get {
                 return this.ProductsField;
             }
@@ -227,10 +227,13 @@ namespace ecommerce.ServiceReference {
         private System.DateTime EndDayField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ecommerce.ServiceReference.Feature[] FeatureField;
+        private System.Collections.Generic.List<ecommerce.ServiceReference.Feature> FeatureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<ecommerce.ServiceReference.Image> ImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsOfferField;
@@ -323,7 +326,7 @@ namespace ecommerce.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ecommerce.ServiceReference.Feature[] Feature {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Feature> Feature {
             get {
                 return this.FeatureField;
             }
@@ -344,6 +347,19 @@ namespace ecommerce.ServiceReference {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Image> Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
                 }
             }
         }
@@ -436,7 +452,7 @@ namespace ecommerce.ServiceReference {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -471,12 +487,12 @@ namespace ecommerce.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public int Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
                 }
@@ -534,6 +550,115 @@ namespace ecommerce.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Image", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsMainField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ecommerce.ServiceReference.Product ProductsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsMain {
+            get {
+                return this.IsMainField;
+            }
+            set {
+                if ((this.IsMainField.Equals(value) != true)) {
+                    this.IsMainField = value;
+                    this.RaisePropertyChanged("IsMain");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductId {
+            get {
+                return this.ProductIdField;
+            }
+            set {
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ecommerce.ServiceReference.Product Products {
+            get {
+                return this.ProductsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
+                    this.ProductsField = value;
+                    this.RaisePropertyChanged("Products");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
     public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -557,7 +682,7 @@ namespace ecommerce.ServiceReference {
         private System.DateTime OrderDoneField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ecommerce.ServiceReference.OrderProduct[] OrderProductField;
+        private System.Collections.Generic.List<ecommerce.ServiceReference.OrderProduct> OrderProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrderStateIdField;
@@ -647,7 +772,7 @@ namespace ecommerce.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ecommerce.ServiceReference.OrderProduct[] OrderProduct {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.OrderProduct> OrderProduct {
             get {
                 return this.OrderProductField;
             }
@@ -737,7 +862,7 @@ namespace ecommerce.ServiceReference {
         private int NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ecommerce.ServiceReference.Order[] OrderField;
+        private System.Collections.Generic.List<ecommerce.ServiceReference.Order> OrderField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -776,7 +901,7 @@ namespace ecommerce.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ecommerce.ServiceReference.Order[] Order {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Order> Order {
             get {
                 return this.OrderField;
             }
@@ -907,21 +1032,130 @@ namespace ecommerce.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Banner", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Banner : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageUrl {
+            get {
+                return this.ImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageUrlField, value) != true)) {
+                    this.ImageUrlField = value;
+                    this.RaisePropertyChanged("ImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url {
+            get {
+                return this.UrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrlField, value) != true)) {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IContract")]
     public interface IContract {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
-        ecommerce.ServiceReference.Category[] GetAllCategories();
+        System.Collections.Generic.List<ecommerce.ServiceReference.Category> GetAllCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategories", ReplyAction="http://tempuri.org/IContract/GetAllCategoriesResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Category[]> GetAllCategoriesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Category>> GetAllCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategoryVisible", ReplyAction="http://tempuri.org/IContract/GetAllCategoryVisibleResponse")]
-        ecommerce.ServiceReference.Category[] GetAllCategoryVisible();
+        System.Collections.Generic.List<ecommerce.ServiceReference.Category> GetAllCategoryVisible();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllCategoryVisible", ReplyAction="http://tempuri.org/IContract/GetAllCategoryVisibleResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Category[]> GetAllCategoryVisibleAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Category>> GetAllCategoryVisibleAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
         ecommerce.ServiceReference.Category GetCategoryById(int id);
@@ -942,22 +1176,22 @@ namespace ecommerce.ServiceReference {
         System.Threading.Tasks.Task AddCategoryAsync(ecommerce.ServiceReference.Category category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
-        void DeleteCategory(ecommerce.ServiceReference.Category category);
+        void DeleteCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteCategory", ReplyAction="http://tempuri.org/IContract/DeleteCategoryResponse")]
-        System.Threading.Tasks.Task DeleteCategoryAsync(ecommerce.ServiceReference.Category category);
+        System.Threading.Tasks.Task DeleteCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
-        ecommerce.ServiceReference.Product[] GetAllProducts();
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetAllProducts();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProducts", ReplyAction="http://tempuri.org/IContract/GetAllProductsResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetAllProductsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProductVisible", ReplyAction="http://tempuri.org/IContract/GetAllProductVisibleResponse")]
-        ecommerce.ServiceReference.Product[] GetAllProductVisible();
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetAllProductVisible();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllProductVisible", ReplyAction="http://tempuri.org/IContract/GetAllProductVisibleResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductVisibleAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetAllProductVisibleAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductById", ReplyAction="http://tempuri.org/IContract/GetProductByIdResponse")]
         ecommerce.ServiceReference.Product GetProductById(int id);
@@ -966,22 +1200,22 @@ namespace ecommerce.ServiceReference {
         System.Threading.Tasks.Task<ecommerce.ServiceReference.Product> GetProductByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        ecommerce.ServiceReference.Product[] GetProductByCategory(int id);
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByCategoryAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
-        ecommerce.ServiceReference.Product[] GetProductByName(string name);
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByName(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByNameAsync(string name);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByNameAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductBywithOffer", ReplyAction="http://tempuri.org/IContract/GetProductBywithOfferResponse")]
-        ecommerce.ServiceReference.Product[] GetProductBywithOffer();
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductBywithOffer();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductBywithOffer", ReplyAction="http://tempuri.org/IContract/GetProductBywithOfferResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductBywithOfferAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductBywithOfferAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateProduct", ReplyAction="http://tempuri.org/IContract/UpdateProductResponse")]
         void UpdateProduct(ecommerce.ServiceReference.Product Product);
@@ -990,22 +1224,40 @@ namespace ecommerce.ServiceReference {
         System.Threading.Tasks.Task UpdateProductAsync(ecommerce.ServiceReference.Product Product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddProduct", ReplyAction="http://tempuri.org/IContract/AddProductResponse")]
-        void AddProduct(ecommerce.ServiceReference.Product Product);
+        int AddProduct(ecommerce.ServiceReference.Product Product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddProduct", ReplyAction="http://tempuri.org/IContract/AddProductResponse")]
-        System.Threading.Tasks.Task AddProductAsync(ecommerce.ServiceReference.Product Product);
+        System.Threading.Tasks.Task<int> AddProductAsync(ecommerce.ServiceReference.Product Product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteProduct", ReplyAction="http://tempuri.org/IContract/DeleteProductResponse")]
+        void DeleteProduct(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteProduct", ReplyAction="http://tempuri.org/IContract/DeleteProductResponse")]
+        System.Threading.Tasks.Task DeleteProductAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastOffers", ReplyAction="http://tempuri.org/IContract/GetProductLastOffersResponse")]
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductLastOffers(System.Nullable<int> count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastOffers", ReplyAction="http://tempuri.org/IContract/GetProductLastOffersResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductLastOffersAsync(System.Nullable<int> count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastAdded", ReplyAction="http://tempuri.org/IContract/GetProductLastAddedResponse")]
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductLastAdded(int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastAdded", ReplyAction="http://tempuri.org/IContract/GetProductLastAddedResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductLastAddedAsync(int count);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
-        ecommerce.ServiceReference.Order[] GetAllOrders();
+        System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetAllOrders();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrdersAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetAllOrdersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrderByState", ReplyAction="http://tempuri.org/IContract/GetAllOrderByStateResponse")]
-        ecommerce.ServiceReference.Order[] GetAllOrderByState(int id);
+        System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetAllOrderByState(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrderByState", ReplyAction="http://tempuri.org/IContract/GetAllOrderByStateResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrderByStateAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetAllOrderByStateAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateOrder", ReplyAction="http://tempuri.org/IContract/UpdateOrderResponse")]
         void UpdateOrder(ecommerce.ServiceReference.Order Order);
@@ -1020,22 +1272,82 @@ namespace ecommerce.ServiceReference {
         System.Threading.Tasks.Task<ecommerce.ServiceReference.Order> GetOrderByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDate", ReplyAction="http://tempuri.org/IContract/GetOrderByDateResponse")]
-        ecommerce.ServiceReference.Order[] GetOrderByDate(System.DateTime OrdenDate);
+        System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetOrderByDate(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDate", ReplyAction="http://tempuri.org/IContract/GetOrderByDateResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateAsync(System.DateTime OrdenDate);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetOrderByDateAsync(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDateDone", ReplyAction="http://tempuri.org/IContract/GetOrderByDateDoneResponse")]
-        ecommerce.ServiceReference.Order[] GetOrderByDateDone(System.DateTime OrdenDate);
+        System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetOrderByDateDone(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetOrderByDateDone", ReplyAction="http://tempuri.org/IContract/GetOrderByDateDoneResponse")]
-        System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateDoneAsync(System.DateTime OrdenDate);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetOrderByDateDoneAsync(System.DateTime OrdenDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/PlaceOrder", ReplyAction="http://tempuri.org/IContract/PlaceOrderResponse")]
-        void PlaceOrder(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products);
+        void PlaceOrder(ecommerce.ServiceReference.Order Order, System.Collections.Generic.List<ecommerce.ServiceReference.OrderProduct> products);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/PlaceOrder", ReplyAction="http://tempuri.org/IContract/PlaceOrderResponse")]
-        System.Threading.Tasks.Task PlaceOrderAsync(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products);
+        System.Threading.Tasks.Task PlaceOrderAsync(ecommerce.ServiceReference.Order Order, System.Collections.Generic.List<ecommerce.ServiceReference.OrderProduct> products);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllBanner", ReplyAction="http://tempuri.org/IContract/GetAllBannerResponse")]
+        System.Collections.Generic.List<ecommerce.ServiceReference.Banner> GetAllBanner();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllBanner", ReplyAction="http://tempuri.org/IContract/GetAllBannerResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Banner>> GetAllBannerAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetBannerById", ReplyAction="http://tempuri.org/IContract/GetBannerByIdResponse")]
+        ecommerce.ServiceReference.Banner GetBannerById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetBannerById", ReplyAction="http://tempuri.org/IContract/GetBannerByIdResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Banner> GetBannerByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateBanner", ReplyAction="http://tempuri.org/IContract/UpdateBannerResponse")]
+        void UpdateBanner(ecommerce.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateBanner", ReplyAction="http://tempuri.org/IContract/UpdateBannerResponse")]
+        System.Threading.Tasks.Task UpdateBannerAsync(ecommerce.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddBanner", ReplyAction="http://tempuri.org/IContract/AddBannerResponse")]
+        void AddBanner(ecommerce.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddBanner", ReplyAction="http://tempuri.org/IContract/AddBannerResponse")]
+        System.Threading.Tasks.Task AddBannerAsync(ecommerce.ServiceReference.Banner banner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteBanner", ReplyAction="http://tempuri.org/IContract/DeleteBannerResponse")]
+        void DeleteBanner(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteBanner", ReplyAction="http://tempuri.org/IContract/DeleteBannerResponse")]
+        System.Threading.Tasks.Task DeleteBannerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageByProductId", ReplyAction="http://tempuri.org/IContract/GetImageByProductIdResponse")]
+        System.Collections.Generic.List<ecommerce.ServiceReference.Image> GetImageByProductId(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageByProductId", ReplyAction="http://tempuri.org/IContract/GetImageByProductIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Image>> GetImageByProductIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageById", ReplyAction="http://tempuri.org/IContract/GetImageByIdResponse")]
+        ecommerce.ServiceReference.Image GetImageById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetImageById", ReplyAction="http://tempuri.org/IContract/GetImageByIdResponse")]
+        System.Threading.Tasks.Task<ecommerce.ServiceReference.Image> GetImageByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteImage", ReplyAction="http://tempuri.org/IContract/DeleteImageResponse")]
+        void DeleteImage(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteImage", ReplyAction="http://tempuri.org/IContract/DeleteImageResponse")]
+        System.Threading.Tasks.Task DeleteImageAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddImageRange", ReplyAction="http://tempuri.org/IContract/AddImageRangeResponse")]
+        void AddImageRange(System.Collections.Generic.List<ecommerce.ServiceReference.Image> image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/AddImageRange", ReplyAction="http://tempuri.org/IContract/AddImageRangeResponse")]
+        System.Threading.Tasks.Task AddImageRangeAsync(System.Collections.Generic.List<ecommerce.ServiceReference.Image> image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetFeatureByProductId", ReplyAction="http://tempuri.org/IContract/GetFeatureByProductIdResponse")]
+        System.Collections.Generic.List<ecommerce.ServiceReference.Feature> GetFeatureByProductId(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetFeatureByProductId", ReplyAction="http://tempuri.org/IContract/GetFeatureByProductIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Feature>> GetFeatureByProductIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1065,19 +1377,19 @@ namespace ecommerce.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public ecommerce.ServiceReference.Category[] GetAllCategories() {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Category> GetAllCategories() {
             return base.Channel.GetAllCategories();
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Category[]> GetAllCategoriesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Category>> GetAllCategoriesAsync() {
             return base.Channel.GetAllCategoriesAsync();
         }
         
-        public ecommerce.ServiceReference.Category[] GetAllCategoryVisible() {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Category> GetAllCategoryVisible() {
             return base.Channel.GetAllCategoryVisible();
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Category[]> GetAllCategoryVisibleAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Category>> GetAllCategoryVisibleAsync() {
             return base.Channel.GetAllCategoryVisibleAsync();
         }
         
@@ -1105,27 +1417,27 @@ namespace ecommerce.ServiceReference {
             return base.Channel.AddCategoryAsync(category);
         }
         
-        public void DeleteCategory(ecommerce.ServiceReference.Category category) {
-            base.Channel.DeleteCategory(category);
+        public void DeleteCategory(int id) {
+            base.Channel.DeleteCategory(id);
         }
         
-        public System.Threading.Tasks.Task DeleteCategoryAsync(ecommerce.ServiceReference.Category category) {
-            return base.Channel.DeleteCategoryAsync(category);
+        public System.Threading.Tasks.Task DeleteCategoryAsync(int id) {
+            return base.Channel.DeleteCategoryAsync(id);
         }
         
-        public ecommerce.ServiceReference.Product[] GetAllProducts() {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetAllProducts() {
             return base.Channel.GetAllProducts();
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductsAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetAllProductsAsync() {
             return base.Channel.GetAllProductsAsync();
         }
         
-        public ecommerce.ServiceReference.Product[] GetAllProductVisible() {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetAllProductVisible() {
             return base.Channel.GetAllProductVisible();
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetAllProductVisibleAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetAllProductVisibleAsync() {
             return base.Channel.GetAllProductVisibleAsync();
         }
         
@@ -1137,27 +1449,27 @@ namespace ecommerce.ServiceReference {
             return base.Channel.GetProductByIdAsync(id);
         }
         
-        public ecommerce.ServiceReference.Product[] GetProductByCategory(int id) {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByCategory(int id) {
             return base.Channel.GetProductByCategory(id);
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByCategoryAsync(int id) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByCategoryAsync(int id) {
             return base.Channel.GetProductByCategoryAsync(id);
         }
         
-        public ecommerce.ServiceReference.Product[] GetProductByName(string name) {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByName(string name) {
             return base.Channel.GetProductByName(name);
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductByNameAsync(string name) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByNameAsync(string name) {
             return base.Channel.GetProductByNameAsync(name);
         }
         
-        public ecommerce.ServiceReference.Product[] GetProductBywithOffer() {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductBywithOffer() {
             return base.Channel.GetProductBywithOffer();
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Product[]> GetProductBywithOfferAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductBywithOfferAsync() {
             return base.Channel.GetProductBywithOfferAsync();
         }
         
@@ -1169,27 +1481,51 @@ namespace ecommerce.ServiceReference {
             return base.Channel.UpdateProductAsync(Product);
         }
         
-        public void AddProduct(ecommerce.ServiceReference.Product Product) {
-            base.Channel.AddProduct(Product);
+        public int AddProduct(ecommerce.ServiceReference.Product Product) {
+            return base.Channel.AddProduct(Product);
         }
         
-        public System.Threading.Tasks.Task AddProductAsync(ecommerce.ServiceReference.Product Product) {
+        public System.Threading.Tasks.Task<int> AddProductAsync(ecommerce.ServiceReference.Product Product) {
             return base.Channel.AddProductAsync(Product);
         }
         
-        public ecommerce.ServiceReference.Order[] GetAllOrders() {
+        public void DeleteProduct(int id) {
+            base.Channel.DeleteProduct(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductAsync(int id) {
+            return base.Channel.DeleteProductAsync(id);
+        }
+        
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductLastOffers(System.Nullable<int> count) {
+            return base.Channel.GetProductLastOffers(count);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductLastOffersAsync(System.Nullable<int> count) {
+            return base.Channel.GetProductLastOffersAsync(count);
+        }
+        
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductLastAdded(int count) {
+            return base.Channel.GetProductLastAdded(count);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductLastAddedAsync(int count) {
+            return base.Channel.GetProductLastAddedAsync(count);
+        }
+        
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetAllOrders() {
             return base.Channel.GetAllOrders();
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrdersAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetAllOrdersAsync() {
             return base.Channel.GetAllOrdersAsync();
         }
         
-        public ecommerce.ServiceReference.Order[] GetAllOrderByState(int id) {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetAllOrderByState(int id) {
             return base.Channel.GetAllOrderByState(id);
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetAllOrderByStateAsync(int id) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetAllOrderByStateAsync(int id) {
             return base.Channel.GetAllOrderByStateAsync(id);
         }
         
@@ -1209,28 +1545,108 @@ namespace ecommerce.ServiceReference {
             return base.Channel.GetOrderByIdAsync(id);
         }
         
-        public ecommerce.ServiceReference.Order[] GetOrderByDate(System.DateTime OrdenDate) {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetOrderByDate(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDate(OrdenDate);
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateAsync(System.DateTime OrdenDate) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetOrderByDateAsync(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDateAsync(OrdenDate);
         }
         
-        public ecommerce.ServiceReference.Order[] GetOrderByDateDone(System.DateTime OrdenDate) {
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Order> GetOrderByDateDone(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDateDone(OrdenDate);
         }
         
-        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Order[]> GetOrderByDateDoneAsync(System.DateTime OrdenDate) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Order>> GetOrderByDateDoneAsync(System.DateTime OrdenDate) {
             return base.Channel.GetOrderByDateDoneAsync(OrdenDate);
         }
         
-        public void PlaceOrder(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products) {
+        public void PlaceOrder(ecommerce.ServiceReference.Order Order, System.Collections.Generic.List<ecommerce.ServiceReference.OrderProduct> products) {
             base.Channel.PlaceOrder(Order, products);
         }
         
-        public System.Threading.Tasks.Task PlaceOrderAsync(ecommerce.ServiceReference.Order Order, ecommerce.ServiceReference.OrderProduct[] products) {
+        public System.Threading.Tasks.Task PlaceOrderAsync(ecommerce.ServiceReference.Order Order, System.Collections.Generic.List<ecommerce.ServiceReference.OrderProduct> products) {
             return base.Channel.PlaceOrderAsync(Order, products);
+        }
+        
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Banner> GetAllBanner() {
+            return base.Channel.GetAllBanner();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Banner>> GetAllBannerAsync() {
+            return base.Channel.GetAllBannerAsync();
+        }
+        
+        public ecommerce.ServiceReference.Banner GetBannerById(int id) {
+            return base.Channel.GetBannerById(id);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Banner> GetBannerByIdAsync(int id) {
+            return base.Channel.GetBannerByIdAsync(id);
+        }
+        
+        public void UpdateBanner(ecommerce.ServiceReference.Banner banner) {
+            base.Channel.UpdateBanner(banner);
+        }
+        
+        public System.Threading.Tasks.Task UpdateBannerAsync(ecommerce.ServiceReference.Banner banner) {
+            return base.Channel.UpdateBannerAsync(banner);
+        }
+        
+        public void AddBanner(ecommerce.ServiceReference.Banner banner) {
+            base.Channel.AddBanner(banner);
+        }
+        
+        public System.Threading.Tasks.Task AddBannerAsync(ecommerce.ServiceReference.Banner banner) {
+            return base.Channel.AddBannerAsync(banner);
+        }
+        
+        public void DeleteBanner(int id) {
+            base.Channel.DeleteBanner(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteBannerAsync(int id) {
+            return base.Channel.DeleteBannerAsync(id);
+        }
+        
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Image> GetImageByProductId(int id) {
+            return base.Channel.GetImageByProductId(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Image>> GetImageByProductIdAsync(int id) {
+            return base.Channel.GetImageByProductIdAsync(id);
+        }
+        
+        public ecommerce.ServiceReference.Image GetImageById(int id) {
+            return base.Channel.GetImageById(id);
+        }
+        
+        public System.Threading.Tasks.Task<ecommerce.ServiceReference.Image> GetImageByIdAsync(int id) {
+            return base.Channel.GetImageByIdAsync(id);
+        }
+        
+        public void DeleteImage(int id) {
+            base.Channel.DeleteImage(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteImageAsync(int id) {
+            return base.Channel.DeleteImageAsync(id);
+        }
+        
+        public void AddImageRange(System.Collections.Generic.List<ecommerce.ServiceReference.Image> image) {
+            base.Channel.AddImageRange(image);
+        }
+        
+        public System.Threading.Tasks.Task AddImageRangeAsync(System.Collections.Generic.List<ecommerce.ServiceReference.Image> image) {
+            return base.Channel.AddImageRangeAsync(image);
+        }
+        
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Feature> GetFeatureByProductId(int id) {
+            return base.Channel.GetFeatureByProductId(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Feature>> GetFeatureByProductIdAsync(int id) {
+            return base.Channel.GetFeatureByProductIdAsync(id);
         }
     }
 }
