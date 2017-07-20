@@ -72,25 +72,7 @@
             });
         });
 
-        //===============
-        //! AJAX / Shop
-        //===============
-        $('.btn-quick-view').on('click', function () {
-            var $el = $(this),
-                href = $(this).attr('href') + ' #single-product';
-
-            $el.find('.fa').removeClass('fa-eye').addClass('fa-refresh fa-spin');
-
-            $('#product-quick-view').find('.modal-body').load(href, function () {
-                $(this).closest('#product-quick-view').modal({
-                    show: true
-                });
-                $el.find('.fa').removeClass('fa-refresh fa-spin').addClass('fa-eye');
-                singleProduct();
-            });
-
-            return false;
-        });
+      
 
         $(document).on('click', '.page-items-controller a', function () {
             $(this).addClass('active').html('<i class="fa fa-refresh fa-spin"></i>').siblings().removeClass('active');

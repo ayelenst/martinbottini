@@ -35,7 +35,7 @@
                             <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
                                 @{ var model = ViewBag.LayoutModel as List<CategoryViewModel>;
 
-                                    foreach (var cat in model.Where(x => x.Level == 0).OrderByDescending(x=>x.CountChildren))
+                                    foreach (var cat in model.Where(x => x.Level == 0).OrderByDescending(x => x.CountChildren))
                                     {
                                         if (model.Any(x => x.Parent == cat.Id && x.Level == 1))
                                         {
@@ -46,7 +46,7 @@
                                                     {
                                                         <li><a href="#">@subcat.Name</a></li>
                                                     }
-                                                   
+
                                                 </ul>
                                             </li>
                                         }
@@ -63,7 +63,7 @@
                                 </li>
 
                                 <li role="presentation">
-                                    <a role="menuitem"  href="">Todos los productos</a>
+                                    <a role="menuitem" href="">Todos los productos</a>
                                 </li>
 
                             </ul>
@@ -80,7 +80,7 @@
                                 <i class="fa fa-search"></i>
                             </Button>
                         </li>
-                       
+
                     </ul>
 
                 </div>
@@ -141,37 +141,49 @@
         <div>
             @RenderBody()
         </div>
-        <footer id="page-footer">
-            <div class="container">
-                <div class="footer-contact text-center row">
-                    <div class="col-xs-12 col-sm-4 col-lg-2 col-lg-offset-3">
-                        <a href="#"><i class="fa fa-envelope-o"></i>info@boxie.com</a>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-lg-2">
-                        <a href="#"><i class="fa fa-phone"></i>555.555.5555</a>
-                    </div>
-                    <div class="social-buttons col-xs-12 col-sm-4 col-lg-2">
-                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                        <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                    </div>
-                </div>
-                <div class="footer-info wrap row">
-                    <div class="col-sm-6">
-                        <ul class="list-unstyled">
-                            <li>© BOXIE! 2014</li>
-                            <li><a href="//boxie.lemonstand.com/terms">Terms &amp; Conditions</a></li>
-                            <li><a href="//boxie.lemonstand.com/privacy">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="credit">Powered by <a href="http://www.lemonstand.com">LemonStand</a></p>
+        <div class="modal fade bd-example-modal-lg" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body" id="modal-body">
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
 
-        </main>
+                <footer id="page-footer">
+                    <div class="container">
+                        <div class="footer-contact text-center row">
+                            <div class="col-xs-12 col-sm-4 col-lg-2 col-lg-offset-3">
+                                <a href="#"><i class="fa fa-envelope-o"></i>info@boxie.com</a>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-lg-2">
+                                <a href="#"><i class="fa fa-phone"></i>555.555.5555</a>
+                            </div>
+                            <div class="social-buttons col-xs-12 col-sm-4 col-lg-2">
+                                <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-info wrap row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled">
+                                    <li>© BOXIE! 2014</li>
+                                    <li><a href="//boxie.lemonstand.com/terms">Terms &amp; Conditions</a></li>
+                                    <li><a href="//boxie.lemonstand.com/privacy">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="credit">Powered by <a href="http://www.lemonstand.com">LemonStand</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+    </main>
         <!-- END NAVBAR -->
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")

@@ -1,6 +1,7 @@
 ﻿using ecommerce.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,6 +30,9 @@ namespace ecommerce.Controllers
                 cat.CountChildren = categories.Count(x => x.ParentId == cat.Id && x.Level == 1);
                 model.Add(cat);
             }
+
+            var imageFolder = ConfigurationManager.AppSettings["imageFolder"];
+            ViewBag.imageFolder = imageFolder;
             ViewBag.LayoutModel = model;
         }
     }

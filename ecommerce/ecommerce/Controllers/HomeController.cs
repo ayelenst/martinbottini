@@ -46,8 +46,6 @@ namespace ecommerce.Controllers
                 model.BannerViewModels.Add(ban);
             }
 
-            var imageFolder = ConfigurationManager.AppSettings["imageFolder"];
-            ViewBag.imageFolder = imageFolder;
 
             return View(model);
 

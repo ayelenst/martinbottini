@@ -7017,9 +7017,7 @@ input[type="password"]:focus + label {
 #single-product .gallery-thumbs li img {
   border: 1px solid #efefef;
   cursor: pointer;
-}
-#single-product .product-img-zoom {
-  cursor: crosshair;
+  max-width:75px
 }
 
 #product-page:before,

@@ -34,7 +34,8 @@
 
 
             <div class="buttons-holder">
-                <a class="btn btn-default btn-quick-view hidden-xs" rel="tooltip" title="" href="/product/@Model.Id" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
+                <a class="btn btn-default btn-quick-view hidden-xs" rel="tooltip" title="" data-id="@Model.Id" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
+              
                 <input type="hidden" name="productId" value="@Model.Id">
                 <a class="btn btn-danger btn-add-cart" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals, #product-page=shop-product">Add to Cart</a>
             </div>

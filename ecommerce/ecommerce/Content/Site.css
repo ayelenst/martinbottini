@@ -70,3 +70,7 @@
             -moz-border-radius: 6px 0 6px 6px;
             border-radius: 6px 0 6px 6px;
         }
+#modal-content {
+    width: 600px !important;
+    margin: 30px auto !important;
+}
