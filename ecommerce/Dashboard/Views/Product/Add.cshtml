@@ -55,6 +55,8 @@
 @using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-horizontal form-label-left", enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(x => x.Product.Id)
+
+    @Html.ValidationSummary()
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
@@ -72,6 +74,7 @@
                                 Nombre
                             </label>
                             <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.ValidationMessageFor(x => x.Product.Name)
                                 @Html.TextBoxFor(x => x.Product.Name, new { @class = "form-control", @placeholder = "Nombre" })
                             </div>
                         </div>
@@ -81,6 +84,7 @@
                                 Precio
                             </label>
                             <div class="col-lg-2  col-md-2 col-sm-2 col-xs-4">
+                                @Html.ValidationMessageFor(x => x.Product.Price)
                                 @Html.TextBoxFor(x => x.Product.Price, Model.Product.Price.ToString("#,##0.00#"), new { @class = "form-control", @type = "text", @placeholder = "0" })
                             </div>
 
@@ -89,6 +93,7 @@
                             </label>
                             <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
                                 @*@Html.Partial("TreeView", Model.Categories)*@
+                                @Html.ValidationMessageFor(x => x.Product.CategoryId)
                                 @Html.DropDownListFor(m => m.Product.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Categoría", new { @class = "form-control" })
                             </div>
                         </div>
@@ -98,6 +103,7 @@
                                 Descripción
                             </label>
                             <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.ValidationMessageFor(x => x.Product.Description)
                                 @Html.TextAreaFor(x => x.Product.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "3" })
                             </div>
                         </div>
@@ -114,6 +120,7 @@
                                     <label class="control-label col-lg-5">Porcentaje</label>
                                     <div class="col-lg-5  col-md-2 col-sm-2 col-xs-4">
                                         <div class="form-group">
+                                            @Html.ValidationMessageFor(x => x.Product.Percent)
                                             @Html.TextBoxFor(x => x.Product.Percent, new { @class = "checkbox form-control", @type = "number" })
                                         </div>
                                     </div>
@@ -124,6 +131,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker1'>
+                                            @Html.ValidationMessageFor(x => x.Product.StartDay)
                                             @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control", @type = "text" })
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
@@ -134,6 +142,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right:0px">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
+                                            @Html.ValidationMessageFor(x => x.Product.EndDay)
                                             @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control", @type = "text" })
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
@@ -179,10 +188,12 @@
                                     <div class="form-group " id="formgroup__@i">
                                         @Html.HiddenFor(x => x.Product.Feature[i].Id)
                                         <div class="col-lg-2 col-lg-offset-1 col-sm-offset-1 col-sm-2  col-xs-offset-1 col-xs-6">
+                                            @Html.ValidationMessageFor(x => x.Product.Feature[i].Name)
                                             @Html.TextBoxFor(x => x.Product.Feature[i].Name, new { @class = "form-control", @placeholder = "Nombre" })
                                         </div>
                                         <div class="col-lg-6 col-sm-6 col-xs-9">
                                             <div class="form-group">
+                                                @Html.ValidationMessageFor(x => x.Product.Feature[i].Description)
                                                 @Html.TextBoxFor(x => x.Product.Feature[i].Description, new { @class = "form-control", @placeholder = "Descripción" })
                                             </div>
                                         </div>

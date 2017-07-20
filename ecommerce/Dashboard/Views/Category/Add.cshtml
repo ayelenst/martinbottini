@@ -6,6 +6,7 @@
 @using (Html.BeginForm("Add", "Category", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.HiddenFor(x => x.Id)
+
     <div class="row">
         <div class="form-group">
             <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">ID</label>
