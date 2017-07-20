@@ -107,7 +107,7 @@
                             </label>
                             <div class="col-lg-2 col-md-8 col-sm-9 col-xs-10">
                                 <div class="row">
-                                    <div class="form-group col-lg-2 col-md-1 col-sm-1 col-xs-1">
+                                    <div class="form-group control-label col-lg-2 col-md-1 col-sm-1 col-xs-1">
                                         @Html.CheckBoxFor(x => x.Product.IsOffer, new { @class = "checkbox form-control" })
                                     </div>
                                     <label class="control-label col-lg-5">Porcentaje</label>
@@ -119,8 +119,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-5 col-lg-offset-0 col-md-7 col-sm-offset-3 col-sm-7 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-lg-offset-0 col-lg-5 col-md-3 col-sm-3 col-sm-offset-3 col-xs-6">
+                                <div class="col-lg-offset-0 col-lg-6 col-md-3 col-sm-3 col-sm-offset-3 col-xs-6">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker1'>
                                             @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control", @type = "text" })
@@ -130,7 +130,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right:0px">
+                                <div class="col-lg-6 col-md-3 col-sm-3 col-xs-6">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
                                             @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control", @type = "text" })
@@ -143,13 +143,16 @@
                             </div>
                         </div>
 
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class=" col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-4">
-                                <button class="btn btn-default" type="reset">Reset</button>
-                                <input type="button" class="btn pull-left" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-2" for="habilitado">
+                            Habilitado
+                        </label>
+                        <div>
+                            <div class="form-group control-label col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                @Html.CheckBoxFor(x => x.Product.Enabled, new { @class = "checkbox form-control" })
                             </div>
                         </div>
+                    </div>
 
                 </div>
             </div>
@@ -212,17 +215,10 @@
                         </div>
                         <div class="row" style="margin-top:15px">
                             <div class="col-lg-1 col-lg-offset-3  col-sm-offset-3">
-                                <input type="button" class="btn btn-success pull-left" value="Agregar" style="margin-right:0px" id="addfeature" />
+                                <input type="button" class="btn btn-success pull-left" value="Agregar" id="addfeature" />
                             </div>
                         </div>
-
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class=" col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-4">
-                                <button class="btn btn-default" type="reset">Reset</button>
-                                <input type="button" class="btn pull-left" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
-                            </div>
-                        </div>
+                        
                 </div>
             </div>
         </div>
@@ -268,13 +264,19 @@
                             </div>
                         </div>
 
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class=" col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-4">
-                                <input type="submit" class="btn btn-primary pull-left" value="Submit" />
-                                <input type="button" class="btn pull-left" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
-                            </div>
+                    <div class="ln_solid"></div>
+
+                    <div class="form-group">
+                        <div class="col-lg-1 col-lg-offset-3  col-md-offset-3  col-sm-offset-3">
+                            <input type="submit" class="btn btn-primary" value="Submit" />
                         </div>
+                        <div class="col-lg-1">
+                            <button class="btn btn-default" type="reset">Reset</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <input type="button" class="btn" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Product")'" />
+                        </div>
+                    </div>
 
                 </div>
             </div>
