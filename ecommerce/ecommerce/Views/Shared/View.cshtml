@@ -1,0 +1,44 @@
+﻿@model ecommerce.Models.ProductViewModel
+
+<div class="col-sm-4 product-holder">
+
+    <form class="custom" onsubmit="return false" method="post" action="">
+        <div class="product-item text-center">
+            <a class="product-img" href="/product/@Model.Id">
+                @if (@Model.Images.Any(x => x.IsMain))
+                {
+                    <img class="img-responsive" src="@ViewBag.imageFolder@Model.Images.FirstOrDefault(x=>x.IsMain).Url" alt="Blue Headphones">
+                }
+            
+            </a>
+            <h3 class="product-title">
+                <a href="/product/blue-headphones">@Model.Name</a>
+            </h3>
+            @if (Model.IsOffer && Model.StartDay < DateTime.Now && Model.EndDay > DateTime.Now)
+            {
+                <div class="h4 product-price">
+                    <span class="previous-price">$@Model.Price.ToString("N")</span>
+                    <div class="sale-tag">
+                        Sale!
+                    </div>
+                    <span>$@((Model.Price-Model.Price*Model.Percent/100).ToString("N"))</span>
+                </div>
+            }
+            else
+            {
+                <div class="h4 product-price">
+                    <span>$@Model.Price.ToString("N")</span>
+                </div>
+            }
+
+
+
+            <div class="buttons-holder">
+                <a class="btn btn-default btn-quick-view hidden-xs" rel="tooltip" title="" href="/product/@Model.Id" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
+                <input type="hidden" name="productId" value="@Model.Id">
+                <a class="btn btn-danger btn-add-cart" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals, #product-page=shop-product">Add to Cart</a>
+            </div>
+        </div>
+    </form>
+
+</div>

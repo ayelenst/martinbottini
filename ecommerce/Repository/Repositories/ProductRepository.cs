@@ -112,7 +112,7 @@ namespace Repository.Repositories
         {
             using (var db = new EcommerceContext())
             {
-                var productsInOffer = db.Products.Where(x => x.IsOffer && x.Enabled && x.StartDay>=DateTime.Now && x.EndDay<=DateTime.Now);
+                var productsInOffer = db.Products.Where(x => x.IsOffer && x.Enabled && x.StartDay<DateTime.Now && x.EndDay>DateTime.Now);
                 if (count.HasValue)
                     return productsInOffer.OrderBy(x=>x.EndDay).Take(count.Value).ToList();
                 return productsInOffer.ToList();

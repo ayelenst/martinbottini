@@ -18,7 +18,7 @@ namespace Dashboard.Models
 
             var path = Path.Combine(serverMap, folder, fileName);
             file.SaveAs(path);
-            return path;
+            return Path.Combine(folder,fileName);
         }
 
         public static void DeleteImage(string path)

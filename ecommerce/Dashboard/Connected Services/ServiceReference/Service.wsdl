@@ -97,6 +97,18 @@
   <wsdl:message name="IContract_DeleteProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastOffers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastOffers" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastOffers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastOffersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastAdded_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastAdded" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastAdded_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastAddedResponse" />
+  </wsdl:message>
   <wsdl:message name="IContract_GetAllOrders_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllOrders" />
   </wsdl:message>
@@ -259,6 +271,14 @@
     <wsdl:operation name="DeleteProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteProduct" message="tns:IContract_DeleteProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteProductResponse" message="tns:IContract_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastOffers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductLastOffers" message="tns:IContract_GetProductLastOffers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductLastOffersResponse" message="tns:IContract_GetProductLastOffers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastAdded">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductLastAdded" message="tns:IContract_GetProductLastAdded_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductLastAddedResponse" message="tns:IContract_GetProductLastAdded_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllOrders">
       <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllOrders" message="tns:IContract_GetAllOrders_InputMessage" />
@@ -459,6 +479,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteProduct">
       <soap:operation soapAction="http://tempuri.org/IContract/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastOffers">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductLastOffers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastAdded">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductLastAdded" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

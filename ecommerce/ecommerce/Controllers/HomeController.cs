@@ -1,6 +1,7 @@
 ﻿using ecommerce.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,39 +16,40 @@ namespace ecommerce.Controllers
             var lastAddedproducts = app.GetProductLastAdded(4);
             var offerproducts = app.GetProductLastOffers(4);
 
-            var lastAddedModel = new List<ProductViewModel>();
-            var offerproductsModel = new List<ProductViewModel>();
-          
+            var model = new HomeViewModel();
+
             foreach (var c in lastAddedproducts)
             {
                 var prod = new ProductViewModel(c);
                 prod.Images = app.GetImageByProductId(prod.Id);
-                lastAddedModel.Add(prod);
+                model.LastAddedProduct.Add(prod);
             }
 
             foreach (var c in offerproducts)
             {
                 var prod = new ProductViewModel(c);
                 prod.Images = app.GetImageByProductId(prod.Id);
-                offerproductsModel.Add(prod);                
+                model.OfferProduct.Add(prod);                
             }
             var banners = app.GetAllBanner();
 
             foreach (var b in banners)
             {
-
+                var ban = new BannerViewModel
+                {
+                    Id = b.Id,
+                    ImageUrl = b.ImageUrl,
+                    Description = b.Description,
+                    Title = b.Title,
+                    Url = b.Url,
+                };
+                model.BannerViewModels.Add(ban);
             }
-            //    var model = new BannerViewModel
-            //{
-            //    Id = BannerClient.Id,
-            //    ImageUrl = BannerClient.ImageUrl,
-            //    Description = BannerClient.Description,
-            //    Title = BannerClient.Title,
-            //    Url = BannerClient.Url,
-            //};
 
+            var imageFolder = ConfigurationManager.AppSettings["imageFolder"];
+            ViewBag.imageFolder = imageFolder;
 
-            return View();
+            return View(model);
 
         }
 

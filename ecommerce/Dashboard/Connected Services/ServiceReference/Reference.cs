@@ -1235,6 +1235,18 @@ namespace Dashboard.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/DeleteProduct", ReplyAction="http://tempuri.org/IContract/DeleteProductResponse")]
         System.Threading.Tasks.Task DeleteProductAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastOffers", ReplyAction="http://tempuri.org/IContract/GetProductLastOffersResponse")]
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductLastOffers(System.Nullable<int> count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastOffers", ReplyAction="http://tempuri.org/IContract/GetProductLastOffersResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductLastOffersAsync(System.Nullable<int> count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastAdded", ReplyAction="http://tempuri.org/IContract/GetProductLastAddedResponse")]
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductLastAdded(int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductLastAdded", ReplyAction="http://tempuri.org/IContract/GetProductLastAddedResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductLastAddedAsync(int count);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetAllOrders", ReplyAction="http://tempuri.org/IContract/GetAllOrdersResponse")]
         System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetAllOrders();
         
@@ -1483,6 +1495,22 @@ namespace Dashboard.ServiceReference {
         
         public System.Threading.Tasks.Task DeleteProductAsync(int id) {
             return base.Channel.DeleteProductAsync(id);
+        }
+        
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductLastOffers(System.Nullable<int> count) {
+            return base.Channel.GetProductLastOffers(count);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductLastOffersAsync(System.Nullable<int> count) {
+            return base.Channel.GetProductLastOffersAsync(count);
+        }
+        
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductLastAdded(int count) {
+            return base.Channel.GetProductLastAdded(count);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductLastAddedAsync(int count) {
+            return base.Channel.GetProductLastAddedAsync(count);
         }
         
         public System.Collections.Generic.List<Dashboard.ServiceReference.Order> GetAllOrders() {

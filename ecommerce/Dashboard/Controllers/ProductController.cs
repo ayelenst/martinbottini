@@ -146,7 +146,7 @@ namespace Dashboard.Controllers
             }).ToList();
 
             model.Image = new List<ServiceReference.Image>();
-         
+
             for (int i = 0; i < Request.Files.Count; i++)
             {
                 if (Request.Files[i].FileName == string.Empty)
@@ -154,19 +154,18 @@ namespace Dashboard.Controllers
                 var file = Request.Files[i];
                 var path = ImageHelper.SaveImage(product.Id.ToString(), file, Server.MapPath("~/Image"));
                 bool isMain = false;
-                    if (Request.Files.AllKeys[i] == "file")
-                    {
-                        isMain = true;
-                    }
-                    var imagetosave = new ServiceReference.Image
-                    {
-                        Url = path,
-                        IsMain = isMain,
-                        ProductId = product.Id
-                    };
-                    model.Image.Add(imagetosave);
-                    file.SaveAs(path);
+                if (Request.Files.AllKeys[i] == "file")
+                {
+                    isMain = true;
                 }
+                var imagetosave = new ServiceReference.Image
+                {
+                    Url = path,
+                    IsMain = isMain,
+                    ProductId = product.Id
+                };
+                model.Image.Add(imagetosave);
+            }
             
 
             app.UpdateProduct(model);
@@ -259,13 +258,16 @@ namespace Dashboard.Controllers
         public ActionResult Delete(int id)
         {
             var path = Path.Combine(Server.MapPath("~/Image"), id.ToString());
-            System.IO.DirectoryInfo di = new DirectoryInfo(path);
-
-            foreach (FileInfo file in di.GetFiles())
+            if (Directory.Exists(path))
             {
-                file.Delete();
+                System.IO.DirectoryInfo di = new DirectoryInfo(path);
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+                di.Delete(true);
             }
-            di.Delete(true);
+            
             var app = new ServiceReference.ContractClient();
             app.DeleteProduct(id);
             return RedirectToAction("GetAll");
