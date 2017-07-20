@@ -3,70 +3,89 @@
     ViewBag.Title = "Crear";
 }
 
-
 <!DOCTYPE html>
-
 @using (Html.BeginForm("Add", "Banner", FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(x => x.Id)
     <div class="row">
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">ID</label>
-            <div class="col-lg-5 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    @Html.DisplayFor(x => x.Id, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
 
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Title</label>
-            <div class="col-lg-5 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    @Html.ValidationMessageFor(x => x.Title)
-                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Titulo" })
+                <div class="x_title">
+                    <h4>General</h4>
+                    <div class="clearfix"></div>
                 </div>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Descripción</label>
-            <div class="col-lg-5 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    @Html.ValidationMessageFor(x => x.Description)
-                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "2" })
-                </div>
-            </div>
-        </div>
+                <div class="x_content">
+                    <br>
 
-        <div class="form-group ">
-            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
-                <label class="">ImageUrl</label>
-            </div>
-            <div class="col-lg-2 col-sm-6 col-xs-6">
-                <div class="form-group">
-                    <div class="editor-field">
-                        <input type="file" name="file" accept="image/*" />
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-1" for="id">
+                            Id
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-6">
+                            @Html.DisplayFor(x => x.Id, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">
+                            Título
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            @Html.ValidationMessageFor(x => x.Title)
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Titulo" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">
+                            Descripción
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            @Html.ValidationMessageFor(x => x.Description)
+                            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "2" })
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="imgurl">
+                            Imagen Url
+                        </label>
+                        <div class="col-lg-6 col-sm-6 col-xs-6">
+                            <div class="form-group">
+                                <div class="editor-field">
+                                    <input type="file" name="file" accept="image/*" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url">
+                            Url
+                        </label>
+                        <div class="col-lg-5 col-sm-5 col-xs-6">
+                            @Html.ValidationMessageFor(x => x.Url)
+                            @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "Url" })
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+
+                    <div class="form-group">
+                        <div class="col-lg-1 col-lg-offset-3  col-md-offset-3  col-sm-offset-3">
+                            <input type="submit" class="btn btn-primary" value="Submit" />
+                        </div>
+                        <div class="col-lg-1">
+                            <button class="btn btn-default" type="reset">Reset</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <input type="button" class="btn" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Banner")'" />
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-1 control-label col-sm-6 col-xs-6">
-                <label class=" ">Url</label>
-            </div>
-            <div class="col-lg-2 col-sm-6 col-xs-6">
-                <div class="form-group">
-                    @Html.ValidationMessageFor(x => x.Url)
-                    @Html.TextBoxFor(x => x.Url, new { @class = "form-control", @placeholder = "Url" })
-                </div>
-            </div>
         </div>
-
-        <div class="col-lg-1 col-lg-offset-3">
-            <input type="submit" class="btn btn-primary pull-left" value="Submit" style="margin-right:0px" />
-        </div>
-        <div class="col-lg-1">
-            <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Banner")'" />
-        </div>
-
     </div>
 }
