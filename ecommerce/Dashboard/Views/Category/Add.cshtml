@@ -8,72 +8,79 @@
     @Html.HiddenFor(x => x.Id)
 
     <div class="row">
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">ID</label>
-            <div class="col-lg-5 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    @Html.DisplayFor(x => x.Id, new { @class = "form-control" })
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>General</h4>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                Nombre
+                            </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.ValidationMessageFor(x => x.Name)
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Nombre" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">
+                                Descripción
+                            </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.ValidationMessageFor(x => x.Description)
+                                @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "2" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-2" for="nivel">
+                                Nivel
+                            </label>
+                            <div class="col-lg-2  col-md-2 col-sm-2 col-xs-3">
+                                @Html.ValidationMessageFor(x => x.Level)
+                                @Html.TextBoxFor(x => x.Level, new { @class = "form-control", @placeholder = "Nivel" })
+                            </div>
+
+                            <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-3" for="category">
+                                ID Padre
+                            </label>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                                @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control", @placeholder = "ID Padre" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-2" for="habilitado">
+                                Habilitado
+                            </label>
+                                <div class="form-group control-label col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                    @Html.CheckBoxFor(x => x.Enabled, new { @class = "checkbox form-control" })
+                                </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+
+                        <div class="form-group">
+                            <div class="col-lg-1 col-lg-offset-3  col-md-offset-3  col-sm-offset-3">
+                                <input type="submit" class="btn btn-primary" value="Submit" />
+                            </div>
+                            <div class="col-lg-1">
+                                <button class="btn btn-default" type="reset">Reset</button>
+                            </div>
+                                <div class="col-lg-1">
+                                    <input type="button" class="btn" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Category")'" />
+                                </div>
+                        </div>
+
                 </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Nombre</label>
-            <div class="col-lg-5 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    @Html.ValidationMessageFor(x=>x.Name)
-                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Nombre" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2  col-sm-offset-0">Descripción</label>
-            <div class="col-lg-5 col-sm-12 col-xs-12">
-                <div class="form-group">
-                    @Html.ValidationMessageFor(x => x.Description)
-                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "2" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group ">
-            <div class="col-lg-1 col-lg-offset-2 col-sm-offset-0 col-sm-6 col-xs-6 control-label">
-                <label class="">Nivel</label>
-            </div>
-            <div class="col-lg-2 col-sm-6 col-xs-6">
-                <div class="form-group">
-                    @Html.ValidationMessageFor(x => x.Level)
-                    @Html.TextBoxFor(x => x.Level, new { @class = "form-control", @placeholder = "Nivel" })
-                </div>
-            </div>
-            <div class="col-lg-1 control-label col-sm-6 col-xs-6">
-                <label class=" ">ID Padre</label>
-            </div>
-            <div class="col-lg-2 col-sm-6 col-xs-6">
-                <div class="form-group">
-                    @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control", @placeholder = "ID Padre" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-lg-1 col-lg-offset-2 col-sm-12 col-xs-12">Habilitado</label>
-            <div class="col-lg-2 col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="form-group col-lg-2 col-sm-4 col-xs-4">
-                        @Html.CheckBoxFor(x => x.Enabled, new { @class = "checkbox form-control" })
-                    </div>
-                </div>
-            </div>
-        </div>
-
-            <div class="col-lg-1 col-lg-offset-3">
-                <input type="submit" class="btn btn-primary pull-left" value="Submit" style="margin-right:0px" />
-            </div>
-            <div class="col-lg-1">
-                <input type="button" class="btn btn-default pull-left" value="Cancelar" style="margin-right:0px" onclick="location.href='@Url.Action("GetAll", "Category")'" />
-            </div>
-
-        </div>
-        }
+    </div>
+}
