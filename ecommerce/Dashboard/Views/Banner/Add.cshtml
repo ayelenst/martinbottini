@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 
-@using (Html.BeginForm("Add", "Banner", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("Add", "Banner", FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(x => x.Id)
     <div class="row">

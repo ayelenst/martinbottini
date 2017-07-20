@@ -230,6 +230,8 @@ namespace Dashboard.Controllers
             for (int i = 0; i < Request.Files.Count; i++)
             {
                 var file = Request.Files[i];
+                if (file.FileName == string.Empty)
+                    continue;
                 var path = ImageHelper.SaveImage(id.ToString(), file, Server.MapPath("~/Image"));
 
 
@@ -256,6 +258,14 @@ namespace Dashboard.Controllers
 
         public ActionResult Delete(int id)
         {
+            var path = Path.Combine(Server.MapPath("~/Image"), id.ToString());
+            System.IO.DirectoryInfo di = new DirectoryInfo(path);
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+            di.Delete(true);
             var app = new ServiceReference.ContractClient();
             app.DeleteProduct(id);
             return RedirectToAction("GetAll");

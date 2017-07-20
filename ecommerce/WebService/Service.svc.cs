@@ -150,6 +150,18 @@ namespace WebService
 
             repo.Delete(id);
         }
+
+        public List<Product> GetProductLastOffers(int? count)
+        {
+            var repo = new ProductRepository();
+            return repo.GetLastOffers(count);
+        }
+
+       public List<Product> GetProductLastAdded(int count)
+        {
+            var repo = new ProductRepository();
+            return repo.GetLastAdded(count);
+        }
         #endregion
 
         #region Order

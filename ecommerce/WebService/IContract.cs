@@ -65,6 +65,12 @@ namespace WebService
         [OperationContract]
         void DeleteProduct(int id);
 
+        [OperationContract]
+        List<Product> GetProductLastOffers(int? count);
+
+        [OperationContract]
+        List<Product> GetProductLastAdded(int count);
+
         #endregion
 
         #region Orders

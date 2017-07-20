@@ -36,6 +36,7 @@
       <xs:element minOccurs="0" name="EndDay" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Feature" nillable="true" type="tns:ArrayOfFeature" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="tns:ArrayOfImage" />
       <xs:element minOccurs="0" name="IsOffer" type="xs:boolean" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Percent" type="xs:double" />
@@ -53,13 +54,29 @@
   <xs:complexType name="Feature">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
       <xs:element minOccurs="0" name="ProductID" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Feature" nillable="true" type="tns:Feature" />
+  <xs:complexType name="ArrayOfImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Image" nillable="true" type="tns:Image" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImage" nillable="true" type="tns:ArrayOfImage" />
+  <xs:complexType name="Image">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsMain" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Image" nillable="true" type="tns:Image" />
   <xs:complexType name="ArrayOfOrder">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
@@ -105,4 +122,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrderStatus" nillable="true" type="tns:OrderStatus" />
+  <xs:complexType name="ArrayOfBanner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Banner" nillable="true" type="tns:Banner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBanner" nillable="true" type="tns:ArrayOfBanner" />
+  <xs:complexType name="Banner">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Banner" nillable="true" type="tns:Banner" />
 </xs:schema>
