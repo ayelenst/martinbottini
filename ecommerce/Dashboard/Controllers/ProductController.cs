@@ -29,6 +29,8 @@ namespace Dashboard.Controllers
                     Price = c.Price,
                     StartDay = c.StartDay,
                     EndDay = c.EndDay,
+                    Warranty = c.Warranty,
+                    Brant = c.Brant,
 
                 };
                 model.Add(prod);
@@ -52,7 +54,9 @@ namespace Dashboard.Controllers
                 Price = productClient.Price,
                 StartDay = productClient.StartDay,
                 EndDay = productClient.EndDay,
-                // Category = c.Category,
+                Warranty = productClient.Warranty,
+                Brant = productClient.Brant,
+                
             };
             return View(model);
         }
@@ -74,8 +78,11 @@ namespace Dashboard.Controllers
                 Price = productClient.Price,
                 StartDay = productClient.StartDay,
                 EndDay = productClient.EndDay,
+                Warranty = productClient.Warranty,
+                Brant = productClient.Brant,
                 Images = productClient.Image,
                 CategoryId = productClient.CategoryId
+
             };
             model.Feature = app.GetFeatureByProductId(model.Id).Select(x => new FeatureViewModel
             {
@@ -135,7 +142,10 @@ namespace Dashboard.Controllers
                 Price = product.Price,
                 StartDay = product.StartDay,
                 EndDay = product.EndDay,
-                CategoryId = product.CategoryId
+                CategoryId = product.CategoryId,
+                Warranty = product.Warranty,
+                Brant = product.Brant,
+
             };
             model.Feature = product.Feature.Where(x => x.Id >= 0 && x.Name != null).Select(x => new ServiceReference.Feature
             {
@@ -212,7 +222,9 @@ namespace Dashboard.Controllers
                 Price = product.Price,
                 StartDay = product.StartDay,
                 EndDay = product.EndDay,
-                CategoryId = product.CategoryId
+                CategoryId = product.CategoryId,
+                Warranty = product.Warranty,
+                Brant = product.Brant,
             };
             model.Feature = product.Feature.Where(x => x.Id >= 0 && x.Name != null).Select(x => new ServiceReference.Feature
             {
