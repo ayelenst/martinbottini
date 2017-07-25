@@ -52,7 +52,9 @@
                                 ID Padre
                             </label>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-                                @Html.TextBoxFor(x => x.ParentId, new { @class = "form-control", @placeholder = "ID Padre" })
+                                @Html.DropDownListFor(m => m.ParentId, new SelectList(Model.ParentCategories, "Id", "Name"), "Categoría", new { @class = "form-control" })
+
+
                             </div>
                         </div>
 

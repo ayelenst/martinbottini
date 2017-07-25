@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+      <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IContract_GetAllCategories_InputMessage">
@@ -24,6 +25,12 @@
   </wsdl:message>
   <wsdl:message name="IContract_GetCategoryById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCategoryByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetCategoryCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryCount" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetCategoryCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryCountResponse" />
   </wsdl:message>
   <wsdl:message name="IContract_UpdateCategory_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateCategory" />
@@ -224,6 +231,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetCategoryById" message="tns:IContract_GetCategoryById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetCategoryByIdResponse" message="tns:IContract_GetCategoryById_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCategoryCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetCategoryCount" message="tns:IContract_GetCategoryCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetCategoryCountResponse" message="tns:IContract_GetCategoryCount_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/IContract/UpdateCategory" message="tns:IContract_UpdateCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IContract/UpdateCategoryResponse" message="tns:IContract_UpdateCategory_OutputMessage" />
@@ -371,6 +382,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCategoryById">
       <soap:operation soapAction="http://tempuri.org/IContract/GetCategoryById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryCount">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetCategoryCount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -87,6 +87,10 @@
     <Compile Include="Migrations\201707251724551_Stock2.Designer.cs">
       <DependentUpon>201707251724551_Stock2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707252011514_Parentid.cs" />
+    <Compile Include="Migrations\201707252011514_Parentid.Designer.cs">
+      <DependentUpon>201707252011514_Parentid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderProduct.cs" />
@@ -123,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707251724551_Stock2.resx">
       <DependentUpon>201707251724551_Stock2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707252011514_Parentid.resx">
+      <DependentUpon>201707252011514_Parentid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

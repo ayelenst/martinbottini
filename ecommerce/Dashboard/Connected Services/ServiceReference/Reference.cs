@@ -44,7 +44,7 @@ namespace Dashboard.ServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ParentIdField;
+        private System.Nullable<int> ParentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<Dashboard.ServiceReference.Product> ProductsField;
@@ -154,7 +154,7 @@ namespace Dashboard.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ParentId {
+        public System.Nullable<int> ParentId {
             get {
                 return this.ParentIdField;
             }
@@ -1227,6 +1227,12 @@ namespace Dashboard.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
         System.Threading.Tasks.Task<Dashboard.ServiceReference.Category> GetCategoryByIdAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryCount", ReplyAction="http://tempuri.org/IContract/GetCategoryCountResponse")]
+        System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>> GetCategoryCount(bool requireOffer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryCount", ReplyAction="http://tempuri.org/IContract/GetCategoryCountResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>>> GetCategoryCountAsync(bool requireOffer);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateCategory", ReplyAction="http://tempuri.org/IContract/UpdateCategoryResponse")]
         void UpdateCategory(Dashboard.ServiceReference.Category category);
         
@@ -1264,10 +1270,10 @@ namespace Dashboard.ServiceReference {
         System.Threading.Tasks.Task<Dashboard.ServiceReference.Product> GetProductByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByCategory(int id);
+        System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByCategory(int id, bool requireOffer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByCategoryAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByCategoryAsync(int id, bool requireOffer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
         System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByName(string name);
@@ -1465,6 +1471,14 @@ namespace Dashboard.ServiceReference {
             return base.Channel.GetCategoryByIdAsync(id);
         }
         
+        public System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>> GetCategoryCount(bool requireOffer) {
+            return base.Channel.GetCategoryCount(requireOffer);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>>> GetCategoryCountAsync(bool requireOffer) {
+            return base.Channel.GetCategoryCountAsync(requireOffer);
+        }
+        
         public void UpdateCategory(Dashboard.ServiceReference.Category category) {
             base.Channel.UpdateCategory(category);
         }
@@ -1513,12 +1527,12 @@ namespace Dashboard.ServiceReference {
             return base.Channel.GetProductByIdAsync(id);
         }
         
-        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByCategory(int id) {
-            return base.Channel.GetProductByCategory(id);
+        public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByCategory(int id, bool requireOffer) {
+            return base.Channel.GetProductByCategory(id, requireOffer);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByCategoryAsync(int id) {
-            return base.Channel.GetProductByCategoryAsync(id);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dashboard.ServiceReference.Product>> GetProductByCategoryAsync(int id, bool requireOffer) {
+            return base.Channel.GetProductByCategoryAsync(id, requireOffer);
         }
         
         public System.Collections.Generic.List<Dashboard.ServiceReference.Product> GetProductByName(string name) {

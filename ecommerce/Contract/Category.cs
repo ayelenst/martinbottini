@@ -32,7 +32,7 @@ namespace Model
         public int Level { get; set; }
 
         [DataMember]
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         [DataMember]
         public bool Enabled { get; set; }

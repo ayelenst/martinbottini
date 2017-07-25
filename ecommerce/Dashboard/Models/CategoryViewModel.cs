@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Dashboard.ServiceReference;
 
 namespace Dashboard.Models
 {
@@ -31,10 +32,11 @@ namespace Dashboard.Models
         [Required(ErrorMessage = "Nivel es obligatorio")]
         public int Level { get; set; }
 
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         public bool Enabled { get; set; }
 
         public List<CategoryViewModel> Children { get; set; }
+        public List<CategoryViewModel> ParentCategories { get; internal set; }
     }
 }
