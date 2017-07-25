@@ -1,0 +1,41 @@
+﻿@model ecommerce.Models.ProductViewModel
+
+<div itemscope="" itemtype="http://schema.org/Product">
+    <div id="banner" class="jumbotron row">
+        <h1 itemprop="name">@Model.Name</h1>
+        <p itemprop="description">@Model.Description</p>
+    </div>
+  
+    @Html.Partial("ViewProduct", Model)
+    
+    <div class="col-md-12 feature-card">
+        <div class="">
+            <h5 class="feature-card-title">Características</h5>
+            <div class="col-md-6">
+                <ul class="feature-column">
+                    <li class="feature-line">
+                        <span class="feature-title">Frequency response</span>
+                        <span class="feature-description"> 6 - 40 000  Hz</span>
+                    </li>
+                    <li class="feature-line">
+                        <span class="feature-title">Impedance</span>
+                        <span class="feature-description">Impedance</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+
+                <ul class="feature-column">
+                    <li class="feature-line">
+                        <span class="feature-title">Sensitivity</span>
+                        <span class="feature-description">107  dB</span>
+                    </li>
+                    <li class="feature-line">
+                        <span class="feature-title">Cable Connection</span>
+                        <span class="feature-description"> Oxygen free cable (1.1m)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
