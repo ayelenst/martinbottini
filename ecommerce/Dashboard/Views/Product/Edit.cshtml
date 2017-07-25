@@ -29,21 +29,30 @@
             $('#Product_Feature_' + id + '__Id').val("-1");
             $("#formgroup__" + id).hide();
         });
-
+        //llamo a la funcion que ve en que estado actual esta el checkbox y deshabilita o no los controles
         setoffer();
+        //creo un evento para el elemento de ID offer_cbx cada vez que cambie
         $('#offer_cbx').on('change', function () {
+            //llamo a la misma funcion una vez  que el checkbox cambio
             setoffer();
         });
 
+
         function setoffer() {
+            //me fijo el estado actual del checkbox
             var isoffer = $('#offer_cbx').is(':checked');
+            //si esta tildado
             if (isoffer) {
+                //por cada elemento que tiene como clase cd-offer-other
                 $('.cd-offer-other').each(function (i, e) {
+                    //setteo la propiedad disabled
                     $(e).prop('disabled', false)
                 });
 
             }
+            //si no esta tildado
             else {
+                //lo mismo
                 $('.cd-offer-other').each(function (i, e) {
                     $(e).prop('disabled', true)
                 });
