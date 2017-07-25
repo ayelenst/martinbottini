@@ -47,6 +47,12 @@ namespace Model
         public int CategoryId{ get; set; }
 
         [DataMember]
+        public int? Stock { get; set; }
+
+        [DataMember]
+        public int? TypeStock { get; set; }
+
+        [DataMember]
         public virtual Category Category  { get;set;}
 
         [DataMember]

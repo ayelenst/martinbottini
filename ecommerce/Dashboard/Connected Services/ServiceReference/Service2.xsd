@@ -43,6 +43,8 @@
       <xs:element minOccurs="0" name="Percent" type="xs:double" />
       <xs:element minOccurs="0" name="Price" type="xs:double" />
       <xs:element minOccurs="0" name="StartDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Stock" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeStock" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Warranty" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

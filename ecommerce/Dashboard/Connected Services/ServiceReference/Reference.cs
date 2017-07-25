@@ -254,6 +254,12 @@ namespace Dashboard.ServiceReference {
         private System.DateTime StartDayField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> StockField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> TypeStockField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string WarrantyField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -444,6 +450,32 @@ namespace Dashboard.ServiceReference {
                 if ((this.StartDayField.Equals(value) != true)) {
                     this.StartDayField = value;
                     this.RaisePropertyChanged("StartDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Stock {
+            get {
+                return this.StockField;
+            }
+            set {
+                if ((this.StockField.Equals(value) != true)) {
+                    this.StockField = value;
+                    this.RaisePropertyChanged("Stock");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> TypeStock {
+            get {
+                return this.TypeStockField;
+            }
+            set {
+                if ((this.TypeStockField.Equals(value) != true)) {
+                    this.TypeStockField = value;
+                    this.RaisePropertyChanged("TypeStock");
                 }
             }
         }

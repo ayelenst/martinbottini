@@ -31,6 +31,8 @@ namespace Dashboard.Controllers
                     EndDay = c.EndDay,
                     Warranty = c.Warranty,
                     Brant = c.Brant,
+                    Stock = c.Stock,
+                    TypeStock = c.TypeStock,
 
                 };
                 model.Add(prod);
@@ -56,6 +58,8 @@ namespace Dashboard.Controllers
                 EndDay = productClient.EndDay,
                 Warranty = productClient.Warranty,
                 Brant = productClient.Brant,
+                TypeStock = productClient.TypeStock,
+                Stock = productClient.Stock,
                 
             };
             return View(model);
@@ -81,7 +85,9 @@ namespace Dashboard.Controllers
                 Warranty = productClient.Warranty,
                 Brant = productClient.Brant,
                 Images = productClient.Image,
-                CategoryId = productClient.CategoryId
+                CategoryId = productClient.CategoryId,
+                TypeStock = productClient.TypeStock,
+                Stock = productClient.Stock,
 
             };
             model.Feature = app.GetFeatureByProductId(model.Id).Select(x => new FeatureViewModel
@@ -104,7 +110,15 @@ namespace Dashboard.Controllers
                 c.Children = completeModel.Categories.Where(x => x.ParentId == c.Id).ToList();
             }
 
+            var staticList = new List<KeyValuePair<int, string>>();
+            staticList.Add(new KeyValuePair<int, string>(1, "Cantidad Fija"));
+            staticList.Add(new KeyValuePair<int, string>(1, "Cantidad Ilimitada"));
+            staticList.Add(new KeyValuePair<int, string>(1, "Disponible en 24 hs"));
+
+
+            completeModel.Inventory = staticList;
             return View(completeModel);
+
         }
 
         [HttpPost]
@@ -145,6 +159,8 @@ namespace Dashboard.Controllers
                 CategoryId = product.CategoryId,
                 Warranty = product.Warranty,
                 Brant = product.Brant,
+                TypeStock = product.TypeStock,
+                Stock = product.Stock,
 
             };
             model.Feature = product.Feature.Where(x => x.Id >= 0 && x.Name != null).Select(x => new ServiceReference.Feature
@@ -199,9 +215,13 @@ namespace Dashboard.Controllers
             {
                 c.Children = completeModel.Categories.Where(x => x.ParentId == c.Id).ToList();
             }
+            var staticList = new List<KeyValuePair<int, string>>();
+            staticList.Add(new KeyValuePair<int, string>(1, "Cantidad Fija"));
+            staticList.Add(new KeyValuePair<int, string>(1, "Cantidad Ilimitada"));
+            staticList.Add(new KeyValuePair<int, string>(1, "Disponible en 24 hs"));
 
 
-
+            completeModel.Inventory = staticList;
             return View(completeModel);
         }
 
@@ -225,6 +245,8 @@ namespace Dashboard.Controllers
                 CategoryId = product.CategoryId,
                 Warranty = product.Warranty,
                 Brant = product.Brant,
+                TypeStock = product.TypeStock,
+                Stock = product.Stock,
             };
             model.Feature = product.Feature.Where(x => x.Id >= 0 && x.Name != null).Select(x => new ServiceReference.Feature
             {
