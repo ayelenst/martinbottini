@@ -76,11 +76,11 @@
             <div id="product-page">
                 <div class="col-sm-6">
                     <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-                       @if (Model.IsOffer && Model.StartDay < DateTime.Now && Model.EndDay > DateTime.Now)
+                       @if (Model.IsSale)
             {
                         <div class="h2 product-price">
                             <small class="previous-price">$@Model.Price.ToString("N")</small>
-                            <h2>$@((Model.Price - Model.Price * Model.Percent / 100).ToString("N"))</h2>
+                            <h2>$@((Model.OfferPrice).ToString("N"))</h2>
                         </div>
                        }
                        else
@@ -111,11 +111,11 @@
                     
                     <div class="details-line">
                         <span class="details-title">MARCA</span>
-                        <span class="details-description">apple</span>
+                        <span class="details-description">@Model.Brand</span>
                     </div>
                     <div class="details-line">
                         <span class="details-title">GARANTÍA</span>
-                        <span class="details-description">3 meses</span>
+                        <span class="details-description">@Model.Warranty</span>
 
                     </div>
                  

@@ -4,6 +4,19 @@
 @{
     ViewBag.Title = "Categorías por ID";
 }
+@section Scripts{
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+     
+        $('.modal-confirm').on('show.bs.modal', function (e) {
+                $(this).find('.btn-ok').attr('onclick', $(e.relatedTarget).data('href'));
+            });
+        });
+
+    </script>
+    
+
+    }
 
 
 <input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'"/>
@@ -23,7 +36,7 @@ columns.Add().Encoded(false)
     columns.Add().Encoded(false)
     .Sanitized(false)
     .SetWidth(30)
-    .RenderValueAs(o => @<input type="button" class='btn-default' value="Delete" onclick="location.href='@Url.Action("Delete", "Category", new { id = o.Id })'" />);
+    .RenderValueAs(o => @<input type="button" class='btn-default'  data-toggle="modal" data-target="#modal-delete"  value="Delete" data-href="location.href='@Url.Action("Delete", "Category", new { id = o.Id })'" />);
 }).WithPaging(20)
 
     <input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'" />

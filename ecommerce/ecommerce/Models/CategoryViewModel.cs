@@ -17,5 +17,9 @@ namespace ecommerce.Models
         public bool IsEnable{ get; internal set; }
 
         public int CountChildren { get; set; }
+
+        public int CountProduct { get; set; }
+
+
     }
 }

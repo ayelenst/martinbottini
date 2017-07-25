@@ -129,6 +129,7 @@ namespace Dashboard.Controllers
         [HttpPost]
         public ActionResult Edit(ProductViewModel product)
         {
+
             var app = new ServiceReference.ContractClient();
 
             var model = new ServiceReference.Product
@@ -147,6 +148,15 @@ namespace Dashboard.Controllers
                 Brant = product.Brant,
 
             };
+
+            if (product.StartDay.Year < 2000)
+            {
+                model.StartDay = DateTime.Now;
+            }
+            if (product.EndDay.Year < 2000)
+            {
+                model.EndDay = DateTime.Now;
+            }
             model.Feature = product.Feature.Where(x => x.Id >= 0 && x.Name != null).Select(x => new ServiceReference.Feature
             {
                 Description = x.Description,

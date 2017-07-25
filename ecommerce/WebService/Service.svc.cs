@@ -53,6 +53,12 @@ namespace WebService
             var repo = new CategoryRepository();
             repo.Delete(id);
         }
+
+        public List<KeyValuePair<int, int>> GetCategoryCount(bool requireOffer)
+        {
+            var repo = new CategoryRepository();
+            return repo.GetCategoryCount(requireOffer);
+        }
         #endregion
 
         #region  Productos
@@ -77,10 +83,10 @@ namespace WebService
             return repo.GetById(id);
         }
 
-        public List<Product> GetProductByCategory(int id)
+        public List<Product> GetProductByCategory(int id, bool requireOffer)
         {
             var repo = new ProductRepository();
-            return repo.GetByCategory(id);
+            return repo.GetByCategory(id, requireOffer);
         }
 
         public List<Product> GetProductByName(string name)

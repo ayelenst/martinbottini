@@ -212,6 +212,9 @@ namespace ecommerce.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrantField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ecommerce.ServiceReference.Category CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -250,6 +253,9 @@ namespace ecommerce.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDayField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WarrantyField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -257,6 +263,19 @@ namespace ecommerce.ServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Brant {
+            get {
+                return this.BrantField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrantField, value) != true)) {
+                    this.BrantField = value;
+                    this.RaisePropertyChanged("Brant");
+                }
             }
         }
         
@@ -425,6 +444,19 @@ namespace ecommerce.ServiceReference {
                 if ((this.StartDayField.Equals(value) != true)) {
                     this.StartDayField = value;
                     this.RaisePropertyChanged("StartDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Warranty {
+            get {
+                return this.WarrantyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WarrantyField, value) != true)) {
+                    this.WarrantyField = value;
+                    this.RaisePropertyChanged("Warranty");
                 }
             }
         }
@@ -1163,6 +1195,12 @@ namespace ecommerce.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryById", ReplyAction="http://tempuri.org/IContract/GetCategoryByIdResponse")]
         System.Threading.Tasks.Task<ecommerce.ServiceReference.Category> GetCategoryByIdAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryCount", ReplyAction="http://tempuri.org/IContract/GetCategoryCountResponse")]
+        System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>> GetCategoryCount(bool requireOffer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetCategoryCount", ReplyAction="http://tempuri.org/IContract/GetCategoryCountResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>>> GetCategoryCountAsync(bool requireOffer);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/UpdateCategory", ReplyAction="http://tempuri.org/IContract/UpdateCategoryResponse")]
         void UpdateCategory(ecommerce.ServiceReference.Category category);
         
@@ -1200,10 +1238,10 @@ namespace ecommerce.ServiceReference {
         System.Threading.Tasks.Task<ecommerce.ServiceReference.Product> GetProductByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByCategory(int id);
+        System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByCategory(int id, bool requireOffer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByCategory", ReplyAction="http://tempuri.org/IContract/GetProductByCategoryResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByCategoryAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByCategoryAsync(int id, bool requireOffer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContract/GetProductByName", ReplyAction="http://tempuri.org/IContract/GetProductByNameResponse")]
         System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByName(string name);
@@ -1401,6 +1439,14 @@ namespace ecommerce.ServiceReference {
             return base.Channel.GetCategoryByIdAsync(id);
         }
         
+        public System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>> GetCategoryCount(bool requireOffer) {
+            return base.Channel.GetCategoryCount(requireOffer);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<int, int>>> GetCategoryCountAsync(bool requireOffer) {
+            return base.Channel.GetCategoryCountAsync(requireOffer);
+        }
+        
         public void UpdateCategory(ecommerce.ServiceReference.Category category) {
             base.Channel.UpdateCategory(category);
         }
@@ -1449,12 +1495,12 @@ namespace ecommerce.ServiceReference {
             return base.Channel.GetProductByIdAsync(id);
         }
         
-        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByCategory(int id) {
-            return base.Channel.GetProductByCategory(id);
+        public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByCategory(int id, bool requireOffer) {
+            return base.Channel.GetProductByCategory(id, requireOffer);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByCategoryAsync(int id) {
-            return base.Channel.GetProductByCategoryAsync(id);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<ecommerce.ServiceReference.Product>> GetProductByCategoryAsync(int id, bool requireOffer) {
+            return base.Channel.GetProductByCategoryAsync(id, requireOffer);
         }
         
         public System.Collections.Generic.List<ecommerce.ServiceReference.Product> GetProductByName(string name) {

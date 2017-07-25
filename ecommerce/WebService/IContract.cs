@@ -24,6 +24,9 @@ namespace WebService
         Category GetCategoryById(int id);
 
         [OperationContract]
+        List<KeyValuePair<int,int>> GetCategoryCount(bool requireOffer);
+
+        [OperationContract]
         void UpdateCategory(Category category);
 
         [OperationContract]
@@ -47,7 +50,7 @@ namespace WebService
 
 
         [OperationContract]
-        List<Product> GetProductByCategory(int id);
+        List<Product> GetProductByCategory(int id, bool requireOffer);
 
 
         [OperationContract]
