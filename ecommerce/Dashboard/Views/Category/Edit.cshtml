@@ -78,13 +78,13 @@
 
                     <div class="form-group">
                         <div class="col-lg-1 col-lg-offset-3  col-md-offset-3  col-sm-offset-3">
-                            <input type="submit" class="btn btn-primary" value="Submit" />
+                            <input type="submit" class="btn btn-primary" value="Confirmar" />
                         </div>
                         <div class="col-lg-1">
-                            <button class="btn btn-default" type="reset">Reset</button>
+                            <button class="btn btn-default" type="reset">Reiniciar</button>
                         </div>
                         <div class="col-lg-1">
-                            <input type="button" class="btn" value="Cancelar" onclick="location.href='@Url.Action("GetAll", "Category")'" />
+                            <input type="button" class="btn" value="Cancelar" data-toggle="modal" data-target="#modal-cancel" data-href="location.href='@Url.Action("GetAll", "Category")'" />
                         </div>
                     </div>
 

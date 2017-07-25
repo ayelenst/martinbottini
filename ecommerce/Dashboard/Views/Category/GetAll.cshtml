@@ -19,11 +19,11 @@ columns.Add(foo => foo.Enabled).Sortable(true);
 columns.Add().Encoded(false)
 .Sanitized(false)
 .SetWidth(30)
-.RenderValueAs(o => @<input type="button" class='btn-default' value="Edit" onclick="location.href='@Url.Action("Edit", "Category", new { id = o.Id })'" />);
+.RenderValueAs(o => @<input type="button" class='btn-default' value="Editar" onclick="location.href='@Url.Action("Edit", "Category", new { id = o.Id })'" />);
     columns.Add().Encoded(false)
     .Sanitized(false)
     .SetWidth(30)
-    .RenderValueAs(o => @<input type="button" class='btn-default'  data-toggle="modal" data-target="#modal-delete"  value="Delete" data-href="location.href='@Url.Action("Delete", "Category", new { id = o.Id })'" />);
+    .RenderValueAs(o => @<input type="button" class='btn-default' data-toggle="modal" data-target="#modal-delete"  value="Eliminar" data-href="location.href='@Url.Action("Eliminar", "Category", new { id = o.Id })'" />);
 }).WithPaging(20)
 
     <input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'" />
