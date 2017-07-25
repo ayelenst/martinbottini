@@ -60,6 +60,17 @@ namespace Repository.Repositories
             }
         }
 
+        public List<KeyValuePair<int, int>> GetCategoryCount(bool requireOffer)
+        {
+            using (var db = new EcommerceContext())
+            {
+
+                return db.Categories.Select(x => new KeyValuePair<int, int>(x.Id,
+                    db.Products.Count(y=>y.CategoryId == x.Id || y.Category.ParentId ==x.Id)
+                    )).ToList();
+            }
+        }
+
         public void Delete(int id)
         {
             using (var db = new EcommerceContext())

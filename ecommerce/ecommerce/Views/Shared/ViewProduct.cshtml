@@ -4,9 +4,9 @@
     <ol class="breadcrumb">
         <li class="hidden-xs"><a href="/">Home</a></li>
         <li class="hidden-xs"><a href="/shop">Shop</a></li>
-        <li><a href="/category/@Model.CategoryId">@Model.CategoryId</a></li>
+        <li><a href="@Url.Action("GetById", "Category", new { id = Model.CategoryId })">@Model.CategoryName</a></li>
 
-        <li class="active"><a href="/product/@Model.Id">@Model.Name</a></li>
+        <li class="active"><a href="@Url.Action("GetById", "Product", new { id = Model.Id })">@Model.Name</a></li>
     </ol>
     <form class="custom" onsubmit="return false" method="post" action="/product/blue-wristband-tracker">
 
@@ -76,11 +76,11 @@
             <div id="product-page">
                 <div class="col-sm-6">
                     <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-                       @if (Model.IsOffer && Model.StartDay < DateTime.Now && Model.EndDay > DateTime.Now)
+                       @if (Model.IsSale)
             {
                         <div class="h2 product-price">
                             <small class="previous-price">$@Model.Price.ToString("N")</small>
-                            <h2>$@((Model.Price - Model.Price * Model.Percent / 100).ToString("N"))</h2>
+                            <h2>$@((Model.OfferPrice).ToString("N"))</h2>
                         </div>
                        }
                        else
@@ -108,8 +108,16 @@
                         </div>
                         <a class="btn btn-lg btn-danger btn-add-cart" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product, #navbar-totals=shop-minicart-totals">Add to Cart <i class="fa fa-shopping-cart"></i></a>
                     </div>
+                    
+                    <div class="details-line">
+                        <span class="details-title">MARCA</span>
+                        <span class="details-description">@Model.Brand</span>
+                    </div>
+                    <div class="details-line">
+                        <span class="details-title">GARANTÍA</span>
+                        <span class="details-description">@Model.Warranty</span>
 
-
+                    </div>
                  
                 </div>
             </div>

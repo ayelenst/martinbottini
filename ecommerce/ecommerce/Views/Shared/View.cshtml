@@ -4,7 +4,7 @@
 
     <form class="custom" onsubmit="return false" method="post" action="">
         <div class="product-item text-center">
-            <a class="product-img" href="/product/@Model.Id">
+            <a class="product-img" href="@Url.Action("GetById", "Product", new { id = Model.Id })">
                 @if (@Model.Images.Any(x => x.IsMain))
                 {
                     <img class="img-responsive" src="@ViewBag.imageFolder@Model.Images.FirstOrDefault(x=>x.IsMain).Url" alt="Blue Headphones">
@@ -12,16 +12,16 @@
             
             </a>
             <h3 class="product-title">
-                <a href="/product/blue-headphones">@Model.Name</a>
+                <a href="@Url.Action("GetById", "Product", new { id = Model.Id })">@Model.Name</a>
             </h3>
-            @if (Model.IsOffer && Model.StartDay < DateTime.Now && Model.EndDay > DateTime.Now)
+            @if (Model.IsSale)
             {
                 <div class="h4 product-price">
                     <span class="previous-price">$@Model.Price.ToString("N")</span>
                     <div class="sale-tag">
                         Sale!
                     </div>
-                    <span>$@((Model.Price-Model.Price*Model.Percent/100).ToString("N"))</span>
+                    <span>$@((Model.OfferPrice).ToString("N"))</span>
                 </div>
             }
             else

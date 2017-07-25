@@ -14,27 +14,44 @@ namespace ecommerce.Controllers
             var app = new ServiceReference.ContractClient();
             var productClient = app.GetProductById(id);
 
-            var model = new ProductViewModel
-            {
-                Id = productClient.Id,
-                Name = productClient.Name,
-                Description = productClient.Description,
-                Enabled = productClient.Enabled,
-                IsOffer = productClient.IsOffer,
-                Percent = productClient.Percent,
-                Price = productClient.Price,
-                StartDay = productClient.StartDay,
-                EndDay = productClient.EndDay,
-                Images = productClient.Image,
-                CategoryId = productClient.CategoryId
-            };           
+            var model = new ProductViewModel(productClient);
 
             model.Images = app.GetImageByProductId(id);
             if (model.Images == null)
             {
                 model.Images = new List<ServiceReference.Image>();
             }
+
+            var categories = ViewBag.LayoutModel as List<CategoryViewModel>;
+            model.CategoryName = categories.FirstOrDefault(x => x.Id == model.CategoryId).Name;
+
             return PartialView("ViewProduct",model);
+        }
+
+        public ActionResult GetById(int id)
+        {
+            var app = new ServiceReference.ContractClient();
+            var productClient = app.GetProductById(id);
+
+            var model = new ProductViewModel(productClient);
+
+            model.Images = app.GetImageByProductId(id);
+            if (model.Images == null)
+            {
+                model.Images = new List<ServiceReference.Image>();
+            }
+
+            var categories = ViewBag.LayoutModel as List<CategoryViewModel>;
+            model.CategoryName = categories.FirstOrDefault(x => x.Id == model.CategoryId).Name;
+
+            model.Feature = app.GetFeatureByProductId(model.Id).Select(x => new FeatureViewModel
+            {
+                Id = x.Id,
+                Description = x.Description,
+                Name = x.Name
+            }).ToList();
+
+            return View(model);
         }
     }
 }

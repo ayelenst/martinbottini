@@ -25,6 +25,9 @@ namespace ecommerce.Models
             Price = product.Price;
             StartDay = product.StartDay;
             EndDay = product.EndDay;
+            Brand = product.Brant;
+            CategoryId = product.CategoryId;
+            Warranty = product.Warranty;
         }
         public int Id { get; set; }
 
@@ -42,6 +45,20 @@ namespace ecommerce.Models
 
         public DateTime EndDay { get; set; }
 
+        public double OfferPrice { get
+            {
+                return (Price - Price * Percent / 100);
+            }
+        }
+
+        public bool IsSale
+        {
+            get
+            {
+                return IsOffer && StartDay < DateTime.Now && EndDay > DateTime.Now;
+            }
+        }
+
         [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
         public double Price { get; set; }
 
@@ -50,6 +67,8 @@ namespace ecommerce.Models
         public List<FeatureViewModel> Feature { get; set; }
 
         public List<ServiceReference.Image> Images { get; set; }
-
+        public string CategoryName { get; internal set; }
+        public string Brand { get; private set; }
+        public string Warranty { get; private set; }
     }
 }

@@ -31,6 +31,35 @@
                 $("#formgroup__" + id).hide();
             });
 
+            //llamo a la funcion que ve en que estado actual esta el checkbox y deshabilita o no los controles
+            setoffer();
+            //creo un evento para el elemento de ID offer_cbx cada vez que cambie
+            $('#offer_cbx').on('change', function () {
+                //llamo a la misma funcion una vez  que el checkbox cambio
+                setoffer();
+            });
+
+
+            function setoffer() {
+                //me fijo el estado actual del checkbox
+                var isoffer = $('#offer_cbx').is(':checked');
+                //si esta tildado
+                if (isoffer) {
+                    //por cada elemento que tiene como clase cd-offer-other
+                    $('.cd-offer-other').each(function (i, e) {
+                        //setteo la propiedad disabled
+                        $(e).prop('disabled', false)
+                    });
+
+                }
+                //si no esta tildado
+                else {
+                    //lo mismo
+                    $('.cd-offer-other').each(function (i, e) {
+                        $(e).prop('disabled', true)
+                    });
+                }
+            }
 
             $('#addfeature').click(function (e) {
                 e.preventDefault();
@@ -152,32 +181,32 @@
                             <div class="col-lg-2 col-md-8 col-sm-9 col-xs-10">
                                 <div class="row">
                                     <div class="form-group control-label col-lg-2 col-md-1 col-sm-1 col-xs-1">
-                                        @Html.CheckBoxFor(x => x.Product.IsOffer, new { @class = "checkbox form-control" })
+                                        @Html.CheckBoxFor(x => x.Product.IsOffer, new { @class = "checkbox form-control", @id = "offer_cbx" })
                                     </div>
                                     <label class="control-label col-lg-5">Porcentaje</label>
                                     <div class="col-lg-5  col-md-2 col-sm-2 col-xs-4">
                                         <div class="form-group">
-                                            @Html.TextBoxFor(x => x.Product.Percent, new { @class = "checkbox form-control", @type = "number" })
+                                            @Html.TextBoxFor(x => x.Product.Percent, new { @class = "checkbox form-control cd-offer-other", @type = "number" })
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-offset-0 col-lg-5 col-md-3 col-sm-3 col-sm-offset-3 col-xs-6">
-                                <div class="col-lg-offset-0 col-lg-6 col-md-3 col-sm-3 col-sm-offset-3 col-xs-6">
+                            <div class="col-lg-5 col-lg-offset-0 col-md-7 col-sm-offset-3 col-sm-7 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker1'>
-                                            @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control", @type = "text" })
+                                            @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control cd-offer-other", @type = "text" })
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-3 col-sm-3 col-xs-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control", @type = "text" })
+                                            @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control cd-offer-other", @type = "text" })
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>

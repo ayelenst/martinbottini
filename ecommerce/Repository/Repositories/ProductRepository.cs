@@ -28,22 +28,17 @@ namespace Repository.Repositories
         }
 
 
-        public List<Product> GetByCategory(int id)
+        public List<Product> GetByCategory(int id, bool requireOffer)
         {
             using (var db = new EcommerceContext())
             {
-                var query = db.Products.Where(x => x.CategoryId == id);
-                var query2 = db.Products.Where(x => x.Category.ParentId == id);
-                var children = db.Categories.Where(x => x.ParentId == id);
-                var query3 = new List<Product>();
+                var query = db.Products.Where(x => x.CategoryId == id || x.Category.ParentId == id);
 
-                foreach (var child in children)
+                if (requireOffer)
                 {
-                    query3.AddRange(db.Products.Where(x => x.Category.ParentId == child.Id).ToList());
+                    query.Where(x=>x.IsOffer && x.StartDay < DateTime.Now && x.EndDay > DateTime.Now);
                 }
-                query3.AddRange(query2.ToList());
-                query3.AddRange(query.ToList());
-                return query3;
+                return query.ToList();
             }
         }
 
