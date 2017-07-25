@@ -29,6 +29,7 @@
   <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
   <xs:complexType name="Product">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Brant" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Category" nillable="true" type="tns:Category" />
       <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
@@ -42,6 +43,7 @@
       <xs:element minOccurs="0" name="Percent" type="xs:double" />
       <xs:element minOccurs="0" name="Price" type="xs:double" />
       <xs:element minOccurs="0" name="StartDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Warranty" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Product" nillable="true" type="tns:Product" />

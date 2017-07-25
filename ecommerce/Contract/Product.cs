@@ -20,6 +20,12 @@ namespace Model
         public string Description { get; set; }
 
         [DataMember]
+        public string Brant { get; set; }
+
+        [DataMember]
+        public string Warranty { get; set; }
+
+        [DataMember]
         public bool IsOffer { get; set; }
 
         [DataMember]

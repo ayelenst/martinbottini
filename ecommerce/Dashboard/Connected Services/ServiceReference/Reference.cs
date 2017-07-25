@@ -212,6 +212,9 @@ namespace Dashboard.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrantField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Dashboard.ServiceReference.Category CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -250,6 +253,9 @@ namespace Dashboard.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDayField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WarrantyField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -257,6 +263,19 @@ namespace Dashboard.ServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Brant {
+            get {
+                return this.BrantField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrantField, value) != true)) {
+                    this.BrantField = value;
+                    this.RaisePropertyChanged("Brant");
+                }
             }
         }
         
@@ -425,6 +444,19 @@ namespace Dashboard.ServiceReference {
                 if ((this.StartDayField.Equals(value) != true)) {
                     this.StartDayField = value;
                     this.RaisePropertyChanged("StartDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Warranty {
+            get {
+                return this.WarrantyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WarrantyField, value) != true)) {
+                    this.WarrantyField = value;
+                    this.RaisePropertyChanged("Warranty");
                 }
             }
         }

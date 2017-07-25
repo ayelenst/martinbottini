@@ -20,6 +20,10 @@ namespace Dashboard.Models
         [Required(ErrorMessage = "Descripción es obligatorio")]
         public string Description { get; set; }
 
+        public string Brant { get; set; }
+
+        public string Warranty { get; set; }
+
         public bool IsOffer { get; set; }
 
         [Required(ErrorMessage = "Porcentaje es obligatorio")]
