@@ -4,19 +4,6 @@
 @{
     ViewBag.Title = "Categorías por ID";
 }
-@section Scripts{
-<script type="text/javascript">
-    $(function () { // will trigger when the document is ready
-     
-        $('.modal-confirm').on('show.bs.modal', function (e) {
-                $(this).find('.btn-ok').attr('onclick', $(e.relatedTarget).data('href'));
-            });
-        });
-
-    </script>
-    
-
-    }
 
 
 <input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'"/>
