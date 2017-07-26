@@ -1,0 +1,16 @@
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\WebService.dll.config
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\WebService.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\WebService.pdb
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\EntityFramework.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\EntityFramework.SqlServer.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\Manager.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\Repository.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\Manager.pdb
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\Manager.dll.config
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\Repository.pdb
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\Repository.dll.config
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\EntityFramework.xml
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\bin\EntityFramework.SqlServer.xml
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\obj\Debug\WebService.csprojResolveAssemblyReference.cache
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\obj\Debug\WebService.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\WebService\obj\Debug\WebService.pdb

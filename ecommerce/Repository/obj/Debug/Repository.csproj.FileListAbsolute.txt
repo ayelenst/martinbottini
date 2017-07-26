@@ -1,0 +1,13 @@
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\Repository.dll.config
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\Repository.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\Repository.pdb
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\EntityFramework.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\Manager.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\Manager.pdb
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\Manager.dll.config
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\EntityFramework.xml
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\obj\Debug\Repository.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\Repository\obj\Debug\Repository.pdb

@@ -1,0 +1,13 @@
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\test.exe.config
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\test.exe
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\test.pdb
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\EntityFramework.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\Manager.dll
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\Manager.pdb
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\Manager.dll.config
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\EntityFramework.xml
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\obj\Debug\test.exe
+C:\Users\SanSol\Documents\GitHub\martinbottini\ecommerce\test\obj\Debug\test.pdb
