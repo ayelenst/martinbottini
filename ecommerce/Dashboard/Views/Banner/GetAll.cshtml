@@ -1,0 +1,29 @@
+﻿@model List<Dashboard.Models.BannerViewModel>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Banners por ID";
+}
+
+
+<input type="button" class="btn btn-primary pull-right" style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Banner")'" />
+
+@Html.Grid(Model).Columns(columns =>
+{
+columns.Add(foo => foo.Id).Sortable(true);
+columns.Add(foo => foo.ImageUrl).Sortable(true).Filterable(true);
+columns.Add(foo => foo.Title).Sortable(true).Filterable(true);
+columns.Add(foo => foo.Description).Sortable(true);
+columns.Add(foo => foo.Url).Sortable(true);
+columns.Add().Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(o => @<input type="button" class='btn-default' value="Editar" onclick="location.href='@Url.Action("Edit", "Banner", new { id = o.Id })'" />);
+    columns.Add().Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .RenderValueAs(o => @<input type="button" class='btn-default' data-toggle="modal" data-target="#modal-delete"  value="Eliminar" data-href="location.href='@Url.Action("Delete", "Banner", new { id = o.Id })'" />);
+}).WithPaging(20)
+
+<input type="button" class="btn btn-primary pull-right" style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Banner")'" />
+

@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+      <xsd:import schemaLocation="http://localhost:59378/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IContract_GetAllCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategories" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllCategoryVisible_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryVisible" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllCategoryVisible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryVisibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetCategoryById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryById" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetCategoryById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetCategoryCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryCount" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetCategoryCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategory" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategory" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProducts" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllProductVisible_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductVisible" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllProductVisible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductVisibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductById" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCategory" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByName" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductBywithOffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductBywithOffer" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductBywithOffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductBywithOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastOffers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastOffers" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastOffers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastOffersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastAdded_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastAdded" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetProductLastAdded_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductLastAddedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrders" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllOrderByState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrderByState" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllOrderByState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrderByStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrder" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetOrderById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderById" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetOrderById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetOrderByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByDate" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetOrderByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetOrderByDateDone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByDateDone" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetOrderByDateDone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByDateDoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_PlaceOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlaceOrder" />
+  </wsdl:message>
+  <wsdl:message name="IContract_PlaceOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PlaceOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllBanner_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBanner" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetAllBanner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetBannerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannerById" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetBannerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBannerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateBanner_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBanner" />
+  </wsdl:message>
+  <wsdl:message name="IContract_UpdateBanner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddBanner_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBanner" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddBanner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteBanner_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBanner" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteBanner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetImageByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetImageByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetImageById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageById" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetImageById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImage" />
+  </wsdl:message>
+  <wsdl:message name="IContract_DeleteImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddImageRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddImageRange" />
+  </wsdl:message>
+  <wsdl:message name="IContract_AddImageRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddImageRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetFeatureByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeatureByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IContract_GetFeatureByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeatureByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IContract">
+    <wsdl:operation name="GetAllCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllCategories" message="tns:IContract_GetAllCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetAllCategoriesResponse" message="tns:IContract_GetAllCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryVisible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllCategoryVisible" message="tns:IContract_GetAllCategoryVisible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetAllCategoryVisibleResponse" message="tns:IContract_GetAllCategoryVisible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetCategoryById" message="tns:IContract_GetCategoryById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetCategoryByIdResponse" message="tns:IContract_GetCategoryById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetCategoryCount" message="tns:IContract_GetCategoryCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetCategoryCountResponse" message="tns:IContract_GetCategoryCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/UpdateCategory" message="tns:IContract_UpdateCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/UpdateCategoryResponse" message="tns:IContract_UpdateCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/AddCategory" message="tns:IContract_AddCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/AddCategoryResponse" message="tns:IContract_AddCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteCategory" message="tns:IContract_DeleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteCategoryResponse" message="tns:IContract_DeleteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllProducts" message="tns:IContract_GetAllProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetAllProductsResponse" message="tns:IContract_GetAllProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductVisible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllProductVisible" message="tns:IContract_GetAllProductVisible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetAllProductVisibleResponse" message="tns:IContract_GetAllProductVisible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductById" message="tns:IContract_GetProductById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductByIdResponse" message="tns:IContract_GetProductById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductByCategory" message="tns:IContract_GetProductByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductByCategoryResponse" message="tns:IContract_GetProductByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductByName" message="tns:IContract_GetProductByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductByNameResponse" message="tns:IContract_GetProductByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductBywithOffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductBywithOffer" message="tns:IContract_GetProductBywithOffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductBywithOfferResponse" message="tns:IContract_GetProductBywithOffer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/UpdateProduct" message="tns:IContract_UpdateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/UpdateProductResponse" message="tns:IContract_UpdateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/AddProduct" message="tns:IContract_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/AddProductResponse" message="tns:IContract_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteProduct" message="tns:IContract_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteProductResponse" message="tns:IContract_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastOffers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductLastOffers" message="tns:IContract_GetProductLastOffers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductLastOffersResponse" message="tns:IContract_GetProductLastOffers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastAdded">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetProductLastAdded" message="tns:IContract_GetProductLastAdded_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetProductLastAddedResponse" message="tns:IContract_GetProductLastAdded_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllOrders" message="tns:IContract_GetAllOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetAllOrdersResponse" message="tns:IContract_GetAllOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrderByState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllOrderByState" message="tns:IContract_GetAllOrderByState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetAllOrderByStateResponse" message="tns:IContract_GetAllOrderByState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/UpdateOrder" message="tns:IContract_UpdateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/UpdateOrderResponse" message="tns:IContract_UpdateOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetOrderById" message="tns:IContract_GetOrderById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetOrderByIdResponse" message="tns:IContract_GetOrderById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetOrderByDate" message="tns:IContract_GetOrderByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetOrderByDateResponse" message="tns:IContract_GetOrderByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderByDateDone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetOrderByDateDone" message="tns:IContract_GetOrderByDateDone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetOrderByDateDoneResponse" message="tns:IContract_GetOrderByDateDone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/PlaceOrder" message="tns:IContract_PlaceOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/PlaceOrderResponse" message="tns:IContract_PlaceOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBanner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetAllBanner" message="tns:IContract_GetAllBanner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetAllBannerResponse" message="tns:IContract_GetAllBanner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetBannerById" message="tns:IContract_GetBannerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetBannerByIdResponse" message="tns:IContract_GetBannerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBanner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/UpdateBanner" message="tns:IContract_UpdateBanner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/UpdateBannerResponse" message="tns:IContract_UpdateBanner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBanner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/AddBanner" message="tns:IContract_AddBanner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/AddBannerResponse" message="tns:IContract_AddBanner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBanner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteBanner" message="tns:IContract_DeleteBanner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteBannerResponse" message="tns:IContract_DeleteBanner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetImageByProductId" message="tns:IContract_GetImageByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetImageByProductIdResponse" message="tns:IContract_GetImageByProductId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetImageById" message="tns:IContract_GetImageById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetImageByIdResponse" message="tns:IContract_GetImageById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/DeleteImage" message="tns:IContract_DeleteImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/DeleteImageResponse" message="tns:IContract_DeleteImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddImageRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/AddImageRange" message="tns:IContract_AddImageRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/AddImageRangeResponse" message="tns:IContract_AddImageRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeatureByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContract/GetFeatureByProductId" message="tns:IContract_GetFeatureByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContract/GetFeatureByProductIdResponse" message="tns:IContract_GetFeatureByProductId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IContract" type="tns:IContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCategories">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetAllCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoryVisible">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetAllCategoryVisible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryById">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetCategoryById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryCount">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetCategoryCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap:operation soapAction="http://tempuri.org/IContract/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <soap:operation soapAction="http://tempuri.org/IContract/AddCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProducts">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetAllProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProductVisible">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetAllProductVisible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCategory">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByName">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductBywithOffer">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductBywithOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/IContract/UpdateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IContract/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastOffers">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductLastOffers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductLastAdded">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetProductLastAdded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrderByState">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetAllOrderByState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <soap:operation soapAction="http://tempuri.org/IContract/UpdateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderById">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetOrderById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderByDate">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetOrderByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderByDateDone">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetOrderByDateDone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <soap:operation soapAction="http://tempuri.org/IContract/PlaceOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBanner">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetAllBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBannerById">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetBannerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBanner">
+      <soap:operation soapAction="http://tempuri.org/IContract/UpdateBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBanner">
+      <soap:operation soapAction="http://tempuri.org/IContract/AddBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBanner">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageByProductId">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetImageByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageById">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetImageById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <soap:operation soapAction="http://tempuri.org/IContract/DeleteImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddImageRange">
+      <soap:operation soapAction="http://tempuri.org/IContract/AddImageRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeatureByProductId">
+      <soap:operation soapAction="http://tempuri.org/IContract/GetFeatureByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IContract" binding="tns:BasicHttpBinding_IContract">
+      <soap:address location="http://localhost:59378/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

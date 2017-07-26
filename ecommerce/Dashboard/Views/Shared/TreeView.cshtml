@@ -1,0 +1,49 @@
+﻿@model List<Dashboard.Models.CategoryViewModel>
+@using System.Web.UI.WebControls
+@using Dashboard.Models
+<link href="~/Content/style.min.css" rel="stylesheet" />
+<div class="form-body">
+    <div id="jstree">
+        @(Html.TreeView(Model)
+                          .EmptyContent("root")
+                          .Children(m => m.Children)
+                          .HtmlAttributes(new { id = "tree" })
+                      .ChildrenHtmlAttributes(new { @class = "subItem" })
+                          .ItemText(m => m.Name)
+                          .ItemTemplate(
+        @<text>
+            <a href="@item.Description" desc="@item.Description">@item.Name</a>
+        </text>)
+        )
+    </div>
+</div>
+@section scripts
+{
+    <script src="~/Scripts/jstree.min.js"></script>
+    <script>
+        $(function () {
+            var selectedData;
+            $('#jstree').jstree({
+                "core": {
+                    "multiple": true,
+                    "check_callback": false,
+                    'themes': {
+                        "responsive": true,
+                        'variant': 'larg',
+                        'stripes': false,
+                        'dots': false
+                    }
+                },
+                "types": {
+                    "default": {
+                        "icon": "fa fa-folder icon-state-warning icon-lg"
+                    },
+                    "file": {
+                        "icon": "fa fa-file icon-state-warning icon-lg"
+                    }
+                },
+                "plugins": ["dnd", "state", "types", "sort", "checkbox"]
+            });
+        });
+    </script>
+}
