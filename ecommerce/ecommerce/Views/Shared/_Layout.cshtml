@@ -44,7 +44,7 @@
                                                 <ul class="dropdown-menu">
                                                     @foreach (var subcat in model.Where(x => x.Level == 1 && x.Parent == cat.Id))
                                                     {
-                                                        <li><a href="#">@subcat.Name</a></li>
+                                                        <li><a href="@Url.Action("GetById", "Category", new { id = subcat.Id })">@subcat.Name</a></li>
                                                     }
 
                                                 </ul>
@@ -53,7 +53,7 @@
                                         else
                                         {
                                             <li role="presentation">
-                                                <a role="menuitem" tabindex="-1" href="">@cat.Name</a>
+                                                <a role="menuitem" tabindex="-1" href="@Url.Action("GetById", "Category", new { id = cat.Id })">@cat.Name</a>
                                             </li>
                                         }
 
@@ -63,12 +63,12 @@
                                 </li>
 
                                 <li role="presentation">
-                                    <a role="menuitem" href="">Todos los productos</a>
+                                    <a role="menuitem" href="@Url.Action("GetById", "Category", new { id = "0" })">Todos los productos</a>
                                 </li>
 
                             </ul>
                         </li>
-                        <li class=""><a href="//boxie.lemonstand.com/about">Ofertas</a></li>
+                        <li class=""><a href="@Url.Action("GetById", "Category", new { id = "0", isOffer = true })">Ofertas</a></li>
                         <li class=""><a href="//boxie.lemonstand.com/contact">Contacto</a></li>
                         <li class=""><a href="//boxie.lemonstand.com/contact">Nosotros</a></li>
                         <li class="">

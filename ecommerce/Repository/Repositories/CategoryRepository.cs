@@ -64,10 +64,14 @@ namespace Repository.Repositories
         {
             using (var db = new EcommerceContext())
             {
-
-                return db.Categories.Select(x => new KeyValuePair<int, int>(x.Id,
+                if(!requireOffer)
+                return db.Categories.AsEnumerable().Select(x => new KeyValuePair<int, int>(x.Id,
                     db.Products.Count(y=>y.CategoryId == x.Id || y.Category.ParentId ==x.Id)
                     )).ToList();
+                else
+                    return db.Categories.AsEnumerable().Select(x => new KeyValuePair<int, int>(x.Id,
+                   db.Products.Count(y =>( y.CategoryId == x.Id || y.Category.ParentId == x.Id) && y.IsOffer && x.Enabled && y.StartDay < DateTime.Now && y.EndDay > DateTime.Now)
+                   )).ToList();
             }
         }
 

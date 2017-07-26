@@ -278,14 +278,14 @@
         //===============
         var container = document.querySelector('.product-grid > .row');
         var msnry;
-        if ($('.product-grid').length) {
-            imagesLoaded(container, function () {
-                msnry = new Masonry(container, {
-                    itemSelector: '.product-holder'
-                });
-                console.log('loaded');
-            });
-        }
+        //if ($('.product-grid').length) {
+        //    imagesLoaded(container, function () {
+        //        msnry = new Masonry(container, {
+        //            itemSelector: '.product-holder'
+        //        });
+        //        console.log('loaded');
+        //    });
+        //}
 
     });
 

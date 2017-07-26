@@ -18,11 +18,11 @@ namespace ecommerce.Controllers
             {
                 if (isOffer)
                 {
-                    productsToDisplay = app.GetProductLastOffers(8).Select(x => new ProductViewModel(x)).ToList();
+                    productsToDisplay = app.GetProductLastOffers(null).Select(x => new ProductViewModel(x)).ToList();
                 }
                 else
                 {
-                    productsToDisplay = app.GetProductLastAdded(8).Select(x => new ProductViewModel(x)).ToList();
+                    productsToDisplay = app.GetAllProducts().Select(x => new ProductViewModel(x)).ToList();
                 }
             }
             else
@@ -38,6 +38,7 @@ namespace ecommerce.Controllers
                 c.CountProduct = categoriesAmount.FirstOrDefault(x => x.Key == c.Id).Value;
             }
 
+            
             foreach (var c in productsToDisplay)
             {
                 c.Images = app.GetImageByProductId(c.Id);
@@ -47,6 +48,11 @@ namespace ecommerce.Controllers
                 Products = productsToDisplay,
                 Categories = categories
             };
+
+            if(id != 0)
+            {
+                model.CurrentCategory = categories.FirstOrDefault(x => x.Id == id);
+            }
 
 
             return View(model);
