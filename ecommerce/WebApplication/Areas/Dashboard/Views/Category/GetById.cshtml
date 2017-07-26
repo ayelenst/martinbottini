@@ -1,0 +1,36 @@
+﻿@model WebApplication.Areas.Dashboard.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Categorías por ID";
+    Layout = "~/Areas/Dashboard/Views/Shared/_layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetById</title>
+</head>
+<body>
+
+    <div>
+        @Html.DisplayFor(x => x.Description)
+    </div>
+    <div>
+        @Html.DisplayFor(x => x.Name)
+    </div>
+    <div>
+        @Html.DisplayFor(x => x.Id)
+    </div>
+    <div>
+        @Html.DisplayFor(x => x.Level)
+    </div>
+    <div>
+        @Html.DisplayFor(x => x.ParentId)
+    </div>
+    <div>
+        @Html.DisplayFor(x => x.Enabled)
+    </div>
+</body>
+</html>

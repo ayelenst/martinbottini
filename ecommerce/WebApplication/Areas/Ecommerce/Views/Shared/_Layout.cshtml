@@ -1,0 +1,195 @@
+﻿@using WebApplication.Areas.Ecommerce.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/ecommerce")
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <main id="page-content" class="wrap container">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header pull-left">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html" class="navbar-brand"><img src="~/Image/logo.png"></a>
+                </div>
+
+
+
+                <div class="collapse navbar-collapse navbar-left ">
+                    <ul class="nav navbar-nav ">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">
+                                Categorías <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
+                                @{ var model = ViewBag.LayoutModel as List<CategoryViewModel>;
+
+                                    foreach (var cat in model.Where(x => x.Level == 0).OrderByDescending(x => x.CountChildren))
+                                    {
+                                        if (model.Any(x => x.Parent == cat.Id && x.Level == 1))
+                                        {
+                                            <li class="dropdown-submenu">
+                                                <a tabindex="-1" href="#">@cat.Name </a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach (var subcat in model.Where(x => x.Level == 1 && x.Parent == cat.Id))
+                                                    {
+                                                        <li><a href="@Url.Action("GetById", "Category", new { id = subcat.Id })">@subcat.Name</a></li>
+                                                    }
+
+                                                </ul>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li role="presentation">
+                                                <a role="menuitem" tabindex="-1" href="@Url.Action("GetById", "Category", new { id = cat.Id })">@cat.Name</a>
+                                            </li>
+                                        }
+
+                                    }
+                                }
+                                <li class="divider">
+                                </li>
+
+                                <li role="presentation">
+                                    <a role="menuitem" href="@Url.Action("GetById", "Category", new { id = "0" })">Todos los productos</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class=""><a href="@Url.Action("GetById", "Category", new { id = "0", isOffer = true })">Ofertas</a></li>
+                        <li class=""><a href="//boxie.lemonstand.com/contact">Contacto</a></li>
+                        <li class=""><a href="//boxie.lemonstand.com/contact">Nosotros</a></li>
+                        <li class="">
+                            <input type="text" class="search-form" name="query" id="query" placeholder="Busque su producto" autocomplete="off" value="">
+
+                        </li>
+                        <li>
+                            <Button href="#" class="navbar-btn btn ">
+                                <i class="fa fa-search"></i>
+                            </Button>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="navbar navbar-right pull-right" style="margin:0px">
+                    <ul class="nav navbar-nav">
+                        <li id="navbar-totals" class="totals">
+                            <span class="hidden-xs">2 Items</span>
+                            <span class="visible-lg">$228.00</span>
+
+                            <span class="visible-xs item-number">2</span>
+
+                        </li>
+                        <li class="dropdown">
+                            <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
+                                <i class="fa fa-shopping-cart"></i>
+                            </Button>
+                            <div id="mini-cart" class="dropdown-menu">
+                                <ul class="cart-items list-unstyled hidden-xs">
+                                    <li class="row cart-item">
+                                        <div class="product-thumb col-xs-4">
+                                            <img class="img-responsive" alt="Lime Green Speaker" src="//dd6vif294zh3b.cloudfront.net/store-boxie-5398d8498b7b0/uploaded/thumbnails/LimeGreenSpeaker_100x100-jpg-keep-ratio.png?1402671927">
+                                        </div>
+                                        <div class="product-info col-xs-8">
+                                            <h6 class="product-title">Lime Green Speaker</h6>
+                                            <div class="price">
+                                                1 x <span>$99.00</span>
+                                            </div>
+                                            <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae4c45dd6'"><i class="fa fa-times"></i></a>
+                                        </div>
+                                    </li>
+                                    <li class="row cart-item">
+                                        <div class="product-thumb col-xs-4">
+                                            <img class="img-responsive" alt="Blue Wristband Tracker" src="//dd6vif294zh3b.cloudfront.net/store-boxie-5398d8498b7b0/uploaded/thumbnails/BlueJawbone_100x100-jpg-keep-ratio.png?1402683390">
+                                        </div>
+                                        <div class="product-info col-xs-8">
+                                            <h6 class="product-title">Blue Wristband Tracker</h6>
+                                            <div class="price">
+                                                1 x <span>$129.00</span>
+                                            </div>
+                                            <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae7a93d3c'"><i class="fa fa-times"></i></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="mini-cart-totals">
+                                    <h4 class="subtotal">Subtotal: $228.00</h4>
+                                    <a class="btn btn-default btn-lg" href="//boxie.lemonstand.com/cart">View Cart</a>
+                                    <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </nav>
+        <div>
+            @RenderBody()
+        </div>
+        <div class="modal fade bd-example-modal-lg" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body" id="modal-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              
+
+    </main>
+    <footer id="page-footer">
+        <div class="container">
+            <div class="footer-contact text-center row">
+                <div class="col-xs-12 col-sm-4 col-lg-2 col-lg-offset-3">
+                    <a href="#"><i class="fa fa-envelope-o"></i>info@boxie.com</a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-lg-2">
+                    <a href="#"><i class="fa fa-phone"></i>555.555.5555</a>
+                </div>
+                <div class="social-buttons col-xs-12 col-sm-4 col-lg-2">
+                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                </div>
+            </div>
+            <div class="footer-info wrap row">
+                <div class="col-sm-6">
+                    <ul class="list-unstyled">
+                        <li>© BOXIE! 2014</li>
+                        <li><a href="//boxie.lemonstand.com/terms">Terms &amp; Conditions</a></li>
+                        <li><a href="//boxie.lemonstand.com/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <p class="credit">Powered by <a href="http://www.lemonstand.com">LemonStand</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <!-- END NAVBAR -->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/scripts")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -55,41 +55,9 @@
     <Compile Include="EcommerceContext.cs" />
     <Compile Include="Feature.cs" />
     <Compile Include="Image.cs" />
-    <Compile Include="Migrations\201707182009587_features.cs" />
-    <Compile Include="Migrations\201707182009587_features.Designer.cs">
-      <DependentUpon>201707182009587_features.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707181955092_test2.cs" />
-    <Compile Include="Migrations\201707181955092_test2.Designer.cs">
-      <DependentUpon>201707181955092_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707182028379_feature.cs" />
-    <Compile Include="Migrations\201707182028379_feature.Designer.cs">
-      <DependentUpon>201707182028379_feature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707182036207_featuretest2.cs" />
-    <Compile Include="Migrations\201707182036207_featuretest2.Designer.cs">
-      <DependentUpon>201707182036207_featuretest2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707182106027_imageproduct.cs" />
-    <Compile Include="Migrations\201707182106027_imageproduct.Designer.cs">
-      <DependentUpon>201707182106027_imageproduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707212026316_brand.cs" />
-    <Compile Include="Migrations\201707212026316_brand.Designer.cs">
-      <DependentUpon>201707212026316_brand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707251414202_Stock.cs" />
-    <Compile Include="Migrations\201707251414202_Stock.Designer.cs">
-      <DependentUpon>201707251414202_Stock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707251724551_Stock2.cs" />
-    <Compile Include="Migrations\201707251724551_Stock2.Designer.cs">
-      <DependentUpon>201707251724551_Stock2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707252011514_Parentid.cs" />
-    <Compile Include="Migrations\201707252011514_Parentid.Designer.cs">
-      <DependentUpon>201707252011514_Parentid.cs</DependentUpon>
+    <Compile Include="Migrations\201707261801515_firstrefactor.cs" />
+    <Compile Include="Migrations\201707261801515_firstrefactor.Designer.cs">
+      <DependentUpon>201707261801515_firstrefactor.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
@@ -104,32 +72,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707182009587_features.resx">
-      <DependentUpon>201707182009587_features.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707181955092_test2.resx">
-      <DependentUpon>201707181955092_test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707182028379_feature.resx">
-      <DependentUpon>201707182028379_feature.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707182036207_featuretest2.resx">
-      <DependentUpon>201707182036207_featuretest2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707182106027_imageproduct.resx">
-      <DependentUpon>201707182106027_imageproduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707212026316_brand.resx">
-      <DependentUpon>201707212026316_brand.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707251414202_Stock.resx">
-      <DependentUpon>201707251414202_Stock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707251724551_Stock2.resx">
-      <DependentUpon>201707251724551_Stock2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707252011514_Parentid.resx">
-      <DependentUpon>201707252011514_Parentid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707261801515_firstrefactor.resx">
+      <DependentUpon>201707261801515_firstrefactor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

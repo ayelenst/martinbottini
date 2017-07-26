@@ -1,0 +1,361 @@
+﻿@model WebApplication.Areas.Dashboard.Models.ProductEditViewModel
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Agregar producto";
+    Layout = "~/Areas/Dashboard/Views/Shared/_layout.cshtml";
+}
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
+            $('#datetimepicker1').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                'setDate': "0",
+            });
+
+            $('#datetimepicker2').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'dd/mm/yy',
+                setDate: new Date(),
+            });
+            $('#datetimepicker1').datepicker("setDate", new Date());
+            $('#datetimepicker2').datepicker("setDate", new Date());
+            $('.deletefeature').click(function (e) {
+                e.preventDefault();
+                var id = e.currentTarget.id.split('__')[1];
+                $('#Product_Feature_' + id + '__Id').val("-1");
+                $("#formgroup__" + id).hide();
+            });
+
+            //llamo a la funcion que ve en que estado actual esta el checkbox y deshabilita o no los controles
+            setoffer();
+            //creo un evento para el elemento de ID offer_cbx cada vez que cambie
+            $('#offer_cbx').on('change', function () {
+                //llamo a la misma funcion una vez  que el checkbox cambio
+                setoffer();
+            });
+
+
+            function setoffer() {
+                //me fijo el estado actual del checkbox
+                var isoffer = $('#offer_cbx').is(':checked');
+                //si esta tildado
+                if (isoffer) {
+                    //por cada elemento que tiene como clase cd-offer-other
+                    $('.cd-offer-other').each(function (i, e) {
+                        //setteo la propiedad disabled
+                        $(e).prop('disabled', false)
+                    });
+
+                }
+                //si no esta tildado
+                else {
+                    //lo mismo
+                    $('.cd-offer-other').each(function (i, e) {
+                        $(e).prop('disabled', true)
+                    });
+                }
+            }
+
+            $('#addfeature').click(function (e) {
+                e.preventDefault();
+                var id = $('#featurerow').children().length;
+                $('#featurerow').append(
+                    '<div class="form-group" id="formgroup__' + id + '"> <div class="col-lg-2 col-lg-offset-1 col-sm-offset-1 col-sm-2  col-xs-offset-1 col-xs-6"> <input class="form-control" id= "Product_Feature_' + id + '__Name" name= "Product.Feature[' + id + '].Name" placeholder= "Nombre" type= "text" ></div> <div class="col-lg-6 col-sm-6 col-xs-9"><div class="form-group"><input class="form-control" id="Product_Feature_' + id + '__Description" name="Product.Feature[' + id + '].Description" placeholder="Descripción" type="text"></div></div><div class="col-lg-1 col-sm-1 col-xs-1"><button class="btn btn-default btn-sm deletefeature" id="deletebtn__' + id + '"><span class="glyphicon glyphicon-trash"></span> Trash</button></div></div>'
+                );
+                $('#deletebtn__' + id).click(function (e) {
+                    e.preventDefault();
+                    var id = e.currentTarget.id.split('__')[1];
+                    $('#Product_Feature_' + id + '__Id').val("-1");
+                    $("#formgroup__" + id).hide();
+                });
+            });
+
+        });
+    </script>
+
+}
+<!DOCTYPE html>
+@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-horizontal form-label-left", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.Product.Id)
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>General</h4>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                                Nombre
+                            </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.ValidationMessageFor(x => x.Product.Name)
+                                @Html.TextBoxFor(x => x.Product.Name, new { @class = "form-control", @placeholder = "Nombre" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">
+                                Precio
+                            </label>
+                            <div class="col-lg-2  col-md-2 col-sm-2 col-xs-4">
+                                @Html.ValidationMessageFor(x => x.Product.Description)
+                                @Html.TextBoxFor(x => x.Product.Price, Model.Product.Price.ToString("#,##0.00#"), new { @class = "form-control", @type = "text", @placeholder = "0" })
+                            </div>
+
+                            <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="category">
+                                Categoría
+                            </label>
+                            <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+                                @*@Html.Partial("TreeView", Model.Categories)*@
+                                @Html.ValidationMessageFor(x => x.Product.CategoryId)
+                                @Html.DropDownListFor(m => m.Product.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Categoría", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="brant">
+                            Marca
+                        </label>
+                        <div class="col-lg-2  col-md-2 col-sm-2 col-xs-4">
+                            @Html.ValidationMessageFor(x => x.Product.Brant)
+                            @Html.TextBoxFor(x => x.Product.Brant, new { @class = "form-control", @placeholder = "Marca" })
+                        </div>
+
+                        <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="Warranty">
+                            Garantia
+                        </label>
+                        <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+                            @Html.ValidationMessageFor(x => x.Product.Warranty)
+                            @Html.TextBoxFor(x => x.Product.Warranty, new { @class = "form-control", @placeholder = "Garantia" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="TypeStock">
+                            Tipo de Stock
+                        </label>
+                        <div class="col-lg-2  col-md-2 col-sm-2 col-xs-4">
+                            @Html.DropDownListFor(m => m.Product.TypeStock, new SelectList(Model.Inventory, "Key", "Value"), "Inventario", new { @class = "form-control" })
+
+
+                        </div>
+
+                       <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="stock">
+                            Stock
+                        </label>
+                        <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+                            @Html.TextBoxFor(x => x.Product.Stock, new { @class = "form-control", @type = "text", @placeholder = "0" })
+                        </div>
+                    </div>
+
+
+                    
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">
+                                Descripción
+                            </label>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                @Html.TextAreaFor(x => x.Product.Description, new { @class = "form-control", @placeholder = "Descripción", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-2" for="offer">
+                                Oferta
+                            </label>
+                            <div class="col-lg-2 col-md-8 col-sm-9 col-xs-10">
+                                <div class="row">
+                                    <div class="form-group control-label col-lg-2 col-md-1 col-sm-1 col-xs-1">
+                                        @Html.CheckBoxFor(x => x.Product.IsOffer, new { @class = "checkbox form-control", @id = "offer_cbx" })
+                                    </div>
+                                    <label class="control-label col-lg-5">Porcentaje</label>
+                                    <div class="col-lg-5  col-md-2 col-sm-2 col-xs-4">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Product.Percent, new { @class = "checkbox form-control cd-offer-other", @type = "number" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-lg-offset-0 col-md-7 col-sm-offset-3 col-sm-7 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker1'>
+                                            @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control cd-offer-other", @type = "text" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker2'>
+                                            @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control cd-offer-other", @type = "text" })
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-2" for="habilitado">
+                            Habilitado
+                        </label>
+                        <div>
+                            <div class="form-group control-label col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                @Html.CheckBoxFor(x => x.Product.Enabled, new { @class = "checkbox form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>Caracteristicas</h4>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <br>
+
+                        <div class="row" id="featurerow">
+
+                            @for (int i = 0; i < Model.Product.Feature.Count(); i++)
+                {
+                    {
+                                    <div class="form-group " id="formgroup__@i">
+                                        @Html.HiddenFor(x => x.Product.Feature[i].Id)
+                                        <div class="col-lg-2 col-lg-offset-1 col-sm-offset-1 col-sm-2  col-xs-offset-1 col-xs-6">
+                                            @Html.ValidationMessageFor(x => x.Product.Feature[i].Name)
+                                            @Html.TextBoxFor(x => x.Product.Feature[i].Name, new { @class = "form-control", @placeholder = "Nombre" })
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-xs-9">
+                                            <div class="form-group">
+                                                @Html.ValidationMessageFor(x => x.Product.Feature[i].Description)
+                                                @Html.TextBoxFor(x => x.Product.Feature[i].Description, new { @class = "form-control", @placeholder = "Descripción" })
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-sm-1 col-xs-1">
+                                            <button class="btn btn-default btn-sm deletefeature" id="deletebtn__@i">
+                                                <span class="glyphicon glyphicon-trash"></span> Trash
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            <div class="form-group" id="formgroup__@Model.Product.Feature.Count()">
+                                <div class="col-lg-2 col-lg-offset-1 col-sm-offset-1 col-sm-2 col-xs-offset-1 col-xs-6">
+                                    <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Name" name="Product.Feature[@Model.Product.Feature.Count()].Name" placeholder="Nombre" type="text">
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-xs-9">
+                                    <div class="form-group">
+                                        <input class="form-control" id="Product_Feature_@Model.Product.Feature.Count()__Description" name="Product.Feature[@Model.Product.Feature.Count()].Description" placeholder="Descripción" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-sm-1 col-xs-1">
+                                    <button class="btn btn-default btn-sm deletefeature" id="deletebtn__@Model.Product.Feature.Count()">
+                                        <span class="glyphicon glyphicon-trash"></span> Trash
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:15px">
+                            <div class="col-lg-1 col-lg-offset-3  col-sm-offset-3">
+                                <input type="button" class="btn btn-success pull-left" value="Agregar" id="addfeature" />
+                            </div>
+                        </div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>Imágenes</h4>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <br>
+
+                        <div class="form-group ">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="imgprincipal">
+                                Imagen principal
+                            </label>
+                            <div class="col-lg-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <div class="editor-field">
+                                        <input type="file" name="file" accept="image/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="imgotras">
+                                Otras imágenes
+                            </label>
+                            <div class="col-lg-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <div class="editor-field">
+                                        <input type="file" name="file2" multiple="multiple" accept="image/*" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="ln_solid"></div>
+
+                    <div class="form-group">
+                        <div class="col-lg-1 col-lg-offset-3  col-md-offset-3  col-sm-offset-3">
+                            <input type="submit" class="btn btn-primary" value="Confirmar" />
+                        </div>
+                        <div class="col-lg-1">
+                            <button class="btn btn-default" type="reset">Reiniciar</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <input type="button" class="btn" value="Cancelar" data-toggle="modal" data-target="#modal-cancel" data-href="location.href='@Url.Action("GetAll", "Product")'" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

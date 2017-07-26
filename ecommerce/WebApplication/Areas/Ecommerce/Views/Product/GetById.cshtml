@@ -1,0 +1,54 @@
+﻿@model WebApplication.Areas.Ecommerce.Models.ProductViewModel
+
+@{
+
+    Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
+}
+
+<div itemscope="" itemtype="http://schema.org/Product">
+    <div id="banner" class="jumbotron row">
+        <h1 itemprop="name">@Model.Name</h1>
+        <p itemprop="description">@Model.Description</p>
+    </div>
+  
+    @Html.Partial("ViewProduct", Model)
+    @if (Model.Feature.Any())
+    {
+    <div class="col-md-12 feature-card">
+        <div class="">
+            
+            <h5 class="feature-card-title">Características</h5>
+            <div class="col-md-6">
+                <ul class="feature-column">
+                    @for (int i = 0; i < Model.Feature.Count / 2 + Model.Feature.Count%2; i++)
+                    {
+
+                        <li class="feature-line">
+                            <span class="feature-title">@Model.Feature[i].Name</span>
+                            <span class="feature-description"> @Model.Feature[i].Description</span>
+                        </li>
+
+                    }
+                   
+                           
+                        </ul>
+                    </div>
+            <div class="col-md-6">
+                <ul class="feature-column">
+                    @for (int i = Model.Feature.Count / 2 + Model.Feature.Count % 2; i < Model.Feature.Count; i++)
+                    {
+
+                        <li class="feature-line">
+                            <span class="feature-title">@Model.Feature[i].Name</span>
+                            <span class="feature-description"> @Model.Feature[i].Description</span>
+                        </li>
+
+                    }
+
+
+                </ul>
+            </div>
+</div>
+    </div>
+    }
+</div>

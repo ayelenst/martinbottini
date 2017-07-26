@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +8,11 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-   public class ImageRepository
+   public class ImageRepository : Repository<Image>, IImageRepository
     {
+        public ImageRepository(EcommerceContext context) : base(context) { }
 
-        public void Add(Image image)
-        {
-            using (var db = new EcommerceContext())
-            {
-                db.Image.Add(image);
-                db.SaveChanges();
-            }
-        }
-
-
-        public void AddRange(List<Image> image)
+       public void AddRange(List<Image> image)
         {
             using (var db = new EcommerceContext())
             {
@@ -29,19 +21,7 @@ namespace Repository.Repositories
             }
         }
 
-
-
-        public void Update(Image image)
-        {
-            using (var db = new EcommerceContext())
-            {
-
-                var img = db.Image.First(x => x.Id == image.Id);
-                db.Entry(img).CurrentValues.SetValues(image);
-                db.SaveChanges();
-            }
-        }
-
+        
         public void UpdateRange(List<Image> images)
         {
             using (var db = new EcommerceContext())
@@ -54,16 +34,7 @@ namespace Repository.Repositories
             }
         }
 
-        public void Delete(int id)
-        {
-            using (var db = new EcommerceContext())
-            {
-
-                var img = db.Image.First(x => x.Id == id);
-                db.Image.Remove(img);
-                db.SaveChanges();
-            }
-        }
+      
 
         public void DeleteRangeByProductId(int id)
         {
@@ -85,24 +56,7 @@ namespace Repository.Repositories
                 db.SaveChanges();
             }
         }
-
-
-        public List<Image> GetByProductId(int id)
-        {
-            using (var db = new EcommerceContext())
-            {
-                var query = db.Image.Where(x => x.ProductId == id);
-                return query.ToList();
-            }
-        }
-
-        public Image GetById(int id)
-        {
-            using (var db = new EcommerceContext())
-            {
-                return db.Image.First(x => x.Id == id);
-            }
-        }
+        
 
     }
 

@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,25 +8,10 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class  ProductRepository
+    public class  ProductRepository : Repository<Product>, IProductRepository
     {
-        public List<Product> GetAll()
-        {
-            using (var db = new EcommerceContext())
-            {
-                var query = db.Products.OrderBy(x => x.Id);
-                return query.ToList();
-            }
-        }
-
-        public List<Product> GetWithOffer()
-        {
-            using (var db = new EcommerceContext())
-            {
-                var query = db.Products.Where(x => x.IsOffer == true);
-                return query.ToList();
-            }
-        }
+        public ProductRepository(EcommerceContext context) : base(context) { }    
+        
 
 
         public List<Product> GetByCategory(int id, bool requireOffer)
@@ -50,58 +36,8 @@ namespace Repository.Repositories
                 return query.ToList();
             }
         }
+        
 
-
-        public List<Product> GetByName(string name)
-        {
-            using (var db = new EcommerceContext())
-            {
-                var query = db.Products.Where(x => x.Name.Contains(name) || x.Description.Contains(name));
-                return query.ToList();
-            }
-        }
-
-        public Product GetById(int id)
-        {
-            using (var db = new EcommerceContext())
-            {
-                var product = db.Products.First(x => x.Id == id);
-                return product;
-            }
-        }
-
-        public int  Add(Product Product)
-        {
-            using (var db = new EcommerceContext())
-             {
-                db.Products.Add(Product);
-                db.SaveChanges();
-                return Product.Id;
-            }
-        }
-
-        public void Update(Product Product)
-        {
-            using (var db = new EcommerceContext())
-            {
-
-                var cat = db.Products.First(x => x.Id == Product.Id);
-                db.Entry(cat).CurrentValues.SetValues(Product);
-                db.SaveChanges();
-            }
-        }
-
-
-        public void Delete(int id)
-        {
-            using (var db = new EcommerceContext())
-            {
-
-                var cat = db.Products.First(x => x.Id == id);
-                db.Products.Remove(cat);
-                db.SaveChanges();
-            }
-        }
 
         public List<Product> GetLastOffers(int? count)
         {

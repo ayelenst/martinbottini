@@ -1,0 +1,112 @@
+﻿@model WebApplication.Areas.Ecommerce.Models.CategoryShowViewModel
+@{ 
+
+    Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
+}
+@section Scripts
+{
+    <script type="text/javascript">
+
+        type = "text/javascript" >
+            $(function () {
+                // Initialize numeric spinner input boxes
+                //$(".numeric-spinner").spinedit();
+                // Initialize modal dialog
+                // attach modal-container bootstrap attributes to links with .modal-link class.
+                // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('.btn-quick-view').on('click', function (e) {
+                e.preventDefault();
+                var $buttonClicked = $(this);
+                var $el = $(this),
+                    href = $(this).attr('href') + ' #single-product';
+
+                $el.find('.fa').removeClass('fa-eye').addClass('fa-refresh fa-spin');
+
+                var id = $buttonClicked.attr('data-id');
+                var options = { keyboard: true };
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("quickview", "Product")',
+                    contentType: "application/json; charset=utf-8",
+                    data: { "id": id },
+                    datatype: "json",
+                    success: function (data) {
+
+                        $('#modal-body').html(data);
+                        $('#modal-container').modal(options);
+                        $('#modal-container').modal('show');
+                        $el.find('.fa').removeClass('fa-refresh fa-spin').addClass('fa-eye');
+
+                    },
+                    error: function () {
+                        alert("Dynamic content load failed.");
+                    }
+                });
+
+                    $(this).attr('data-target', '#modal-container');
+                    $(this).attr('data-toggle', 'modal');
+                });
+                // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+                $('body').on('click', '.modal-close-btn', function () {
+                    $('#modal-container').modal('hide');
+                });
+                //clear modal cache, so that new content can be loaded
+                $('#modal-container').on('hidden.bs.modal', function () {
+                    $(this).removeData('bs.modal');
+                });
+                $('#CancelModal').on('click', function () {
+                    return false;
+                });
+               
+            });
+    </script>
+    }
+<div id="banner" class="jumbotron row">
+    @if (Model.CurrentCategory != null)
+    { 
+        <h1>@Model.CurrentCategory.Name</h1>
+    }
+    else
+    {
+
+        <h1>Todos los productos</h1>
+    }
+
+</div>
+<section id="shop" class="page-section row">
+    <div class="col-xs-12 col-sm-3">
+        <div class="sidebar">
+            <h4>Categorías</h4>
+            <ul class="list-unstyled  categories-group ">
+                @foreach (var c in Model.Categories)
+                {
+                    <li>
+                        <a href="@Url.Action("GetById", "Category", new { id = c.Id })" class=""><span class="badge">@c.CountProduct</span>@c.Name</a>
+                    </li>
+                }
+              
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+        <div id="product-list">
+            <div class="product-grid">
+                @for (int j = 0; j < Model.Products.Count(); j = j+3)
+                {
+                <div id="" class="row" style="position: relative; height: 372.109px;">
+                    @for (int i = j; i < j + 3; i++)
+                    {
+                        if (Model.Products.Count > i)
+                        {
+                            @Html.Partial("View", Model.Products[i])
+                        }
+
+                    }
+                    </div>
+                }
+            </div>
+           
+        </div>
+    </div>
+</section>
