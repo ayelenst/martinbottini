@@ -67,6 +67,13 @@ namespace Dashboard.Controllers
                 Enabled = categoryClient.Enabled
 
             };
+            //obtenemso todas las categorias
+            var categoriesClient = app.GetAllCategories();
+
+            //de todas las categorias, tomamos solo las padre y por cada una generamos un categoryviewmodel
+            var completeModel = categoriesClient.Where(x => x.Level == 0).Select(x => new CategoryViewModel(x)).ToList();
+           
+            model.ParentCategories = completeModel;
             return View(model);
         }
 
@@ -85,7 +92,10 @@ namespace Dashboard.Controllers
                 ParentId = category.ParentId,
                 Enabled = category.Enabled
             };
+            if (category.ParentId == null) {
 
+                category.ParentId = 0;
+            }
             app.UpdateCategory(model);
 
             return RedirectToAction("GetAll");
@@ -98,6 +108,14 @@ namespace Dashboard.Controllers
             var app = new ServiceReference.ContractClient();
 
             var model = new CategoryViewModel();
+            //obtenemso todas las categorias
+            var categoriesClient = app.GetAllCategories();
+
+            //de todas las categorias, tomamos solo las padre y por cada una generamos un categoryviewmodel
+            var completeModel = categoriesClient.Where(x => x.Level == 0).Select(x => new CategoryViewModel(x)).ToList();
+
+            model.ParentCategories = completeModel;
+
             return View(model);
         }
 
@@ -117,6 +135,12 @@ namespace Dashboard.Controllers
                 Enabled = category.Enabled
 
             };
+            if (category.ParentId == null)
+            {
+
+                category.ParentId = 0;
+            }
+
             app.AddCategory(model);
 
             return RedirectToAction("GetAll");

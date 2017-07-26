@@ -44,6 +44,11 @@ namespace Dashboard.Models
         [Required(ErrorMessage = "Categoria es obligatorio")]
         public int CategoryId { get; set; }
 
+        [Required(ErrorMessage = "Tipo es obligatorio")]
+        public int? TypeStock { get; set; }
+
+        public int? Stock { get; set; }
+
         public List<FeatureViewModel> Feature { get; set; }
 
         public List<ServiceReference.Image> Images { get; set; }
