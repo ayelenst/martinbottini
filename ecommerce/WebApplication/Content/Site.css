@@ -153,3 +153,8 @@
     padding-right: 4%;
     text-align: left;
 }
+
+.modal-lg {
+    position: absolute;
+    left: 20%;
+}

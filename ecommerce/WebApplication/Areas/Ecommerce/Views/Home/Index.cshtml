@@ -26,7 +26,7 @@
                 var options = { keyboard: true };
                 $.ajax({
                     type: "GET",
-                    url: "product/quickview",
+                    url: "@Url.Action("QuickView","Product")",
                     contentType: "application/json; charset=utf-8",
                     data: { "id": id },
                     datatype: "json",
@@ -35,6 +35,7 @@
                         $('#modal-body').html(data);
                         $('#modal-container').modal(options);
                         $('#modal-container').modal('show');
+                        $('#modal-container').css('display', 'flex');
                         $el.find('.fa').removeClass('fa-refresh fa-spin').addClass('fa-eye');
 
                     },

@@ -49,7 +49,44 @@ namespace Repository.Repositories
                 return productsInOffer.ToList();
             }
         }
+        public void UpdateFull(Product model)
+        {
+                        var existingParent = Context.Products.Include("Feature")
+                   .Where(p => p.Id == model.Id)
+                   .SingleOrDefault();
 
+                    Context.Entry(existingParent).CurrentValues.SetValues(model);
+            
+            // Delete children
+            foreach (var existingChild in existingParent.Feature.ToList())
+            {
+                if (!model.Feature.Any(c => c.Id == existingChild.Id))
+                    Context.Feature.Remove(existingChild);
+            }
+
+            // Update and Insert children
+            foreach (var childModel in model.Feature)
+            {
+                var existingChild = existingParent.Feature
+                    .Where(c => c.Id == childModel.Id)
+                    .SingleOrDefault();
+
+                if (existingChild != null)
+                    // Update child
+                    Context.Entry(existingChild).CurrentValues.SetValues(childModel);
+                else
+                {
+                
+                    existingParent.Feature.Add(childModel);
+                }
+            }
+
+            Context.SaveChanges();
+
+
+
+
+        }
         public List<Product> GetLastAdded(int count)
         {
             using (var db = new EcommerceContext())

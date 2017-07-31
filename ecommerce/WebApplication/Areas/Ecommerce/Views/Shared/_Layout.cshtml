@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/ecommerce")
 
     @Scripts.Render("~/bundles/modernizr")
@@ -85,57 +84,71 @@
                     </ul>
 
                 </div>
+                @{
+                    if (HttpContext.Current.Session["cart"] != null)
+                    {
+                        var cart = (ShoppingCartViewModel) Session["cart"];
+                        <div class="navbar navbar-right pull-right" style="margin:0px">
+                            <ul class="nav navbar-nav">
+                                <li id="navbar-totals" class="totals">
+                                    <span class="hidden-xs">@cart.Count Items</span>
+                                    <span class="visible-lg">$@cart.Total</span>
 
-                <div class="navbar navbar-right pull-right" style="margin:0px">
-                    <ul class="nav navbar-nav">
-                        <li id="navbar-totals" class="totals">
-                            <span class="hidden-xs">2 Items</span>
-                            <span class="visible-lg">$228.00</span>
+                                    <span class="visible-xs item-number">@cart.Count</span>
 
-                            <span class="visible-xs item-number">2</span>
+                                </li>
+                                <li class="dropdown">
+                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </Button>
+                                    <div id="mini-cart" class="dropdown-menu">
+                                        <ul class="cart-items list-unstyled hidden-xs">
+                                            @foreach (var item in cart.Products)
+                                            {
+                                                <li class="row cart-item">                                                   
+                                                    <div class="product-info col-xs-8">
+                                                        <h6 class="product-title">@item.Name</h6>
+                                                        <div class="price">
+                                                            @item.Count x <span>$@item.Price</span>
+                                                        </div>
+                                                        <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae4c45dd6'"><i class="fa fa-times"></i></a>
+                                                    </div>
+                                                </li>
+                                            }
+                                        
+                                           
+                                        </ul>
+                                        <div class="mini-cart-totals">
+                                            <h4 class="subtotal">Subtotal: @cart.Total</h4>
+                                            <a class="btn btn-default btn-lg" href="//boxie.lemonstand.com/cart">View Cart</a>
+                                            <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
+                                        </div>
 
-                        </li>
-                        <li class="dropdown">
-                            <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
-                                <i class="fa fa-shopping-cart"></i>
-                            </Button>
-                            <div id="mini-cart" class="dropdown-menu">
-                                <ul class="cart-items list-unstyled hidden-xs">
-                                    <li class="row cart-item">
-                                        <div class="product-thumb col-xs-4">
-                                            <img class="img-responsive" alt="Lime Green Speaker" src="//dd6vif294zh3b.cloudfront.net/store-boxie-5398d8498b7b0/uploaded/thumbnails/LimeGreenSpeaker_100x100-jpg-keep-ratio.png?1402671927">
-                                        </div>
-                                        <div class="product-info col-xs-8">
-                                            <h6 class="product-title">Lime Green Speaker</h6>
-                                            <div class="price">
-                                                1 x <span>$99.00</span>
-                                            </div>
-                                            <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae4c45dd6'"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </li>
-                                    <li class="row cart-item">
-                                        <div class="product-thumb col-xs-4">
-                                            <img class="img-responsive" alt="Blue Wristband Tracker" src="//dd6vif294zh3b.cloudfront.net/store-boxie-5398d8498b7b0/uploaded/thumbnails/BlueJawbone_100x100-jpg-keep-ratio.png?1402683390">
-                                        </div>
-                                        <div class="product-info col-xs-8">
-                                            <h6 class="product-title">Blue Wristband Tracker</h6>
-                                            <div class="price">
-                                                1 x <span>$129.00</span>
-                                            </div>
-                                            <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae7a93d3c'"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="mini-cart-totals">
-                                    <h4 class="subtotal">Subtotal: $228.00</h4>
-                                    <a class="btn btn-default btn-lg" href="//boxie.lemonstand.com/cart">View Cart</a>
-                                    <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
-                                </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="navbar navbar-right pull-right" style="margin:0px">
+                            <ul class="nav navbar-nav">
+                                <li id="navbar-totals" class="totals">
+                                    <span class="hidden-xs">0 Items</span>
+                                    <span class="visible-lg">$00.00</span>
 
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                                    <span class="visible-xs item-number"></span>
+
+                                </li>
+                                <li class="dropdown">
+                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </Button>                                   
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                }
                 <!--/.navbar-collapse -->
             </div>
         </nav>
@@ -187,9 +200,49 @@
         </div>
     </footer>
         <!-- END NAVBAR -->
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/scripts")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/ecommerce")
         @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+
+        type = "text/javascript" >
+            $(function () {
+                // Initialize numeric spinner input boxes
+                //$(".numeric-spinner").spinedit();
+                // Initialize modal dialog
+                // attach modal-container bootstrap attributes to links with .modal-link class.
+                // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+                $('.btn-add-cart').on('click', function (e) {
+                    e.preventDefault();
+                    var $buttonClicked = $(this);
+
+                    var id = $buttonClicked.attr('data-id');
+                    var name = $buttonClicked.attr('data-name');
+                    var count = 1;
+                    var price = 5;
+                    var options = { keyboard: true };
+                    $.ajax({
+                        type: "GET",
+                        url: "shoppingcart/addproduct",
+                        contentType: "application/json; charset=utf-8",
+                        data: { "id": id, "name": name, "count": count, "price": price },
+                        datatype: "json",
+                        success: function (data) {
+
+                            window.location.href = '@Url.Action("Index", "Home")';
+
+                    },
+                    error: function (data) {
+                        window.location.href = '@Url.Action("Index", "Home")';
+                    }
+                });
+
+
+                });
+
+            });
+    </script>
 </body>
 </html>

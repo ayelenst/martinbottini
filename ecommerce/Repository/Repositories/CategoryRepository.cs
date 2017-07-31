@@ -12,19 +12,39 @@ namespace Repository.Repositories
     {
         public CategoryRepository(EcommerceContext context) : base(context) { }
 
-        public List<KeyValuePair<int, int>> GetCategoryCount(bool requireOffer)
+        public IDictionary<int, int> GetCategoryCount(bool requireOffer)
         {
-            using (var db = new EcommerceContext())
+            var dictionary = new Dictionary<int, int>();
+            var categories = Context.Categories.Include("Products").ToList();
+            foreach (var cat in categories.Where(x=>x.Level == 0))
             {
-                if(!requireOffer)
-                return db.Categories.AsEnumerable().Select(x => new KeyValuePair<int, int>(x.Id,
-                    db.Products.Count(y=>y.CategoryId == x.Id || y.Category.ParentId ==x.Id)
-                    )).ToList();
+                var count = 0;
+                if (!requireOffer)
+                {
+                    count = cat.Products.Count();
+                    var children = categories.Where(x => x.ParentId == cat.Id);
+                    foreach(var child in children)
+                    {
+                        count = count + child.Products.Count();
+
+                    }
+                }
                 else
-                    return db.Categories.AsEnumerable().Select(x => new KeyValuePair<int, int>(x.Id,
-                   db.Products.Count(y =>( y.CategoryId == x.Id || y.Category.ParentId == x.Id) && y.IsOffer && x.Enabled && y.StartDay < DateTime.Now && y.EndDay > DateTime.Now)
-                   )).ToList();
+                {
+                        count = cat.Products.Count(y => y.IsOffer && y.Enabled && y.StartDay < DateTime.Now && y.EndDay > DateTime.Now);
+                        var children = categories.Where(x => x.ParentId == cat.Id);
+                        foreach (var child in children)
+                        {
+                        count = count + child.Products.Count(y => y.IsOffer && y.Enabled && y.StartDay < DateTime.Now && y.EndDay > DateTime.Now);
+
+                        
+                    }
+                }
+                dictionary.Add(cat.Id, count);
             }
+            return dictionary;
+        
+          
         }
 
       

@@ -102,9 +102,12 @@ namespace Repository
             return 0;
         }
 
+    
+
         public virtual int Update(TObject TObject)
         {
-            var entry = Context.Entry(TObject);
+            var entry = Context.Entry(TObject);            
+
             DbSet.Attach(TObject);
             entry.State = EntityState.Modified;
             if (!shareContext)

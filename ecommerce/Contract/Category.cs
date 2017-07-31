@@ -38,7 +38,7 @@ namespace Model
         public bool Enabled { get; set; }
 
         [DataMember]
-        public virtual List<Product> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
 
     }

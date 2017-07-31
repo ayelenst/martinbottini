@@ -43,7 +43,6 @@ namespace Repository.Repositories
         public void DeleteRange(List<Feature> features)
         {
             Context.Feature.RemoveRange(features);
-            Context.SaveChanges();
         }    
 
 

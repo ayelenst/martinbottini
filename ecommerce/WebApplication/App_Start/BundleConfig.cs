@@ -25,25 +25,42 @@ namespace WebApplication
                       "~/Scripts/respond.js",
                         "~/Scripts/gridmvc.js",
                          "~/Scripts/owl.carousel.js",
-                      "~/Scripts/skyicons.js", 
-                      "~/Scripts/custom.js"
+                      "~/Scripts/skyicons.js"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datepicker.css",
-                      "~/Content/font-awesome.min.css",
+                       "~/Content/font-awesome.min.css",
                        "~/Content/Gridmvc.css",
-                      "~/Content/custom.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
+
+        
+            bundles.Add(new ScriptBundle("~/Scripts/ecommerce").Include(
+              "~/Areas/Ecommerce/Scripts/owl.carousel.min.js",
+               "~/Areas/Ecommerce/Scripts/chosen.jquery.js",
+               "~/Areas/Ecommerce/Scripts/chosen.proto.js",
+               "~/Areas/Ecommerce/Scripts/gridmvc.js",
+                  "~/Areas/Ecommerce/Scripts/layout.js"));
 
             bundles.Add(new StyleBundle("~/Content/ecommerce").Include(
-
+                       "~/Content/font-awesome.min.css",
                       "~/Areas/Ecommerce/Content/core.css",
+                      "~/Areas/Ecommerce/Content/animate.css",
+                      "~/Areas/Ecommerce/Content/custommenu.css",
                       "~/Areas/Ecommerce/Content/main.css",
                       "~/Areas/Ecommerce/Content/chosen.min.css",
                       "~/Areas/Ecommerce/Content/owl*",
-                      "~/Areas/Ecommerce/Content/site.css"));
+                      "~/Areas/Ecommerce/Content/Site.css"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/dashboard").Include(
+                    "~/Areas/Dashboard/Scripts/custom.js"
+                    ));
+
+            bundles.Add(new StyleBundle("~/Content/dashboard").Include(
+                      "~/Areas/Dashboard/Content/custom.css",
+                      "~/Areas/Dashboard/Content/Site.css"));
+
         }
     }
 }

@@ -51,6 +51,10 @@ namespace WebApplication.Areas.Dashboard.Controllers
                 Title = BannerClient.Title,
                 Url = BannerClient.Url,
             };
+            if(model.ImageUrl != string.Empty)
+            {
+                TempData["ImageUrl"] = model.ImageUrl;
+            }
             return View(model);
         }
 
@@ -59,11 +63,13 @@ namespace WebApplication.Areas.Dashboard.Controllers
         public ActionResult Edit(BannerViewModel banner)
         {
             var path = string.Empty;
-            if (Request.Files.Count == 1)
-            {
-                var bannerClient = _service.GetBannerById(banner.Id);
-                ImageHelper.DeleteImage(bannerClient.ImageUrl);
+            if (Request.Files.Count == 1 && Request.Files[0].FileName != string.Empty)
+            {               
                 path = ImageHelper.SaveImage("Banner", Request.Files[0], Server.MapPath("~/Image"));
+            }
+            else
+            {
+                path = TempData["ImageUrl"].ToString();
             }
             var model = new Banner
             {
@@ -75,6 +81,12 @@ namespace WebApplication.Areas.Dashboard.Controllers
             };
 
             _service.UpdateBanner(model);
+
+            if (Request.Files.Count == 1 && Request.Files[0].FileName != string.Empty)
+            {
+                var bannerClient = _service.GetBannerById(banner.Id);
+                ImageHelper.DeleteImage(bannerClient.ImageUrl);
+            }
 
             return RedirectToAction("GetAll");
         }

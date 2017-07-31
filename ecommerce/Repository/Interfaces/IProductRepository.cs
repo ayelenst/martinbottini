@@ -18,5 +18,7 @@ namespace Repository.Interfaces
          List<Product> GetLastOffers(int? count);
 
          List<Product> GetLastAdded(int count);
+
+        void UpdateFull(Product model);
     }
 }

@@ -19,8 +19,8 @@ namespace Service
          
         Category GetCategoryById(int id);
 
-         
-        List<KeyValuePair<int, int>> GetCategoryCount(bool requireOffer);
+
+        IDictionary<int, int> GetCategoryCount(bool requireOffer);
 
          
         void UpdateCategory(Category category);

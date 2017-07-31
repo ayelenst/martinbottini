@@ -224,6 +224,8 @@ namespace WebApplication.Areas.Dashboard.Controllers
              
 
             var model = new ProductViewModel();
+            model.StartDay = DateTime.Now;
+            model.EndDay = DateTime.Now;
             var completeModel = new ProductEditViewModel();
             completeModel.Product = model;
             var categoriesClient = _service.GetAllCategories();

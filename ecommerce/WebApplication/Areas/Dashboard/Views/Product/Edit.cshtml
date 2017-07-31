@@ -130,7 +130,7 @@
                         </label>
                         <div class="col-lg-2  col-md-2 col-sm-2 col-xs-4">
                             @Html.ValidationMessageFor(x => x.Product.Price)
-                            @Html.TextBoxFor(x => x.Product.Price, Model.Product.Price.ToString("#,##0.00#"), new { @class = "form-control", @type = "text", @placeholder = "Nombre" })
+                            @Html.TextBoxFor(x => x.Product.Price, Model.Product.Price.ToString("#0.00#"), new { @class = "form-control", @type = "text", @placeholder = "Nombre" })
                         </div>
 
                         <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="category">
@@ -214,7 +214,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group ">
                                     <div class='input-group date' id='datetimepicker1'>
-                                        @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control cd-offer-other", @type = "text" })
+                                        @Html.TextBoxFor(model => model.Product.StartDay, "{0:dd/MM/yyyy}", new { @class = "form-control cd-offer-other", @type = "text" })
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -224,7 +224,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right:0px">
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker2'>
-                                        @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control cd-offer-other", @type = "text" })
+                                        @Html.TextBoxFor(model => model.Product.EndDay, "{0:dd/MM/yyyy}",new { @class = "form-control cd-offer-other", @type = "text" })
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>

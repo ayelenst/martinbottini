@@ -24,7 +24,7 @@ columns.Add().Encoded(false)
     columns.Add().Encoded(false)
     .Sanitized(false)
     .SetWidth(30)
-    .RenderValueAs(o => @<input type="button" class='btn-default' data-toggle="modal" data-target="#modal-delete"  value="Eliminar" data-href="location.href='@Url.Action("Eliminar", "Category", new { id = o.Id })'" />);
+    .RenderValueAs(o => @<input type="button" class='btn-default' data-toggle="modal" data-target="#modal-delete"  value="Eliminar" data-href="location.href='@Url.Action("Delete", "Category", new { id = o.Id })'" />);
 }).WithPaging(20)
 
     <input type="button"  class="btn btn-primary pull-right"  style="margin-right:0px" value="Nuevo" onclick="location.href='@Url.Action("Add", "Category")'" />

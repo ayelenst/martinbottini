@@ -9,6 +9,6 @@ namespace Repository.Interfaces
 {
     public interface ICategoryRepository : IRepository<Category>
     {
-        List<KeyValuePair<int, int>> GetCategoryCount(bool requireOffer);
+        IDictionary<int, int> GetCategoryCount(bool requireOffer);
     }
 }

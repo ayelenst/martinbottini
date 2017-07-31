@@ -8,23 +8,21 @@
 {
     <script type="text/javascript">
         $(function () { // will trigger when the document is ready
+           
+
             $('#datetimepicker1').datepicker({
                 changeMonth: true,
                 changeYear: true,
                 showButtonPanel: true,
-                dateFormat: 'dd/mm/yy',
-                'setDate': "0",
+                dateFormat: 'dd/mm/yyyy',
             });
 
             $('#datetimepicker2').datepicker({
                 changeMonth: true,
                 changeYear: true,
                 showButtonPanel: true,
-                dateFormat: 'dd/mm/yy',
-                setDate: new Date(),
+                dateFormat: 'dd/mm/yyyy',
             });
-            $('#datetimepicker1').datepicker("setDate", new Date());
-            $('#datetimepicker2').datepicker("setDate", new Date());
             $('.deletefeature').click(function (e) {
                 e.preventDefault();
                 var id = e.currentTarget.id.split('__')[1];
@@ -112,7 +110,7 @@
                             </label>
                             <div class="col-lg-2  col-md-2 col-sm-2 col-xs-4">
                                 @Html.ValidationMessageFor(x => x.Product.Description)
-                                @Html.TextBoxFor(x => x.Product.Price, Model.Product.Price.ToString("#,##0.00#"), new { @class = "form-control", @type = "text", @placeholder = "0" })
+                                @Html.TextBoxFor(x => x.Product.Price, Model.Product.Price.ToString("#0.00#"), new { @class = "form-control", @type = "text", @placeholder = "0" })
                             </div>
 
                             <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="category">
@@ -197,7 +195,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker1'>
-                                            @Html.TextBoxFor(model => model.Product.StartDay, new { @class = "form-control cd-offer-other", @type = "text" })
+                                            @Html.TextBoxFor(model => model.Product.StartDay, "{0:dd/MM/yyyy}", new { @class = "form-control cd-offer-other", @type = "text" })
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -207,7 +205,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                            @Html.TextBoxFor(model => model.Product.EndDay, new { @class = "form-control cd-offer-other", @type = "text" })
+                                            @Html.TextBoxFor(model => model.Product.EndDay, "{0:dd/MM/yyyy}", new { @class = "form-control cd-offer-other", @type = "text" })
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>

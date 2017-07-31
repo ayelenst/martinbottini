@@ -52,7 +52,7 @@ namespace Service
             context.CategoryRepository.Delete(x=>x.Id == id);
         }
 
-        public List<KeyValuePair<int, int>> GetCategoryCount(bool requireOffer)
+        public IDictionary<int, int> GetCategoryCount(bool requireOffer)
         {
             return context.CategoryRepository.GetCategoryCount(requireOffer);
         }
@@ -105,15 +105,10 @@ namespace Service
 
         public void UpdateProduct(Product product)
         {
+            context.ProductRepository.UpdateFull(product);
 
-            var features = context.FeatureRepository.Filter(x=>x.ProductID == product.Id).ToList();
             context.ImageRepository.AddRange(product.Image);
 
-
-            MergeList(product.Feature, features);
-
-
-            context.ProductRepository.Update(product);
         }
 
 

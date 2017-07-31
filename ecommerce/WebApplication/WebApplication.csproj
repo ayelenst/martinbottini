@@ -219,6 +219,7 @@
     <Compile Include="Areas\Ecommerce\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Ecommerce\Controllers\HomeController.cs" />
     <Compile Include="Areas\Ecommerce\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Ecommerce\Controllers\ShoppingCartController.cs" />
     <Compile Include="Areas\Ecommerce\EcommerceAreaRegistration.cs" />
     <Compile Include="Areas\Ecommerce\Models\BannerViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Models\CategoryShowViewModel.cs" />
@@ -226,6 +227,9 @@
     <Compile Include="Areas\Ecommerce\Models\FeatureViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Models\HomeViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Models\ProductViewModel.cs" />
+    <Compile Include="Areas\Ecommerce\Models\SessionHelper.cs" />
+    <Compile Include="Areas\Ecommerce\Models\ShoppingCartViewModel.cs" />
+    <Compile Include="Areas\Ecommerce\Models\SmallProduct.cs" />
     <Compile Include="Boostrap.cs" />
     <Compile Include="ControllerFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -242,7 +246,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Dashboard\Content\custom.css" />
+    <Content Include="Areas\Dashboard\Content\Site.css" />
+    <Content Include="Areas\Dashboard\Scripts\custom.js" />
     <Content Include="Areas\Ecommerce\Content\animate.css" />
+    <Content Include="Areas\Ecommerce\Content\bootstrap.css" />
+    <Content Include="Areas\Ecommerce\Content\bootstrap.min.css" />
     <Content Include="Areas\Ecommerce\Content\chosen.min.css" />
     <Content Include="Areas\Ecommerce\Content\core.css" />
     <Content Include="Areas\Ecommerce\Content\custom.css" />
@@ -253,13 +262,32 @@
     <Content Include="Areas\Ecommerce\Content\owl.carousel.css" />
     <Content Include="Areas\Ecommerce\Content\owl.theme.css" />
     <Content Include="Areas\Ecommerce\Content\Site.css" />
+    <Content Include="Areas\Ecommerce\Scripts\bootstrap.js" />
+    <Content Include="Areas\Ecommerce\Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Ecommerce\Scripts\chosen.jquery.js" />
+    <Content Include="Areas\Ecommerce\Scripts\chosen.proto.js" />
+    <Content Include="Areas\Ecommerce\Scripts\gridmvc.js" />
+    <Content Include="Areas\Ecommerce\Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Areas\Ecommerce\Scripts\gridmvc.min.js" />
+    <None Include="Areas\Ecommerce\Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Areas\Ecommerce\Scripts\jquery-1.10.2.js" />
+    <Content Include="Areas\Ecommerce\Scripts\jquery-1.10.2.min.js" />
+    <None Include="Areas\Ecommerce\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Areas\Ecommerce\Scripts\jquery.validate.js" />
+    <Content Include="Areas\Ecommerce\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\Ecommerce\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Areas\Ecommerce\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Areas\Ecommerce\Scripts\layout.js" />
+    <Content Include="Areas\Ecommerce\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Areas\Ecommerce\Scripts\owl.carousel.js" />
+    <Content Include="Areas\Ecommerce\Scripts\owl.carousel.min.js" />
+    <Content Include="Areas\Ecommerce\Scripts\respond.js" />
+    <Content Include="Areas\Ecommerce\Scripts\respond.min.js" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\custom.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Gridmvc.css" />
-    <Content Include="Content\style.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -294,8 +322,8 @@
     <Content Include="Areas\Ecommerce\Views\Shared\View.cshtml" />
     <Content Include="Areas\Ecommerce\Views\Shared\ViewProduct.cshtml" />
     <Content Include="Areas\Ecommerce\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Ecommerce\Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
     <Content Include="Scripts\gridmvc.min.js" />
@@ -352,6 +380,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dashboard\Views\test\" />
+    <Folder Include="Areas\Ecommerce\Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
