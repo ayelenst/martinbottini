@@ -12,7 +12,6 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
             "setDate": new Date(),
         });
 
@@ -20,7 +19,6 @@
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
-            dateFormat: 'dd/mm/yy',
             "setDate": new Date(),
         });
 
@@ -214,7 +212,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group ">
                                     <div class='input-group date' id='datetimepicker1'>
-                                        @Html.TextBoxFor(model => model.Product.StartDay, "{0:dd/MM/yyyy}", new { @class = "form-control cd-offer-other", @type = "text" })
+                                        @Html.TextBoxFor(model => model.Product.StartDay, "{0:MM/dd/yyyy}", new { @class = "form-control cd-offer-other", @type = "text" })
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -224,7 +222,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-right:0px">
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker2'>
-                                        @Html.TextBoxFor(model => model.Product.EndDay, "{0:dd/MM/yyyy}",new { @class = "form-control cd-offer-other", @type = "text" })
+                                        @Html.TextBoxFor(model => model.Product.EndDay, "{0:MM/dd/yyyy}", new { @class = "form-control cd-offer-other", @type = "text" })
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>

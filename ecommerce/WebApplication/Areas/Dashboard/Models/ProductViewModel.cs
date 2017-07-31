@@ -34,14 +34,12 @@ namespace WebApplication.Areas.Dashboard.Models
 
         [Required(ErrorMessage = "Fecha de inicio es obligatorio")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
-               ApplyFormatInEditMode = true)]
+       
         public DateTime StartDay { get; set; }
 
         [Required(ErrorMessage = "Fecha fin es obligatorio")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
-               ApplyFormatInEditMode = true)]
+    
         public DateTime EndDay { get; set; }
 
         [Required(ErrorMessage = "Precio es obligatorio")]

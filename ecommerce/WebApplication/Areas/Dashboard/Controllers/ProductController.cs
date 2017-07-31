@@ -173,14 +173,8 @@ namespace WebApplication.Areas.Dashboard.Controllers
 
             };
 
-            if (product.StartDay.Year < 2000)
-            {
-                model.StartDay = DateTime.Now;
-            }
-            if (product.EndDay.Year < 2000)
-            {
-                model.EndDay = DateTime.Now;
-            }
+            SetDates(model);
+           
             model.Feature = product.Feature.Where(x => x.Id >= 0 && x.Name != null).Select(x => new Feature
             {
                 Description = x.Description,
@@ -268,6 +262,8 @@ namespace WebApplication.Areas.Dashboard.Controllers
                 TypeStock = product.TypeStock,
                 Stock = product.Stock,
             };
+            SetDates(model);
+
             model.Feature = product.Feature.Where(x => x.Id >= 0 && x.Name != null).Select(x => new Feature
             {
                 Description = x.Description,
@@ -308,6 +304,21 @@ namespace WebApplication.Areas.Dashboard.Controllers
 
         }
 
+        private void SetDates(Product model)
+        {
+            model.StartDay = ConvertDate(this.HttpContext.Request.Form["Product.StartDay"]);
+            model.EndDay = ConvertDate(this.HttpContext.Request.Form["Product.EndDay"]);
+            
+        }
+
+        private DateTime ConvertDate(string date)
+        {   
+               var splited = date.Split('/');
+            var day = Int32.Parse(splited[1]);
+            var month = Int32.Parse(splited[0]);
+            var year = Int32.Parse(splited[2]);
+            return new DateTime(year, month, day);
+        }
 
         public ActionResult Delete(int id)
         {
