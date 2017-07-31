@@ -304,9 +304,9 @@ img {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
 }
 .img-rounded {
   border-radius: 6px;
@@ -7423,6 +7423,7 @@ input[type="password"]:focus + label {
   .product-item .product-img {
     overflow: hidden;
     display: block;
+    height: 180px;
   }
   .product-item .product-img img {
     -webkit-transition: all 0.2s;
