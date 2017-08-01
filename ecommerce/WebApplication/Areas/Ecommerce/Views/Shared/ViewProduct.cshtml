@@ -2,7 +2,7 @@
 <section id="single-product" class="page-section">
 
     <ol class="breadcrumb">
-        <li class="hidden-xs"><a href="/">Home</a></li>
+        <li class="hidden-xs"><a href="@Url.Action("Index", "Home")">Home</a></li>
         <li class="hidden-xs"><a href="/shop">Shop</a></li>
         <li><a href="@Url.Action("GetById", "Category", new { id = Model.CategoryId })">@Model.CategoryName</a></li>
 
@@ -21,7 +21,7 @@
                             {
                                 if (i == 0)
                                 {
-                                    <div class="item active" id="slide1" style="height:400px">
+                                    <div class="item active" id="slide1">
                                         <img class="img-responsive" alt="" src="~/Image/@Model.Images[i].Url" itemprop="image">
                                         
                                     </div>
@@ -75,10 +75,13 @@
 
             <div id="product-page">
                 <div class="col-sm-6">
+                    <div class="excerpt" itemprop="name">
+                        <h1 style="color:#4d4d4d;">@Model.Name</h1>
+                    </div>
                     <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
                        @if (Model.IsSale)
             {
-                        <div class="h2 product-price">
+                           <div class="h2 product-price">
                             <small class="previous-price">$@Model.Price.ToString("N")</small>
                             <h2>$@((Model.OfferPrice).ToString("N"))</h2>
                         </div>

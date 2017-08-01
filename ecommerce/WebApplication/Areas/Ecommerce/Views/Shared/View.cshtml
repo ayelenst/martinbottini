@@ -19,7 +19,7 @@
                 <div class="h4 product-price">
                     <span class="previous-price">$@Model.Price.ToString("N")</span>
                     <div class="sale-tag">
-                        Sale!
+                        Oferta!
                     </div>
                     <span>$@((Model.OfferPrice).ToString("N"))</span>
                 </div>
@@ -31,13 +31,10 @@
                 </div>
             }
 
-
-
             <div class="buttons-holder">
-                <a class="btn btn-default btn-quick-view hidden-xs" rel="tooltip" title="" data-id="@Model.Id" data-original-title="Quick View"><i class="fa fa-eye"></i></a>
-              
+                <a class="btn btn-default btn-quick-view hidden-xs" rel="tooltip" title="" data-id="@Model.Id" data-original-title="Vista rápida"><i class="fa fa-eye"></i></a>            
                 <input type="hidden" name="productId" value="@Model.Id">
-                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data_name="@Model.Name">Add to Cart</a>
+                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data_name="@Model.Name">Agregar al carrito</a>
             </div>
         </div>
     </form>
