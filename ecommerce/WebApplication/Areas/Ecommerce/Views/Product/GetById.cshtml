@@ -1,7 +1,5 @@
 ﻿@model WebApplication.Areas.Ecommerce.Models.ProductViewModel
-
 @{
-
     Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
 }
 
@@ -26,25 +24,18 @@
                             <span class="feature-title">@Model.Feature[i].Name</span>
                             <span class="feature-description"> @Model.Feature[i].Description</span>
                         </li>
-
-                    }
-                   
-                           
+                    }                                             
                         </ul>
                     </div>
             <div class="col-md-6">
                 <ul class="feature-column">
                     @for (int i = Model.Feature.Count / 2 + Model.Feature.Count % 2; i < Model.Feature.Count; i++)
                     {
-
                         <li class="feature-line">
                             <span class="feature-title">@Model.Feature[i].Name</span>
                             <span class="feature-description"> @Model.Feature[i].Description</span>
                         </li>
-
                     }
-
-
                 </ul>
             </div>
 </div>
