@@ -6926,7 +6926,7 @@ input[type="password"]:focus + label {
   position: absolute;
   top: -15px;
   text-align: center;
-  width: 50px;
+  width: 64px;
   background: #e34f30;
   height: 38px;
   padding: 12px 6px;

@@ -1,6 +1,5 @@
 ﻿@model WebApplication.Areas.Ecommerce.Models.CategoryShowViewModel
 @{ 
-
     Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
 }
 @section Scripts
@@ -68,7 +67,6 @@
     }
     else
     {
-
         <h1>Todos los productos</h1>
     }
 
@@ -83,10 +81,8 @@
                     <li>
                         <a href="@Url.Action("GetById", "Category", new { id = c.Id })" class=""><span class="badge">@c.CountProduct</span>@c.Name</a>
                     </li>
-                }
-              
+                }              
             </ul>
-
         </div>
     </div>
     <div class="col-xs-12 col-sm-9">
@@ -94,19 +90,17 @@
             <div class="product-grid">
                 @for (int j = 0; j < Model.Products.Count(); j = j+3)
                 {
-                <div id="" class="row" style="position: relative; height: 372.109px;">
+                <div id="" class="row" style="position: relative;">
                     @for (int i = j; i < j + 3; i++)
                     {
                         if (Model.Products.Count > i)
                         {
                             @Html.Partial("View", Model.Products[i])
                         }
-
                     }
                     </div>
                 }
-            </div>
-           
+            </div>          
         </div>
     </div>
 </section>

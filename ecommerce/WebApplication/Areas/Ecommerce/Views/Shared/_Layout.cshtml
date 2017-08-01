@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MBHardware</title>
     @Styles.Render("~/Content/ecommerce")
 
     @Scripts.Render("~/bundles/modernizr")
@@ -19,10 +20,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html" class="navbar-brand"><img src="~/Image/logo.png"></a>
+                    <a href="@Url.Action("Index", "Home")" class="navbar-brand"><img src="~/Image/logo.png"></a>
                 </div>
-
-
 
                 <div class="collapse navbar-collapse navbar-left ">
                     <ul class="nav navbar-nav ">
@@ -30,7 +29,6 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">
                                 Categorías <b class="caret"></b>
                             </a>
-
                             <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
                                 @{ var model = ViewBag.LayoutModel as List<CategoryViewModel>;
 
@@ -45,7 +43,6 @@
                                                     {
                                                         <li><a href="@Url.Action("GetById", "Category", new { id = subcat.Id })">@subcat.Name</a></li>
                                                     }
-
                                                 </ul>
                                             </li>
                                         }
@@ -55,33 +52,26 @@
                                                 <a role="menuitem" tabindex="-1" href="@Url.Action("GetById", "Category", new { id = cat.Id })">@cat.Name</a>
                                             </li>
                                         }
-
                                     }
                                 }
                                 <li class="divider">
                                 </li>
-
                                 <li role="presentation">
                                     <a role="menuitem" href="@Url.Action("GetById", "Category", new { id = "0" })">Todos los productos</a>
                                 </li>
-
                             </ul>
                         </li>
                         <li class=""><a href="@Url.Action("GetById", "Category", new { id = "0", isOffer = true })">Ofertas</a></li>
-                        <li class=""><a href="//boxie.lemonstand.com/contact">Contacto</a></li>
-                        <li class=""><a href="//boxie.lemonstand.com/contact">Nosotros</a></li>
+                        <li class=""><a href="@Url.Action("About", "Home")">Nosotros</a></li>
                         <li class="">
                             <input type="text" class="search-form" name="query" id="query" placeholder="Busque su producto" autocomplete="off" value="">
-
                         </li>
                         <li>
                             <Button href="#" class="navbar-btn btn ">
                                 <i class="fa fa-search"></i>
                             </Button>
                         </li>
-
                     </ul>
-
                 </div>
                 @{
                     if (HttpContext.Current.Session["cart"] != null)
@@ -92,9 +82,7 @@
                                 <li id="navbar-totals" class="totals">
                                     <span class="hidden-xs">@cart.Count Items</span>
                                     <span class="visible-lg">$@cart.Total</span>
-
                                     <span class="visible-xs item-number">@cart.Count</span>
-
                                 </li>
                                 <li class="dropdown">
                                     <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
@@ -110,8 +98,7 @@
                                                     </div>
                                                     <div class="product-info col-xs-8">
                                                         <h6 class="product-title">@item.Name</h6>
-                                                        <div class="price">
-                                                            @item.Count x <span>$@item.Price</span>
+                                                        <div class="price">@item.Count x <span>$@item.Price</span>
                                                         </div>
                                                       
                                                     </div>
@@ -122,7 +109,7 @@
                                         </ul>
                                         <div class="mini-cart-totals">
                                             <h4 class="subtotal">Subtotal: $ @cart.Total</h4>
-                                            <a class="btn btn-default btn-lg" href="@Url.Action("ViewCart", "ShoppingCart")">View Cart</a>
+                                            <a class="btn btn-default btn-lg" href="@Url.Action("ViewCart", "ShoppingCart")">Ver carrito</a>
                                             <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
                                         </div>
 
@@ -167,11 +154,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-              
-
+            </div>           
     </main>
+
     <footer id="page-footer">
         <div class="container">
             <div class="footer-contact text-center row">

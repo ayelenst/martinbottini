@@ -128,7 +128,7 @@
                         <div class="jumbotron carousel-caption left">
                             <h1>@Model.BannerViewModels[i].Title</h1>
                             <p>@Model.BannerViewModels[i].Description</p>
-                            <p><a href="@Model.BannerViewModels[i].Url" class="btn btn-primary btn-lg" role="button">Learn More »</a></p>
+                            <p><a href="@Model.BannerViewModels[i].Url" class="btn btn-primary btn-lg" role="button">Ver más»</a></p>
                         </div>
                     </div>
                 }
@@ -139,7 +139,7 @@
                         <div class="jumbotron carousel-caption">
                             <h1>@Model.BannerViewModels[i].Title</h1>
                             <p>@Model.BannerViewModels[i].Description</p>
-                            <p><a href="@Model.BannerViewModels[i].Url" class="btn btn-primary btn-lg" role="button">Learn More »</a></p>
+                            <p><a href="@Model.BannerViewModels[i].Url" class="btn btn-primary btn-lg" role="button">Ver más»</a></p>
                         </div>
                     </div>
                 }
@@ -178,5 +178,5 @@
 </section>
 
 <div class="page-section text-center">
-    <a href="//boxie.lemonstand.com/shop" class="btn btn-primary btn-lg">See All Products</a>
+    <a href="@Url.Action("GetById", "Category")" class="btn btn-primary btn-lg">Ver todos los productos</a>
 </div>
