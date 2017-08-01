@@ -6,27 +6,26 @@
 @section Scripts
 {
     <script type="text/javascript">
-     
-        type = "text/javascript" >
+        
             $(function () {
                 // Initialize numeric spinner input boxes
                 //$(".numeric-spinner").spinedit();
                 // Initialize modal dialog
                 // attach modal-container bootstrap attributes to links with .modal-link class.
                 // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
-            $('.btn-quick-view').on('click', function (e) {              
-                e.preventDefault();
-                var $buttonClicked = $(this);
-                var $el = $(this),
-                    href = $(this).attr('href') + ' #single-product';
+                $('.btn-quick-view').on('click', function (e) {
+                    e.preventDefault();
+                    var $buttonClicked = $(this);
+                    var $el = $(this),
+                        href = $(this).attr('href') + ' #single-product';
 
-                $el.find('.fa').removeClass('fa-eye').addClass('fa-refresh fa-spin');
+                    $el.find('.fa').removeClass('fa-eye').addClass('fa-refresh fa-spin');
 
-                var id = $buttonClicked.attr('data-id');
-                var options = { keyboard: true };
-                $.ajax({
-                    type: "GET",
-                    url: "@Url.Action("QuickView","Product")",
+                    var id = $buttonClicked.attr('data-id');
+                    var options = { keyboard: true };
+                    $.ajax({
+                        type: "GET",
+                        url: "@Url.Action("QuickView","Product")",
                     contentType: "application/json; charset=utf-8",
                     data: { "id": id },
                     datatype: "json",
@@ -37,13 +36,39 @@
                         $('#modal-container').modal('show');
                         $('#modal-container').css('display', 'flex');
                         $el.find('.fa').removeClass('fa-refresh fa-spin').addClass('fa-eye');
+                        $('.btn-add-cart').on('click', function (e) {
+                            e.preventDefault();
+                            var $buttonClicked = $(this);
+
+                            var id = $buttonClicked.attr('data-id');
+                            var name = $buttonClicked.attr('data-name');
+                            var count = $buttonClicked.attr('data-count');;
+                            var price = $buttonClicked.attr('data-price');
+                            var url = $buttonClicked.attr('data-url');
+                            var options = { keyboard: true };
+                            $.ajax({
+                                type: "GET",
+                                url: "shoppingcart/addproduct",
+                                contentType: "application/json; charset=utf-8",
+                                data: { "id": id, "name": name, "count": count, "price": price, "url": url },
+                                datatype: "json",
+                                success: function (data) {
+
+                                    window.location.href = '@Url.Action("Index", "Home")';
+
+                                },
+                                error: function (data) {
+                                    window.location.href = '@Url.Action("Index", "Home")';
+                                }
+                            });
+                        });
 
                     },
                     error: function () {
                         alert("Dynamic content load failed.");
                     }
-                });  
-                    
+                });
+
                     $(this).attr('data-target', '#modal-container');
                     $(this).attr('data-toggle', 'modal');
                 });
@@ -99,7 +124,7 @@
                 if (i == 0)
                 {
                     <div class="item active">
-                        <img src="@ViewBag.imageFolder@Model.BannerViewModels[i].ImageUrl" alt="demo_slide_1">
+                        <img src="@Model.BannerViewModels[i].ImageUrl" alt="demo_slide_1">
                         <div class="jumbotron carousel-caption left">
                             <h1>@Model.BannerViewModels[i].Title</h1>
                             <p>@Model.BannerViewModels[i].Description</p>
@@ -110,7 +135,7 @@
                 else
                 {
                     <div class="item">
-                        <img src="@ViewBag.imageFolder@Model.BannerViewModels[i].ImageUrl" alt="demo_slide_2">
+                        <img src="@Model.BannerViewModels[i].ImageUrl" alt="demo_slide_2">
                         <div class="jumbotron carousel-caption">
                             <h1>@Model.BannerViewModels[i].Title</h1>
                             <p>@Model.BannerViewModels[i].Description</p>

@@ -16,14 +16,15 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             _service = service;
         }
 
-        public ActionResult AddProduct (int id, string name, double price, int count)
+        public ActionResult AddProduct (int id, string name, double price, int count, string url)
         {
             var smallproduct = new SmallProduct
             {
                 Id = id,
                 Name = name,
                 Count = count,
-                Price = price
+                Price = price, 
+                Url = url
             };
             SessionHelper.Add(smallproduct, Session);
             return Json(new { url= Url.Action("Index", "Home") });
@@ -35,6 +36,16 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             SessionHelper.Remove(id, Session);
 
             return Json(new { url = Url.Action("Index", "Home") });
+        }
+
+
+        public ActionResult ViewCart()
+        {
+            if (HttpContext.Session["cart"] != null)
+            {
+                return View((ShoppingCartViewModel)HttpContext.Session["cart"]);
+            }
+            return View(new ShoppingCartViewModel());
         }
     }
 }

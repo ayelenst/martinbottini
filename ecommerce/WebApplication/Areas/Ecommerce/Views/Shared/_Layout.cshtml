@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/ecommerce")
 
     @Scripts.Render("~/bundles/modernizr")
@@ -105,13 +104,16 @@
                                         <ul class="cart-items list-unstyled hidden-xs">
                                             @foreach (var item in cart.Products)
                                             {
-                                                <li class="row cart-item">                                                   
+                                                <li class="row cart-item">             
+                                                    <div class="product-thumb col-xs-4">
+                                                        <img class="img-responsive"  src="~/Image/@item.Url">
+                                                    </div>
                                                     <div class="product-info col-xs-8">
                                                         <h6 class="product-title">@item.Name</h6>
                                                         <div class="price">
                                                             @item.Count x <span>$@item.Price</span>
                                                         </div>
-                                                        <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae4c45dd6'"><i class="fa fa-times"></i></a>
+                                                      
                                                     </div>
                                                 </li>
                                             }
@@ -119,8 +121,8 @@
                                            
                                         </ul>
                                         <div class="mini-cart-totals">
-                                            <h4 class="subtotal">Subtotal: @cart.Total</h4>
-                                            <a class="btn btn-default btn-lg" href="//boxie.lemonstand.com/cart">View Cart</a>
+                                            <h4 class="subtotal">Subtotal: $ @cart.Total</h4>
+                                            <a class="btn btn-default btn-lg" href="@Url.Action("ViewCart", "ShoppingCart")">View Cart</a>
                                             <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
                                         </div>
 
@@ -220,14 +222,16 @@
 
                     var id = $buttonClicked.attr('data-id');
                     var name = $buttonClicked.attr('data-name');
-                    var count = 1;
-                    var price = 5;
+                    var count = $buttonClicked.attr('data-count');;
+                    var price = $buttonClicked.attr('data-price');
+                    var url = $buttonClicked.attr('data-url');
                     var options = { keyboard: true };
                     $.ajax({
                         type: "GET",
-                        url: "shoppingcart/addproduct",
+                        url: '@Url.Action("addproduct", "ShoppingCart")',
+
                         contentType: "application/json; charset=utf-8",
-                        data: { "id": id, "name": name, "count": count, "price": price },
+                        data: { "id": id, "name": name, "count": count, "price": price, "url":url },
                         datatype: "json",
                         success: function (data) {
 

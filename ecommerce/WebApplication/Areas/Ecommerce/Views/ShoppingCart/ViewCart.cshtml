@@ -1,0 +1,104 @@
+﻿@model WebApplication.Areas.Ecommerce.Models.ShoppingCartViewModel
+
+
+@{
+
+    Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
+}
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $(".quantity").focusout(function () {
+                $(this).css("background-color", "#FFFFFF");
+            });
+            })
+                </script>
+    }
+<div id="banner" class="jumbotron row">
+
+    <h1>Shopping Cart</h1>
+
+</div>
+<section id="cart" class="page-section row">
+   @using (Html.BeginForm("Update", "ShoppingCart", FormMethod.Post, new { @class = "custom", @enctype = "multipart/form-data" }))
+   {
+        <div id="cart-content">
+            <div class="col-xs-12 col-md-9">
+
+                <div class="items-holder">
+
+                    <div class="cart-labels clearfix hidden-xs">
+                        <div class="col-sm-4 col-sm-offset-2 col-lg-5">
+                            Item
+                        </div>
+                        <div class="col-sm-3 col-lg-2">
+                            Quantity
+                        </div>
+                        <div class="col-sm-3 col-lg-3">
+                           Price
+                        </div>
+                    </div>
+
+                    <div class="cart-item ">
+                        @for (int i = 0; i < Model.Products.Count; i++)
+                        {
+                            <div class="row">
+                                @{var item = Model.Products[i];
+                                }
+                                <div class="col-xs-12 col-sm-2">
+                                    <div class="product-thumb">
+                                        <img class="img-responsive" src="~/Image/@item.Url">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-lg-5 cart-details">
+                                    <div class="h4 product-title">
+                                        <a href="@Url.Action("GetById", "Product", new { id = item.Id })">@item.Name</a>
+                                        <p>
+                                            <small class="unit-price">
+                                                @item.Price
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-lg-2 cart-details ">
+                                    <div class="quantity">
+                                        <div class="quantity-selector">
+                                            <button class="quantity-btn minus btn btn-lg btn-default" type="button"><i class="fa fa-minus"></i></button>
+
+                                            @Html.TextBoxFor(x => x.Products[i].Count, new { @class = "form-control quantity" })
+                                            <button class="quantity-btn plus btn btn-lg btn-default" type="button"><i class="fa fa-plus"></i></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-lg-3 cart-details">
+                                    <div class="h4 total-price">
+                                        @(item.Price * item.Count)
+                                    </div>
+                                    <a class="remove-item" href="#close" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='597f88589d6b6'"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+
+                </div>
+
+                <div id="cart-actions" class="btn-holder clearfix">
+                    <a class="btn btn-default btn-continue-shopping pull-left" href="//boxie.lemonstand.com/shop"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-3">
+                <h3>Order Summary</h3>
+                <ul class="price-list list-group">
+                    <li class="list-group-item important">Total: <span class="badge">@Model.Total</span></li>
+                </ul>
+                <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
+            </div>
+        </div>
+   }
+</section>
