@@ -94,7 +94,7 @@
                 </div>
 
                 <div id="cart-actions" class="btn-holder clearfix">
-                    <a class="btn btn-default btn-continue-shopping pull-left" href="//boxie.lemonstand.com/shop"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                    <a class="btn btn-default btn-continue-shopping pull-left" href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
                 <ul class="price-list list-group">
                     <li class="list-group-item important">Total: <span class="badge">@Model.Total</span></li>
                 </ul>
-                <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
+                <a class="col-xs-12 btn btn-danger solid btn-lg" href="@Url.Action("checkout", "ShoppingCart")">Checkout</a>
             </div>
         </div>
    }

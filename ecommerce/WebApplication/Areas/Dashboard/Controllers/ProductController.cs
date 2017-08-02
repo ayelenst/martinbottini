@@ -313,7 +313,11 @@ namespace WebApplication.Areas.Dashboard.Controllers
 
         private DateTime ConvertDate(string date)
         {   
-               var splited = date.Split('/');
+            var splited = date.Split('/');
+            if (splited.Length != 2)
+            {
+                return DateTime.Now;
+            }
             var day = Int32.Parse(splited[1]);
             var month = Int32.Parse(splited[0]);
             var year = Int32.Parse(splited[2]);

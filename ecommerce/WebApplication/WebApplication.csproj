@@ -206,6 +206,7 @@
     <Compile Include="Areas\Dashboard\Controllers\BannerController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\OrderController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\ProductController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Dashboard\Models\BannerViewModel.cs" />
@@ -213,6 +214,8 @@
     <Compile Include="Areas\Dashboard\Models\FeatureViewModel.cs" />
     <Compile Include="Areas\Dashboard\Models\IdentityModels.cs" />
     <Compile Include="Areas\Dashboard\Models\ImageHelper.cs" />
+    <Compile Include="Areas\Dashboard\Models\OrderProductViewModel.cs" />
+    <Compile Include="Areas\Dashboard\Models\OrderViewModel.cs" />
     <Compile Include="Areas\Dashboard\Models\ProductEditViewModel.cs" />
     <Compile Include="Areas\Dashboard\Models\ProductViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Controllers\BaseController.cs" />
@@ -226,6 +229,7 @@
     <Compile Include="Areas\Ecommerce\Models\CategoryViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Models\FeatureViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Models\HomeViewModel.cs" />
+    <Compile Include="Areas\Ecommerce\Models\OrderModel.cs" />
     <Compile Include="Areas\Ecommerce\Models\ProductViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Models\SessionHelper.cs" />
     <Compile Include="Areas\Ecommerce\Models\ShoppingCartViewModel.cs" />
@@ -269,6 +273,8 @@
     <Content Include="Areas\Ecommerce\Scripts\gridmvc.js" />
     <Content Include="Areas\Ecommerce\Scripts\gridmvc.lang.ru.js" />
     <Content Include="Areas\Ecommerce\Scripts\gridmvc.min.js" />
+    <Content Include="Areas\Dashboard\Views\Order\GetAll.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Order\Edit.cshtml" />
     <None Include="Areas\Ecommerce\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Areas\Ecommerce\Scripts\jquery-1.10.2.js" />
     <Content Include="Areas\Ecommerce\Scripts\jquery-1.10.2.min.js" />
@@ -330,6 +336,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="Areas\Ecommerce\Views\ShoppingCart\ViewCart.cshtml" />
+    <Content Include="Areas\Ecommerce\Views\ShoppingCart\Checkout.cshtml" />
+    <Content Include="Areas\Ecommerce\Views\ShoppingCart\OrderFinish.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />

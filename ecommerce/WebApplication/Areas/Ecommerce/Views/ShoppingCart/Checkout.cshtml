@@ -1,0 +1,90 @@
+﻿@model WebApplication.Areas.Ecommerce.Models.OrderModel
+
+
+@{
+
+    Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
+}
+<div id="banner" class="jumbotron row">
+
+    <h1>Checkout</h1>
+
+</div>
+@if (Model.Products.Any())
+{
+    <section id="checkout" class="page-section row">
+
+        <div class="col-sm-12 col-md-9">
+
+            <div id="checkout-page">
+                @using (Html.BeginForm("PlaceOrder", "ShoppingCart", FormMethod.Post, new { @class = "custom", @enctype = "multipart/form-data" }))
+                {
+                    <div id="billing-info" class="row">
+                        <div class="col-sm-12 form-group">
+
+                            @Html.TextBoxFor(x => x.NameCustomer, new { @class = "form-control", @placeholder = "Nombre del comprador" })
+                            <label for="billing_address">Nombre </label>
+                        </div>
+
+                        <div class="col-sm-12 form-group">
+                            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "Dirección de mail", @type = "email" })
+                            <label for="billing_address">Dirección de mail</label>
+
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Número de telefono" })
+                            <label for="billing_address">Número de telefono</label>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="clearfix">
+                        <button type="submit" class="btn btn-danger solid btn-lg btn-checkout-step pull-right">Realizar la compra!<i class="fa fa-money"></i></button>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+        <div id="cart-totals" class="col-sm-12 col-md-3">
+
+            <div id="cart-summary">
+                <h3 class="cart-summary-title">Resumen de la orden</h3>
+                <ul class="price-list list-group">
+                    <li class="list-group-item order-total h4 clearfix"><span>Total:</span> <span class="badge">$@Model.Total</span></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+}
+else
+{
+    <section id="checkout" class="page-section row">
+        <div id="checkout-progress">
+
+        </div>
+
+        <div class="col-sm-12 col-md-9">
+
+            <div id="checkout-page"></div>
+
+        </div>
+
+        <div id="cart-totals" class="col-sm-12 col-md-3">
+            <form class="custom" method="post" action="/checkout">
+                <div id="cart-summary">
+                    <h4 class="md-bordered-title">Your cart is empty!</h4>
+                    <a class="btn btn-primary col-xs-12" href="//boxie.lemonstand.com/shop">Continue shopping <span class="fa fa-arrow-right"></span></a>
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+}

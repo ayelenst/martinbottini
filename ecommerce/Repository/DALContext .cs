@@ -18,9 +18,10 @@ namespace Repository
         private IFeatureRepository featureRepository;
         private IImageRepository imageRepository;
         private IOrderRepository orderRepository;
+        private IOrderStatusRepository orderStatusRepository;
 
 
-      
+
 
         public DALContext()
         {
@@ -45,7 +46,17 @@ namespace Repository
                 return productRepository;
             }
         }
-        
+
+        public IOrderStatusRepository OrderStatusRepository
+        {
+            get
+            {
+                if (orderStatusRepository == null)
+                    orderStatusRepository = new OrderStatusRepository(dbContext);
+                return orderStatusRepository;
+            }
+        }
+
 
 
         public IBannerRepository BannerRepository

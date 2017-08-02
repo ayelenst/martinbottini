@@ -1,4 +1,5 @@
-﻿using Service;
+﻿using Model;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,77 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             var r = result;
             return;
            
+        }
+
+        public ActionResult Checkout()
+        {
+            var model = new OrderModel();
+            model.Products = new List<SmallProduct>();
+            if (HttpContext.Session["cart"] != null)
+            {
+
+                //todo check stock?
+               
+                var cart = (ShoppingCartViewModel)HttpContext.Session["cart"];
+                model.Products = cart.Products;
+                model.Total = cart.Total;
+                return View(model);
+            }
+            return View(model);
+
+        }
+
+        public ActionResult PlaceOrder(OrderModel model)
+        {
+            var order = new Order
+            {
+                Mail = model.Mail,
+                OrderDate = DateTime.Now,
+                NameCustomer = model.NameCustomer,
+                OrderDone = DateTime.Now,
+                Phone = model.Phone,
+                Payment = "",
+                OrderStatusId = 1,
+                Total = model.Total
+            };
+            var cart = (ShoppingCartViewModel)HttpContext.Session["cart"];
+            if(cart != null)
+            {
+                model.Products = cart.Products;
+                var products = new List<OrderProduct>();
+                foreach (var prod in cart.Products)
+                {
+                    var p = new OrderProduct
+                    {
+                        NameProduct = prod.Name,
+                        Price = prod.Price,
+                        Quantity = prod.Count
+                    };
+                    products.Add(p);
+                }
+
+                _service.PlaceOrder(order, products);
+            }
+         
+
+            return RedirectToAction("OrderFinish");
+        }
+
+        public ActionResult OrderFinish()
+        {
+            var model = new OrderModel();
+            model.Products = new List<SmallProduct>();
+            if (HttpContext.Session["cart"] != null)
+            {
+
+                //todo check stock?
+
+                var cart = (ShoppingCartViewModel)HttpContext.Session["cart"];
+                model.Products = cart.Products;
+                model.Total = cart.Total;
+                return View(model);
+            }
+            return View(model);
         }
     }
 }

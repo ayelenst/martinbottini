@@ -1,0 +1,26 @@
+﻿@model List<WebApplication.Areas.Dashboard.Models.OrderViewModel>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Categorías por ID";
+    Layout = "~/Areas/Dashboard/Views/Shared/_layout.cshtml";
+}
+
+
+
+@Html.Grid(Model).Columns(columns =>
+{
+columns.Add(foo => foo.Id).Sortable(true);
+columns.Add(foo => foo.NameCustomer).Sortable(true).Filterable(true);
+columns.Add(foo => foo.Mail).Sortable(true).Filterable(true);
+columns.Add(foo => foo.Phone).Sortable(true).Filterable(true);
+columns.Add(foo => foo.OrderDate).Sortable(true);
+columns.Add(foo => foo.OrderStatusName).Sortable(true);
+columns.Add(foo => foo.Total).Sortable(true);
+columns.Add().Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(o => @<input type="button" class='btn-default' value="Editar/Detalles" onclick="location.href='@Url.Action("Edit", "Order", new { id = o.Id })'" />);   
+}).WithPaging(20)
+
+

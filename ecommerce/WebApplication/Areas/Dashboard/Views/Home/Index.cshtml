@@ -3,33 +3,234 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Areas/Dashboard/Views/Shared/_layout.cshtml";
 }
+@section Scripts
+{
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> 
+    <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
 
-<h1>Hola!</h1>
+    			if ($('#lineChart2').length ){
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+			  var ctx = document.getElementById("lineChart2");
+			  var lineChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+				  labels: ["January", "February", "March", "April", "May", "June", "July", "Agust", "September", "October", "November", "December"],
+				  datasets: [{
+					label: "Vendido: ",
+					backgroundColor: "rgba(38, 185, 154, 0.31)",
+					borderColor: "rgba(38, 185, 154, 0.7)",
+					pointBorderColor: "rgba(38, 185, 154, 0.7)",
+					pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+					pointHoverBackgroundColor: "#fff",
+					pointHoverBorderColor: "rgba(220,220,220,1)",
+					pointBorderWidth: 1,
+                    data: [31, 74, 6, 39, 20, 85, 7, 31, 74, 6, 39, 20, 85, 7]
+				  }]
+				},
+			  });
 
+            }
+                if ($('#mybarChart2').length) {
+
+                    var ctx = document.getElementById("mybarChart2");
+                    var mybarChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ["7", "6", "5", "4", "3", "2", "Hoy"],
+                            datasets: [{
+                                label: 'Ventas concretadas',
+                                backgroundColor: "#26B99A",
+                                data: [51, 30, 40, 28, 92, 50, 45]
+                            }, {
+                                label: 'Ventas canceladas',
+                                backgroundColor: "#03586A",
+                                data: [41, 56, 25, 48, 72, 34, 12]
+                                },
+                            {
+                                label: 'Ventas Totales',
+                                backgroundColor: "#9B59B6",
+                                data: [68, 76, 45, 68, 192, 54, 42]
+                            }]
+                        },
+
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+                } 
+
+                if ($('#pieChart2').length) {
+
+                    var ctx = document.getElementById("pieChart2");
+                    var data = {
+                        datasets: [{
+                            data: [120, 50, 140, 180, 100],
+                            backgroundColor: [
+                                "#455C73",
+                                "#9B59B6",
+                                "#BDC3C7",
+                                "#26B99A",
+                                "#3498DB"
+                            ],
+                            label: 'My dataset' // for legend
+                        }],
+                        labels: [
+                            "Parlantes",
+                            "Pc Armadas",
+                            "Celulares",
+                            "Accesorios Celulares",
+                            "Otros"
+                        ]
+                    };
+
+                    var pieChart = new Chart(ctx, {
+                        data: data,
+                        type: 'pie',
+                        otpions: {
+                            legend: false
+                        }
+                    });
+
+                }
+
+                if ($('#canvasDoughnut2').length) {
+
+                    var chart_doughnut_settings = {
+                        type: 'doughnut',
+                        tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+                        data: {
+                            labels: [
+                                "AUris modelo super hiper genial",
+                                "Lamparitas!",
+                                "bla",
+                                "otro texto muy muy muy muy muy muy largo",
+                                "Otros"
+                            ],
+                            datasets: [{
+                                data: [15, 20, 30, 10, 30],
+                                backgroundColor: [
+                                    "#BDC3C7",
+                                    "#9B59B6",
+                                    "#E74C3C",
+                                    "#26B99A",
+                                    "#3498DB"
+                                ],
+                                hoverBackgroundColor: [
+                                    "#CFD4D8",
+                                    "#B370CF",
+                                    "#E95E4F",
+                                    "#36CAAB",
+                                    "#49A9EA"
+                                ]
+                            }]
+                        },
+                        options: {
+                            legend: false,
+                            responsive: false
+                        }
+                    }
+
+                    var chart_element = document.getElementById("canvasDoughnut2");
+                    var chart_doughnut = new Chart(chart_element, chart_doughnut_settings);
+                }
+
+        });
+
+            </script>
+    }
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Ventas últimos días</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>                  
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas id="mybarChart2" style="width: 761px; height: 380px;" width="761" height="380"></canvas>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Ventas concretadas</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                 
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas id="lineChart2" style="width: 761px; height: 380px;" width="761" height="380"></canvas>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Ventas por categoría</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                   
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas id="pieChart2" style="width: 761px; height: 380px;" width="761" height="380"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Productos más vendidos</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                 
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas id="canvasDoughnut2" style="width: 761px; height: 380px;" width="761" height="380"></canvas>
+            </div>
+        </div>
     </div>
 </div>
