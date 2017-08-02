@@ -1,110 +1,70 @@
-﻿@model WebApplication.Areas.Ecommerce.Models.ShoppingCartViewModel
-
-
-@{
-
+﻿@{
     Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
 }
-@section Scripts
-{
-    <script type="text/javascript">
-
-        $(function () {
-            var value = 0;
-
-          
-            $(".remove-item").click(function () {
-                var id = $(this).attr('data-id');
-                var count = $('#Products_' + id + '__Count').val(0);
-            });
-            window.onbeforeunload = function (e) {
-                $('#form-cart').submit();
-            }
-            })
-                </script>
-    }
 <div id="banner" class="jumbotron row">
-
     <h1>Shopping Cart</h1>
-
 </div>
-<section id="cart" class="page-section row">
-   @using (Html.BeginForm("Update", "ShoppingCart", FormMethod.Post, new { @class = "custom", @enctype = "multipart/form-data", @id="form-cart" }))
-   {
-        <div id="cart-content">
-            <div class="col-xs-12 col-md-9">
+<section id="cart" class="page-section row" ng-controller="CartController">
+    <div id="cart-content">
+        <div class="col-xs-12 col-md-9">
+            <div class="items-holder">
+                <div class="cart-labels clearfix hidden-xs">
+                    <div class="col-sm-4 col-sm-offset-2 col-lg-5">
+                        Item
+                    </div>
+                    <div class="col-sm-3 col-lg-2">
+                        Cantidad
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        Precio
+                    </div>
+                </div>
 
-                <div class="items-holder">
-
-                    <div class="cart-labels clearfix hidden-xs">
-                        <div class="col-sm-4 col-sm-offset-2 col-lg-5">
-                            Item
-                        </div>
-                        <div class="col-sm-3 col-lg-2">
-                            Quantity
-                        </div>
-                        <div class="col-sm-3 col-lg-3">
-                           Price
+                <div class="cart-item row"  ng-repeat="product in cart.Products">
+                    <div class="col-xs-12 col-sm-2">
+                        <div class="product-thumb">
+                            <img class="img-responsive" src="~/Image/{{product.Url}}">
                         </div>
                     </div>
-
-                    <div class="cart-item ">
-                        @for (int i = 0; i < Model.Products.Count; i++)
-                        {
-                            <div class="row">
-                                @{var item = Model.Products[i];
-                                }
-                                <div class="col-xs-12 col-sm-2">
-                                    <div class="product-thumb">
-                                        <img class="img-responsive" src="~/Image/@item.Url">
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4 col-lg-5 cart-details">
-                                    <div class="h4 product-title">
-                                        <a href="@Url.Action("GetById", "Product", new { id = item.Id })">@item.Name</a>
-                                        <p>
-                                            <small class="unit-price">
-                                                @item.Price
-                                            </small>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-3 col-lg-2 cart-details ">
-                                    <div class="quantity">
-                                        <div class="quantity-selector" data-id="@i">                                            
-
-                                            @Html.TextBoxFor(x => x.Products[i].Count, new { @class = "form-control quantity quantity-ctrl", @type="number" })
-                                            
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-3 col-lg-3 cart-details">
-                                    <div class="h4 total-price">
-                                        @(item.Price * item.Count)
-                                    </div>
-                                    <a class="remove-item" href="" data-id="@i" ><i class="fa fa-times"></i></a>
-                                </div>
+                    <div class="col-xs-12 col-sm-4 col-lg-5 cart-details">
+                        <div class="h4 product-title">
+                            <a href="@Url.Action("GetById", "Product")/{{product.Id}}">{{product.Name}}</a>
+                            <p>
+                                <small class="unit-price">
+                                    {{product.Price}}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-lg-2 cart-details ">
+                        <div class="quantity">
+                            <div class="quantity-selector">
+                                <input type="number" ng-model="product.Count" ng-model-options="{ debounce: 500 }" ng-change="saveCount(product)" class="form-control quantity quantity-ctrl"/>
                             </div>
-                        }
-
+                        </div>
                     </div>
-
-
-                </div>
-
-                <div id="cart-actions" class="btn-holder clearfix">
-                    <a class="btn btn-default btn-continue-shopping pull-left" href="@Url.Action("Index", "Home")"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                    <div class="col-xs-12 col-sm-3 col-lg-3 cart-details">
+                        <div class="h4 total-price">
+                            {{product.Price * product.Count}}
+                        </div>
+                        <a class="remove-item" href="" ng-click="removeProduct(product)"><i class="fa fa-times"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-3">
-                <h3>Order Summary</h3>
-                <ul class="price-list list-group">
-                    <li class="list-group-item important">Total: <span class="badge">@Model.Total</span></li>
-                </ul>
-                <a class="col-xs-12 btn btn-danger solid btn-lg" href="@Url.Action("checkout", "ShoppingCart")">Checkout</a>
-            </div>
+
         </div>
-   }
+
+        <div id="cart-actions" class="btn-holder clearfix">
+            <a class="btn btn-default btn-continue-shopping pull-left" href="@Url.Action("../Home")"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+        <h3>Order Summary</h3>
+        <ul class="price-list list-group">
+            <li class="list-group-item important">Total: <span class="badge">{{cart.Total}}</span></li>
+        </ul>
+        <a class="col-xs-12 btn btn-danger solid btn-lg" href="@Url.Action("checkout", "ShoppingCart")">Checkout</a>
+    </div>
 </section>

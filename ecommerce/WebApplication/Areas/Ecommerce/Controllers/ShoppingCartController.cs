@@ -3,6 +3,7 @@ using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Areas.Ecommerce.Models;
@@ -17,6 +18,7 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             _service = service;
         }
 
+        [HttpPost]
         public ActionResult AddProduct (int id, string name, double price, int count, string url)
         {
             var smallproduct = new SmallProduct
@@ -28,23 +30,22 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 Url = url
             };
             SessionHelper.Add(smallproduct, Session);
-            return Json(new { url= Url.Action("Index", "Home") });
+            return Json(HttpContext.Session["cart"]);
         }
 
+        [HttpPost]
         public ActionResult RemoveProduct(int id)
         {
-           
             SessionHelper.Remove(id, Session);
-
-            return Json(new { url = Url.Action("Index", "Home") });
+            return Json(HttpContext.Session["cart"]); ;
         }
 
+        [HttpPost]
         public ActionResult ChangeCount(int id, int newCount)
         {
-
             SessionHelper.UpdateCount(id, newCount, Session);
 
-            return Json("");
+            return Json(HttpContext.Session["cart"]);
         }
 
 
@@ -133,6 +134,14 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 return View(model);
             }
             return View(model);
+        }
+        [HttpGet]
+        public JsonResult GetCart()
+        {
+            if (HttpContext.Session != null && HttpContext.Session["cart"] != null)
+                return Json(HttpContext.Session["cart"], JsonRequestBehavior.AllowGet);
+            else
+                return Json(new ShoppingCartViewModel(), JsonRequestBehavior.AllowGet);
         }
     }
 }

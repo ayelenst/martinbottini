@@ -9,7 +9,7 @@
 
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body ng-app="ecommerce">
     <main id="page-content" class="wrap container">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -74,69 +74,7 @@
                     </ul>
                 </div>
                 @{
-                    if (HttpContext.Current.Session["cart"] != null)
-                    {
-                        var cart = (ShoppingCartViewModel) Session["cart"];
-                        <div class="navbar navbar-right pull-right" style="margin:0px">
-                            <ul class="nav navbar-nav">
-                                <li id="navbar-totals" class="totals">
-                                    <span class="hidden-xs">@cart.Count Items</span>
-                                    <span class="visible-lg">$@cart.Total</span>
-                                    <span class="visible-xs item-number">@cart.Count</span>
-                                </li>
-                                <li class="dropdown">
-                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </Button>
-                                    <div id="mini-cart" class="dropdown-menu">
-                                        <ul class="cart-items list-unstyled hidden-xs">
-                                            @foreach (var item in cart.Products)
-                                            {
-                                                <li class="row cart-item">             
-                                                    <div class="product-thumb col-xs-4">
-                                                        <img class="img-responsive"  src="~/Image/@item.Url">
-                                                    </div>
-                                                    <div class="product-info col-xs-8">
-                                                        <h6 class="product-title">@item.Name</h6>
-                                                        <div class="price">@item.Count x <span>$@item.Price</span>
-                                                        </div>
-                                                      
-                                                    </div>
-                                                </li>
-                                            }
-                                        
-                                           
-                                        </ul>
-                                        <div class="mini-cart-totals">
-                                            <h4 class="subtotal">Subtotal: $ @cart.Total</h4>
-                                            <a class="btn btn-default btn-lg" href="@Url.Action("ViewCart", "ShoppingCart")">Ver carrito</a>
-                                            <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
-                                        </div>
-
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="navbar navbar-right pull-right" style="margin:0px">
-                            <ul class="nav navbar-nav">
-                                <li id="navbar-totals" class="totals">
-                                    <span class="hidden-xs">0 Items</span>
-                                    <span class="visible-lg">$00.00</span>
-
-                                    <span class="visible-xs item-number"></span>
-
-                                </li>
-                                <li class="dropdown">
-                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </Button>                                   
-                                </li>
-                            </ul>
-                        </div>
-                    }
+                    Html.RenderPartial("../ShoppingCart/CartPreview");
                 }
                 <!--/.navbar-collapse -->
             </div>
@@ -191,47 +129,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/ecommerce")
-        @RenderSection("scripts", required: false)
-    <script type="text/javascript">
-
-        type = "text/javascript" >
-            $(function () {
-                // Initialize numeric spinner input boxes
-                //$(".numeric-spinner").spinedit();
-                // Initialize modal dialog
-                // attach modal-container bootstrap attributes to links with .modal-link class.
-                // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
-                $('.btn-add-cart').on('click', function (e) {
-                    e.preventDefault();
-                    var $buttonClicked = $(this);
-
-                    var id = $buttonClicked.attr('data-id');
-                    var name = $buttonClicked.attr('data-name');
-                    var count = $buttonClicked.attr('data-count');;
-                    var price = $buttonClicked.attr('data-price');
-                    var url = $buttonClicked.attr('data-url');
-                    var options = { keyboard: true };
-                    $.ajax({
-                        type: "GET",
-                        url: '@Url.Action("addproduct", "ShoppingCart")',
-
-                        contentType: "application/json; charset=utf-8",
-                        data: { "id": id, "name": name, "count": count, "price": price, "url":url },
-                        datatype: "json",
-                        success: function (data) {
-
-                            window.location.href = '@Url.Action("Index", "Home")';
-
-                    },
-                    error: function (data) {
-                        window.location.href = '@Url.Action("Index", "Home")';
-                    }
-                });
-
-
-                });
-
-            });
-    </script>
+    @Scripts.Render("~/Scripts/angular")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

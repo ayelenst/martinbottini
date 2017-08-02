@@ -36,32 +36,6 @@
                         $('#modal-container').modal('show');
                         $('#modal-container').css('display', 'flex');
                         $el.find('.fa').removeClass('fa-refresh fa-spin').addClass('fa-eye');
-                        $('.btn-add-cart').on('click', function (e) {
-                            e.preventDefault();
-                            var $buttonClicked = $(this);
-
-                            var id = $buttonClicked.attr('data-id');
-                            var name = $buttonClicked.attr('data-name');
-                            var count = $buttonClicked.attr('data-count');;
-                            var price = $buttonClicked.attr('data-price');
-                            var url = $buttonClicked.attr('data-url');
-                            var options = { keyboard: true };
-                            $.ajax({
-                                type: "GET",
-                                url: "shoppingcart/addproduct",
-                                contentType: "application/json; charset=utf-8",
-                                data: { "id": id, "name": name, "count": count, "price": price, "url": url },
-                                datatype: "json",
-                                success: function (data) {
-
-                                    window.location.href = '@Url.Action("Index", "Home")';
-
-                                },
-                                error: function (data) {
-                                    window.location.href = '@Url.Action("Index", "Home")';
-                                }
-                            });
-                        });
 
                     },
                     error: function () {

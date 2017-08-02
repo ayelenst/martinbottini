@@ -1,0 +1,33 @@
+﻿<div class="navbar navbar-right pull-right" style="margin: 0px" ng-controller="CartPreviewController" ng-cloak>
+    <ul class="nav navbar-nav">
+        <li id="navbar-totals" class="totals">
+            <span class="hidden-xs">{{cart.Count}} Items</span>
+            <span class="visible-lg">${{cart.Total}}</span>
+            <span class="visible-xs item-number"></span>
+        </li>
+        <li class="dropdown">
+            <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
+                <i class="fa fa-shopping-cart"></i>
+            </Button>
+            <div id="mini-cart" class="dropdown-menu">
+                <ul class="cart-items list-unstyled hidden-xs">
+                    <li class="row cart-item" ng-repeat="product in cart.Products">
+                        <div class="product-thumb col-xs-4">
+                            <img class="img-responsive" src="~/Image/{{product.Url}}">
+                        </div>
+                        <div class="product-info col-xs-8">
+                            <h6 class="product-title">{{product.Name}}</h6>
+                            <div class="price">{{product.Count}} x <span>${{product.Price}}</span>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+                <div class="mini-cart-totals">
+                    <h4 class="subtotal">Subtotal: $ {{cart.Total}}</h4>
+                    <a class="btn btn-default btn-lg" href="@Url.Action("ViewCart", "ShoppingCart")">Ver carrito</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

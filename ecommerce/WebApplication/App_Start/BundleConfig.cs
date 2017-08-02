@@ -43,6 +43,13 @@ namespace WebApplication
                "~/Areas/Ecommerce/Scripts/gridmvc.js",
                   "~/Areas/Ecommerce/Scripts/layout.js"));
 
+            bundles.Add(new ScriptBundle("~/Scripts/angular").Include(
+                "~/Areas/Ecommerce/Scripts/angular.min.js",
+                "~/Areas/Ecommerce/App/App.js",
+                "~/Areas/Ecommerce/App/ProductController.js",
+                "~/Areas/Ecommerce/App/CartController.js",
+                "~/Areas/Ecommerce/App/CartPreviewController.js"));
+
             bundles.Add(new StyleBundle("~/Content/ecommerce").Include(
                        "~/Content/font-awesome.min.css",
                       "~/Areas/Ecommerce/Content/core.css",
