@@ -130,47 +130,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/ecommerce")
     @Scripts.Render("~/Scripts/angular")
-        @RenderSection("scripts", required: false)
-    <script type="text/javascript">
-
-        type = "text/javascript" >
-            $(function () {
-                // Initialize numeric spinner input boxes
-                //$(".numeric-spinner").spinedit();
-                // Initialize modal dialog
-                // attach modal-container bootstrap attributes to links with .modal-link class.
-                // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
-                $('.btn-add-cart').on('click', function (e) {
-                    e.preventDefault();
-                    var $buttonClicked = $(this);
-
-                    var id = $buttonClicked.attr('data-id');
-                    var name = $buttonClicked.attr('data-name');
-                    var count = $buttonClicked.attr('data-count');;
-                    var price = $buttonClicked.attr('data-price');
-                    var url = $buttonClicked.attr('data-url');
-                    var options = { keyboard: true };
-                    $.ajax({
-                        type: "GET",
-                        url: '@Url.Action("addproduct", "ShoppingCart")',
-
-                        contentType: "application/json; charset=utf-8",
-                        data: { "id": id, "name": name, "count": count, "price": price, "url":url },
-                        datatype: "json",
-                        success: function (data) {
-
-                            window.location.href = '@Url.Action("Index", "Home")';
-
-                    },
-                    error: function (data) {
-                        window.location.href = '@Url.Action("Index", "Home")';
-                    }
-                });
-
-
-                });
-
-            });
-    </script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

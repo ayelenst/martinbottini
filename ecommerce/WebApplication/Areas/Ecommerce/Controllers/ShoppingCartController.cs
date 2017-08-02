@@ -17,6 +17,7 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             _service = service;
         }
 
+        [HttpPost]
         public ActionResult AddProduct (int id, string name, double price, int count, string url)
         {
             var smallproduct = new SmallProduct
@@ -28,7 +29,7 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 Url = url
             };
             SessionHelper.Add(smallproduct, Session);
-            return Json(new { url= Url.Action("Index", "Home") });
+            return Json(HttpContext.Session["cart"]);
         }
 
         [HttpPost]

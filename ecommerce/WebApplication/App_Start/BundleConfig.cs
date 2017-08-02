@@ -46,6 +46,7 @@ namespace WebApplication
             bundles.Add(new ScriptBundle("~/Scripts/angular").Include(
                 "~/Areas/Ecommerce/Scripts/angular.min.js",
                 "~/Areas/Ecommerce/App/App.js",
+                "~/Areas/Ecommerce/App/ProductController.js",
                 "~/Areas/Ecommerce/App/CartController.js",
                 "~/Areas/Ecommerce/App/CartPreviewController.js"));
 

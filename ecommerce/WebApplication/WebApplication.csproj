@@ -250,6 +250,7 @@
     <Content Include="Areas\Dashboard\Content\Site.css" />
     <Content Include="Areas\Dashboard\Scripts\custom.js" />
     <Content Include="Areas\Ecommerce\App\App.js" />
+    <Content Include="Areas\Ecommerce\App\ProductController.js" />
     <Content Include="Areas\Ecommerce\App\CartController.js" />
     <Content Include="Areas\Ecommerce\App\CartPreviewController.js" />
     <Content Include="Areas\Ecommerce\Content\animate.css" />

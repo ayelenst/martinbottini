@@ -7,5 +7,10 @@
         });
     }
 
+    $scope.$on("cart-update",
+        function(e, data) {
+            $scope.cart = data;
+        });
+
     getCart();
 })
