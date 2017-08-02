@@ -1,0 +1,102 @@
+﻿@model WebApplication.Areas.Dashboard.Models.OrderViewModel
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Editar Order";
+    Layout = "~/Areas/Dashboard/Views/Shared/_layout.cshtml";
+}
+<!DOCTYPE html>
+@using (Html.BeginForm("Edit", "Order", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.HiddenFor(x => x.Id)
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h4>General</h4>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <br>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-1" for="id">
+                            ID
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-2">
+                            @Html.DisplayFor(x => x.Id, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                            Nombre
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            @Html.DisplayFor(x => x.NameCustomer, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">
+                            Número de contacto
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            @Html.DisplayFor(x => x.Phone, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-2" for="nivel">
+                            Email
+                        </label>
+                        <div class="col-lg-2  col-md-2 col-sm-2 col-xs-3">
+                            @Html.DisplayFor(x => x.Mail, new { @class = "form-control" })
+                        </div>
+
+                        <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-3" for="category">
+                            Status
+                        </label>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                            @Html.DropDownListFor(m => m.OrderStateId, new SelectList(Model.OrderStatus, "Id", "Name"), "Status", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-2" for="habilitado">
+                            Fecha
+                        </label>
+                        <div class="form-group control-label col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            @Html.DisplayFor(x => x.OrderDate, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    @Html.Grid(Model.OrderProduct).Columns(columns =>
+               {
+                   columns.Add(x=>x.NameProduct).Sortable(true);
+                   columns.Add(x => x.Quantity).Sortable(true);
+                   columns.Add(x => x.Price).Sortable(true);
+                   
+               }).WithPaging(20)
+
+                    <div class="ln_solid"></div>
+
+                    <div class="form-group">
+                        <div class="col-lg-1 col-lg-offset-3  col-md-offset-3  col-sm-offset-3">
+                            <input type="submit" class="btn btn-primary" value="Confirmar" />
+                        </div>
+                        <div class="col-lg-1">
+                            <button class="btn btn-default" type="reset">Reiniciar</button>
+                        </div>
+                        <div class="col-lg-1">
+                            <input type="button" class="btn" value="Cancelar" data-toggle="modal" data-target="#modal-cancel" data-href="location.href='@Url.Action("GetAll", "Category")'" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

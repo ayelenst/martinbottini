@@ -35,8 +35,7 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 model.Add(cat);
             }
 
-            var imageFolder = ConfigurationManager.AppSettings["imageFolder"];
-            ViewBag.imageFolder = imageFolder;
+         
             ViewBag.LayoutModel = model;
         }
     }

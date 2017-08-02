@@ -152,7 +152,7 @@ namespace Service
         public List<Order> GetAllOrderByState(int id)
         {
         
-            return context.OrderRepository.Filter(x=>x.OrderStateId == id).ToList();
+            return context.OrderRepository.Filter(x=>x.OrderStatusId == id).ToList();
         }
 
         public void UpdateOrder(Order Order)
@@ -162,7 +162,7 @@ namespace Service
 
         public Order GetOrderById(int id)
         {
-            return context.OrderRepository.Find(id);
+            return context.OrderRepository.GetOrderWithProducts(id);
         }
 
         public List<Order> GetOrderByDate(DateTime OrderDate)
@@ -180,6 +180,16 @@ namespace Service
             context.OrderRepository.Place(Order, products);
         }
 
+        public List<OrderStatus> GetAllOrderStatus()
+        {
+
+            return context.OrderStatusRepository.All().ToList();
+        }
+
+        public void UpdateOrderStatus(int id, int orderStateId)
+        {
+            context.OrderRepository.UpdateOrderStatus(id, orderStateId);
+        }
 
         #endregion
 

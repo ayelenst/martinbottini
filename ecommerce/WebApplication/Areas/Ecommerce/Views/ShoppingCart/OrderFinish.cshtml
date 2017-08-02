@@ -1,0 +1,81 @@
+﻿@model WebApplication.Areas.Ecommerce.Models.OrderModel
+
+@{
+
+    Layout = "~/Areas/Ecommerce/Views/Shared/_layout.cshtml";
+}
+<div id="banner" class="jumbotron row">
+
+    <h1>Compra finalizada</h1>
+    <p>Un vendedor se pondrá en contacto con Ud a la brevedad.</p>
+    <p>Ante cualquier consulta, contactar con el XXXXX-XXXX</p>
+</div>
+<section id="receipt" class="page-section row">
+    <div class="col-md-12 col-lg-9">
+        <div id="cart-content">
+            <div class="cart-labels cart-item row hidden-xs">
+                <div class="col-sm-4 col-sm-offset-2 ">
+                    Item
+                </div>
+                <div class="col-sm-2">
+                    Cantidad
+                </div>              
+                <div class="col-sm-2">
+                    Item Total
+                </div>
+            </div>
+            <div class="cart-item ">
+                @for (int i = 0; i < Model.Products.Count; i++)
+                {
+                    <div class="row">
+                        @{var item = Model.Products[i];
+                        }
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="product-thumb">
+                                <img class="img-responsive" src="~/Image/@item.Url">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-lg-5 cart-details">
+                            <div class="h4 product-title">
+                                <a href="@Url.Action("GetById", "Product", new { id = item.Id })">@item.Name</a>
+                                <p>
+                                    <small class="unit-price">
+                                        @item.Price
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-lg-2 cart-details ">
+                            <div class="quantity">
+                                <div class="quantity-selector" data-id="@i">
+
+                                    @Html.TextBoxFor(x => x.Products[i].Count, new { @class = "form-control quantity quantity-ctrl", @type = "number" })
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-lg-3 cart-details">
+                            <div class="h4 total-price">
+                                @(item.Price * item.Count)
+                            </div>
+                            <a class="remove-item" href="" data-id="@i"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                            }
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-3">
+     
+
+        <ul class="price-list list-group">
+            <li class="list-group-item order-total h4 clearfix"><strong>Total:</strong>  <i class="badge">$@Model.Total</i></li>
+        </ul>
+        <a class="btn btn-default" href="@Url.Action("Index", "Home")">Continuar comprando<i class="fa fa-arrow-right"></i></a>
+    </div>
+
+</section>

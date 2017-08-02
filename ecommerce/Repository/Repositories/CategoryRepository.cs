@@ -16,11 +16,12 @@ namespace Repository.Repositories
         {
             var dictionary = new Dictionary<int, int>();
             var categories = Context.Categories.Include("Products").ToList();
-            foreach (var cat in categories.Where(x=>x.Level == 0))
+            foreach (var cat in categories)
             {
                 var count = 0;
                 if (!requireOffer)
                 {
+
                     count = cat.Products.Count();
                     var children = categories.Where(x => x.ParentId == cat.Id);
                     foreach(var child in children)
@@ -42,6 +43,8 @@ namespace Repository.Repositories
                 }
                 dictionary.Add(cat.Id, count);
             }
+
+          
             return dictionary;
         
           

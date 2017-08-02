@@ -1,0 +1,130 @@
+﻿@model WebApplication.Areas.Ecommerce.Models.ProductViewModel
+<section id="single-product" class="page-section">
+
+    <ol class="breadcrumb">
+        <li class="hidden-xs"><a href="/">Home</a></li>
+        <li class="hidden-xs"><a href="/shop">Shop</a></li>
+        <li><a href="@Url.Action("GetById", "Category", new { id = Model.CategoryId })">@Model.CategoryName</a></li>
+
+        <li class="active"><a href="@Url.Action("GetById", "Product", new { id = Model.Id })">@Model.Name</a></li>
+    </ol>
+    <form class="custom" onsubmit="return false" method="post" action="/product/blue-wristband-tracker">
+
+        <div class="row">
+            <div id="product-images">
+                <div class="col-xs-12 col-sm-6">
+                    <div id="product-gallery" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            @for (int i = 0; i < Model.Images.Count; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    <div class="item active" id="slide1" style="height:400px">
+                                        <img class="img-responsive" alt="" src="~/Image/@Model.Images[i].Url" itemprop="image">
+                                        
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="item " style="height:400px">
+                                        <img class="img-responsive" alt="" src="~/Image/@Model.Images[i].Url" itemprop="image">
+                                    </div>
+                                }
+                            }
+                          
+                        </div>
+
+                        <!-- Indicators -->
+                        <ol class="gallery-thumbs list-inline">
+@for (int i = 0; i < Model.Images.Count; i++)
+{
+    if (i == 0)
+    {
+                            <li data-target="#product-gallery" data-slide-to="@i" class="active">
+                                <img class="product-thumb img-responsive" alt="" src="~/Image/@Model.Images[i].Url">
+                            </li>
+    }
+    else 
+    {
+                            <li data-target="#product-gallery" data-slide-to="@i" class="">
+                                <img class="product-thumb img-responsive" alt="" src="~/Image/@Model.Images[i].Url">
+                            </li>
+    }
+}
+                        </ol>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="img-modalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4></h4>
+                            </div>
+                            <div class="modal-body">
+                                <img class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-page">
+                <div class="col-sm-6">
+                    <div class="excerpt" itemprop="name">
+                        <h1 style="color:#4d4d4d;">@Model.Name</h1>
+                    </div>
+                    <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                       @if (Model.IsSale)
+            {
+                           <div class="h2 product-price">
+                            <small class="previous-price">$@Model.Price.ToString("N")</small>
+                            <h2>$@((Model.OfferPrice).ToString("N"))</h2>
+                        </div>
+                       }
+                       else
+                       {
+                        <div class="h2 product-price">
+                            <h2>$@Model.Price.ToString("N")</h2>
+                        </div>
+                       }
+
+
+                        <link itemprop="availability" href="http://schema.org/InStock">
+                    </div>
+
+                    <div class="excerpt" itemprop="description">
+                        <p>@Model.Description</p>
+                    </div>
+
+                    <input type="hidden" name="productId" value="@Model.Id">
+                    <div class="add-cart-holder form-group">
+
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus btn btn-lg btn-default"><i class="fa fa-minus"></i></button>
+                            <input class="form-control quantity" type="text" value="1" name="quantity">
+                            <button class="quantity-btn plus btn btn-lg btn-default"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <a class="btn btn-lg btn-danger btn-add-cart" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product, #navbar-totals=shop-minicart-totals">Add to Cart <i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                    
+                    <div class="details-line">
+                        <span class="details-title">MARCA</span>
+                        <span class="details-description">@Model.Brand</span>
+                    </div>
+                    <div class="details-line">
+                        <span class="details-title">GARANTÍA</span>
+                        <span class="details-description">@Model.Warranty</span>
+
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+
+    </form>
+</section>

@@ -21,7 +21,7 @@ namespace Model
         public virtual List<OrderProduct> OrderProduct { get; set; }
 
         [DataMember]
-        public int OrderStateId { get; set; }
+        public int OrderStatusId { get; set; }
 
         [DataMember]
         public virtual OrderStatus OrderStatus { get; set; }
@@ -41,5 +41,6 @@ namespace Model
         [DataMember]
         public DateTime OrderDone { get; set; }
 
+        public double Total { get; set; }
     }
 }

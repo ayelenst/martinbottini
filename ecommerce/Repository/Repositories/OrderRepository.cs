@@ -30,5 +30,23 @@ namespace Repository.Repositories
             }
         }
 
+        public Order GetOrderWithProducts (int id)
+        {
+            using (var db = new EcommerceContext())
+            {
+                return db.Order.Include("OrderProduct").FirstOrDefault(x => x.Id == id);
+
+            }
+        }
+
+        public void UpdateOrderStatus(int id, int orderStateId)
+        {
+
+            var entry = Context.Order.FirstOrDefault(x => x.Id == id);
+
+            entry.OrderStatusId = orderStateId;
+           Context.SaveChanges();
+        }
+
     }
 }

@@ -14,7 +14,7 @@ namespace Model
         public int Id { get; set; }
 
         [DataMember]
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         [DataMember]
         public virtual List<Order> Order { get; set; }

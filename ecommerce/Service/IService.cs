@@ -34,7 +34,6 @@ namespace Service
 
         #region products
 
-         
         List<Product> GetAllProducts();
 
          
@@ -64,15 +63,17 @@ namespace Service
 
          
         List<Product> GetProductLastOffers(int? count);
+        void UpdateOrderStatus(int id, int orderStateId);
 
-         
         List<Product> GetProductLastAdded(int count);
 
         #endregion
 
         #region Orders
 
-         
+        List<OrderStatus> GetAllOrderStatus();
+
+
         List<Order> GetAllOrders();
 
          

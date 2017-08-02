@@ -77,43 +77,6 @@
         $(document).on('click', '.page-items-controller a', function () {
             $(this).addClass('active').html('<i class="fa fa-refresh fa-spin"></i>').siblings().removeClass('active');
         });
-
-        //===============
-        //! AJAX / Cart
-        //===============
-        var cartFlag = new $.Deferred();
-
-        $(document).on('click', '.btn-add-cart', function () {
-            cartFlag.resolve();
-
-            $(this).prepend('<i class="fa fa-refresh fa-spin"/>');
-        });
-
-        $('.btn-update-cart').on('click', function () {
-            cartFlag.resolve();
-
-            $(this).find('.fa').addClass('fa-spin');
-        });
-
-        $('body').on('click', '.remove-item', function () {
-            cartFlag.resolve();
-
-            $(this).find('.fa').removeClass('fa-times').addClass('fa-refresh fa-spin');
-        });
-
-        $(document).ajaxComplete(function () {
-            $('.btn-add-cart').find('.fa-refresh').remove();
-            $('.btn-update-cart').find('.fa-refresh').removeClass('fa-spin');
-
-            $.when(cartFlag).then(function () {
-                $('#navbar-totals').addClass('active');
-                setTimeout(function () {
-                    $('#navbar-totals').removeClass('active');
-                    cartFlag = new $.Deferred();
-                }, 500);
-            });
-        });
-
         //===============
         //! Checkout
         //===============
@@ -127,16 +90,6 @@
                 width: "100%"
             });
         });
-
-        //Next step btn
-        $(document).on('click', '.btn-checkout-step', function () {
-            $(this).find('.fa').removeClass('fa-arrow-right fa-arrow-left fa-money').addClass('fa-refresh fa-spin');
-        });
-        //Next step error btn
-        $(window).on('onAjaxFailure', function () {
-            $('.btn-checkout-step .fa').removeClass('fa-refresh fa-spin').addClass('fa-arrow-right');
-        });
-
 
         //ADDRESS
         $(document).on('click', '.btn-form-mirror', function () {

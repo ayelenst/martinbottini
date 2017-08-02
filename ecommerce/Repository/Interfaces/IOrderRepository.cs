@@ -10,5 +10,7 @@ namespace Repository.Interfaces
     public interface IOrderRepository : IRepository<Order>
     {
         void Place(Order Order, List<OrderProduct> products);
+        void UpdateOrderStatus(int id, int orderStateId);
+        Order GetOrderWithProducts(int id);
     }
 }

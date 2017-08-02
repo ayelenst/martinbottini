@@ -59,6 +59,18 @@
     <Compile Include="Migrations\201707261801515_firstrefactor.Designer.cs">
       <DependentUpon>201707261801515_firstrefactor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708020210113_test.cs" />
+    <Compile Include="Migrations\201708020210113_test.Designer.cs">
+      <DependentUpon>201708020210113_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708020309307_ordertotal.cs" />
+    <Compile Include="Migrations\201708020309307_ordertotal.Designer.cs">
+      <DependentUpon>201708020309307_ordertotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708020316370_orderstatus.cs" />
+    <Compile Include="Migrations\201708020316370_orderstatus.Designer.cs">
+      <DependentUpon>201708020316370_orderstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderProduct.cs" />
@@ -74,6 +86,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707261801515_firstrefactor.resx">
       <DependentUpon>201707261801515_firstrefactor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708020210113_test.resx">
+      <DependentUpon>201708020210113_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708020309307_ordertotal.resx">
+      <DependentUpon>201708020309307_ordertotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708020316370_orderstatus.resx">
+      <DependentUpon>201708020316370_orderstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
