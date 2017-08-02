@@ -10,9 +10,16 @@
     <script type="text/javascript">
 
         $(function () {
-            $(".quantity").focusout(function () {
-                $(this).css("background-color", "#FFFFFF");
+            var value = 0;
+
+          
+            $(".remove-item").click(function () {
+                var id = $(this).attr('data-id');
+                var count = $('#Products_' + id + '__Count').val(0);
             });
+            window.onbeforeunload = function (e) {
+                $('#form-cart').submit();
+            }
             })
                 </script>
     }
@@ -22,7 +29,7 @@
 
 </div>
 <section id="cart" class="page-section row">
-   @using (Html.BeginForm("Update", "ShoppingCart", FormMethod.Post, new { @class = "custom", @enctype = "multipart/form-data" }))
+   @using (Html.BeginForm("Update", "ShoppingCart", FormMethod.Post, new { @class = "custom", @enctype = "multipart/form-data", @id="form-cart" }))
    {
         <div id="cart-content">
             <div class="col-xs-12 col-md-9">
@@ -64,11 +71,10 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-3 col-lg-2 cart-details ">
                                     <div class="quantity">
-                                        <div class="quantity-selector">
-                                            <button class="quantity-btn minus btn btn-lg btn-default" type="button"><i class="fa fa-minus"></i></button>
+                                        <div class="quantity-selector" data-id="@i">                                            
 
-                                            @Html.TextBoxFor(x => x.Products[i].Count, new { @class = "form-control quantity" })
-                                            <button class="quantity-btn plus btn btn-lg btn-default" type="button"><i class="fa fa-plus"></i></button>
+                                            @Html.TextBoxFor(x => x.Products[i].Count, new { @class = "form-control quantity quantity-ctrl", @type="number" })
+                                            
                                         </div>
 
                                     </div>
@@ -77,7 +83,7 @@
                                     <div class="h4 total-price">
                                         @(item.Price * item.Count)
                                     </div>
-                                    <a class="remove-item" href="#close" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='597f88589d6b6'"><i class="fa fa-times"></i></a>
+                                    <a class="remove-item" href="" data-id="@i" ><i class="fa fa-times"></i></a>
                                 </div>
                             </div>
                         }

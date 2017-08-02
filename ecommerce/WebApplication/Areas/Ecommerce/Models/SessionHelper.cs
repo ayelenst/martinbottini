@@ -33,6 +33,30 @@ namespace WebApplication.Areas.Ecommerce.Models
             return;
         }
 
+        internal static void UpdateCount(int id, int newCount, HttpSessionStateBase session)
+        {
+            if (HttpContext.Current.Session["cart"] == null)
+            {
+                var cart = new ShoppingCartViewModel();
+                cart.Count = 0;
+                cart.Total = 0;
+                cart.Products = new List<SmallProduct>();
+                HttpContext.Current.Session["cart"] = cart;
+                return;
+            }
+            var current = (ShoppingCartViewModel)HttpContext.Current.Session["cart"];
+            if (current.Products.Any(x => x.Id == id))
+            {
+                var currentProduct = current.Products.FirstOrDefault(x => x.Id == id);
+                current.Count = current.Count - currentProduct.Count + newCount;
+                current.Total = current.Total - currentProduct.Price * currentProduct.Count + currentProduct.Price * newCount;
+                currentProduct.Count = newCount;
+                current.Products.Remove(currentProduct);
+                current.Products.Add(currentProduct);
+                HttpContext.Current.Session["cart"] = current;
+            }
+        }
+
         public static void Remove(int id, HttpSessionStateBase session)
         {
             if (HttpContext.Current.Session["cart"] == null)
@@ -48,8 +72,8 @@ namespace WebApplication.Areas.Ecommerce.Models
            if(current.Products.Any(x=>x.Id == id))
             {
                 var currentProduct = current.Products.FirstOrDefault(x => x.Id == id);
-                current.Count = current.Count + currentProduct.Count;
-                current.Total = current.Total + currentProduct.Price * currentProduct.Count;
+                current.Count = current.Count - currentProduct.Count;
+                current.Total = current.Total - currentProduct.Price * currentProduct.Count;
                 current.Products.Remove(currentProduct);
                 HttpContext.Current.Session["cart"] = current;
             }

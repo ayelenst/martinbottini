@@ -38,6 +38,14 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             return Json(new { url = Url.Action("Index", "Home") });
         }
 
+        public ActionResult ChangeCount(int id, int newCount)
+        {
+
+            SessionHelper.UpdateCount(id, newCount, Session);
+
+            return Json("");
+        }
+
 
         public ActionResult ViewCart()
         {
@@ -46,6 +54,13 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 return View((ShoppingCartViewModel)HttpContext.Session["cart"]);
             }
             return View(new ShoppingCartViewModel());
+        }
+
+        public void Update(ShoppingCartViewModel result)
+        {
+            var r = result;
+            return;
+           
         }
     }
 }
