@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Areas.Ecommerce.Models;
@@ -30,20 +31,19 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             return Json(new { url= Url.Action("Index", "Home") });
         }
 
+        [HttpPost]
         public ActionResult RemoveProduct(int id)
         {
-           
             SessionHelper.Remove(id, Session);
-
-            return Json(new { url = Url.Action("Index", "Home") });
+            return Json(HttpContext.Session["cart"]); ;
         }
 
+        [HttpPost]
         public ActionResult ChangeCount(int id, int newCount)
         {
-
             SessionHelper.UpdateCount(id, newCount, Session);
 
-            return Json("");
+            return Json(HttpContext.Session["cart"]);
         }
 
 
