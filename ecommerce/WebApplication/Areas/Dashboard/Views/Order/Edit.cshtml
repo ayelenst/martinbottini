@@ -1,7 +1,7 @@
 ﻿@model WebApplication.Areas.Dashboard.Models.OrderViewModel
 @using GridMvc.Html
 @{
-    ViewBag.Title = "Editar Order";
+    ViewBag.Title = "Editar Orden";
     Layout = "~/Areas/Dashboard/Views/Shared/_layout.cshtml";
 }
 <!DOCTYPE html>
@@ -35,41 +35,38 @@
                             Nombre
                         </label>
                         <div class="col-md-7 col-sm-7 col-xs-12">
-                            @Html.DisplayFor(x => x.NameCustomer, new { @class = "form-control" })
+                            @Html.DisplayFor(x => x.NameCustomer, new { @class = "form-control control-label" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">
                             Número de contacto
                         </label>
-                        <div class="col-md-7 col-sm-7 col-xs-12">
+                        <div class="col-lg-2  col-md-2 col-sm-2 col-xs-12">
                             @Html.DisplayFor(x => x.Phone, new { @class = "form-control" })
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-2" for="nivel">
+                        <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="email">
                             Email
                         </label>
-                        <div class="col-lg-2  col-md-2 col-sm-2 col-xs-3">
+                        <div class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12">
                             @Html.DisplayFor(x => x.Mail, new { @class = "form-control" })
-                        </div>
-
-                        <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-3" for="category">
-                            Status
-                        </label>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-                            @Html.DropDownListFor(m => m.OrderStateId, new SelectList(Model.OrderStatus, "Id", "Name"), "Status", new { @class = "form-control" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-2" for="habilitado">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">
                             Fecha
                         </label>
-                        <div class="form-group control-label col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <div class="col-lg-2  col-md-2 col-sm-2 col-xs-12">
                             @Html.DisplayFor(x => x.OrderDate, new { @class = "form-control" })
+                        </div>                        
+
+                        <label class="control-label col-lg-1 col-md-2 col-sm-2 col-xs-12" for="status">
+                            Estado
+                        </label>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+                            @Html.DropDownListFor(m => m.OrderStateId, new SelectList(Model.OrderStatus, "Id", "Name"), "Status", new { @class = "form-control" })
                         </div>
                     </div>
 
