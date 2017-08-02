@@ -62,5 +62,14 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             return;
            
         }
+
+        [HttpGet]
+        public JsonResult GetCart()
+        {
+            if (HttpContext.Session != null && HttpContext.Session["cart"] != null)
+                return Json(HttpContext.Session["cart"], JsonRequestBehavior.AllowGet);
+            else
+                return Json(new ShoppingCartViewModel(), JsonRequestBehavior.AllowGet);
+        }
     }
 }

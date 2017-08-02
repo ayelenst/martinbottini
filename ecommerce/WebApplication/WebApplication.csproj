@@ -249,6 +249,8 @@
     <Content Include="Areas\Dashboard\Content\custom.css" />
     <Content Include="Areas\Dashboard\Content\Site.css" />
     <Content Include="Areas\Dashboard\Scripts\custom.js" />
+    <Content Include="Areas\Ecommerce\App\App.js" />
+    <Content Include="Areas\Ecommerce\App\CartPreviewController.js" />
     <Content Include="Areas\Ecommerce\Content\animate.css" />
     <Content Include="Areas\Ecommerce\Content\bootstrap.css" />
     <Content Include="Areas\Ecommerce\Content\bootstrap.min.css" />
@@ -293,6 +295,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Areas\Ecommerce\Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -330,6 +333,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="Areas\Ecommerce\Views\ShoppingCart\ViewCart.cshtml" />
+    <Content Include="Areas\Ecommerce\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Ecommerce\Views\ShoppingCart\CartPreview.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />

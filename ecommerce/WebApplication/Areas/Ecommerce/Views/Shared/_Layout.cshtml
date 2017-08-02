@@ -9,7 +9,7 @@
 
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body ng-app="ecommerce">
     <main id="page-content" class="wrap container">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -74,70 +74,9 @@
                     </ul>
                 </div>
                 @{
-                    if (HttpContext.Current.Session["cart"] != null)
-                    {
-                        var cart = (ShoppingCartViewModel) Session["cart"];
-                        <div class="navbar navbar-right pull-right" style="margin:0px">
-                            <ul class="nav navbar-nav">
-                                <li id="navbar-totals" class="totals">
-                                    <span class="hidden-xs">@cart.Count Items</span>
-                                    <span class="visible-lg">$@cart.Total</span>
-                                    <span class="visible-xs item-number">@cart.Count</span>
-                                </li>
-                                <li class="dropdown">
-                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </Button>
-                                    <div id="mini-cart" class="dropdown-menu">
-                                        <ul class="cart-items list-unstyled hidden-xs">
-                                            @foreach (var item in cart.Products)
-                                            {
-                                                <li class="row cart-item">             
-                                                    <div class="product-thumb col-xs-4">
-                                                        <img class="img-responsive"  src="~/Image/@item.Url">
-                                                    </div>
-                                                    <div class="product-info col-xs-8">
-                                                        <h6 class="product-title">@item.Name</h6>
-                                                        <div class="price">@item.Count x <span>$@item.Price</span>
-                                                        </div>
-                                                      
-                                                    </div>
-                                                </li>
-                                            }
-                                        
-                                           
-                                        </ul>
-                                        <div class="mini-cart-totals">
-                                            <h4 class="subtotal">Subtotal: $ @cart.Total</h4>
-                                            <a class="btn btn-default btn-lg" href="@Url.Action("ViewCart", "ShoppingCart")">Ver carrito</a>
-                                            <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
-                                        </div>
-
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="navbar navbar-right pull-right" style="margin:0px">
-                            <ul class="nav navbar-nav">
-                                <li id="navbar-totals" class="totals">
-                                    <span class="hidden-xs">0 Items</span>
-                                    <span class="visible-lg">$00.00</span>
-
-                                    <span class="visible-xs item-number"></span>
-
-                                </li>
-                                <li class="dropdown">
-                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </Button>                                   
-                                </li>
-                            </ul>
-                        </div>
-                    }
+                    Html.RenderPartial("../ShoppingCart/CartPreview");
                 }
+                
                 <!--/.navbar-collapse -->
             </div>
         </nav>
@@ -191,6 +130,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/ecommerce")
+    @Scripts.Render("~/Scripts/angular")
         @RenderSection("scripts", required: false)
     <script type="text/javascript">
 
