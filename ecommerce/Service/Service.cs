@@ -2,7 +2,9 @@
 using Repository;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -178,6 +180,29 @@ namespace Service
         public void PlaceOrder(Order Order, List<OrderProduct> products)
         {
             context.OrderRepository.Place(Order, products);
+            try
+            {
+                MailMessage mail = new MailMessage();
+                var frommail  = ConfigurationManager.AppSettings["frommail"];
+                var tommail = ConfigurationManager.AppSettings["tomail"];
+                var frompassword= ConfigurationManager.AppSettings["frompassword"];
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress(frommail);
+                mail.To.Add(tommail);
+                mail.Subject = "Test Mail";
+                mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(frommail, frompassword);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public List<OrderStatus> GetAllOrderStatus()

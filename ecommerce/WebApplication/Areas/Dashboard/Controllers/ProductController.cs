@@ -312,7 +312,9 @@ namespace WebApplication.Areas.Dashboard.Controllers
         }
 
         private DateTime ConvertDate(string date)
-        {   
+        {
+            if (date == string.Empty)
+                return new DateTime();
             var splited = date.Split('/');
             if (splited.Length != 2)
             {

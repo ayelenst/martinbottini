@@ -10,6 +10,7 @@ using WebApplication.Areas.Dashboard.Models;
 
 namespace WebApplication.Areas.Dashboard.Controllers
 {
+    [Authorize]
     public class BannerController : Controller
     {
 

@@ -9,6 +9,7 @@ using WebApplication.Areas.Dashboard.Models;
 
 namespace WebApplication.Areas.Dashboard.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         private IService _service;
