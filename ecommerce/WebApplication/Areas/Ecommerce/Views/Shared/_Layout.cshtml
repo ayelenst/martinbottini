@@ -9,7 +9,7 @@
 
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body ng-app="ecommerce">
     <main id="page-content" class="wrap container">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse navbar-left ">
                     <ul class="nav navbar-nav ">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="@Url.Action("GetById", "Category")">
+                            <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">
                                 Categorías <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
@@ -74,66 +74,7 @@
                     </ul>
                 </div>
                 @{
-                    if (HttpContext.Current.Session["cart"] != null)
-                    {
-                        var cart = (ShoppingCartViewModel) Session["cart"];
-                        <div class="navbar navbar-right pull-right" style="margin:0px">
-                            <ul class="nav navbar-nav">
-                                <li id="navbar-totals" class="totals">
-                                    <span class="hidden-xs">@cart.Count Items</span>
-                                    <span class="visible-lg">$@cart.Total</span>
-                                    <span class="visible-xs item-number">@cart.Count</span>
-                                </li>
-                                <li class="dropdown">
-                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </Button>
-                                    <div id="mini-cart" class="dropdown-menu">
-                                        <ul class="cart-items list-unstyled hidden-xs">
-                                            @foreach (var item in cart.Products)
-                                            {
-                                                <li class="row cart-item">                                                   
-                                                    <div class="product-info col-xs-8">
-                                                        <h6 class="product-title">@item.Name</h6>
-                                                        <div class="price">@item.Count x <span>$@item.Price</span>
-                                                        </div>
-                                                        <a class="remove-item" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals" data-ajax-extra-fields="delete_item='5963ae4c45dd6'"><i class="fa fa-times"></i></a>
-                                                    </div>
-                                                </li>
-                                            }
-                                        
-                                           
-                                        </ul>
-                                        <div class="mini-cart-totals">
-                                            <h4 class="subtotal">Subtotal: @cart.Total</h4>
-                                            <a class="btn btn-default btn-lg" href="//boxie.lemonstand.com/cart">Ver carrito</a>
-                                            <a class="col-xs-12 btn btn-danger solid btn-lg" href="//boxie.lemonstand.com/checkout-start">Checkout</a>
-                                        </div>
-
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="navbar navbar-right pull-right" style="margin:0px">
-                            <ul class="nav navbar-nav">
-                                <li id="navbar-totals" class="totals">
-                                    <span class="hidden-xs">0 Items</span>
-                                    <span class="visible-lg">$00.00</span>
-
-                                    <span class="visible-xs item-number"></span>
-
-                                </li>
-                                <li class="dropdown">
-                                    <Button href="#" data-toggle="dropdown" class="btn btn-primary navbar-btn">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </Button>                                   
-                                </li>
-                            </ul>
-                        </div>
-                    }
+                    Html.RenderPartial("../ShoppingCart/CartPreview");
                 }
                 <!--/.navbar-collapse -->
             </div>
@@ -157,72 +98,35 @@
     <footer id="page-footer">
         <div class="container">
             <div class="footer-contact text-center row">
-                
+                <div class="col-xs-12 col-sm-4 col-lg-2 col-lg-offset-3">
+                    <a href="#"></a>
+                </div>
             </div>
             <div class="footer-info wrap row">
-                <div class="col-sm-6">
+                <div class="col-sm-5 col-md-6">
                     <ul class="list-unstyled">
-                        <li>Copyright © 2017 MBHardware</li>
-                        <li><a href="@Url.Action("About", "Home")">Nosotros</a></li>
-                        <li><a href="@Url.Action("GetById", "Category")">Todos los productos</a></li>
-                        <li><a href="@Url.Action("GetById", "Category", new { id = "0", isOffer = true })">Ofertas</a></li>
+                        <p class="footer_copyright pull-left">MBHardware &copy; 2016-2017 All Rights Reserved.</p>
                     </ul>
                 </div>
-                <div class="col-sm-4">
-                    <ul class="list-unstyled">
-                        <li>Contacto</li>
-                        <a class="facebook" style="margin-left:5px;" href="https://www.facebook.com/MB-Hardware-1643965129250321/"><i class="fa fa-facebook"></i></a>
-                        <li><span class="glyphicon glyphicon-phone"></span> 011 6815-8463</li>
-                        <li><span class="glyphicon glyphicon-envelope"></span> mbhardware@hotmail.com</li>
-                    </ul>
-</div>
+                <div class="col-sm-7 col-md-6">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5 col-lg-offset-3">
+                        <i class="fa fa-envelope-o" style="margin-right:5px;"></i>mbhardware@hotmail.com
+                    </div>
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-3">
+                        <i class="fa fa-phone" style="margin-right:5px;"></i>011 6815-8463
+                    </div>
+                    <p class="credit col-xs-1"><a class="facebook" style="margin-left:5px;" href="https://www.facebook.com/MB-Hardware-1643965129250321/"><i class="fa fa-facebook"></i></a></p>
+                </div>
             </div>
         </div>
     </footer>
+
         <!-- END NAVBAR -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/ecommerce")
-        @RenderSection("scripts", required: false)
-    <script type="text/javascript">
-
-        type = "text/javascript" >
-            $(function () {
-                // Initialize numeric spinner input boxes
-                //$(".numeric-spinner").spinedit();
-                // Initialize modal dialog
-                // attach modal-container bootstrap attributes to links with .modal-link class.
-                // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
-                $('.btn-add-cart').on('click', function (e) {
-                    e.preventDefault();
-                    var $buttonClicked = $(this);
-
-                    var id = $buttonClicked.attr('data-id');
-                    var name = $buttonClicked.attr('data-name');
-                    var count = 1;
-                    var price = 5;
-                    var options = { keyboard: true };
-                    $.ajax({
-                        type: "GET",
-                        url: "shoppingcart/addproduct",
-                        contentType: "application/json; charset=utf-8",
-                        data: { "id": id, "name": name, "count": count, "price": price },
-                        datatype: "json",
-                        success: function (data) {
-
-                            window.location.href = '@Url.Action("Index", "Home")';
-
-                    },
-                    error: function (data) {
-                        window.location.href = '@Url.Action("Index", "Home")';
-                    }
-                });
-
-
-                });
-
-            });
-    </script>
+    @Scripts.Render("~/Scripts/angular")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
