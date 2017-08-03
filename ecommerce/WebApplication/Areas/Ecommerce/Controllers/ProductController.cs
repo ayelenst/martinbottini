@@ -24,9 +24,15 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             var model = new ProductViewModel(productClient);
 
             model.Images = _service.GetImageByProductId(id);
+
+          
             if (model.Images == null)
             {
                 model.Images = new List<Image>();
+            }
+            foreach (var i in model.Images)
+            {
+                i.Products = null;
             }
 
             var categories = ViewBag.LayoutModel as List<CategoryViewModel>;
@@ -45,6 +51,10 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             if (model.Images == null)
             {
                 model.Images = new List<Image>();
+            }
+            foreach (var i in model.Images)
+            {
+                i.Products = null;
             }
 
             var categories = ViewBag.LayoutModel as List<CategoryViewModel>;

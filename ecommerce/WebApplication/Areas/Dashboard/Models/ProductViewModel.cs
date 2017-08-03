@@ -58,5 +58,6 @@ namespace WebApplication.Areas.Dashboard.Models
 
         public List<Image> Images { get; set; }
 
+        
     }
 }

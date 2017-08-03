@@ -40,7 +40,7 @@ namespace WebApplication.Areas.Dashboard.Controllers
                     Warranty = c.Warranty,
                     Brant = c.Brant,
                     Stock = c.Stock,
-                    TypeStock = c.TypeStock,
+                    TypeStock = c.TypeStock
 
                 };
                 model.Add(prod);
@@ -68,6 +68,7 @@ namespace WebApplication.Areas.Dashboard.Controllers
                 Brant = productClient.Brant,
                 TypeStock = productClient.TypeStock,
                 Stock = productClient.Stock,
+                
                 
             };
             return View(model);

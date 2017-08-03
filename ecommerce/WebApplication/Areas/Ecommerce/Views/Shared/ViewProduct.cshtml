@@ -1,140 +1,131 @@
 ﻿@model WebApplication.Areas.Ecommerce.Models.ProductViewModel
 
 
-<section id="single-product" class="page-section">
+<div class="product-holder" ng-controller="ProductController" ng-init="product = @Json.Encode(Model)">
+    <section id="single-product" class="page-section">
 
-    <ol class="breadcrumb">
-        <li class="hidden-xs"><a href="@Url.Action("Index", "Home")">Home</a></li>
-        <li class="hidden-xs"><a href="/shop">Shop</a></li>
-        <li><a href="@Url.Action("GetById", "Category", new { id = Model.CategoryId })">@Model.CategoryName</a></li>
+        <ol class="breadcrumb">
+            <li class="hidden-xs"><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li class="hidden-xs"><a href="/shop">Shop</a></li>
+            <li><a href="@Url.Action("GetById", "Category", new { id = Model.CategoryId })">@Model.CategoryName</a></li>
 
-        <li class="active"><a href="@Url.Action("GetById", "Product", new { id = Model.Id })">@Model.Name</a></li>
-    </ol>
-    <form class="custom" onsubmit="return false" method="post" action="/product/blue-wristband-tracker">
+            <li class="active"><a href="@Url.Action("GetById", "Product", new { id = Model.Id })">@Model.Name</a></li>
+        </ol>
+        <form class="custom" onsubmit="return false" method="post" action="/product/blue-wristband-tracker">
 
-        <div class="row">
-            <div id="product-images">
-                <div class="col-xs-12 col-sm-6">
-                    <div id="product-gallery" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="row">
+                <div id="product-images">
+                    <div class="col-xs-12 col-sm-6">
+                        <div id="product-gallery" class="carousel slide" data-ride="carousel" data-interval="false">
 
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            @for (int i = 0; i < Model.Images.Count; i++)
-                            {
-                                if (i == 0)
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                @for (int i = 0; i < Model.Images.Count; i++)
                                 {
-                                    <div class="item active" id="slide1">
-                                        <img class="img-responsive" alt="" src="~/Image/@Model.Images[i].Url" itemprop="image">
-                                        
-                                    </div>
+                                    if (i == 0)
+                                    {
+                                        <div class="item active" id="slide1">
+                                            <img class="img-responsive" alt="" src="~/Image/@Model.Images[i].Url" itemprop="image">
+
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="item " style="height:400px">
+                                            <img class="img-responsive" alt="" src="~/Image/@Model.Images[i].Url" itemprop="image">
+                                        </div>
+                                    }
                                 }
-                                else
+
+                            </div>
+
+                            <!-- Indicators -->
+                            <ol class="gallery-thumbs list-inline">
+                                @for (int i = 0; i < Model.Images.Count; i++)
                                 {
-                                    <div class="item " style="height:400px">
-                                        <img class="img-responsive" alt="" src="~/Image/@Model.Images[i].Url" itemprop="image">
-                                    </div>
+                                    if (i == 0)
+                                    {
+                                        <li data-target="#product-gallery" data-slide-to="@i" class="active">
+                                            <img class="product-thumb img-responsive" alt="" src="~/Image/@Model.Images[i].Url">
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li data-target="#product-gallery" data-slide-to="@i" class="">
+                                            <img class="product-thumb img-responsive" alt="" src="~/Image/@Model.Images[i].Url">
+                                        </li>
+                                    }
                                 }
-                            }
-                          
+                            </ol>
+
                         </div>
+                    </div>
 
-                        <!-- Indicators -->
-                        <ol class="gallery-thumbs list-inline">
-@for (int i = 0; i < Model.Images.Count; i++)
-{
-    if (i == 0)
-    {
-                            <li data-target="#product-gallery" data-slide-to="@i" class="active">
-                                <img class="product-thumb img-responsive" alt="" src="~/Image/@Model.Images[i].Url">
-                            </li>
-    }
-    else 
-    {
-                            <li data-target="#product-gallery" data-slide-to="@i" class="">
-                                <img class="product-thumb img-responsive" alt="" src="~/Image/@Model.Images[i].Url">
-                            </li>
-    }
-}
-                        </ol>
-
+                    <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="img-modalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-labelledby="img-modalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4></h4>
-                            </div>
-                            <div class="modal-body">
-                                <img class="img-responsive">
-                            </div>
+                <div id="product-page">
+                    <div class="col-sm-6">
+                        <div class="excerpt" itemprop="name">
+                            <h1 style="color:#4d4d4d;">@Model.Name</h1>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="product-page">
-                <div class="col-sm-6">
-                    <div class="excerpt" itemprop="name">
-                        <h1 style="color:#4d4d4d;">@Model.Name</h1>
-                    </div>
-                    <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-                       @if (Model.IsSale)
-            {
-                           <div class="h2 product-price">
-                            <small class="previous-price">$@Model.Price.ToString("N")</small>
-                            <h2>$@((Model.OfferPrice).ToString("N"))</h2>
-                        </div>
-                       }
-                       else
-                       {
                         <div class="h2 product-price">
-                            <h2>$@Model.Price.ToString("N")</h2>
+                            <span ng-class="product.IsSale ? 'previous-price' : 'product-price'">{{product.Price | currency}}</span>
+                            <div class="sale-tag" ng-if="product.IsSale">
+                                Oferta!
+                            </div>
+                            <span ng-if="product.IsSale">{{product.OfferPrice | currency}}</span>
                         </div>
-                       }
 
-
-                        <link itemprop="availability" href="http://schema.org/InStock">
-                    </div>
-
-                    <div class="excerpt" itemprop="description">
-                        <p>@Model.Description</p>
-                    </div>
-
-                    <input type="hidden" name="productId" value="@Model.Id">
-                    <div class="add-cart-holder form-group">
-
-                        <div class="quantity-selector">
-                            <button class="quantity-btn minus btn btn-lg btn-default"><i class="fa fa-minus"></i></button>
-                            <input class="form-control quantity" type="text" value="1" name="quantity">
-                            <button class="quantity-btn plus btn btn-lg btn-default"><i class="fa fa-plus"></i></button>
+                        <div class="excerpt" itemprop="description">
+                            <p>@Model.Description</p>
                         </div>
-                        @if (Model.IsSale)
+
+                        <input type="hidden" name="productId" value="@Model.Id">
+                        <div class="add-cart-holder form-group">
+
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus btn btn-lg btn-default"><i class="fa fa-minus"></i></button>
+                                <input class="form-control quantity" type="text" value="1" name="quantity">
+                                <button class="quantity-btn plus btn btn-lg btn-default"><i class="fa fa-plus"></i></button>
+                            </div>
+                            @if (Model.IsSale)
             {
-                            <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.OfferPrice" data-name="@Model.Name" data-count="1" data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url">Add to Cart</a>
-                        }
-                        else
-                        {
+                                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.OfferPrice" data-name="@Model.Name" data-count="1" data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url">Add to Cart</a>
+                            }
+                            else
+                            {
 
-                            <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.Price" data-name="@Model.Name"  data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url" data-count="1">Add to Cart</a>
-                        }
-                    </div>
-                    
-                    <div class="details-line">
-                        <span class="details-title">MARCA</span>
-                        <span class="details-description">@Model.Brand</span>
-                    </div>
-                    <div class="details-line">
-                        <span class="details-title">GARANTÍA</span>
-                        <span class="details-description">@Model.Warranty</span>
+                                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.Price" data-name="@Model.Name" data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url" data-count="1">Add to Cart</a>
+                            }
+                        </div>
+
+                        <div class="details-line">
+                            <span class="details-title">MARCA</span>
+                            <span class="details-description">@Model.Brand</span>
+                        </div>
+                        <div class="details-line">
+                            <span class="details-title">GARANTÍA</span>
+                            <span class="details-description">@Model.Warranty</span>
+
+                        </div>
 
                     </div>
-                 
                 </div>
             </div>
-        </div>
 
-    </form>
-</section>
+        </form>
+    </section>
+    </div>

@@ -48,6 +48,10 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             foreach (var c in productsToDisplay)
             {
                 c.Images = _service.GetImageByProductId(c.Id);
+                foreach(var i in c.Images)
+                {
+                    i.Products = null;
+                }
             }
             var model = new CategoryShowViewModel
             {

@@ -29,6 +29,7 @@ namespace WebApplication.Areas.Ecommerce.Models
             Brand = product.Brant;
             CategoryId = product.CategoryId;
             Warranty = product.Warranty;
+            Quantity = 1;
         }
         public int Id { get; set; }
 
@@ -52,6 +53,16 @@ namespace WebApplication.Areas.Ecommerce.Models
             }
         }
 
+        public string MainUrl
+        {
+            get
+            {
+                if(Images.Any(x => x.IsMain))
+                return "/Image/"+Images.FirstOrDefault(x => x.IsMain).Url;
+                return "";
+            }
+        }
+
         public bool IsSale
         {
             get
@@ -71,5 +82,7 @@ namespace WebApplication.Areas.Ecommerce.Models
         public string CategoryName { get; internal set; }
         public string Brand { get; private set; }
         public string Warranty { get; private set; }
+
+        public int Quantity { get; set; }
     }
 }

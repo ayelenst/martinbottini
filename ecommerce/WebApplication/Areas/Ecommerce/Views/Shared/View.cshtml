@@ -5,7 +5,7 @@
             <a class="product-img" href="@Url.Action("GetById", "Product", new { id = Model.Id })">
                 @if (@Model.Images.Any(x => x.IsMain))
                 {
-                    <img class="img-responsive" src="~/Image/@Model.Images.FirstOrDefault(x=>x.IsMain).Url" alt="Blue Headphones">
+                    <img class="img-responsive" src="@Model.MainUrl" alt="Blue Headphones">
                 }
             
             </a>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="buttons-holder">
-                <a class="btn btn-default btn-quick-view hidden-xs" rel="tooltip" title="" data-original-title="Vista rápida"><i class="fa fa-eye"></i></a>            
+                <a class="btn btn-default btn-quick-view hidden-xs" data-id="@Model.Id" rel="tooltip" title="" data-original-title="Vista rápida"><i class="fa fa-eye"></i></a>            
                 <button class="btn btn-danger btn-add-cart" ng-click="addToCart(product)">Add to Cart</button>
             </div>
         </div>
