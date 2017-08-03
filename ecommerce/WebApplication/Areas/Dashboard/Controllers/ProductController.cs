@@ -169,8 +169,9 @@ namespace WebApplication.Areas.Dashboard.Controllers
                 CategoryId = product.CategoryId,
                 Warranty = product.Warranty,
                 Brant = product.Brant,
-                TypeStock = product.TypeStock,
-                Stock = product.Stock,
+                TypeStock = 1,
+                Stock = 0,
+                Model =product.Model
 
             };
 
@@ -260,8 +261,9 @@ namespace WebApplication.Areas.Dashboard.Controllers
                 CategoryId = product.CategoryId,
                 Warranty = product.Warranty,
                 Brant = product.Brant,
-                TypeStock = product.TypeStock,
-                Stock = product.Stock,
+                TypeStock = 1,
+                Stock = 0,
+                Model = product.Model
             };
             SetDates(model);
 

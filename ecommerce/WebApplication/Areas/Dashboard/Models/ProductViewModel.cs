@@ -25,6 +25,8 @@ namespace WebApplication.Areas.Dashboard.Models
 
         public string Warranty { get; set; }
 
+        public string Model { get; set; }
+
         public bool IsOffer { get; set; }
 
         [Required(ErrorMessage = "Porcentaje es obligatorio")]

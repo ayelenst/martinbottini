@@ -35,6 +35,10 @@
                             @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Número de telefono" })
                             <label for="billing_address">Número de telefono</label>
                         </div>
+                        <div class="col-sm-12 form-group">
+                            @Html.CheckBoxFor(x => x.IsTodoPago)
+                            <label>Marque en caso de desear abonar a través de todo pago. Al seleccionar esta opción, se le enviará un mail con el link correspondiente para pagar.</label>
+                        </div>
 
 
                     </div>

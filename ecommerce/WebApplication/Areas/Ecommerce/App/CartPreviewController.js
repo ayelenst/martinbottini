@@ -2,7 +2,7 @@
     $scope.cart = {};
 
     var getCart = function() {
-        $http.get("ShoppingCart/GetCart").then(function (response) {
+        $http.get("/ecommerce/ShoppingCart/GetCart").then(function (response) {
             $scope.cart = response.data;
         });
     }

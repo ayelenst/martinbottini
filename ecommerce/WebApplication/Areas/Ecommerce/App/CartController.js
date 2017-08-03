@@ -2,19 +2,19 @@
     $scope.cart = {};
 
     var getCart = function() {
-        $http.get("GetCart").then(function (response) {
+        $http.get("/ecommece/ShoppingCart/GetCart").then(function (response) {
             $scope.cart = response.data;
         });
     }
 
     $scope.removeProduct = function(product) {
-        $http.post("RemoveProduct/" + product.Id).then(function(response) {
+        $http.post("/ecommerce/ShoppingCart/RemoveProduct/" + product.Id).then(function(response) {
             $scope.cart = response.data;
         });
     }
 
     $scope.saveCount = function(product) {
-        $http.post("ChangeCount/" + product.Id, { newCount: product.Count }).then(function(response) {
+        $http.post("/ecommerce/ShoppingCart/ChangeCount/" + product.Id, { newCount: product.Count }).then(function(response) {
             $scope.cart = response.data;
         });
     }

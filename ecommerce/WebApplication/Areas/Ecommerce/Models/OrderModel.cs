@@ -16,5 +16,7 @@ namespace WebApplication.Areas.Ecommerce.Models
         public List<SmallProduct> Products { get; set; }
 
         public double Total { get; set; }
+
+        public bool IsTodoPago { get; set; }
     }
 }

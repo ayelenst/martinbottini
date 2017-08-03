@@ -17,6 +17,9 @@ namespace Model
         public string Name { get; set; }
 
         [DataMember]
+        public string Model { get; set; }
+
+        [DataMember]
         public string Description { get; set; }
 
         [DataMember]

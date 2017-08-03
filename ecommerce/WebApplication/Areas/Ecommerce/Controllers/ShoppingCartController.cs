@@ -85,6 +85,8 @@ namespace WebApplication.Areas.Ecommerce.Controllers
 
         public ActionResult PlaceOrder(OrderModel model)
         {
+
+            var cart = (ShoppingCartViewModel)HttpContext.Session["cart"];
             var order = new Order
             {
                 Mail = model.Mail,
@@ -94,9 +96,12 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 Phone = model.Phone,
                 Payment = "",
                 OrderStatusId = 1,
-                Total = model.Total
+                Total = cart.Total
             };
-            var cart = (ShoppingCartViewModel)HttpContext.Session["cart"];
+            if (model.IsTodoPago)
+                order.Payment = "TodoPago";
+            else
+                order.Payment = "Efectivo";
             if(cart != null)
             {
                 model.Products = cart.Products;
@@ -114,7 +119,10 @@ namespace WebApplication.Areas.Ecommerce.Controllers
 
                 _service.PlaceOrder(order, products);
             }
-         
+
+
+
+
 
             return RedirectToAction("OrderFinish");
         }
@@ -131,6 +139,8 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 var cart = (ShoppingCartViewModel)HttpContext.Session["cart"];
                 model.Products = cart.Products;
                 model.Total = cart.Total;
+
+                HttpContext.Session["cart"] = null;
                 return View(model);
             }
             return View(model);

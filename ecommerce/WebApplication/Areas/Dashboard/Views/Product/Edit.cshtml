@@ -123,6 +123,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="model">
+                            Model
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            @Html.ValidationMessageFor(x => x.Product.Model)
+                            @Html.TextBoxFor(x => x.Product.Model, new { @class = "form-control", @placeholder = "Model" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">
                             Precio
                         </label>
@@ -161,7 +171,7 @@
 
 
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="TypeStock">
                             Tipo de Stock
                         </label>
@@ -177,7 +187,7 @@
                         <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
                             @Html.TextBoxFor(x => x.Product.Stock, new { @class = "form-control", @type = "text", @placeholder = "0" })
                         </div>
-                    </div>
+                    </div>*@
 
 
 

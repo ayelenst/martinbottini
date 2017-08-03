@@ -20,6 +20,7 @@ namespace WebApplication.Areas.Dashboard.Models
             OrderDate = c.OrderDate;
             OrderDone = c.OrderDone;
             Total = c.Total;
+            Payment = c.Payment;
 
         }
 
