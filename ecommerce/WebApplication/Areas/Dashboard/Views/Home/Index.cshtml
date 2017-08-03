@@ -1,4 +1,4 @@
-﻿
+﻿@model  WebApplication.Areas.Dashboard.Models.ReportViewModel
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Areas/Dashboard/Views/Shared/_layout.cshtml";
@@ -15,9 +15,24 @@
 			  var lineChart = new Chart(ctx, {
 				type: 'line',
 				data: {
-				  labels: ["January", "February", "March", "April", "May", "June", "July", "Agust", "September", "October", "November", "December"],
+                    labels: [
+                        @for (int i = 0; i < Model.SellsPerMonth.Count; i++)
+                        {
+                            <text>
+                        "@Model.SellsPerMonth.ElementAt(i).Key"
+                        </text>
+                        if(i != Model.SellsPerMonth.Count - 1)
+                        {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
+                    ],
 				  datasets: [{
-					label: "Vendido: ",
+                            label: "Vendido: ",
 					backgroundColor: "rgba(38, 185, 154, 0.31)",
 					borderColor: "rgba(38, 185, 154, 0.7)",
 					pointBorderColor: "rgba(38, 185, 154, 0.7)",
@@ -25,8 +40,25 @@
 					pointHoverBackgroundColor: "#fff",
 					pointHoverBorderColor: "rgba(220,220,220,1)",
 					pointBorderWidth: 1,
-                    data: [31, 74, 6, 39, 20, 85, 7, 31, 74, 6, 39, 20, 85, 7]
-				  }]
+                    data: [
+                         @for (int i = 0; i < Model.SellsPerMonth.Count; i++)
+                        {
+                            <text>
+                        "@Model.SellsPerMonth.ElementAt(i).Value"
+                        </text>
+                        if(i != Model.SellsPerMonth.Count - 1)
+                        {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
+
+                    ]
+
+                  }]
 				},
 			  });
 
@@ -37,20 +69,100 @@
                     var mybarChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: ["7", "6", "5", "4", "3", "2", "Hoy"],
+                            labels: [
+                        @for (int i = 0; i < Model.TotalSells.Count; i++)
+                        {
+                            <text>
+                        "@Model.TotalSells.ElementAt(i).Key"
+                        </text>
+                        if(i != Model.TotalSells.Count - 1)
+                        {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
+                    ],
                             datasets: [{
-                                label: 'Ventas concretadas',
+                                label: 'Cancelada',
                                 backgroundColor: "#26B99A",
-                                data: [51, 30, 40, 28, 92, 50, 45]
+                                data: [
+                                    @for (int i = 0; i < Model.TotalSells.Count; i++)
+                        {
+                                    if(Model.TotalSells.ElementAt(i).Value.Any(x=>x.Key=="Cancelada"))
+                                    {
+                                        <text>
+                                    @Model.TotalSells.ElementAt(i).Value.FirstOrDefault(x => x.Key == "Cancelada").Value
+                                    </text>
+                                    }
+                                    else
+                                    {
+                                    <text>0</text>
+                                    }
+                        if(i != Model.TotalSells.Count - 1)
+                                    {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
+
+                                ]
                             }, {
-                                label: 'Ventas canceladas',
+                                label: 'Cerrada',
                                 backgroundColor: "#03586A",
-                                data: [41, 56, 25, 48, 72, 34, 12]
+                                data: [ @for (int i = 0; i < Model.TotalSells.Count; i++)
+                        {
+                                    if(Model.TotalSells.ElementAt(i).Value.Any(x=>x.Key=="Cerrada"))
+                                    {
+                                        <text>
+                                    @Model.TotalSells.ElementAt(i).Value.FirstOrDefault(x => x.Key == "Cerrada").Value
+                                    </text>
+                                    }
+                                    else
+                                    {
+                                    <text>0</text>
+                                    }
+                        if(i != Model.TotalSells.Count - 1)
+                                    {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }]
                                 },
                             {
-                                label: 'Ventas Totales',
+                                label: 'PendienteEnvio',
                                 backgroundColor: "#9B59B6",
-                                data: [68, 76, 45, 68, 192, 54, 42]
+                                data: [
+                                    @for (int i = 0; i < Model.TotalSells.Count; i++)
+                                    {
+                                        if(Model.TotalSells.ElementAt(i).Value.Any(x=>x.Key== "PendienteEnvio"))
+                                        {
+                                        <text>
+                                    @Model.TotalSells.ElementAt(i).Value.FirstOrDefault(x => x.Key == "PendienteEnvio").Value
+                                    </text>
+                                    }
+                                    else
+                                    {
+                                    <text>0</text>
+                                    }
+                        if(i != Model.TotalSells.Count - 1)
+                                    {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
+                                ]
                             }]
                         },
 
@@ -65,14 +177,31 @@
                         }
                     });
 
-                } 
+                }
 
                 if ($('#pieChart2').length) {
 
                     var ctx = document.getElementById("pieChart2");
                     var data = {
                         datasets: [{
-                            data: [120, 50, 140, 180, 100],
+                            data: [
+
+                                    @for (int i = 0; i < Model.ProductBestCount.Count; i++)
+                        {
+                            <text>
+                        "@Model.ProductBestCount.ElementAt(i).Value"
+                        </text>
+                        if(i != Model.ProductBestCount.Count - 1)
+                        {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
+
+                            ],
                             backgroundColor: [
                                 "#455C73",
                                 "#9B59B6",
@@ -83,11 +212,20 @@
                             label: 'My dataset' // for legend
                         }],
                         labels: [
-                            "Parlantes",
-                            "Pc Armadas",
-                            "Celulares",
-                            "Accesorios Celulares",
-                            "Otros"
+                            @for (int i = 0; i < Model.ProductBestCount.Count; i++)
+                        {
+                            <text>
+                        "@Model.ProductBestCount.ElementAt(i).Key"
+                        </text>
+                        if(i != Model.ProductBestCount.Count - 1)
+                        {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
                         ]
                     };
 
@@ -108,14 +246,38 @@
                         tooltipFillColor: "rgba(51, 51, 51, 0.55)",
                         data: {
                             labels: [
-                                "AUris modelo super hiper genial",
-                                "Lamparitas!",
-                                "bla",
-                                "otro texto muy muy muy muy muy muy largo",
-                                "Otros"
+                                @for (int i = 0; i < Model.ProductBestSell.Count; i++)
+                        {
+                            <text>
+                        "@Model.ProductBestSell.ElementAt(i).Key"
+                        </text>
+                        if(i != Model.ProductBestSell.Count - 1)
+                        {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
                             ],
                             datasets: [{
-                                data: [15, 20, 30, 10, 30],
+                                data: [
+                                 @for (int i = 0; i < Model.ProductBestSell.Count; i++)
+                        {
+                            <text>
+                        "@Model.ProductBestSell.ElementAt(i).Value"
+                        </text>
+                        if(i != Model.ProductBestSell.Count - 1)
+                        {
+                            <text>
+                        ,
+                        </text>
+                        }
+
+
+                        }
+                                ],
                                 backgroundColor: [
                                     "#BDC3C7",
                                     "#9B59B6",

@@ -12,5 +12,6 @@ namespace Repository.Interfaces
         void Place(Order Order, List<OrderProduct> products);
         void UpdateOrderStatus(int id, int orderStateId);
         Order GetOrderWithProducts(int id);
+        void GetReports(out Dictionary<string, double> sellsPerMonth, out Dictionary<string, double> productBestCount, out Dictionary<string, double> productBestSell, out Dictionary<string, Dictionary<string, double>> totalSells);
     }
 }

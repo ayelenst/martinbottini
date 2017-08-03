@@ -218,6 +218,7 @@
     <Compile Include="Areas\Dashboard\Models\OrderViewModel.cs" />
     <Compile Include="Areas\Dashboard\Models\ProductEditViewModel.cs" />
     <Compile Include="Areas\Dashboard\Models\ProductViewModel.cs" />
+    <Compile Include="Areas\Dashboard\Models\ReportViewModel.cs" />
     <Compile Include="Areas\Ecommerce\Controllers\BaseController.cs" />
     <Compile Include="Areas\Ecommerce\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Ecommerce\Controllers\HomeController.cs" />

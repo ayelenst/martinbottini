@@ -292,5 +292,11 @@ namespace Service
             if (context != null)
                 context.Dispose();
         }
+
+        public void GetReports(out Dictionary<string, double> sellsPerMonth, out Dictionary<string, double> productBestCount, out Dictionary<string, double> productBestSell, out Dictionary<string, Dictionary<string, double>> totalSells)
+        {
+
+            context.OrderRepository.GetReports(out sellsPerMonth, out productBestCount, out productBestSell, out totalSells);
+        }
     }
 }

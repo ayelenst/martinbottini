@@ -95,10 +95,12 @@ namespace Service
         void PlaceOrder(Order Order, List<OrderProduct> products);
 
 
+        void GetReports(out Dictionary<string, double> sellsPerMonth, out Dictionary<string, double> productBestCount, out Dictionary<string, double> productBestSell, out Dictionary<string, Dictionary<string, double>> totalSells);
+
         #endregion
 
         #region Banner
-         
+
         List<Banner> GetAllBanner();
 
          
