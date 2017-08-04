@@ -6,7 +6,7 @@
 
         <ol class="breadcrumb">
             <li class="hidden-xs"><a href="@Url.Action("Index", "Home")">Home</a></li>
-            <li class="hidden-xs"><a href="/shop">Shop</a></li>
+            <li class="hidden-xs"><a href="@Url.Action("GetById", "Category")">Productos</a></li>
             <li><a href="@Url.Action("GetById", "Category", new { id = Model.CategoryId })">@Model.CategoryName</a></li>
 
             <li class="active"><a href="@Url.Action("GetById", "Product", new { id = Model.Id })">@Model.Name</a></li>
@@ -103,12 +103,12 @@
                             </div>
                             @if (Model.IsSale)
             {
-                                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.OfferPrice" data-name="@Model.Name" data-count="1" data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url">Add to Cart</a>
+                                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.OfferPrice" data-name="@Model.Name" data-count="1" data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url">Agregar al carrito</a>
                             }
                             else
                             {
 
-                                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.Price" data-name="@Model.Name" data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url" data-count="1">Add to Cart</a>
+                                <a class="btn btn-danger btn-add-cart" data-id="@Model.Id" data-price="@Model.Price" data-name="@Model.Name" data-url="@Model.Images.FirstOrDefault(x=>x.IsMain).Url" data-count="1">Agregar al carrito</a>
                             }
                         </div>
 
