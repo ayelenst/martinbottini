@@ -6784,9 +6784,6 @@ input[type="password"]:focus + label {
 		}
 */
 }
-.navbar-default .navbar-nav > li .btn-default {
-  color: #0c4d6c;
-}
 .navbar-default .navbar-utils {
   position: absolute;
   top: 0;
@@ -6868,18 +6865,12 @@ input[type="password"]:focus + label {
 #mini-cart .subtotal {
   float: left;
 }
-#mini-cart .btn-default {
+#mini-cart .btn-danger {
   float: right;
-  border: 1px solid #093d55;
+  border: 1px solid #e34f30;
   font-size: 10px;
 }
-#mini-cart .btn-danger {
-  border: 1px solid #dc3f1e;
-}
 #mini-cart .btn-primary,
-#mini-cart .btn-danger {
-  margin-top: 15px;
-}
 #mini-cart .mini-cart-totals:before,
 #mini-cart .mini-cart-totals:after {
   content: " ";
@@ -7297,7 +7288,7 @@ input[type="password"]:focus + label {
   color: #cccccc;
 }
 .price-list .order-total {
-  background: #cccccc;
+  background: #083347;
   color: #fff;
 }
 .price-list .order-total span:not(.badge) {
