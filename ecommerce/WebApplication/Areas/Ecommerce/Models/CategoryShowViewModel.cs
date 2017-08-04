@@ -12,6 +12,6 @@ namespace WebApplication.Areas.Ecommerce.Models
         public List<CategoryViewModel> Categories { get; set; }
 
         public CategoryViewModel CurrentCategory { get; set; }
-
+        public bool RequireOffer { get; set; }
     }
 }

@@ -18,8 +18,8 @@ namespace WebApplication.Areas.Ecommerce.Controllers
         }
         public ActionResult Index()
         {
-            var lastAddedproducts = _service.GetProductLastAdded(4);
-            var offerproducts = _service.GetProductLastOffers(4);
+            var lastAddedproducts = _service.GetProductLastAdded(6);
+            var offerproducts = _service.GetProductLastOffers(3);
 
             var model = new HomeViewModel();
 

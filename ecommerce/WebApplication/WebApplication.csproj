@@ -346,6 +346,7 @@
     <Content Include="Areas\Ecommerce\Views\ShoppingCart\CartPreview.cshtml" />
     <Content Include="Areas\Ecommerce\Views\ShoppingCart\Checkout.cshtml" />
     <Content Include="Areas\Ecommerce\Views\ShoppingCart\OrderFinish.cshtml" />
+    <Content Include="Areas\Ecommerce\Views\Home\About.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />

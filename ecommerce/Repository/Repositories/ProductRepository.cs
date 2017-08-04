@@ -22,7 +22,7 @@ namespace Repository.Repositories
 
                 if (requireOffer)
                 {
-                    query.Where(x=>x.IsOffer && x.StartDay < DateTime.Now && x.EndDay > DateTime.Now);
+                    query = query.Where(x=>x.IsOffer && x.StartDay < DateTime.Now && x.EndDay > DateTime.Now);
                 }
                 return query.ToList();
             }

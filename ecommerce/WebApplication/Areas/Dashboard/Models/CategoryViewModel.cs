@@ -36,6 +36,10 @@ namespace WebApplication.Areas.Dashboard.Models
 
         public bool Enabled { get; set; }
 
+        public bool HasProducts { get; set; }
+
+        public bool HasChildren { get; set; }
+
         public List<CategoryViewModel> Children { get; set; }
         public List<CategoryViewModel> ParentCategories { get; internal set; }
     }

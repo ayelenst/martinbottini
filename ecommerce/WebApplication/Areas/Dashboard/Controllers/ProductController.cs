@@ -316,10 +316,10 @@ namespace WebApplication.Areas.Dashboard.Controllers
 
         private DateTime ConvertDate(string date)
         {
-            if (date == string.Empty)
-                return new DateTime();
+            if (date ==null || date == string.Empty)
+                return DateTime.Now;
             var splited = date.Split('/');
-            if (splited.Length != 2)
+            if (splited.Length != 3)
             {
                 return DateTime.Now;
             }

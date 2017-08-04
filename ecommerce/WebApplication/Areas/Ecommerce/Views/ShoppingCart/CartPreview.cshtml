@@ -2,7 +2,7 @@
     <ul class="nav navbar-nav">
         <li id="navbar-totals" class="totals">
             <span class="hidden-xs">{{cart.Count}} Items</span>
-            <span class="visible-lg">${{cart.Total}}</span>
+            <span class="visible-lg">{{cart.Total | currency}}</span>
             <span class="visible-xs item-number"></span>
         </li>
         <li class="dropdown">
@@ -17,14 +17,14 @@
                         </div>
                         <div class="product-info col-xs-8">
                             <h6 class="product-title">{{product.Name}}</h6>
-                            <div class="price">{{product.Count}} x <span>${{product.Price}}</span>
+                            <div class="price">{{product.Count}} x <span>{{product.Price | currency}}</span>
                             </div>
 
                         </div>
                     </li>
                 </ul>
                 <div class="mini-cart-totals">
-                    <h4 class="subtotal">Subtotal: $ {{cart.Total}}</h4>
+                    <h4 class="subtotal">Subtotal:  {{cart.Total | currency}}</h4>
                     <a class="btn btn-default btn-lg" href="@Url.Action("ViewCart", "ShoppingCart")">Ver carrito</a>
                 </div>
             </div>

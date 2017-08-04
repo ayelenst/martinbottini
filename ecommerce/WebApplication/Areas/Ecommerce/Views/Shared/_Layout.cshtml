@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse navbar-left ">
                     <ul class="nav navbar-nav ">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" href="//boxie.lemonstand.com/shop">
+                            <a class="dropdown-toggle" data-toggle="dropdown" id="shop-dropdown" >
                                 Categorías <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="shop-dropdown">
@@ -63,14 +63,14 @@
                         </li>
                         <li class=""><a href="@Url.Action("GetById", "Category", new { id = "0", isOffer = true })">Ofertas</a></li>
                         <li class=""><a href="@Url.Action("About", "Home")">Nosotros</a></li>
-                        <li class="">
+                        @*<li class="">
                             <input type="text" class="search-form" name="query" id="query" placeholder="Busque su producto" autocomplete="off" value="">
                         </li>
                         <li>
                             <Button href="#" class="navbar-btn btn ">
                                 <i class="fa fa-search"></i>
                             </Button>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
                 @{

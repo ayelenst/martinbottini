@@ -26,7 +26,7 @@ namespace Repository.Repositories
                     var children = categories.Where(x => x.ParentId == cat.Id);
                     foreach(var child in children)
                     {
-                        count = count + child.Products.Count();
+                        count = count + child.Products.Count(x=>x.Enabled);
 
                     }
                 }

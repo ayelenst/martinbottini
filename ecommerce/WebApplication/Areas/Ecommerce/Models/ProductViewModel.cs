@@ -49,7 +49,9 @@ namespace WebApplication.Areas.Ecommerce.Models
 
         public double OfferPrice { get
             {
+                if(IsSale)
                 return (Price - Price * Percent / 100);
+                return Price;
             }
         }
 

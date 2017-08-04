@@ -190,13 +190,23 @@ namespace Service
 
                 mail.From = new MailAddress(frommail);
                 mail.To.Add(tommail);
-                mail.Subject = "Test Mail";
-                mail.Body = "This is for testing SMTP mail from GMAIL";
+                var productList = string.Empty;
+                foreach(var product in products)
+                {
+                    productList = string.Format("{0} <br/> Nombre: {1} ; Cantidad {2} ; Precio {3}", productList, product.NameProduct, product.Quantity, product.Price);
+                }
+
+                mail.Subject = string.Format("Order número {3} {0} ha comprado por un total de {1} y método de pago {2}", Order.NameCustomer,Order.Total,Order.Payment, Order.Id);
+                mail.Body = string.Format("Datos del comprador: <br/> Nombre: {0} <br/> Telefono: {1} <br/> mail: {2} <br/>" +
+                    "<br/>" +
+                    "<br/>" +
+                    "Datos de la compra: </br> {3}" +
+                    "<br/> Total: {4}, Metodo de pago {5}", Order.NameCustomer, Order.Phone, Order.Mail, productList, Order.Total, Order.Payment);
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential(frommail, frompassword);
                 SmtpServer.EnableSsl = true;
-
+                mail.IsBodyHtml = true;
                 SmtpServer.Send(mail);
             }
             catch (Exception ex)

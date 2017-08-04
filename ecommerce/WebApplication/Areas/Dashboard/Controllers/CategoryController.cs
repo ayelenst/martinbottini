@@ -24,6 +24,9 @@ namespace WebApplication.Areas.Dashboard.Controllers
             var categories = _service.GetAllCategories();
 
             var model = new List<CategoryViewModel>();
+
+            var count = _service.GetCategoryCount(false);
+
             foreach (var c in categories)
             {
                 var cat = new CategoryViewModel
@@ -34,8 +37,22 @@ namespace WebApplication.Areas.Dashboard.Controllers
                     Enabled = c.Enabled,
                     Level = c.Level,
                     ParentId = c.ParentId,
-                    
+
                 };
+                if (count.Any(x => x.Key == cat.Id && x.Value > 0))
+                {
+                    cat.HasProducts = true;
+                }
+                else
+                { cat.HasProducts = false; } 
+                if(categories.Any(x=>x.ParentId == c.Id))
+                {
+                    cat.HasChildren = true;
+                }
+                else
+                {
+                    cat.HasChildren = false;
+                }
                 model.Add(cat);
             }
 

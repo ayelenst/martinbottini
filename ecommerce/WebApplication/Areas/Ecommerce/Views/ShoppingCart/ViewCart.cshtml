@@ -31,7 +31,7 @@
                             <a href="@Url.Action("GetById", "Product")/{{product.Id}}">{{product.Name}}</a>
                             <p>
                                 <small class="unit-price">
-                                    {{product.Price}}
+                                    {{product.Price | currency}}
                                 </small>
                             </p>
                         </div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-3 col-lg-3 cart-details">
                         <div class="h4 total-price">
-                            {{product.Price * product.Count}}
+                            {{product.Price * product.Count | currency}}
                         </div>
                         <a class="remove-item" href="" ng-click="removeProduct(product)"><i class="fa fa-times"></i></a>
                     </div>
@@ -61,7 +61,7 @@
         <div class="col-xs-12 col-md-3">
             <h3>Order Summary</h3>
             <ul class="price-list list-group">
-                <li class="list-group-item important">Total: <span class="badge">{{cart.Total}}</span></li>
+                <li class="list-group-item important">Total: <span class="badge">{{cart.Total | currency}}</span></li>
             </ul>
             <a class="col-xs-12 btn btn-danger solid btn-lg" href="@Url.Action("checkout", "ShoppingCart")">Checkout</a>
         </div>

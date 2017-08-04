@@ -47,15 +47,17 @@ namespace WebApplication.Areas.Ecommerce.Controllers
             
             foreach (var c in productsToDisplay)
             {
-                c.Images = _service.GetImageByProductId(c.Id);
-                foreach(var i in c.Images)
-                {
-                    i.Products = null;
-                }
+               
+                    c.Images = _service.GetImageByProductId(c.Id);
+                    foreach (var i in c.Images)
+                    {
+                        i.Products = null;
+                    }
+             
             }
             var model = new CategoryShowViewModel
             {
-                Products = productsToDisplay,
+                Products = productsToDisplay.Where(x=>x.Enabled).ToList(),
                 Categories = categories
             };
 
@@ -64,7 +66,7 @@ namespace WebApplication.Areas.Ecommerce.Controllers
                 model.CurrentCategory = categories.FirstOrDefault(x => x.Id == id);
             }
 
-
+            model.RequireOffer = isOffer;
             return View(model);
 
         }

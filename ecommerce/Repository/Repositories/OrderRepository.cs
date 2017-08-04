@@ -135,8 +135,8 @@ namespace Repository.Repositories
         private Dictionary<string, double> GetDictioaryBestFive (Dictionary<string, double> dic)
         {
             var total = dic.Sum(x => x.Value);
-            var result = dic.OrderBy(x => x.Value).Take(5).ToDictionary(x => x.Key, x => x.Value);
-            var subtotal = dic.Sum(x => x.Value);
+            var result = dic.OrderByDescending(x => x.Value).Take(5).ToDictionary(x => x.Key, x => x.Value);
+            var subtotal = result.Sum(x => x.Value);
             result.Add("Others", total - subtotal);
             return result;
         }

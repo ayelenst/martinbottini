@@ -79,7 +79,15 @@
                 @foreach (var c in Model.Categories)
                 {
                     <li>
-                        <a href="@Url.Action("GetById", "Category", new { id = c.Id })" class=""><span class="badge">@c.CountProduct</span>@c.Name</a>
+                        @if (c.Level == 1)
+                        {
+                            <a href="@Url.Action("GetById", "Category", new { id = c.Id, isOffer = Model.RequireOffer })" class="" style="font-style:italic"><span class="badge">@c.CountProduct</span>-->@c.Name</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("GetById", "Category", new { id = c.Id , isOffer = Model.RequireOffer})" class=""><span class="badge">@c.CountProduct</span>@c.Name</a>
+                        }
+                        
                     </li>
                 }              
             </ul>
